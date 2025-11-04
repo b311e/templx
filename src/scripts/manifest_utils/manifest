@@ -3,15 +3,20 @@
 # Usage: manifest generate [agency] | manifest validate | manifest list
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 
 generate_manifest() {
     local agency="$1"
     local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
     
+    if [[ "$agency" == "core" ]]; then
+        generate_core_manifest
+        return $?
+    fi
+    
     if [[ -z "$agency" ]]; then
         echo "Usage: manifest generate <agency>"
-        echo "Available agencies: jbc, sen"
+        echo "Available agencies: jbc, sen, core"
         return 1
     fi
     
@@ -47,8 +52,127 @@ generate_manifest() {
     done
     
     echo ""
-    echo "✓ Manifest updated: $manifest_file"
+    echo " Manifest updated: $manifest_file"
     echo "  Manual updates may be needed for new templates"
+}
+
+generate_core_manifest() {
+    local core_dir="$PROJECT_ROOT/core"
+    local manifest_file="$core_dir/manifest.json"
+    local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+    
+    if [[ ! -d "$core_dir" ]]; then
+        echo "Error: Core directory not found: $core_dir"
+        return 1
+    fi
+    
+    echo "Generating core manifest"
+    echo "Scanning directory: $core_dir"
+    echo "Manifest file: $manifest_file"
+    
+    # Initialize category arrays
+    local base_normal=()
+    local base_theme=()
+    local base_sheet=()
+    local base_book=()
+    local base_colors=()
+    local base_fonts=()
+    local base_officeUI=()
+    local partials_styles=()
+    local partials_numbering=()
+    
+    # Collect all XML files in core/
+    while IFS= read -r -d '' file; do
+        local rel_path="${file#$PROJECT_ROOT/}"
+        local filename=$(basename "$file" .xml)
+        local category=""
+        local subcategory=""
+        
+        # Map path to category.subcategory
+        if [[ "$rel_path" == core/base/workspace/normal/* ]]; then
+            category="base"
+            subcategory="normal"
+        elif [[ "$rel_path" == core/base/workspace/theme/* ]]; then
+            category="base"
+            subcategory="theme"
+        elif [[ "$rel_path" == core/base/workspace/sheet/* ]]; then
+            category="base"
+            subcategory="sheet"
+        elif [[ "$rel_path" == core/base/workspace/book/* ]]; then
+            category="base"
+            subcategory="book"
+        elif [[ "$rel_path" == core/base/workspace/colors/* ]]; then
+            category="base"
+            subcategory="colors"
+        elif [[ "$rel_path" == core/base/workspace/fonts/* ]]; then
+            category="base"
+            subcategory="fonts"
+        elif [[ "$rel_path" == core/base/workspace/officeUI/* ]]; then
+            category="base"
+            subcategory="officeUI"
+        elif [[ "$rel_path" == core/partials/styles/* ]]; then
+            category="partials"
+            subcategory="styles"
+        elif [[ "$rel_path" == core/partials/numbering/* ]]; then
+            category="partials"
+            subcategory="numbering"
+        else
+            # Skip unknown paths
+            continue
+        fi
+        
+        local component="{\"id\": \"$filename\", \"path\": \"$rel_path\", \"status\": \"active\"}"
+        
+        # Add to appropriate array
+        case "$category.$subcategory" in
+            base.normal) base_normal+=("$component") ;;
+            base.theme) base_theme+=("$component") ;;
+            base.sheet) base_sheet+=("$component") ;;
+            base.book) base_book+=("$component") ;;
+            base.colors) base_colors+=("$component") ;;
+            base.fonts) base_fonts+=("$component") ;;
+            base.officeUI) base_officeUI+=("$component") ;;
+            partials.styles) partials_styles+=("$component") ;;
+            partials.numbering) partials_numbering+=("$component") ;;
+        esac
+    done < <(find "$core_dir" -name "*.xml" -print0)
+    
+    # Function to build JSON array from array
+    build_array() {
+        local arr=("$@")
+        local json=""
+        local first=true
+        for item in "${arr[@]}"; do
+            if $first; then
+                first=false
+            else
+                json+=",\n        "
+            fi
+            json+="$item"
+        done
+        echo -e "$json"
+    }
+    
+    # Build JSON
+    local json="{\n  \"generated\": \"$timestamp\",\n  \"core\": {\n    \"base\": {\n"
+    json+="      \"normal\": [\n        $(build_array "${base_normal[@]}")\n      ],\n"
+    json+="      \"theme\": [\n        $(build_array "${base_theme[@]}")\n      ],\n"
+    json+="      \"sheet\": [\n        $(build_array "${base_sheet[@]}")\n      ],\n"
+    json+="      \"book\": [\n        $(build_array "${base_book[@]}")\n      ],\n"
+    json+="      \"colors\": [\n        $(build_array "${base_colors[@]}")\n      ],\n"
+    json+="      \"fonts\": [\n        $(build_array "${base_fonts[@]}")\n      ],\n"
+    json+="      \"officeUI\": [\n        $(build_array "${base_officeUI[@]}")\n      ]\n"
+    json+="    },\n    \"partials\": {\n"
+    json+="      \"styles\": [\n        $(build_array "${partials_styles[@]}")\n      ],\n"
+    json+="      \"numbering\": [\n        $(build_array "${partials_numbering[@]}")\n      ]\n"
+    json+="    }\n  }\n}"
+    
+    # Write to file
+    echo -e "$json" > "$manifest_file"
+    
+    local total=$(( ${#base_normal[@]} + ${#base_theme[@]} + ${#base_sheet[@]} + ${#base_book[@]} + ${#base_colors[@]} + ${#base_fonts[@]} + ${#base_officeUI[@]} + ${#partials_styles[@]} + ${#partials_numbering[@]} ))
+    echo "✓ Core manifest generated: $manifest_file"
+    echo "  Found $total components across categories"
 }
 
 update_template_status() {
@@ -194,6 +318,22 @@ case "$1" in
     list)
         list_templates
         ;;
+    update)
+        # Update manifests in core directory
+        shift
+        case "$1" in
+            core)
+                # Update core/manifest.json
+                shift
+                generate_core_manifest
+                ;;
+            *)
+                echo "Usage: manifest update <target>"
+                echo "Targets: core"
+                exit 1
+                ;;
+        esac
+        ;;
     *)
         echo "Usage: manifest <command> [options]"
         echo ""
@@ -203,6 +343,7 @@ case "$1" in
         echo "  add-template <agency> <template> <type>    - Guide for adding new template"
         echo "  validate                       - Validate all manifests"
         echo "  list                          - List all templates"
+        echo "  update <target>                - Update manifests in specified directory"
         echo ""
         echo "Examples:"
         echo "  manifest generate jbc"
@@ -210,5 +351,7 @@ case "$1" in
         echo "  manifest add-template jbc jbcReport excel-book-template"
         echo "  manifest validate"
         echo "  manifest list"
+        echo "  manifest generate core"
+        echo "  manifest update core"
         ;;
 esac

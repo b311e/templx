@@ -1,0 +1,46 @@
+{
+  "generated": "2025-11-04T21:30:46Z",
+  "core": {
+    "base": {
+      "normal": [
+        {"id": "[Content_Types]", "path": "core/base/workspace/normal/expanded/[Content_Types].xml", "status": "active"},
+        {"id": "document", "path": "core/base/workspace/normal/expanded/word/document.xml", "status": "active"},
+        {"id": "settings", "path": "core/base/workspace/normal/expanded/word/settings.xml", "status": "active"},
+        {"id": "numbering", "path": "core/base/workspace/normal/expanded/word/numbering.xml", "status": "active"},
+        {"id": "theme1", "path": "core/base/workspace/normal/expanded/word/theme/theme1.xml", "status": "active"},
+        {"id": "styles", "path": "core/base/workspace/normal/expanded/word/styles.xml", "status": "active"},
+        {"id": "webSettings", "path": "core/base/workspace/normal/expanded/word/webSettings.xml", "status": "active"},
+        {"id": "fontTable", "path": "core/base/workspace/normal/expanded/word/fontTable.xml", "status": "active"},
+        {"id": "core", "path": "core/base/workspace/normal/expanded/docProps/core.xml", "status": "active"},
+        {"id": "app", "path": "core/base/workspace/normal/expanded/docProps/app.xml", "status": "active"}
+      ],
+      "theme": [
+        
+      ],
+      "sheet": [
+        
+      ],
+      "book": [
+        
+      ],
+      "colors": [
+        
+      ],
+      "fonts": [
+        
+      ],
+      "officeUI": [
+        
+      ]
+    },
+    "partials": {
+      "styles": [
+        {"id": "toc-styles", "path": "core/partials/styles/toc-styles.xml", "status": "active"},
+        {"id": "list-styles", "path": "core/partials/styles/list-styles.xml", "status": "active"}
+      ],
+      "numbering": [
+        {"id": "numbering", "path": "core/partials/numbering/numbering.xml", "status": "active"}
+      ]
+    }
+  }
+}

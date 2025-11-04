@@ -3,7 +3,7 @@
 # Usage: inventory generate | inventory help
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 
 generate_inventory() {
     local timestamp=$(date -u +"%Y-%m-%d")
@@ -155,7 +155,7 @@ show_help() {
     echo ""
     echo "Commands:"
     echo "  generate    Generate template inventory markdown file"
-    echo "  help        Show this help message"
+    echo "  --help        Show this help message"
     echo ""
     echo "Output:"
     echo "  docs/template-inventory.md"
@@ -165,11 +165,9 @@ case "$1" in
     generate)
         generate_inventory "$2"
         ;;
-    help)
+    --help)
         show_help
         ;;
     *)
-        show_help
-        ;;
 esac
 

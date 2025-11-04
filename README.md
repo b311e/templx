@@ -1,6 +1,6 @@
 # COGA Template Manager
 
-A comprehensive template management system for Colorado General Assembly Office templates, including Word (.dotm) and Excel (.xltx) templates with standardized branding and themes.
+A comprehensive template management system for Colorado General Assembly Microsoft Office templates, including Word (.dotm) and Excel (.xltx) templates with standardized branding and themes.
 
 ## Quick Start
 
@@ -21,119 +21,224 @@ A comprehensive template management system for Colorado General Assembly Office 
    dotnet build
    ```
 
-3. Set up bash aliases (optional):
+3. Set up bash aliases (optional, but recommended):
    ```bash
-   source src/scripts/setup_aliases.sh
+   source setup_aliases.sh
    ```
 
 ## Project Structure
 
 ```
 coga-template-manager/
-├── .coga/                  # COGA system metadata (hidden)
-│   ├── registry/           # Agency registry and global configuration
-│   └── schemas/            # Manifest validation schemas
-├── foundation/             # Foundation templates and components
-│   ├── base/               # Complete base templates
-│   └── partials/           # Reusable components
+├── .coga/                    # COGA system metadata (hidden)
+│   ├── registry/             # Agency registry and global configuration
+│   └── schemas/              # Manifest validation schemas
+│
+├── builds/                   # Document / templates files under development
+│   ├── core/                 # Custom core templates under development
+│   └── <agency>/             # Agency templates and workspace files under development
+│       ├── assets/
+│       ├── system/           # Deployment and automation scripts
+│       ├── templates/        # Document templates (Letterhead, Memo, etc.)
+│       └── workspace/        # Office workspace templates (Book, Sheet, Normal, etc.)
+│
+├── dist/                     # Production-ready deployments
+│   ├── <agency>/
+│   │   ├── assets/
+│   │   ├── system/
+│   │   ├── templates/ 
+│   │   ├── workspace/
+│   └── scripts/              # Core deployment scripts (agency independent)
+│
+├── docs/                     # Additional project-specific documentation
+│    └── template-inventory.md   # Inventory of each agency's templates and their status
+│    └── taxonomy.md          # Manifest system documentation
+│
+├── core/                  # Core templates and components
+│   ├── base/                 # Complete base templates
+│   ├── data/                 # Resuable data for use in templates or files (e.g., member names)
+│   └── partials/             # Reusable components
+│
+├── resources/                # General reference files and documentation (not project-specific)
+│
 ├── src/
-│   ├── OpenXmlApp/         # Core .NET application for template processing
-│   └── scripts/            # Bash utility scripts (pack, unpack, create)
-├── builds/                 # Agency template development
-│   ├── jbc/                # JBC agency templates
-│   │   ├── workspace/      # Office workspace templates (jbcBook, jbcNormal, jbcSheet)
-│   │   ├── templates/      # Document templates (jbcLetterhead, jbcMemo)
-│   │   └── system/         # Deployment and automation scripts
-│   └── sen/                # Senate agency templates (similar structure)
-├── dist/                   # Production-ready deployments
-│   ├── jbc/
-│   │   └── jbcWorkspace/   # JBC Office Workspace (jbcNormal, jbcFonts, etc.)
-│   └── scripts/            # Core deployment scripts
-├── resources/              # Reference files and documentation
-└── docs/                   # Additional documentation
-    └── manifest-taxonomy.md # Manifest system documentation
+│   ├── OpenXmlApp/           # Core .NET application for template processing
+│   └── scripts/              # Bash utility scripts (pack, unpack, create)
 ```
 
-## Commands
 
-### Template Processing
-- `dotnet run --project src/OpenXmlApp pack <expanded_folder> <output_file>` - Pack expanded template folder into .dotm/.xltx
-- `dotnet run --project src/OpenXmlApp unpack <template_file> [output_folder]` - Extract template to folder
-- `dotnet run --project src/OpenXmlApp create <type> [name]` - Create new templates from scratch
+## Usage
 
-### Template Registry
-- `manifest list` - Show all templates across all agencies
-- `manifest validate` - Validate all manifest files
-- `manifest generate <agency>` - Generate/update manifest for specific agency
-- `manifest update-status <agency> <template> <status>` - Update template status
-- `manifest add-template <agency> <template> <type>` - Guide for adding new template
 
-### With Aliases (after running setup_aliases.sh)
-- `create <type> [name]` - Create new OpenXML templates/documents
-  - Types: `excel-book-template`, `excel-sheet-template`, `excel-book`, `word-doc-template`, `word-doc`
-- `manifest <command> [options]` - Manage template manifests and registry
- - `update manifest partials` - Rebuild `foundation/partials/partials-manifest.json` from the files in `foundation/partials/` (backs up to `partials-manifest.json.bak`)
-   - See full documentation: `docs/manifest-updater.md` (covers agency manifest helpers and the partials manifest updater)
-- `pack <expanded_folder> <output_file>` - Pack template. Will save packed file to the build folder
-- `unpack <template_file> [output_folder]` - Unpack template
-- `style_list list <templateName>` - Generate style list for template
+### Working with Templates
 
-## Template Features
+Work on templates under the `build` directory.
 
-### Theme Integration
-- **Standardized Colors**: Custom agency color scheme
-- **Font Standards**: Agency branded font family with proper theme integration
-
-### Supported Template Types
-- **Book.xltx**: Default Excel workbook template
-- **Sheet.xltx**: Default Excel worksheet template  
-- **Normal.dotm**: Word document template
-
-## Foundation System
-
-### Foundation Templates
-- **`foundation/base/`**: Complete base templates ready for agency customization
-- **`foundation/partials/`**: Reusable components (themes, styles, XML snippets)
-
-### Agency Structure
-- **`builds/{agency}/workspace/`**: Office workspace templates (Book, Sheet, Normal)
-- **`builds/{agency}/templates/`**: Document templates (Letterhead, Memo, etc.)
-- **`builds/{agency}/system/`**: Deployment and automation scripts
-
-### Creating New Agency Templates
 ```bash
+# Unpack: Extract documents, spreadsheets, or template to workable folders.
+unpack <template_file> [output folder name]
+
+# Pack: Zips the contents into a usable office file.
+pack <expanded_folder> [output file name]
+
+# Create: Create new OpenXML documents and templates from scratch.
+create <type> [output file name]
+
+# types:
+#    word-doc-template: creates new .dotx
+#    word-doc: creates new .docx
+#    excel-book-template: creates new workbook template
+#    excel-sheet-template: creates new worksheet template
+#    excel-book: create new workbook
+
 # Create from scratch
-create excel-book-template agency-book
+create excel-book-template Book
 
-# Or start from foundation
-cp foundation/base/excel/Book-Base.xltx builds/newagency/workspace/agencyBook/src/Book.xltx
+# Or start from core
+cp core/base/workspace/book/Book.xltx builds/jbc/workspace/jbcBook/src/Book.xltx
 
-# Customize for agency
-unpack builds/newagency/workspace/agencyBook/src/Book.xltx
-# Edit expanded folder with agency branding
-pack Book/ builds/newagency/workspace/agencyBook/out/Book.xltx
+# Or start from the previous release
+cp dist/jbc/workspace/Book/Book.xltx builds/jbc/workspace/jbcBook/src/Book.xltx
 ```
+
+Style Utilities
+
+```bash
+# Style list: Generate style list for template. Saved to the docs folder.
+style_list list <templateName>
+```
+
+Direct commands (without adding aliases to shell):
+
+```bash
+# Unpack: Extract documents, spreadsheets, or template to workable folders.
+dotnet run --project src/OpenXmlApp unpack <template_file> [output folder name]
+
+# Pack: Zips the contents into a usable office file.
+dotnet run --project src/OpenXmlApp pack <expanded_folder> [output file name]
+
+# Create: Create new OpenXML documents and templates from scratch.
+dotnet run --project src/OpenXmlApp create <type> [output file name]
+```
+
+### Adding a New Template
+1. **Create builds folder structure**:
+   ```bash
+   # Create src, out, in, and docs folder for the JBC Letterhead template
+   mkdir -p builds/jbc/templates/jbcLetterhead/{src,out,in,docs}
+   ```
+
+2. **Add template entry** in appropriate section of the `manifest-schema.json`:
+   ```json
+   "jbcLetterhead": {
+     "name": "JBC Letterhead Template",
+     "type": "word-doc-template",
+     "extension": ".dotx",
+     "src": "builds/jbc/templates/jbcLetterhead/src/Report.xltx",
+     "out": "builds/jbc/templates/jbcLetterhead/out/Report.xltx",
+     "expanded": "builds/jbc/templates/jbcLetterhead/in/",
+     "docs": "builds/jbc/templates/jbcLetterhead/docs/",
+     "status": "planned"
+   }
+   ```
+
+4. **Update manifest**:
+   ```bash
+   manifest --generate jbc
+   ```
+
+### Development workflow
+
+Work on templates within the appropriate `builds` directory.
+
+1. Put the source file (original, packed file) in the `src` folder.
+
+2. Unpack the file in the `src` file and store the expanded file within the `in` folder.
+
+   ```bash
+   unpack builds/jbc/workspace/jbcBook/src/Book.xltx
+   ```
+
+3. Make updates to expanded files within the `in` folder.
+
+4. Once updates are complete and ready for testing, pack the files and store in the `out` folder.
+
+   ```bash
+   pack builds/jbc/workspace/jbcBook/in
+   ```
+
+5. Right click on the compiled file, select "Validate OOXML", then review the report. Repeat steps 1-4 as necessary.
+
+6. Download the file in the `out` folder and test on your local device in Microsoft Word, Excel, or PowerPoint.
+
+### Create command — behavior & troubleshooting
+
+- Where files are written: the `create` command writes the new template file to the current working directory unless you provide a path as the name. For example, running the command from the repo root:
+
+```bash
+create excel-sheet-template         # -> creates ./Sheet.xltx
+create excel-sheet-template MySheet # -> creates ./MySheet.xltx
+```
+
+- Accepted template types (exact strings): `excel-book-template`, `excel-sheet-template`, `excel-book`, `word-doc-template`, `word-doc`. If you see `Unknown template type`, double-check you're using one of the types above.
+
+- Using the helper script vs. dotnet: there is a convenience wrapper at `src/scripts/create` which forwards to the .NET app. Either:
+
+```bash
+# run via the script (recommended)
+./src/scripts/create excel-sheet-template MySheet
+
+# or run the app directly
+dotnet run --project src/OpenXmlApp/OpenXmlApp.csproj create excel-sheet-template MySheet
+```
+
+- Creating directly into a build output folder: pass a path as the name. Example:
+
+```bash
+dotnet run --project src/OpenXmlApp/OpenXmlApp.csproj create excel-sheet-template builds/jbc/workspace/jbcNormal/out/Sheet.xltx
+```
+
+- If you don't see the created file:
+   - Confirm the command printed `Created: <filename>` in its output.
+   - Check the current directory (run `pwd` / `ls -la`) — the file will be there unless you gave a path.
+   - Ensure you have write permissions to the directory and sufficient disk space.
+   - If `dotnet run` failed to build the project, inspect the error messages from `dotnet` and run `dotnet build` to surface compile-time errors.
+
+- Future/optional improvement: the tool could be extended to auto-place created files into the `builds/{agency}/.../out` folder based on your current path. If you'd like that behavior, I can add it.
 
 ## Template Registry & Manifests
 
 ### Manifest Structure
+
 The system uses JSON manifests to track templates, assets, and deployment configurations:
 
 - **Global Registry**: `.coga/registry/agencies.json` - Lists all agencies and their manifest locations
-- **Agency Manifests**: `builds/{agency}/manifest.json` - Complete template inventory per agency
-- **Schema & Taxonomy**: `.coga/schemas/manifest-schema.json` - Validation schema, `docs/manifest-taxonomy.md` - Documentation
+- **Agency Manifests**: `builds/<agency>/manifest.json` - Complete template inventory per agency
+- **Schema & Taxonomy**: `.coga/schemas/manifest-schema.json` - Validation schema
+  - **Schema documentation:** `docs/taxonomy.md`
 - **Category Structure**: Templates organized by workspace, templates, system, and assets
 
+Full  manifest documentation can be found at `src/scripts/manifest_utils/README.md`.
+
 ### Manifest Commands
+
+**Generate / update manifest**
+
+```bash
+# Generate/update manifest for specific agency
+manifest generate <agency>
+
+# Generate/update manifest for core
+manifest generate core
+```
+
+**Other manifest commands**
 ```bash
 # List all templates across all agencies
 manifest list
 
 # Validate all manifest files
 manifest validate
-
-# Generate/update manifest for specific agency
-manifest generate jbc
 
 # Update template status
 manifest update-status jbc jbcNormal active
@@ -142,235 +247,38 @@ manifest update-status jbc jbcNormal active
 manifest add-template jbc jbcReport excel-book-template
 ```
 
-### Updating Manifests
+## Deployment
 
-#### Quick Updates
-```bash
-# Update timestamp and scan for new templates
-manifest generate jbc
+### Deployment Scripts
 
-# Update template status (active, planned, deprecated, testing)
-manifest update-status jbc jbcNormal active
-```
+- `dist/scripts/workspaceInstallPreProd.bat` - Deploy to PreProd environment
+- `dist/scripts/workspaceDeploy.bat` - Deploy from PreProd to Production
+- `dist/jbc/jbcWorkspace/JBCTemplateInstall.bat` - End-user installation script
+- `style_list list <templateName>` – Generate style list for template. Saves to templateName/docs folder
 
 ## Template Inventory System
+
+The template inventory can be found at `docs\template-inventory.md`.
 
 ### Generate Template Inventory
 The inventory system provides a user-friendly overview of all templates across all agencies:
 
 ```bash
 # Generate template inventory report
-coga inventory generate
-
-# Or directly
 inventory generate
 
 # Show help
-inventory help
+inventory --help
 ```
 
 ### Inventory Output
 The inventory generates `docs/template-inventory.md` with:
-- **Current Status**: Real-time template status pulled from manifests
-- **All Agencies**: Complete listing of House, Senate, JBC, LCS, OLLS, OSA
-- **Template Details**: Template names and current status (active, planned, testing, deprecated)
+- **Current Status**: Template status pulled from manifests
+- **Templates**: Complete listing of House, Senate, JBC, LCS, OLLS, OSA templates
 - **Timestamp**: Generated date for tracking currency
 
-### Example Output
-```markdown
-# Template Inventory & Status
-
-Generated: 2025-10-24T07:56:48Z
-
-## Joint Budget Committee
-
-- jbcBook -- active
-- jbcSheet -- active  
-- jbcNormal -- active
-- jbcLetterhead -- planned
-- jbcMemo -- planned
-
-## Senate
-
-*No templates defined*
-```
-
-The inventory automatically reads from the manifest system to ensure accuracy and provides an at-a-glance view of template development progress across all agencies.
-
-### Updating the Inventory List
-
-To update the template inventory table in `docs/template-inventory.md` with the latest templates and statuses from all agencies, run:
-
-```bash
-coga inventory generate
-```
-
-This command will:
-- Scan all agency manifests for current template names and statuses
-- Regenerate the markdown table for each agency (including empty tables if no templates are defined)
-- Overwrite the inventory file with the latest data and timestamp
-
-You can also run the script directly:
-```bash
-src/scripts/inventory generate
-```
 
 **Note:** If you add, remove, or change templates or statuses in any agency manifest, rerun the inventory command to update the list.
-
-For help:
-```bash
-coga inventory help
-```
-
-#### Adding New Templates
-1. **Create template structure**:
-   ```bash
-   mkdir -p builds/jbc/workspace/jbcReport/{src,out,in,docs}
-   ```
-
-2. **Edit manifest manually**:
-   ```bash
-   code builds/jbc/manifest.json
-   ```
-
-3. **Add template entry** in appropriate section:
-   ```json
-   "jbcReport": {
-     "name": "JBC Report Template",
-     "type": "excel-book-template",
-     "extension": ".xltx",
-     "src": "builds/jbc/workspace/jbcReport/src/Report.xltx",
-     "out": "builds/jbc/workspace/jbcReport/out/Report.xltx",
-     "expanded": "builds/jbc/workspace/jbcReport/in/",
-     "docs": "builds/jbc/workspace/jbcReport/docs/",
-     "status": "planned"
-   }
-   ```
-
-4. **Update manifest**:
-   ```bash
-   manifest generate jbc
-   ```
-
-#### Backup & Recovery
-- Status updates create automatic backups: `manifest.json.backup`
-- Manual backup: `cp builds/jbc/manifest.json builds/jbc/manifest.json.$(date +%Y%m%d)`
-
-### Manifest Benefits
-- **Template Discovery**: Easily find all templates and their locations
-- **Status Tracking**: Track development status (active, planned, deprecated, testing)
-- **Deployment Mapping**: Maps build templates to distribution locations
-- **Documentation Links**: References to docs and specifications
-- **Automated Updates**: Timestamp tracking and template discovery
-
-## Deployment
-
-### Development Workflow
-1. Develop foundation templates in `foundation/base/`
-2. Create agency templates from foundation
-3. Customize for agency branding and requirements
-4. Pack templates: `pack [expanded_folder] [output_file]`
-5. Test templates locally
-4. Deploy to PreProd for testing
-5. Push to Production
-
-### Deployment Scripts
-- `dist/scripts/workspaceInstallPreProd.bat` - Deploy to PreProd environment
-- `dist/scripts/workspaceDeploy.bat` - Deploy from PreProd to Production
-- `dist/jbc/jbcWorkspace/JBCTemplateInstall.bat` - End-user installation script
-- `style_list list <templateName>` – Generate style list for template. Saves to templateName/docs folder
-
-## Development
-
-### Dependencies
-- **.NET 8.0**: Core runtime
-- **DocumentFormat.OpenXml 3.3.0**: OpenXML document manipulation
-- **Windows**: Required for batch deployment scripts
-
-### Building from Source
-```bash
-# Restore dependencies
-dotnet restore
-
-# Build solution
-dotnet build
-
-# Run tests (if any)
-dotnet test
-```
-
-## Usage Examples
-
-### Creating New Templates from Scratch
-```bash
-# Create Excel book template
-create excel-book-template mybook
-# Creates: mybook.xltx
-
-# Create Word document template  
-create word-doc-template letter
-# Creates: letter.dotx
-
-# Create with default names
-create excel-sheet-template
-# Creates: Sheet.xltx
-```
-
-### Managing Template Manifests
-```bash
-# View all templates across agencies
-manifest list
-
-# Update template status
-manifest update-status jbc jbcNormal active
-manifest update-status jbc jbcBook testing
-
-# Add new template (shows guidance)
-manifest add-template jbc jbcReport excel-book-template
-
-# Update manifest after changes
-manifest generate jbc
-
-# Validate all manifests
-manifest validate
-
-# Creates: Sheet.xltx
-```
-
-### Working with Existing Templates
-```bash
-# Unpack existing template (creates folder named after the template)
-unpack existing_template.xltx
-# This creates "existing_template/" folder
-
-# Edit files in existing_template/
-# Modify XML, themes, styles as needed
-
-# Pack back to template
-pack existing_template/ new_template.xltx
-```
-
-### Deploying JBC Templates
-```cmd
-# Deploy to PreProd for testing
-cd dist\scripts
-workspaceInstallPreProd.bat
-
-# After testing, push to Production
-workspaceDeploy.bat
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/new-feature`
-3. Make changes and test thoroughly
-4. Commit with clear messages: `git commit -m "Add new feature"`
-5. Push and create a Pull Request
-
-### Common Issues
-- **Build Failures**: Ensure .NET 8.0 SDK is installed
-- **Theme Not Applied**: Verify styles.xml contains complete theme references
 
 ### Getting Help
 - Check the `docs/` folder for additional documentation
