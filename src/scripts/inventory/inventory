@@ -35,7 +35,7 @@ EOF
         generate_without_jq "$output_file" "$registry_file"
     fi
     
-    echo "✓ Template inventory generated: $output_file"
+    echo "Template inventory created: $output_file"
 }
 
 generate_with_jq() {
@@ -125,9 +125,10 @@ extract_templates_basic() {
     done
     
     grep -A 1000 '"templates":' "$manifest_file" | grep '"status"' | while read -r line; do
-        local template_name=$(echo "$line" | grep -B 5 '"status"' | grep '"[^"]*":' | tail -1 | sed 's/.*"\([^"]*\)".*/\1/')
+        # safer extraction: find the nearest quoted name before the status
+        local template_name=$(echo "$line" | grep -B 5 '"status"' | grep -Eo '"[^"]+"' | tail -1 | tr -d '"')
         if [[ -n "$template_name" && "$template_name" != "templates" ]]; then
-            local status=$(echo "$line" | sed 's/.*"status":[[:space:]]*"\([^"]*\)".*/\1/')
+            local status=$(echo "$line" | sed -n 's/.*"status":[[:space:]]*"\([^"]*\)".*/\1/p')
             echo "- $template_name -- $status" >> "$output_file"
         fi
     done
@@ -138,7 +139,7 @@ extract_status_from_template() {
     local template_name="$2"
     
     # Look for the status line after the template name
-    local status=$(grep -A 10 "\"$template_name\":" "$manifest_file" | grep '"status"' | head -1 | sed 's/.*"status":[[:space:]]*"\([^"]*\)".*/\1/')
+    local status=$(grep -A 10 "\"$template_name\":" "$manifest_file" | grep '"status"' | head -1 | sed -n 's/.*"status":[[:space:]]*"\([^\"]*\)".*/\1/p')
     
     if [[ -n "$status" ]]; then
         echo "$status"
@@ -158,22 +159,17 @@ show_help() {
     echo ""
     echo "Output:"
     echo "  docs/template-inventory.md"
-    echo ""
-    echo "Examples:"
-    echo "  inventory generate"
-    echo ""
-    echo "Note: Requires jq for advanced JSON parsing (optional)"
 }
 
 case "$1" in
     generate)
-        generate_inventory
+        generate_inventory "$2"
         ;;
-    help|--help|-h)
+    help)
         show_help
         ;;
     *)
-        echo "Usage: inventory <command>"
-        echo "Run 'inventory help' for more information"
+        show_help
         ;;
 esac
+

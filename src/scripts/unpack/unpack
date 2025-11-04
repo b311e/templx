@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # OpenXML Unpack Alias
-# Usage: unpack <file path>
+# Usage: unpack [file path]
 
 set -euo pipefail
 
 if [ $# -eq 0 ]; then
-    echo "Usage: unpack <file path>"
+    echo "Usage: unpack [file path]"
     echo "Example: unpack templates/jbc/jbcBook/source/Book.xltx"
     exit 1
 fi

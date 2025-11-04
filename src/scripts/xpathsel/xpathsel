@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Simple XPath selection helper (wrapper)
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [ $# -lt 2 ]; then
+  echo "Usage: xpathsel <xml-file> <xpath>"
+  exit 1
+fi
+
+xml_file="$1"
+shift
+xpath="$*"
+
+xmlstarlet sel -t -m "$xpath" -v . -n "$xml_file"

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # OpenXML Create Alias
-# Usage: create <templateType> [fileName]
+# Usage: create <templateType> [outputFileName]
 
 # Get the script directory to find the project
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 
 # Run the dotnet command with all arguments passed through
 dotnet run --project "$PROJECT_ROOT/src/OpenXmlApp/OpenXmlApp.csproj" create "$@"
