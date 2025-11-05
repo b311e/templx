@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+# Template Style Manager
+# Usage: ./style --list <templatePath>
+#        Where templatePath is: builds\<agency>\<category>\<templateName>
+#        templateName is the folder containing in/, out/, src/, etc.
+
+set -euo pipefail
+
+command=${1:-}
+template_path=${2:-}
+
+case "$command" in
+  --help|-h)
+    echo "Template Style Manager"
+    echo ""
+    echo "USAGE:"
+    echo "  style --list <templatePath>"
+    echo ""
+    echo "ARGUMENTS:"
+    echo "  templatePath    Path to template directory in format: builds/<agency>/<category>/<templateName>"
+    echo "                  templateName folder should contain in/, out/, src/, etc. folders"
+    echo ""
+    echo "DESCRIPTION:"
+    echo "  Extracts Word styles from templates and generates a style list."
+    echo "  Looks for styles.xml in in/word/ or expanded/word/ subdirectories."
+    echo "  Output is saved to docs/style-list-{templateName}.txt in the template directory."
+    echo ""
+    echo "EXAMPLES:"
+    echo "  style --list builds/jbc/workspace/jbcNormal"
+    echo "  style --list /full/path/to/builds/jbc/workspace/jbcNormal"
+    echo "  style --list builds/core/components/base"
+    echo ""
+    echo "OPTIONS:"
+    echo "  --help, -h     Show this help message"
+    echo "  --list         Generate style list for specified template"
+    exit 0
+    ;;
+  --list)
+    if [ -z "$template_path" ]; then
+      echo "Usage: $0 --list <templatePath>"
+      echo "Example: $0 --list builds/jbc/workspace/jbcNormal"
+      echo "Example: $0 --list builds/core/components/base"
+      echo ""
+      echo "templatePath should point to the template directory containing in/, out/, src/, etc."
+      echo "The script will look for styles.xml in in/word/ or expanded/word/"
+      exit 1
+    fi
+
+    # Convert to absolute path to work from any directory
+    if [[ "$template_path" != /* ]]; then
+      template_path="$(pwd)/$template_path"
+    fi
+
+    # Check if the template directory exists
+    if [ ! -d "$template_path" ]; then
+      echo "Error: Template directory not found: $template_path" >&2
+      exit 1
+    fi
+
+    # Look for styles.xml in in/word/ first, then expanded/word/
+    styles_xml=""
+    if [ -f "$template_path/in/word/styles.xml" ]; then
+      styles_xml="$template_path/in/word/styles.xml"
+    elif [ -f "$template_path/expanded/word/styles.xml" ]; then
+      styles_xml="$template_path/expanded/word/styles.xml"
+    else
+      echo "Error: styles.xml not found in $template_path/in/word/ or $template_path/expanded/word/" >&2
+      exit 1
+    fi
+
+    # Get template name from path
+    template_name=$(basename "$template_path")
+
+    # Create output file in template's docs directory
+    docs_dir="$template_path/docs"
+    mkdir -p "$docs_dir"
+    output_file="$docs_dir/style-list-${template_name}.txt"
+
+    # Extract styles using xmlstarlet
+    xmlstarlet sel \
+      -N w='http://schemas.openxmlformats.org/wordprocessingml/2006/main' \
+      -t -m '/w:styles/w:style' \
+      -v 'concat(position(), ": ", @w:styleId, " — ", w:name/@w:val)' \
+      -n "${styles_xml}" \
+      > "${output_file}"
+
+    printf 'Wrote %s styles to %s\n' "$(wc -l < "${output_file}")" "${output_file}"
+    ;;
+  *)
+    echo "Available commands:"
+    echo "  --list <templatePath>  - Generate style list for template"
+    echo ""
+    echo "templatePath format: builds/<agency>/<category>/<templateName>"
+    echo "Examples:"
+    echo "  $0 --list builds/jbc/workspace/jbcNormal"
+    echo "  $0 --list builds/core/components/base"
+    exit 1
+    ;;
+esac

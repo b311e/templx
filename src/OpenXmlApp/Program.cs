@@ -50,7 +50,7 @@ namespace OpenXmlApp
             {
                 Console.WriteLine("Error: Template type required");
                 Console.WriteLine("Usage: create <type> [name]");
-                Console.WriteLine("Types: excel-book-template, excel-sheet-template, excel-book, word-doc-template, word-doc");
+                Console.WriteLine("Types: xl-book, xl-mbook, xl-template, xl-mtemplate, word-doc, word-mdoc, word-template, word-mtemplate");
                 return;
             }
             
@@ -62,20 +62,29 @@ namespace OpenXmlApp
             {
                 switch (templateType)
                 {
-                    case "excel-book-template":
-                        CreateExcelBookTemplate(outputPath);
-                        break;
-                    case "excel-sheet-template":
-                        CreateExcelSheetTemplate(outputPath);
-                        break;
-                    case "excel-book":
+                    case "xl-book":
                         CreateExcelBook(outputPath);
                         break;
-                    case "word-doc-template":
-                        CreateWordDocTemplate(outputPath);
+                    case "xl-mbook":
+                        CreateExcelMacroBook(outputPath);
+                        break;
+                    case "xl-template":
+                        CreateExcelTemplate(outputPath);
+                        break;
+                    case "xl-mtemplate":
+                        CreateExcelMacroTemplate(outputPath);
                         break;
                     case "word-doc":
                         CreateWordDoc(outputPath);
+                        break;
+                    case "word-mdoc":
+                        CreateWordMacroDoc(outputPath);
+                        break;
+                    case "word-template":
+                        CreateWordTemplate(outputPath);
+                        break;
+                    case "word-mtemplate":
+                        CreateWordMacroTemplate(outputPath);
                         break;
                     default:
                         Console.WriteLine($"Unknown template type: {templateType}");
@@ -90,7 +99,7 @@ namespace OpenXmlApp
             }
         }
         
-        static void CreateExcelBookTemplate(string outputPath)
+        static void CreateExcelTemplate(string outputPath)
         {
             using (var document = SpreadsheetDocument.Create(outputPath, SpreadsheetDocumentType.Template))
             {
@@ -112,11 +121,28 @@ namespace OpenXmlApp
             }
         }
         
-        static void CreateExcelSheetTemplate(string outputPath)
+        static void CreateExcelMacroTemplate(string outputPath)
         {
-            CreateExcelBookTemplate(outputPath);
+            using (var document = SpreadsheetDocument.Create(outputPath, SpreadsheetDocumentType.MacroEnabledTemplate))
+            {
+                var workbookPart = document.AddWorkbookPart();
+                workbookPart.Workbook = new Excel.Workbook();
+                
+                var worksheetPart = workbookPart.AddNewPart<WorksheetPart>();
+                worksheetPart.Worksheet = new Excel.Worksheet(new Excel.SheetData());
+                
+                var sheets = workbookPart.Workbook.AppendChild(new Excel.Sheets());
+                sheets.Append(new Excel.Sheet() 
+                { 
+                    Id = workbookPart.GetIdOfPart(worksheetPart),
+                    SheetId = 1,
+                    Name = "Sheet1"
+                });
+                
+                workbookPart.Workbook.Save();
+            }
         }
-        
+                
         static void CreateExcelBook(string outputPath)
         {
             using (var document = SpreadsheetDocument.Create(outputPath, SpreadsheetDocumentType.Workbook))
@@ -139,7 +165,29 @@ namespace OpenXmlApp
             }
         }
         
-        static void CreateWordDocTemplate(string outputPath)
+        static void CreateExcelMacroBook(string outputPath)
+        {
+            using (var document = SpreadsheetDocument.Create(outputPath, SpreadsheetDocumentType.MacroEnabledWorkbook))
+            {
+                var workbookPart = document.AddWorkbookPart();
+                workbookPart.Workbook = new Excel.Workbook();
+                
+                var worksheetPart = workbookPart.AddNewPart<WorksheetPart>();
+                worksheetPart.Worksheet = new Excel.Worksheet(new Excel.SheetData());
+                
+                var sheets = workbookPart.Workbook.AppendChild(new Excel.Sheets());
+                sheets.Append(new Excel.Sheet() 
+                { 
+                    Id = workbookPart.GetIdOfPart(worksheetPart),
+                    SheetId = 1,
+                    Name = "Sheet1"
+                });
+                
+                workbookPart.Workbook.Save();
+            }
+        }
+        
+        static void CreateWordTemplate(string outputPath)
         {
             using (var document = WordprocessingDocument.Create(outputPath, WordprocessingDocumentType.Template))
             {
@@ -149,7 +197,27 @@ namespace OpenXmlApp
             }
         }
         
+        static void CreateWordMacroTemplate(string outputPath)
+        {
+            using (var document = WordprocessingDocument.Create(outputPath, WordprocessingDocumentType.Template))
+            {
+                var mainPart = document.AddMainDocumentPart();
+                mainPart.Document = new Document(new Body());
+                mainPart.Document.Save();
+            }
+        }
+                
         static void CreateWordDoc(string outputPath)
+        {
+            using (var document = WordprocessingDocument.Create(outputPath, WordprocessingDocumentType.Document))
+            {
+                var mainPart = document.AddMainDocumentPart();
+                mainPart.Document = new Document(new Body());
+                mainPart.Document.Save();
+            }
+        }
+        
+        static void CreateWordMacroDoc(string outputPath)
         {
             using (var document = WordprocessingDocument.Create(outputPath, WordprocessingDocumentType.Document))
             {
@@ -163,11 +231,14 @@ namespace OpenXmlApp
         {
             return templateType switch
             {
-                "excel-book-template" => "Book",
-                "excel-sheet-template" => "Sheet", 
-                "excel-book" => "Workbook",
-                "word-doc-template" => "Normal",
+                "xl-template" => "Book",
+                "xl-mtemplate" => "Book",
+                "xl-book" => "Book",
+                "xl-mbook" => "Book",
+                "word-template" => "Doc",
+                "word-mtemplate" => "Doc",
                 "word-doc" => "Document",
+                "word-mdoc" => "Document",
                 _ => "Template"
             };
         }
@@ -176,11 +247,14 @@ namespace OpenXmlApp
         {
             string extension = templateType switch
             {
-                "excel-book-template" => ".xltx",
-                "excel-sheet-template" => ".xltx",
-                "excel-book" => ".xlsx", 
-                "word-doc-template" => ".dotx",
+                "xl-template" => ".xltx",
+                "xl-mtemplate" => ".xltm",
+                "xl-book" => ".xlsx",
+                "xl-mbook" => ".xlsm",
+                "word-template" => ".dotx",
+                "word-mtemplate" => ".dotm",
                 "word-doc" => ".docx",
+                "word-mdoc" => ".docm",
                 _ => ".tmp"
             };
             
@@ -345,11 +419,14 @@ namespace OpenXmlApp
             Console.WriteLine("  dotnet run test-clean [--tmp] [--out]");
             Console.WriteLine("");
             Console.WriteLine("Create types:");
-            Console.WriteLine("  excel-book-template   - Create Excel Book template (.xltx)");
-            Console.WriteLine("  excel-sheet-template  - Create Excel Sheet template (.xltx)");
-            Console.WriteLine("  excel-book           - Create Excel workbook (.xlsx)");
-            Console.WriteLine("  word-doc-template    - Create Word document template (.dotx)");
-            Console.WriteLine("  word-doc             - Create Word document (.docx)");
+            Console.WriteLine("  xl-template           - Create Excel Book template (.xltx)");
+            Console.WriteLine("  xl-mtemplate          - Create Excel Macro-Enabled Book template (.xltm)");
+            Console.WriteLine("  xl-book               - Create Excel workbook (.xlsx)");
+            Console.WriteLine("  xl-mbook              - Create Excel Macro-Enabled workbook (.xlsm)");
+            Console.WriteLine("  word-template         - Create Word document template (.dotx)");
+            Console.WriteLine("  word-mtemplate        - Create Word Macro-Enabled document template (.dotm)");
+            Console.WriteLine("  word-doc              - Create Word document (.docx)");
+            Console.WriteLine("  word-mdoc             - Create Word Macro-Enabled document (.docm)");
         }
 
         static void HandleTestClean(string[] args)

@@ -23,7 +23,7 @@ A comprehensive template management system for Colorado General Assembly Microso
 
 3. Set up bash aliases (optional, but recommended):
    ```bash
-   source setup_aliases.sh
+   source src/scripts/setup_aliases.sh
    ```
 
 ## Project Structure
@@ -84,28 +84,42 @@ pack <expanded_folder> [output file name]
 # Create: Create new OpenXML documents and templates from scratch.
 create <type> [output file name]
 
-# types:
-#    word-doc-template: creates new .dotx
-#    word-doc: creates new .docx
-#    excel-book-template: creates new workbook template
-#    excel-sheet-template: creates new worksheet template
-#    excel-book: create new workbook
+```
 
+**Create types:**
+
+| Type            | Ext.         | Description                 |
+|-----------------|--------------|-----------------------------|
+| xl-book         | xlsx         | Spreadsheet                 |
+| xl-mbook        | xlsm         | Macro-enabled Spreadsheet   |
+| xl-template     | xltx         | Template                    |
+| xl-mtemplate    | xltm         | Macro-enabled Template      |
+| word-doc        | docx         | Document                    |
+| word-mdoc       | docm         | Macro-enabled Document      |
+| word-template   | dotx         | Template                    |
+| word-mtemplate  | dotm         | Macro-enabled Template      |
+
+**Usage examples:**
+
+```bash
 # Create from scratch
-create excel-book-template Book
+create xl-book
 
 # Or start from core
-cp core/base/workspace/book/Book.xltx builds/jbc/workspace/jbcBook/src/Book.xltx
+cp core/workspace/book/Book.xltx builds/jbc/workspace/jbcBook/src/Book.xltx
 
 # Or start from the previous release
-cp dist/jbc/workspace/Book/Book.xltx builds/jbc/workspace/jbcBook/src/Book.xltx
+cp dist/jbc/workspace/jbcBook/Book.xltx builds/jbc/workspace/jbcBook/src/Book.xltx
 ```
 
 Style Utilities
 
 ```bash
-# Style list: Generate style list for template. Saved to the docs folder.
-style_list list <templateName>
+# Style list: Generate style list for template. Automatically saved to the docs folder.
+style --list <path to template folder>
+
+# Example:
+style --list builds/jbc/workspace/jbcNormal
 ```
 
 Direct commands (without adding aliases to shell):
@@ -173,20 +187,14 @@ Work on templates within the appropriate `builds` directory.
 
 ### Create command — behavior & troubleshooting
 
-- Where files are written: the `create` command writes the new template file to the current working directory unless you provide a path as the name. For example, running the command from the repo root:
-
-```bash
-create excel-sheet-template         # -> creates ./Sheet.xltx
-create excel-sheet-template MySheet # -> creates ./MySheet.xltx
-```
-
-- Accepted template types (exact strings): `excel-book-template`, `excel-sheet-template`, `excel-book`, `word-doc-template`, `word-doc`. If you see `Unknown template type`, double-check you're using one of the types above.
+- Where files are written: the `create` command writes the new template file to the current working directory unless you provide a path as the name.
+- Accepted template types (exact strings) are listed above in the creation types table. If you see `Unknown template type`, double-check you're using one of the types above.
 
 - Using the helper script vs. dotnet: there is a convenience wrapper at `src/scripts/create` which forwards to the .NET app. Either:
 
 ```bash
 # run via the script (recommended)
-./src/scripts/create excel-sheet-template MySheet
+./src/scripts/create xl-template NewSpreadsheet
 
 # or run the app directly
 dotnet run --project src/OpenXmlApp/OpenXmlApp.csproj create excel-sheet-template MySheet
@@ -195,7 +203,7 @@ dotnet run --project src/OpenXmlApp/OpenXmlApp.csproj create excel-sheet-templat
 - Creating directly into a build output folder: pass a path as the name. Example:
 
 ```bash
-dotnet run --project src/OpenXmlApp/OpenXmlApp.csproj create excel-sheet-template builds/jbc/workspace/jbcNormal/out/Sheet.xltx
+dotnet run --project src/OpenXmlApp/OpenXmlApp.csproj create xl-template builds/jbc/workspace/jbcNormal/out/NewSpreadsheet.xltx
 ```
 
 - If you don't see the created file:

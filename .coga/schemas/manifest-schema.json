@@ -29,7 +29,9 @@
         "workspace",
         "templates",
         "system", 
-        "assets"
+        "assets",
+        "data",
+        "core"
       ]
     },
     

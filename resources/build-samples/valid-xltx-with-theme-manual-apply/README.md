@@ -1,0 +1,1 @@
+This file was created by opening the valid-xltx-with-theme/out file, then manually applying the JBC Theme and saving the template.

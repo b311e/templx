@@ -1,8 +1,8 @@
 # Template Inventory & Status
 
-Generated: 2025-11-04
+Generated: 2025-11-05
 
-## House of Representatives
+## House
 
 | Template Name   | Status   |
 |-----------------|----------|

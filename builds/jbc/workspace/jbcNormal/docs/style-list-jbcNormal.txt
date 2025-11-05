@@ -1,0 +1,42 @@
+1: Normal — Normal
+2: DefaultParagraphFont — Default Paragraph Font
+3: TableNormal — Normal Table
+4: NoList — No List
+5: Heading1 — heading 1
+6: Heading2 — heading 2
+7: Heading3 — heading 3
+8: Heading4 — heading 4
+9: Heading5 — heading 5
+10: Heading6 — heading 6
+11: Heading7 — heading 7
+12: Heading8 — heading 8
+13: Heading9 — heading 9
+14: Quote — Quote
+15: Subtitle — Subtitle
+16: ListParagraph — List Paragraph
+17: BlockText — Block Text
+18: ListBullet — List Bullet
+19: ListNumber — List Number
+20: SpacingListBullet — Spacing List Bullet
+21: SpacingListNumber — Spacing List Number
+22: Caption — caption
+23: Hyperlink — Hyperlink
+24: TOCHeading — TOC Heading
+25: TOC1 — toc 1
+26: TOC2 — toc 2
+27: TOC3 — toc 3
+28: TOC4 — toc 4
+29: TOC5 — toc 5
+30: TOC6 — toc 6
+31: TOC7 — toc 7
+32: TOC8 — toc 8
+33: TOC9 — toc 9
+34: Header — header
+35: Footer — footer
+36: TableTitle — Table Title
+37: AfterTableNormal — After Table Normal
+38: NoSpacing — No Spacing
+39: Source — Source
+40: JBCTableA — JBC Table A
+41: LongBillFootnote — Long Bill Footnote
+42: Note — [Note]

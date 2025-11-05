@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippet id="jbcCellStyles" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    <cellStyles count="18">
+        <cellStyle name="A) Currency"
+                   xfId="2" />
+        <cellStyle name="B) Percent"
+                   xfId="13" />
+        <cellStyle name="C) Comma"
+                   xfId="3" />
+        <cellStyle name="Comma"
+                   xfId="8"
+                   builtinId="3"
+                   customBuiltin="1" />
+        <cellStyle name="Comma [0]"
+                   xfId="9"
+                   builtinId="6"
+                   hidden="1" />
+        <cellStyle name="Currency"
+                   xfId="7"
+                   builtinId="4"
+                   customBuiltin="1" />
+        <cellStyle name="Currency [0]"
+                   xfId="10"
+                   builtinId="7"
+                   hidden="1" />
+        <cellStyle name="D) FTE"
+                   xfId="4" />
+        <cellStyle name="E) Top"
+                   xfId="14" />
+        <cellStyle name="F) Total"
+                   xfId="1" />
+        <cellStyle name="G) Subtotal"
+                   xfId="11" />
+        <cellStyle name="H) Title"
+                   xfId="5" />
+        <cellStyle name="I) Column Header"
+                   xfId="12" />
+        <cellStyle name="J) Big"
+                   xfId="16" />
+        <cellStyle name="K) Medium"
+                   xfId="15" />
+        <cellStyle name="L) Small"
+                   xfId="17" />
+        <cellStyle name="Normal"
+                   xfId="0"
+                   builtinId="0"
+                   customBuiltin="1" />
+        <cellStyle name="Percent"
+                   xfId="6"
+                   builtinId="5"
+                   customBuiltin="1" />
+    </cellStyles>
+</snippet>
