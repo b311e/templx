@@ -120,6 +120,12 @@ style --list <path to template folder>
 
 # Example:
 style --list builds/jbc/workspace/jbcNormal
+
+# Replace styles: Copy styles from one Word document to another
+replace-styles <target-doc> <source-doc>
+
+# Example:
+replace-styles document.docx template.dotx
 ```
 
 Direct commands (without adding aliases to shell):
@@ -133,6 +139,9 @@ dotnet run --project src/OpenXmlApp pack <expanded_folder> [output file name]
 
 # Create: Create new OpenXML documents and templates from scratch.
 dotnet run --project src/OpenXmlApp create <type> [output file name]
+
+# Replace styles: Copy styles from one Word document to another.
+dotnet run --project src/OpenXmlApp replace-styles <target_doc> <source_doc>
 ```
 
 ### Adding a New Template

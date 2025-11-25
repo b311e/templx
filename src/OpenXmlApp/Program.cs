@@ -34,6 +34,9 @@ namespace OpenXmlApp
                 case "create":
                     HandleCreate(args);
                     break;
+                case "replace-styles":
+                    HandleReplaceStyles(args);
+                    break;
                 case "test-clean":
                     HandleTestClean(args);
                     break;
@@ -199,7 +202,7 @@ namespace OpenXmlApp
         
         static void CreateWordMacroTemplate(string outputPath)
         {
-            using (var document = WordprocessingDocument.Create(outputPath, WordprocessingDocumentType.Template))
+            using (var document = WordprocessingDocument.Create(outputPath, WordprocessingDocumentType.MacroEnabledTemplate))
             {
                 var mainPart = document.AddMainDocumentPart();
                 mainPart.Document = new Document(new Body());
@@ -219,7 +222,7 @@ namespace OpenXmlApp
         
         static void CreateWordMacroDoc(string outputPath)
         {
-            using (var document = WordprocessingDocument.Create(outputPath, WordprocessingDocumentType.Document))
+            using (var document = WordprocessingDocument.Create(outputPath, WordprocessingDocumentType.MacroEnabledDocument))
             {
                 var mainPart = document.AddMainDocumentPart();
                 mainPart.Document = new Document(new Body());
@@ -410,12 +413,76 @@ namespace OpenXmlApp
             }
         }
         
+        static void HandleReplaceStyles(string[] args)
+        {
+            if (args.Length < 3)
+            {
+                Console.WriteLine("Usage: replace-styles <target-doc> <source-doc>");
+                Console.WriteLine("  target-doc: Document that will receive new styles (will be modified)");
+                Console.WriteLine("  source-doc: Document with styles to copy from (read-only)");
+                return;
+            }
+
+            string targetPath = args[1];
+            string sourcePath = args[2];
+
+            if (!File.Exists(targetPath))
+            {
+                Console.WriteLine($"Target document not found: {targetPath}");
+                return;
+            }
+
+            if (!File.Exists(sourcePath))
+            {
+                Console.WriteLine($"Source document not found: {sourcePath}");
+                return;
+            }
+
+            try
+            {
+                using (WordprocessingDocument targetDoc = WordprocessingDocument.Open(targetPath, true))
+                {
+                    using (WordprocessingDocument sourceDoc = WordprocessingDocument.Open(sourcePath, false))
+                    {
+                        // Get the StyleDefinitionsPart from both documents
+                        StyleDefinitionsPart targetStylesPart = targetDoc.MainDocumentPart?.StyleDefinitionsPart;
+                        StyleDefinitionsPart sourceStylesPart = sourceDoc.MainDocumentPart?.StyleDefinitionsPart;
+
+                        if (sourceStylesPart?.Styles == null)
+                        {
+                            Console.WriteLine("Source document does not have a styles part.");
+                            return;
+                        }
+
+                        if (targetStylesPart == null)
+                        {
+                            // Target doesn't have styles part, create one
+                            targetStylesPart = targetDoc.MainDocumentPart.AddNewPart<StyleDefinitionsPart>();
+                            Console.WriteLine("Created new styles part in target document.");
+                        }
+
+                        // Clone and replace the entire Styles element
+                        targetStylesPart.Styles = (Styles)sourceStylesPart.Styles.CloneNode(true);
+                        targetStylesPart.Styles.Save();
+
+                        Console.WriteLine($"Successfully replaced styles in: {targetPath}");
+                        Console.WriteLine($"Styles copied from: {sourcePath}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error replacing styles: {ex.Message}");
+            }
+        }
+        
         static void ShowUsage()
         {
             Console.WriteLine("Usage:");
             Console.WriteLine("  dotnet run pack <template-path>");
             Console.WriteLine("  dotnet run unpack <template-path>");
             Console.WriteLine("  dotnet run create <type> [name]");
+            Console.WriteLine("  dotnet run replace-styles <target-doc> <source-doc>");
             Console.WriteLine("  dotnet run test-clean [--tmp] [--out]");
             Console.WriteLine("");
             Console.WriteLine("Create types:");

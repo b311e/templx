@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:fonts xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" mc:Ignorable="w14 w15 w16se w16cid w16 w16cex w16sdtdh">
+  <w:font w:name="Times New Roman">
+    <w:panose1 w:val="02020603050405020304"/>
+    <w:charset w:val="00"/>
+    <w:family w:val="roman"/>
+    <w:pitch w:val="variable"/>
+    <w:sig w:usb0="E0002EFF" w:usb1="C000785B" w:usb2="00000009" w:usb3="00000000" w:csb0="000001FF" w:csb1="00000000"/>
+    <w:embedRegular r:id="rId1" w:fontKey="{4B0BB641-D140-4308-AC17-0E073930A110}"/>
+    <w:embedBold r:id="rId2" w:fontKey="{5D431ACF-D6CD-43D6-8D30-BC20849EA704}"/>
+    <w:embedItalic r:id="rId3" w:fontKey="{E63D1C93-0669-4279-B942-F439A85805BE}"/>
+    <w:embedBoldItalic r:id="rId4" w:fontKey="{B94D78FC-ED3F-40A2-A437-D6AC3527BA52}"/>
+  </w:font>
+  <w:font w:name="Garamond">
+    <w:panose1 w:val="02020404030301010803"/>
+    <w:charset w:val="00"/>
+    <w:family w:val="roman"/>
+    <w:pitch w:val="variable"/>
+    <w:sig w:usb0="00000287" w:usb1="00000000" w:usb2="00000000" w:usb3="00000000" w:csb0="0000009F" w:csb1="00000000"/>
+    <w:embedRegular r:id="rId5" w:fontKey="{6762C47C-1166-4B18-9444-C723C3C24D8D}"/>
+  </w:font>
+  <w:font w:name="Arial">
+    <w:panose1 w:val="020B0604020202020204"/>
+    <w:charset w:val="00"/>
+    <w:family w:val="swiss"/>
+    <w:pitch w:val="variable"/>
+    <w:sig w:usb0="E0002EFF" w:usb1="C000785B" w:usb2="00000009" w:usb3="00000000" w:csb0="000001FF" w:csb1="00000000"/>
+    <w:embedRegular r:id="rId6" w:fontKey="{E1A3FC03-E75B-4419-9949-3F0F3620D795}"/>
+  </w:font>
+  <w:font w:name="Segoe UI">
+    <w:panose1 w:val="020B0502040204020203"/>
+    <w:charset w:val="00"/>
+    <w:family w:val="swiss"/>
+    <w:pitch w:val="variable"/>
+    <w:sig w:usb0="E4002EFF" w:usb1="C000E47F" w:usb2="00000009" w:usb3="00000000" w:csb0="000001FF" w:csb1="00000000"/>
+    <w:embedRegular r:id="rId7" w:fontKey="{D78F9224-9210-4112-AAF4-E469235ADC7B}"/>
+  </w:font>
+  <w:font w:name="Consolas">
+    <w:panose1 w:val="020B0609020204030204"/>
+    <w:charset w:val="00"/>
+    <w:family w:val="modern"/>
+    <w:pitch w:val="fixed"/>
+    <w:sig w:usb0="E00006FF" w:usb1="0000FCFF" w:usb2="00000001" w:usb3="00000000" w:csb0="0000019F" w:csb1="00000000"/>
+    <w:embedRegular r:id="rId8" w:fontKey="{73038577-9610-49BA-9445-4ECBEDC02B14}"/>
+  </w:font>
+</w:fonts>
