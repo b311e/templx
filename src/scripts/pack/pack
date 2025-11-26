@@ -74,15 +74,9 @@ TEMPLATE_NAME="$(basename "$ABS_TEMPLATE_DIR")"
 TEMPLATE_NAME_CLEAN="${TEMPLATE_NAME%_expanded}"
 
 # Choose out directory:
-# - For expanded folders (ending with _expanded) place the out folder beside the expanded dir (parent/out)
-# - Otherwise keep the out folder inside the template directory (templateDir/out)
-if [[ "${TEMPLATE_NAME,,}" == *_expanded ]]; then
-    TEMPLATE_PARENT_DIR="$(dirname "$ABS_TEMPLATE_DIR")"
-    OUT_DIR="$TEMPLATE_PARENT_DIR/out"
-else
-    OUT_DIR="$ABS_TEMPLATE_DIR/out"
-fi
-mkdir -p "$OUT_DIR"
+# Place the output file in the parent directory (one level up from the folder being packed)
+TEMPLATE_PARENT_DIR="$(dirname "$ABS_TEMPLATE_DIR")"
+OUT_DIR="$TEMPLATE_PARENT_DIR"
 
 # Determine extension: prefer xl (.xltx/.xltm) if xl/ exists, otherwise word (.dotx/.dotm)
 EXT="dotx"
