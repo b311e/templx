@@ -1,5 +1,7 @@
 # How to order styles in styles.xml
 
+## Style Order in styles.xml
+
 ```
 Built-in Styles
     Paragraph Styles
@@ -65,3 +67,22 @@ Custom Styles (Template-Specific)
     Table Styles
     Numbering Styles
 ```
+
+## Always Include These Styles
+
+Always include these built-in styles in the styles.xml to make sure they are hidden or placed last (priority 99).
+
+Paragraph Styles:
+- Title (priority 99)
+- Book Title (priority 99)
+- Bibliography (priority 99)
+- List Paragraph (priority 99)
+- Caption (priority 99)
+
+Character Styles:
+- Strong
+- Emphasis
+- Intense Emphasis
+- Subtle Emphasis
+
+

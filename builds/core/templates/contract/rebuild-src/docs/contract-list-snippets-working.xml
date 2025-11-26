@@ -3,6 +3,7 @@
 
 
     <!-- Built-in List Styles - Paragraph (just keeping these in here, not merging back into the styles.xml because i dont think they're needed) -->
+    <!--
     <w:style w:type="paragraph"
              w:styleId="List">
         <w:name w:val="List" />
@@ -64,6 +65,7 @@
             <w:contextualSpacing />
         </w:pPr>
     </w:style>
+-->
 
     <!-- Custom Contract Body List (Numbered) Styles - Numbering -->
     <w:style w:type="numbering"
