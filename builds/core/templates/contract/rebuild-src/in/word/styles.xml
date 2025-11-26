@@ -961,7 +961,11 @@
                         w:unhideWhenUsed="1" />
     </w:latentStyles>
 
-<!-- Built-in Default Styles-->
+<!-- > BUILT IN -->
+
+<!-- >> PARAGRAPH -->
+
+<!-- >>> PARAGRAPH - DEFAULT -->
     <w:style w:type="paragraph"
              w:default="1"
              w:styleId="Normal">
@@ -977,7 +981,7 @@
         <w:unhideWhenUsed />
     </w:style>
 
-<!--Built-in Heading Paragraph Styles-->
+<!-- >>> PARAGRAPH - HEADING -->
     <w:style w:type="paragraph"
              w:styleId="Heading1">
         <w:name w:val="heading 1" />
@@ -1167,7 +1171,7 @@
         </w:rPr>
     </w:style>
 
-<!-- Built-in Body Styles-->
+<!-- >>> PARAGRAPH - BODY -->
     <w:style w:type="paragraph"
              w:styleId="NoSpacing">
         <w:name w:val="No Spacing" />
@@ -1179,8 +1183,83 @@
             <w:contextualSpacing />
         </w:pPr>
     </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="ListParagraph">
+        <w:name w:val="List Paragraph" />
+        <w:basedOn w:val="Normal" />
+        <w:uiPriority w:val="99" />
+        <w:semiHidden />
+    </w:style>
+
+<!-- >>> PARAGRAPH - LIST - BULLET -->
+    <w:style w:type="paragraph" w:styleId="ListBullet">
+        <w:name w:val="List Bullet" />
+        <w:basedOn w:val="ListParagraph" />
+        <w:uiPriority w:val="99" />
+        <w:qFormat />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="1" />
+            </w:numPr>
+            <w:contextualSpacing />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="ListBullet2">
+        <w:name w:val="List Bullet 2" />
+        <w:basedOn w:val="Normal" />
+        <w:uiPriority w:val="99" />
+        <w:semiHidden />
+        <w:pPr>
+            <w:contextualSpacing />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="ListBullet3">
+        <w:name w:val="List Bullet 3" />
+        <w:basedOn w:val="Normal" />
+        <w:uiPriority w:val="99" />
+        <w:semiHidden />
+        <w:pPr>
+            <w:contextualSpacing />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="ListBullet4">
+        <w:name w:val="List Bullet 4" />
+        <w:basedOn w:val="Normal" />
+        <w:uiPriority w:val="99" />
+        <w:semiHidden />
+        <w:pPr>
+            <w:contextualSpacing />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="ListBullet5">
+        <w:name w:val="List Bullet 5" />
+        <w:basedOn w:val="Normal" />
+        <w:uiPriority w:val="99" />
+        <w:semiHidden />
+        <w:pPr>
+            <w:contextualSpacing />
+        </w:pPr>
+    </w:style>
+
+<!-- >>> PARAGRAPH - LIST - NUMBERED -->
+    <w:style w:type="paragraph" w:styleId="ListNumber">
+        <w:name w:val="List Number" />
+        <w:basedOn w:val="ListParagraph" />
+        <w:uiPriority w:val="99" />
+        <w:qFormat />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="2" />
+            </w:numPr>
+            <w:contextualSpacing />
+        </w:pPr>
+    </w:style>
     
-<!-- Built-in Front Matter Styles -->
+<!-- >>> PARAGRAPH - FRONT MATTER -->
     <w:style w:type="paragraph"
              w:styleId="Title">
         <w:name w:val="Title" />
@@ -1224,86 +1303,298 @@
         </w:rPr>
     </w:style>
 
-<!--Built-in List Styles -->
+<!-- >>> PARAGRAPH - CALLOUT -->
     <w:style w:type="paragraph"
-             w:styleId="ListParagraph">
-        <w:name w:val="List Paragraph" />
+             w:styleId="Quote">
+        <w:name w:val="Quote" />
         <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:link w:val="QuoteChar" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:qFormat />
+        <w:pPr>
+            <w:ind w:left="720"
+                   w:right="720" />
+        </w:pPr>
+        <w:rPr>
+            <w:color w:val="404040"
+                     w:themeColor="text1"
+                     w:themeTint="BF" />
+        </w:rPr>
     </w:style>
-    <w:style w:type="paragraph" w:styleId="ListBullet">
-        <w:name w:val="List Bullet" />
-        <w:basedOn w:val="ListParagraph" />
+    <w:style w:type="paragraph"
+             w:styleId="BlockText">
+        <w:name w:val="Block Text" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
         <w:uiPriority w:val="99" />
-        <w:qFormat />
-    </w:style>
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ExhibitL2ListNumbered">
-        <w:name w:val="Exhibit L2 List (Numbered)" />
-        <w:basedOn w:val="ExhibitL1ListNumbered" />
-        <w:uiPriority w:val="23" />
-        <w:qFormat />
-        <w:pPr>        </w:pPr>
-    </w:style>
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ExhibitL3ListNumbered">
-        <w:name w:val="Exhibit L3 List (Numbered)" />
-        <w:basedOn w:val="ExhibitL2ListNumbered" />
-        <w:uiPriority w:val="25" />
-        <w:qFormat />
-        <w:pPr>        </w:pPr>
-    </w:style>
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ExhibitL4ListNumbered">
-        <w:name w:val="Exhibit L4 List (Numbered)" />
-        <w:basedOn w:val="ExhibitL3ListNumbered" />
-        <w:uiPriority w:val="27" />
-        <w:qFormat />
-        <w:pPr>            <w:contextualSpacing />
-        </w:pPr>
-    </w:style>
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ExhibitL2ListBullet">
-        <w:name w:val="Exhibit L2 List (Bullet)" />
-        <w:basedOn w:val="ExhibitL1ListBullet" />
-        <w:uiPriority w:val="23" />
-        <w:qFormat />
+        <w:semiHidden />
         <w:pPr>
-            <w:numPr>
-                <w:ilvl w:val="1" />
-            </w:numPr>
+            <w:pBdr>
+                <w:top w:val="single"
+                       w:sz="8"
+                       w:space="1"
+                       w:color="auto" />
+                <w:left w:val="single"
+                        w:sz="8"
+                        w:space="4"
+                        w:color="auto" />
+                <w:bottom w:val="single"
+                          w:sz="8"
+                          w:space="1"
+                          w:color="auto" />
+                <w:right w:val="single"
+                         w:sz="8"
+                         w:space="4"
+                         w:color="auto" />
+            </w:pBdr>
+            <w:jc w:val="center" />
         </w:pPr>
     </w:style>
+    
+<!-- >>> PARAGRAPH - CAPTION -->
     <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ExhibitL3ListBullet">
-        <w:name w:val="Exhibit L3 List (Bullet)" />
-        <w:basedOn w:val="ExhibitL2ListBullet" />
-        <w:uiPriority w:val="25" />
-        <w:qFormat />
-        <w:pPr>
-            <w:numPr>
-                <w:ilvl w:val="2" />
-            </w:numPr>
-        </w:pPr>
-    </w:style>    
-        <w:style w:type="paragraph" w:styleId="ListNumber">
-        <w:name w:val="List Number" />
-        <w:basedOn w:val="ListParagraph" />
+             w:styleId="Caption">
+        <w:name w:val="caption" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
         <w:uiPriority w:val="99" />
+        <w:semiHidden />
         <w:qFormat />
         <w:pPr>
-            <w:numPr>
-                <w:numId w:val="2" />
-            </w:numPr>
+            <w:contextualSpacing />
+        </w:pPr>
+        <w:rPr>
+            <w:color w:val="44546A"
+                     w:themeColor="text2" />
+            <w:sz w:val="18" />
+        </w:rPr>
+    </w:style>
+
+<!-- >>> PARAGRAPH - TOC -->
+    <w:style w:type="paragraph"
+             w:styleId="TOCHeading">
+        <w:name w:val="TOC Heading" />
+        <w:basedOn w:val="Heading2" />
+        <w:next w:val="Normal" />
+        <w:uiPriority w:val="39" />
+        <w:qFormat />
+        <w:pPr>
+            <w:spacing w:before="240" />
+            <w:outlineLvl w:val="9" />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="TOC1">
+        <w:name w:val="toc 1" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:autoRedefine />
+        <w:uiPriority w:val="39" />
+        <w:pPr>
+            <w:tabs>
+                <w:tab w:val="left"
+                       w:pos="446" />
+                <w:tab w:val="right"
+                       w:leader="dot"
+                       w:pos="9350" />
+            </w:tabs>
             <w:contextualSpacing />
         </w:pPr>
     </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="TOC2">
+        <w:name w:val="toc 2" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:autoRedefine />
+        <w:uiPriority w:val="39" />
+        <w:pPr>
+            <w:ind w:left="216" />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="TOC3">
+        <w:name w:val="toc 3" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:autoRedefine />
+        <w:uiPriority w:val="39" />
+        <w:pPr>
+            <w:ind w:left="446" />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="TOC5">
+        <w:name w:val="toc 5" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:autoRedefine />
+        <w:uiPriority w:val="39" />
+        <w:pPr>
+            <w:ind w:left="878" />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="TOC6">
+        <w:name w:val="toc 6" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:autoRedefine />
+        <w:uiPriority w:val="39" />
+        <w:pPr>
+            <w:ind w:left="1094" />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="TOC7">
+        <w:name w:val="toc 7" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:autoRedefine />
+        <w:uiPriority w:val="39" />
+        <w:pPr>
+            <w:ind w:left="1325" />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="TOC8">
+        <w:name w:val="toc 8" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:autoRedefine />
+        <w:uiPriority w:val="39" />
+        <w:pPr>
+            <w:ind w:left="1541" />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="TOC9">
+        <w:name w:val="toc 9" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:autoRedefine />
+        <w:uiPriority w:val="39" />
+        <w:pPr>
+            <w:ind w:left="1757" />
+        </w:pPr>
+    </w:style>
+
+<!-- >>> PARAGRAPH - HEADER -->
+
+    <w:style w:type="paragraph"
+             w:styleId="Header">
+        <w:name w:val="header" />
+        <w:basedOn w:val="Normal" />
+        <w:link w:val="HeaderChar" />
+        <w:uiPriority w:val="99" />
+        <w:semiHidden />
+        <w:pPr>
+            <w:tabs>
+                <w:tab w:val="center"
+                       w:pos="4680" />
+                <w:tab w:val="right"
+                       w:pos="9360" />
+            </w:tabs>
+            <w:spacing w:after="0" />
+        </w:pPr>
+        <w:rPr>
+            <w:sz w:val="20" />
+        </w:rPr>
+    </w:style>
+
+<!-- >>> PARAGRAPH - FOOTER -->
+
+    <w:style w:type="paragraph"
+             w:styleId="Footer">
+        <w:name w:val="footer" />
+        <w:basedOn w:val="Normal" />
+        <w:link w:val="FooterChar" />
+        <w:uiPriority w:val="99" />
+        <w:unhideWhenUsed />
+        <w:pPr>
+            <w:tabs>
+                <w:tab w:val="center"
+                       w:pos="4680" />
+                <w:tab w:val="right"
+                       w:pos="9360" />
+            </w:tabs>
+            <w:spacing w:after="0" />
+            <w:jc w:val="center" />
+        </w:pPr>
+        <w:rPr>
+            <w:sz w:val="20" />
+        </w:rPr>
+    </w:style>
+
+<!-- PARAGRAPH - OTHER -->
+
+    <w:style w:type="paragraph"
+             w:styleId="Signature">
+        <w:name w:val="Signature" />
+        <w:basedOn w:val="Normal" />
+        <w:link w:val="SignatureChar" />
+        <w:uiPriority w:val="34" />
+        <w:pPr>
+            <w:spacing w:before="480" />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="character"
+             w:customStyle="1"
+             w:styleId="SignatureChar">
+        <w:name w:val="Signature Char" />
+        <w:basedOn w:val="DefaultParagraphFont" />
+        <w:link w:val="Signature" />
+        <w:uiPriority w:val="34" />
+    </w:style>
+
+<!-- >> TABLE -->
+
+    <w:style w:type="table"
+             w:default="1"
+             w:styleId="TableNormal">
+        <w:name w:val="Normal Table" />
+        <w:uiPriority w:val="99" />
+        <w:semiHidden />
+        <w:unhideWhenUsed />
+        <w:tblPr>
+            <w:tblInd w:w="0"
+                      w:type="dxa" />
+            <w:tblCellMar>
+                <w:top w:w="0"
+                       w:type="dxa" />
+                <w:left w:w="108"
+                        w:type="dxa" />
+                <w:bottom w:w="0"
+                          w:type="dxa" />
+                <w:right w:w="108"
+                         w:type="dxa" />
+            </w:tblCellMar>
+        </w:tblPr>
+    </w:style>
+
+
+<!-- > CUSTOM -->
+
+<!-- >> PARAGRAPH -->
+
+<!-- PARAGRAPH - BODY -->
+
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="SpaceBefore">
+        <w:name w:val="Space Before" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:uiPriority w:val="2" />
+        <w:pPr>
+            <w:spacing w:before="240" />
+        </w:pPr>
+    </w:style>
+
+<!-- >>> PARAGRAPH - LIST - BULLET -->
+
     <w:style w:type="paragraph" w:customStyle="1" w:styleId="SpacingListBullet">
         <w:name w:val="List Bullet Spacing" />
         <w:basedOn w:val="ListBullet" />
@@ -1313,7 +1604,21 @@
             <w:contextualSpacing w:val="0" />
         </w:pPr>
     </w:style>
-                <w:style w:type="paragraph" w:customStyle="1" w:styleId="SpacingListNumber">
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="SpaceAfter">
+        <w:name w:val="Space After" />
+        <w:basedOn w:val="Normal" />
+        <w:uiPriority w:val="2" />
+        <w:qFormat />
+        <w:pPr>
+            <w:spacing w:after="240" />
+        </w:pPr>
+    </w:style>
+
+<!-- >>> PARAGRAPH - LIST - NUMBERED -->
+  
+    <w:style w:type="paragraph" w:customStyle="1" w:styleId="SpacingListNumber">
         <w:name w:val="List Number Spacing" />
         <w:basedOn w:val="ListNumber" />
         <w:uiPriority w:val="99" />
@@ -1322,145 +1627,50 @@
             <w:contextualSpacing w:val="0" />
         </w:pPr>
     </w:style>
-    <!-- Custom Contract Body List (Numbered) Styles - Numbering -->
-    <w:style w:type="numbering"
+
+<!-- >>> PARAGRAPH - OTHER -->
+   
+    <w:style w:type="paragraph"
              w:customStyle="1"
-             w:styleId="ContractL1ListNumberedStyle">
-        <w:name w:val="Contract L1 List (Numbered) Style" />
-        <w:uiPriority w:val="99" />
+             w:styleId="TableTitle">
+        <w:name w:val="Table Title" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:uiPriority w:val="38" />
+        <w:semiHidden />
+        <w:qFormat />
         <w:pPr>
-            <w:numPr>
-                <w:numId w:val="4" />
-            </w:numPr>
+            <w:keepNext />
+            <w:keepLines />
+            <w:contextualSpacing />
+            <w:jc w:val="center" />
         </w:pPr>
+        <w:rPr>
+            <w:b />
+        </w:rPr>
     </w:style>
-    <w:style w:type="numbering"
+
+<!-- >> CHARACTER -->
+
+    <w:style w:type="character"
              w:customStyle="1"
-             w:styleId="ContractL2ListNumberedStyle">
-        <w:name w:val="Contract L2 List (Numbered) Style" />
-        <w:uiPriority w:val="99" />
-        <w:pPr>
-            <w:numPr>
-                <w:numId w:val="5" />
-            </w:numPr>
-        </w:pPr>
-    </w:style>
-    <w:style w:type="numbering"
-             w:customStyle="1"
-             w:styleId="ContractL3ListNumberedStyle">
-        <w:name w:val="Contract L3 List (Numbered) Style" />
-        <w:uiPriority w:val="99" />
-        <w:pPr>
-            <w:numPr>
-                <w:numId w:val="6" />
-            </w:numPr>
-        </w:pPr>
-    </w:style>
-    <w:style w:type="numbering"
-             w:customStyle="1"
-             w:styleId="ContractL4ListNumberedStyle">
-        <w:name w:val="Contract L4 List (Numbered) Style" />
-        <w:uiPriority w:val="99" />
-        <w:pPr>
-            <w:numPr>
-                <w:numId w:val="7" />
-            </w:numPr>
-        </w:pPr>
-    </w:style>
-    <w:style w:type="numbering"
-             w:customStyle="1"
-             w:styleId="ContractL5ListNumberedStyle">
-        <w:name w:val="Contract L5 List (Numbered) Style" />
-        <w:uiPriority w:val="99" />
-        <w:pPr>
-            <w:numPr>
-                <w:numId w:val="8" />
-            </w:numPr>
-        </w:pPr>
+             w:styleId="Underline">
+        <w:name w:val="Underline" />
+        <w:basedOn w:val="DefaultParagraphFont" />
+        <w:uiPriority w:val="34" />
+        <w:qFormat />
+        <w:rPr>
+            <w:u w:val="single" />
+        </w:rPr>
     </w:style>
 
 
-    <!-- Custom Contract Body List (Numbered) Styles - Paragraph -->
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ContractL1ListNumbered">
-        <w:name w:val="Contract L1 List (Numbered)" />
-        <w:basedOn w:val="ListParagraph" />
-        <w:uiPriority w:val="6" />
-        <w:qFormat />
-        <w:pPr>
-            <w:numPr>
-                <w:numId w:val="4" />
-            </w:numPr>
-        </w:pPr>
-    </w:style>
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ContractL2ListNumbered">
-        <w:name w:val="Contract L2 List (Numbered)" />
-        <w:basedOn w:val="ListParagraph" />
-        <w:uiPriority w:val="8" />
-        <w:qFormat />
-        <w:pPr>
-            <w:numPr>
-                <w:numId w:val="5" />
-            </w:numPr>
-        </w:pPr>
-    </w:style>
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ContractL3ListNumbered">
-        <w:name w:val="Contract L3 List (Numbered)" />
-        <w:basedOn w:val="ListParagraph" />
-        <w:uiPriority w:val="10" />
-        <w:qFormat />
-        <w:pPr>
-            <w:numPr>
-                <w:numId w:val="6" />
-            </w:numPr>
-        </w:pPr>
-    </w:style>
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ContractL4ListNumbered">
-        <w:name w:val="Contract L4 List (Numbered)" />
-        <w:basedOn w:val="ListParagraph" />
-        <w:uiPriority w:val="12" />
-        <w:qFormat />
-        <w:pPr>
-            <w:numPr>
-                <w:numId w:val="7" />
-            </w:numPr>
-        </w:pPr>
-    </w:style>
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ContractL5ListNumbered">
-        <w:name w:val="Contract L5 List (Numbered)" />
-        <w:basedOn w:val="ListParagraph" />
-        <w:uiPriority w:val="14" />
-        <w:qFormat />
-        <w:pPr>
-            <w:numPr>
-                <w:numId w:val="8" />
-            </w:numPr>
-        </w:pPr>
-    </w:style>
 
-    <!-- Custom Contract Heading List (Numbered) Styles - Numbering -->
-    <w:style w:type="numbering"
-             w:customStyle="1"
-             w:styleId="ContractHeadingStyle">
-        <w:name w:val="Contract Heading Style" />
-        <w:uiPriority w:val="99" />
-        <w:pPr>
-            <w:numPr>
-                <w:numId w:val="3" />
-            </w:numPr>
-        </w:pPr>
-    </w:style>
+<!-- > CUSTOM (TEMPLATE SPECIFIC) -->
 
-    <!-- Custom Contract Heading List (Numbered) Styles - Paragraph -->
+<!-- >> PARAGRAPH -->
+
+<!-- >>> PARAGRAPH - HEADING - NUMBERED - CONTRACT -->
     <w:style w:type="paragraph"
              w:customStyle="1"
              w:styleId="ContractL1HeadingNumbered">
@@ -1471,7 +1681,7 @@
         <w:qFormat />
         <w:pPr>
             <w:numPr>
-                <w:numId w:val="3" />
+                <w:numId w:val="37" />
             </w:numPr>
             <w:spacing w:before="240" />
             <w:outlineLvl w:val="1" />
@@ -1492,7 +1702,7 @@
         <w:pPr>
             <w:numPr>
                 <w:ilvl w:val="1" />
-                <w:numId w:val="3" />
+                <w:numId w:val="37" />
             </w:numPr>
             <w:spacing w:before="240" />
             <w:outlineLvl w:val="2" />
@@ -1512,7 +1722,7 @@
         <w:pPr>
             <w:numPr>
                 <w:ilvl w:val="2" />
-                <w:numId w:val="3" />
+                <w:numId w:val="37" />
             </w:numPr>
             <w:spacing w:before="240" />
             <w:outlineLvl w:val="3" />
@@ -1532,7 +1742,7 @@
         <w:pPr>
             <w:numPr>
                 <w:ilvl w:val="3" />
-                <w:numId w:val="3" />
+                <w:numId w:val="37" />
             </w:numPr>
             <w:spacing w:before="240" />
             <w:outlineLvl w:val="4" />
@@ -1552,7 +1762,7 @@
         <w:pPr>
             <w:numPr>
                 <w:ilvl w:val="4" />
-                <w:numId w:val="3" />
+                <w:numId w:val="37" />
             </w:numPr>
             <w:spacing w:before="240" />
             <w:outlineLvl w:val="5" />
@@ -1561,25 +1771,126 @@
             <w:b />
         </w:rPr>
     </w:style>
-
-
-
-    <!-- Custom Exhibit List Styles -->
+    
+<!-- >>> PARAGRAPH - HEADING - NUMBERED - EXHIBIT -->
     <w:style w:type="paragraph"
              w:customStyle="1"
-             w:styleId="ExhibitL5ListNumbered">
-        <w:name w:val="Exhibit L5 List (Numbered)" />
-        <w:basedOn w:val="ExhibitL4ListNumbered" />
-        <w:uiPriority w:val="29" />
+             w:styleId="ExhibitL1HeadingNumbered">
+        <w:name w:val="Exhibit L1 Heading (Numbered)" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Exhibit L1 Body" />
+        <w:uiPriority w:val="20" />
         <w:qFormat />
         <w:pPr>
+            <w:keepNext />
+            <w:keepLines />
             <w:numPr>
-                <w:numId w:val="15" />
+                <w:ilvl w:val="1" />
+                <w:numId w:val="38" />
             </w:numPr>
+            <w:suppressAutoHyphens />
+            <w:spacing w:before="240" />
+            <w:outlineLvl w:val="2" />
         </w:pPr>
+        <w:rPr>
+            <w:b />
+            <w:caps />
+        </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ExhibitL2HeadingNumbered">
+        <w:name w:val="Exhibit L2 Heading (Numbered)" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Exhibit L2 Body" />
+        <w:uiPriority w:val="22" />
+        <w:qFormat />
+        <w:pPr>
+            <w:keepNext />
+            <w:keepLines />
+            <w:numPr>
+                <w:ilvl w:val="2" />
+                <w:numId w:val="38" />
+            </w:numPr>
+            <w:suppressAutoHyphens />
+            <w:spacing w:before="240" />
+            <w:outlineLvl w:val="3" />
+        </w:pPr>
+        <w:rPr>
+            <w:b />
+        </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ExhibitL3HeadingNumbered">
+        <w:name w:val="Exhibit L3 Heading (Numbered)" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Exhibit L3 Body" />
+        <w:uiPriority w:val="24" />
+        <w:qFormat />
+        <w:pPr>
+            <w:keepNext />
+            <w:keepLines />
+            <w:numPr>
+                <w:ilvl w:val="3" />
+                <w:numId w:val="38" />
+            </w:numPr>
+            <w:suppressAutoHyphens />
+            <w:spacing w:before="240" />
+            <w:outlineLvl w:val="4" />
+        </w:pPr>
+        <w:rPr>
+            <w:b />
+        </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ExhibitL4HeadingNumbered">
+        <w:name w:val="Exhibit L4 Heading (Numbered)" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Exhibit L4 Body" />
+        <w:uiPriority w:val="26" />
+        <w:qFormat />
+        <w:pPr>
+            <w:keepNext />
+            <w:keepLines />
+            <w:numPr>
+                <w:ilvl w:val="4" />
+                <w:numId w:val="38" />
+            </w:numPr>
+            <w:suppressAutoHyphens />
+            <w:spacing w:before="240" />
+            <w:outlineLvl w:val="5" />
+        </w:pPr>
+        <w:rPr>
+            <w:b />
+        </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ExhibitL5HeadingNumbered">
+        <w:name w:val="Exhibit L5 Heading (Numbered)" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Exhibit L5 Body" />
+        <w:uiPriority w:val="28" />
+        <w:qFormat />
+        <w:pPr>
+            <w:keepNext />
+            <w:keepLines />
+            <w:numPr>
+                <w:ilvl w:val="5" />
+                <w:numId w:val="38" />
+            </w:numPr>
+            <w:suppressAutoHyphens />
+            <w:spacing w:before="240" />
+            <w:outlineLvl w:val="6" />
+        </w:pPr>
+        <w:rPr>
+            <w:b />
+        </w:rPr>
     </w:style>
 
-    <!-- Custom Contract Body Styles (no list) - Paragraph-->
+<!-- >>> PARAGRAPH - BODY - CONTRACT -->
     <w:style w:type="paragraph"
              w:customStyle="1"
              w:styleId="ContractL1Body">
@@ -1636,141 +1947,7 @@
         </w:pPr>
     </w:style>
 
-<!-- Exhibit Styles-->
-
-<!-- Custom Exhibit Heading (Numbered) Styles - Numbering -->
-<!-- There should only be one -->
-    <w:style w:type="numbering"
-             w:customStyle="1"
-             w:styleId="ExhibitHeadingStyle">
-        <w:name w:val="Exhibit Heading Style" />
-        <w:uiPriority w:val="99" />
-        <w:pPr>
-            <w:numPr>
-                <w:numId w:val="9" />
-            </w:numPr>
-        </w:pPr>
-    </w:style>
-<!-- Custom Exhibit Heading (Numbered) Styles - Paragraph -->
-<!-- There should be five (L1 - L5) -->
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ExhibitL1HeadingNumbered">
-        <w:name w:val="Exhibit L1 Heading (Numbered)" />
-        <w:basedOn w:val="Normal" />
-        <w:next w:val="Exhibit L1 Body" />
-        <w:uiPriority w:val="20" />
-        <w:qFormat />
-        <w:pPr>
-            <w:keepNext />
-            <w:keepLines />
-            <w:numPr>
-                <w:ilvl w:val="1" />
-                <w:numId w:val="9" />
-            </w:numPr>
-            <w:suppressAutoHyphens />
-            <w:spacing w:before="240" />
-            <w:outlineLvl w:val="2" />
-        </w:pPr>
-        <w:rPr>
-            <w:b />
-            <w:caps />
-        </w:rPr>
-    </w:style>
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ExhibitL2HeadingNumbered">
-        <w:name w:val="Exhibit L2 Heading (Numbered)" />
-        <w:basedOn w:val="Normal" />
-        <w:next w:val="Exhibit L2 Body" />
-        <w:uiPriority w:val="22" />
-        <w:qFormat />
-        <w:pPr>
-            <w:keepNext />
-            <w:keepLines />
-            <w:numPr>
-                <w:ilvl w:val="2" />
-                <w:numId w:val="9" />
-            </w:numPr>
-            <w:suppressAutoHyphens />
-            <w:spacing w:before="240" />
-            <w:outlineLvl w:val="3" />
-        </w:pPr>
-        <w:rPr>
-            <w:b />
-        </w:rPr>
-    </w:style>
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ExhibitL3HeadingNumbered">
-        <w:name w:val="Exhibit L3 Heading (Numbered)" />
-        <w:basedOn w:val="Normal" />
-        <w:next w:val="Exhibit L3 Body" />
-        <w:uiPriority w:val="24" />
-        <w:qFormat />
-        <w:pPr>
-            <w:keepNext />
-            <w:keepLines />
-            <w:numPr>
-                <w:ilvl w:val="3" />
-                <w:numId w:val="9" />
-            </w:numPr>
-            <w:suppressAutoHyphens />
-            <w:spacing w:before="240" />
-            <w:outlineLvl w:val="4" />
-        </w:pPr>
-        <w:rPr>
-            <w:b />
-        </w:rPr>
-    </w:style>
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ExhibitL4HeadingNumbered">
-        <w:name w:val="Exhibit L4 Heading (Numbered)" />
-        <w:basedOn w:val="Normal" />
-        <w:next w:val="Exhibit L4 Body" />
-        <w:uiPriority w:val="26" />
-        <w:qFormat />
-        <w:pPr>
-            <w:keepNext />
-            <w:keepLines />
-            <w:numPr>
-                <w:ilvl w:val="4" />
-                <w:numId w:val="9" />
-            </w:numPr>
-            <w:suppressAutoHyphens />
-            <w:spacing w:before="240" />
-            <w:outlineLvl w:val="5" />
-        </w:pPr>
-        <w:rPr>
-            <w:b />
-        </w:rPr>
-    </w:style>
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ExhibitL5HeadingNumbered">
-        <w:name w:val="Exhibit L5 Heading (Numbered)" />
-        <w:basedOn w:val="Normal" />
-        <w:next w:val="Exhibit L5 Body" />
-        <w:uiPriority w:val="28" />
-        <w:qFormat />
-        <w:pPr>
-            <w:keepNext />
-            <w:keepLines />
-            <w:numPr>
-                <w:ilvl w:val="5" />
-                <w:numId w:val="9" />
-            </w:numPr>
-            <w:suppressAutoHyphens />
-            <w:spacing w:before="240" />
-            <w:outlineLvl w:val="6" />
-        </w:pPr>
-        <w:rPr>
-            <w:b />
-        </w:rPr>
-    </w:style>
-
-<!-- Custom Exhibit Body Styles (no numbering) - Paragraph -->
+<!-- >>> PARAGRAPH - BODY - EXHIBIT -->
     <w:style w:type="paragraph"
              w:customStyle="1"
              w:styleId="ExhibitL1Body">
@@ -1827,8 +2004,287 @@
         </w:pPr>
     </w:style>
 
-<!-- Custom Exhibit Body List (Numbered) Styles - Numbering -->
+<!-- >>> PARAGRAPH - LIST - BULLET - EXHIBIT -->
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ExhibitL1ListBullet">
+        <w:name w:val="Exhibit L1 List (Bullet)" />
+        <w:basedOn w:val="ContractL1Body" />
+        <w:uiPriority w:val="22" />
+        <w:qFormat />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="36" />
+            </w:numPr>
+            <w:contextualSpacing />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ExhibitL2ListBullet">
+        <w:name w:val="Exhibit L2 List (Bullet)" />
+        <w:basedOn w:val="ExhibitL1ListBullet" />
+        <w:uiPriority w:val="23" />
+        <w:qFormat />
+        <w:pPr>
+            <w:numPr>
+                <w:ilvl w:val="1" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ExhibitL3ListBullet">
+        <w:name w:val="Exhibit L3 List (Bullet)" />
+        <w:basedOn w:val="ExhibitL2ListBullet" />
+        <w:uiPriority w:val="25" />
+        <w:qFormat />
+        <w:pPr>
+            <w:numPr>
+                <w:ilvl w:val="2" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
 
+<!-- >>> PARAGRAPH - LIST - NUMBERED - CONTRACT -->
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ContractL1ListNumbered">
+        <w:name w:val="Contract L1 List (Numbered)" />
+        <w:basedOn w:val="ListParagraph" />
+        <w:uiPriority w:val="6" />
+        <w:qFormat />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="29" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ContractL2ListNumbered">
+        <w:name w:val="Contract L2 List (Numbered)" />
+        <w:basedOn w:val="ListParagraph" />
+        <w:uiPriority w:val="8" />
+        <w:qFormat />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="30" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ContractL3ListNumbered">
+        <w:name w:val="Contract L3 List (Numbered)" />
+        <w:basedOn w:val="ListParagraph" />
+        <w:uiPriority w:val="10" />
+        <w:qFormat />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="28" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ContractL4ListNumbered">
+        <w:name w:val="Contract L4 List (Numbered)" />
+        <w:basedOn w:val="ListParagraph" />
+        <w:uiPriority w:val="12" />
+        <w:qFormat />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="10" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ContractL5ListNumbered">
+        <w:name w:val="Contract L5 List (Numbered)" />
+        <w:basedOn w:val="ListParagraph" />
+        <w:uiPriority w:val="14" />
+        <w:qFormat />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="31" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+
+<!-- >>> PARAGRAPH - LIST - NUMBERED - EXHIBIT -->
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ExhibitL1ListNumbered">
+        <w:name w:val="Exhibit L1 List (Numbered)" />
+        <w:basedOn w:val="Normal" />
+        <w:uiPriority w:val="22" />
+        <w:qFormat />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="16" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ExhibitL2ListNumbered">
+        <w:name w:val="Exhibit L2 List (Numbered)" />
+        <w:basedOn w:val="ExhibitL1ListNumbered" />
+        <w:uiPriority w:val="23" />
+        <w:qFormat />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="32" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ExhibitL3ListNumbered">
+        <w:name w:val="Exhibit L3 List (Numbered)" />
+        <w:basedOn w:val="ExhibitL2ListNumbered" />
+        <w:uiPriority w:val="25" />
+        <w:qFormat />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="33" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ExhibitL4ListNumbered">
+        <w:name w:val="Exhibit L4 List (Numbered)" />
+        <w:basedOn w:val="ExhibitL3ListNumbered" />
+        <w:uiPriority w:val="27" />
+        <w:qFormat />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="19" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ExhibitL5ListNumbered">
+        <w:name w:val="Exhibit L5 List (Numbered)" />
+        <w:basedOn w:val="ExhibitL4ListNumbered" />
+        <w:uiPriority w:val="29" />
+        <w:qFormat />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="34" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+
+<!-- >>> PARAGRAPH - OTHER -->
+
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="BlankPageDisclaimer">
+        <w:name w:val="Blank Page Disclaimer" />
+        <w:basedOn w:val="Normal" />
+        <w:uiPriority w:val="36" />
+        <w:qFormat />
+        <w:pPr>
+            <w:spacing w:before="480" />
+            <w:jc w:val="center" />
+        </w:pPr>
+        <w:rPr>
+            <w:b />
+            <w:caps />
+        </w:rPr>
+    </w:style>
+
+<!-- > NUMBERING -->
+
+<!-- >> NUMBERING - HEADING - NUMBERED - CONTRACT -->
+    <w:style w:type="numbering"
+             w:customStyle="1"
+             w:styleId="ContractHeadingStyle">
+        <w:name w:val="Contract Heading Style" />
+        <w:uiPriority w:val="99" />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="5" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+
+<!-- >>> NUMBERING - HEADING - NUMBERED - EXHIBIT -->
+    <w:style w:type="numbering"
+             w:customStyle="1"
+             w:styleId="ExhibitHeadingStyle">
+        <w:name w:val="Exhibit Heading Style" />
+        <w:uiPriority w:val="99" />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="14" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+
+<!-- >>> NUMBERING - LIST - NUMBERED - CONTRACT -->
+    <w:style w:type="numbering"
+             w:customStyle="1"
+             w:styleId="ContractL1ListNumberedStyle">
+        <w:name w:val="Contract L1 List (Numbered) Style" />
+        <w:uiPriority w:val="99" />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="6" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+    <w:style w:type="numbering"
+             w:customStyle="1"
+             w:styleId="ContractL2ListNumberedStyle">
+        <w:name w:val="Contract L2 List (Numbered) Style" />
+        <w:uiPriority w:val="99" />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="7" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+    <w:style w:type="numbering"
+             w:customStyle="1"
+             w:styleId="ContractL3ListNumberedStyle">
+        <w:name w:val="Contract L3 List (Numbered) Style" />
+        <w:uiPriority w:val="99" />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="8" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+    <w:style w:type="numbering"
+             w:customStyle="1"
+             w:styleId="ContractL4ListNumberedStyle">
+        <w:name w:val="Contract L4 List (Numbered) Style" />
+        <w:uiPriority w:val="99" />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="9" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+    <w:style w:type="numbering"
+             w:customStyle="1"
+             w:styleId="ContractL5ListNumberedStyle">
+        <w:name w:val="Contract L5 List (Numbered) Style" />
+        <w:uiPriority w:val="99" />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="11" />
+            </w:numPr>
+        </w:pPr>
+    </w:style>
+
+<!-- >>> NUMBERING - LIST - NUMBERED - EXHIBIT -->
     <w:style w:type="numbering"
              w:customStyle="1"
              w:styleId="ExhibitL1ListNumberedStyle">
@@ -1836,7 +2292,7 @@
         <w:uiPriority w:val="99" />
         <w:pPr>
             <w:numPr>
-                <w:numId w:val="10" />
+                <w:numId w:val="15" />
             </w:numPr>
         </w:pPr>
     </w:style>
@@ -1847,7 +2303,7 @@
         <w:uiPriority w:val="99" />
         <w:pPr>
             <w:numPr>
-                <w:numId w:val="11" />
+                <w:numId w:val="17" />
             </w:numPr>
         </w:pPr>
     </w:style>
@@ -1858,7 +2314,7 @@
         <w:uiPriority w:val="99" />
         <w:pPr>
             <w:numPr>
-                <w:numId w:val="12" />
+                <w:numId w:val="18" />
             </w:numPr>
         </w:pPr>
     </w:style>
@@ -1869,7 +2325,7 @@
         <w:uiPriority w:val="99" />
         <w:pPr>
             <w:numPr>
-                <w:numId w:val="13" />
+                <w:numId w:val="19" />
             </w:numPr>
         </w:pPr>
     </w:style>
@@ -1880,30 +2336,12 @@
         <w:uiPriority w:val="99" />
         <w:pPr>
             <w:numPr>
-                <w:numId w:val="14" />
+                <w:numId w:val="20" />
             </w:numPr>
         </w:pPr>
     </w:style>
 
-
-<!-- Custom Exhibit Body List (Numbered) Styles - Paragraph -->
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ExhibitL1ListNumbered">
-        <w:name w:val="Exhibit L1 List (Numbered)" />
-        <w:basedOn w:val="Normal" />
-        <w:uiPriority w:val="22" />
-        <w:qFormat />
-        <w:pPr>
-            <w:numPr>
-                <w:numId w:val="10" />
-            </w:numPr>
-        </w:pPr>
-    </w:style>
-            
-
-
-<!-- Custom Exhibit Body List (Bullet) Style - Numbering -->
+<!-- >>> NUMBERING - LIST - BULLET - EXHIBIT -->
     <w:style w:type="numbering"
              w:customStyle="1"
              w:styleId="ExhibitListBullettyle">
@@ -1911,24 +2349,9 @@
         <w:uiPriority w:val="99" />
         <w:pPr>
             <w:numPr>
-                <w:numId w:val="15" />
+                <w:numId w:val="13" />
             </w:numPr>
         </w:pPr>
     </w:style>
 
-<!-- Custom Exhibit Body List (Bullet) Style - Paragraph -->
-    <w:style w:type="paragraph"
-             w:customStyle="1"
-             w:styleId="ExhibitL1ListBullet">
-        <w:name w:val="Exhibit L1 List (Bullet)" />
-        <w:basedOn w:val="ContractL1Body" />
-        <w:uiPriority w:val="22" />
-        <w:qFormat />
-        <w:pPr>
-            <w:numPr>
-                <w:numId w:val="15" />
-            </w:numPr>
-            <w:contextualSpacing />
-        </w:pPr>
-    </w:style>
-        </w:styles>
+</w:styles>
