@@ -2,6 +2,35 @@
 
 A comprehensive template management system for Colorado General Assembly Microsoft Office templates, including Word (.dotm) and Excel (.xltx) templates with standardized branding and themes.
 
+## Setup on Windows
+
+1. **Install Prerequisites**
+   - [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+   - [Git for Windows](https://git-scm.com/download/win) (includes Git Bash)
+   - Python 3 (optional, only needed for manifest utilities)
+
+2. **Clone Repository**
+   ```bash
+   git clone https://github.com/b311e/coga-template-manager.git
+   cd coga-template-manager
+   ```
+
+3. **Build OpenXML Tools**
+   ```bash
+   dotnet build
+   ```
+
+4. **Set Up Bash Aliases** (in Git Bash)
+   ```bash
+   source src/scripts/setup_aliases.sh
+   ```
+   This adds shortcuts: `pack`, `unpack`, `xpathsel`, `create-template`
+
+5. **Start Working**
+   - Templates are in `builds/<agency>/templates/`
+   - Use `unpack` to extract .dotm files for editing
+   - Use `pack` to rebuild templates after changes
+
 ## Quick Start
 
 ### Prerequisites
