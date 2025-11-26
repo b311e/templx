@@ -33,8 +33,7 @@
              xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml"
              xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
              mc:Ignorable="w14 w15 w16se w16cid w16 w16cex w16sdtdh wp14">
-        <w:abstractNum w:abstractNumId="1" w15:restartNumberingAfterBreak="0">
-
+    <w:abstractNum w:abstractNumId="1" w15:restartNumberingAfterBreak="0">
         <w:nsid w:val="08485B73" />
         <w:multiLevelType w:val="multilevel" />
         <w:lvl w:ilvl="0">
@@ -181,9 +180,8 @@
                 <w:color w:val="auto" />
             </w:rPr>
         </w:lvl>
-        </w:abstractNum>
+    </w:abstractNum>
     <w:abstractNum w:abstractNumId="2" w15:restartNumberingAfterBreak="0">
-
         <w:nsid w:val="1DF57165" />
         <w:multiLevelType w:val="multilevel" />
         <w:lvl w:ilvl="0">
@@ -321,9 +319,8 @@
                 <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
             </w:rPr>
         </w:lvl>
-        </w:abstractNum>
+    </w:abstractNum>
     <w:abstractNum w:abstractNumId="3" w15:restartNumberingAfterBreak="0">
-
         <w:nsid w:val="75DE2875" />
         <w:multiLevelType w:val="multilevel" />
         <w:tmpl w:val="0A1E5C6E" />
@@ -450,9 +447,8 @@
                 <w:rFonts w:hint="default" />
             </w:rPr>
         </w:lvl>
-        </w:abstractNum>
+    </w:abstractNum>
     <w:abstractNum w:abstractNumId="4" w15:restartNumberingAfterBreak="0">
-
         <w:nsid w:val="04E8568E" />
         <w:multiLevelType w:val="multilevel" />
         <w:tmpl w:val="0C348E84" />
@@ -575,9 +571,8 @@
                 <w:rFonts w:hint="default" />
             </w:rPr>
         </w:lvl>
-        </w:abstractNum>
+    </w:abstractNum>
     <w:abstractNum w:abstractNumId="5" w15:restartNumberingAfterBreak="0">
-
         <w:nsid w:val="407806B3" />
         <w:multiLevelType w:val="multilevel" />
         <w:tmpl w:val="21E81CBA" />
@@ -736,9 +731,8 @@
                 <w:rFonts w:hint="default" />
             </w:rPr>
         </w:lvl>
-        </w:abstractNum>
+    </w:abstractNum>
     <w:abstractNum w:abstractNumId="6" w15:restartNumberingAfterBreak="0">
-
         <w:nsid w:val="5F337711" />
         <w:multiLevelType w:val="multilevel" />
         <w:tmpl w:val="E40062A4" />
@@ -897,9 +891,8 @@
                 <w:rFonts w:hint="default" />
             </w:rPr>
         </w:lvl>
-        </w:abstractNum>
+    </w:abstractNum>
     <w:abstractNum w:abstractNumId="7" w15:restartNumberingAfterBreak="0">
-
         <w:nsid w:val="3E83623B" />
         <w:multiLevelType w:val="multilevel" />
         <w:tmpl w:val="FB769060" />
@@ -1058,9 +1051,8 @@
                 <w:rFonts w:hint="default" />
             </w:rPr>
         </w:lvl>
-        </w:abstractNum>
+    </w:abstractNum>
     <w:abstractNum w:abstractNumId="8" w15:restartNumberingAfterBreak="0">
-
         <w:nsid w:val="04A54F45" />
         <w:multiLevelType w:val="multilevel" />
         <w:tmpl w:val="1C50B126" />
@@ -1219,9 +1211,8 @@
                 <w:rFonts w:hint="default" />
             </w:rPr>
         </w:lvl>
-        </w:abstractNum>
+    </w:abstractNum>
     <w:abstractNum w:abstractNumId="9" w15:restartNumberingAfterBreak="0">
-
         <w:nsid w:val="0FA0265C" />
         <w:multiLevelType w:val="multilevel" />
         <w:tmpl w:val="382417BE" />
@@ -1354,9 +1345,8 @@
                 <w:rFonts w:hint="default" />
             </w:rPr>
         </w:lvl>
-        </w:abstractNum>
+    </w:abstractNum>
     <w:abstractNum w:abstractNumId="10" w15:restartNumberingAfterBreak="0">
-
         <w:nsid w:val="509362C1" />
         <w:multiLevelType w:val="multilevel" />
         <w:tmpl w:val="D4DCBA2E" />
@@ -1479,9 +1469,8 @@
                 <w:rFonts w:hint="default" />
             </w:rPr>
         </w:lvl>
-        </w:abstractNum>
+    </w:abstractNum>
     <w:abstractNum w:abstractNumId="11" w15:restartNumberingAfterBreak="0">
-
         <w:nsid w:val="3E6C05A3" />
         <w:multiLevelType w:val="multilevel" />
         <w:tmpl w:val="BB9CF9F6" />
@@ -1640,9 +1629,8 @@
                 <w:rFonts w:hint="default" />
             </w:rPr>
         </w:lvl>
-        </w:abstractNum>
+    </w:abstractNum>
     <w:abstractNum w:abstractNumId="12" w15:restartNumberingAfterBreak="0">
-
         <w:nsid w:val="127074F0" />
         <w:multiLevelType w:val="multilevel" />
         <w:tmpl w:val="687001C2" />
@@ -1801,9 +1789,8 @@
                 <w:rFonts w:hint="default" />
             </w:rPr>
         </w:lvl>
-        </w:abstractNum>
+    </w:abstractNum>
     <w:abstractNum w:abstractNumId="13" w15:restartNumberingAfterBreak="0">
-
         <w:nsid w:val="764F01DC" />
         <w:multiLevelType w:val="multilevel" />
         <w:tmpl w:val="480C644A" />
@@ -1962,9 +1949,8 @@
                 <w:rFonts w:hint="default" />
             </w:rPr>
         </w:lvl>
-        </w:abstractNum>
+    </w:abstractNum>
     <w:abstractNum w:abstractNumId="14" w15:restartNumberingAfterBreak="0">
-
         <w:nsid w:val="777F1D59" />
         <w:multiLevelType w:val="multilevel" />
         <w:tmpl w:val="180AA03C" />
@@ -2123,9 +2109,8 @@
                 <w:rFonts w:hint="default" />
             </w:rPr>
         </w:lvl>
-        </w:abstractNum>
+    </w:abstractNum>
     <w:abstractNum w:abstractNumId="15" w15:restartNumberingAfterBreak="0">
-
         <w:nsid w:val="664B0764" />
         <w:multiLevelType w:val="multilevel" />
         <w:tmpl w:val="2E0874EC" />
@@ -2261,7 +2246,7 @@
                 <w:rFonts w:hint="default" />
             </w:rPr>
         </w:lvl>
-        </w:abstractNum>
+    </w:abstractNum>
     <w:num w:numId="1">
         <w:abstractNumId w:val="1" />
     </w:num>
