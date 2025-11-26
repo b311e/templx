@@ -1196,6 +1196,7 @@
         <w:name w:val="List Bullet" />
         <w:basedOn w:val="ListParagraph" />
         <w:uiPriority w:val="99" />
+        <w:semiHidden />
         <w:qFormat />
         <w:pPr>
             <w:numPr>
@@ -1250,6 +1251,7 @@
         <w:name w:val="List Number" />
         <w:basedOn w:val="ListParagraph" />
         <w:uiPriority w:val="99" />
+        <w:semiHidden />
         <w:qFormat />
         <w:pPr>
             <w:numPr>
@@ -1599,6 +1601,7 @@
         <w:name w:val="List Bullet Spacing" />
         <w:basedOn w:val="ListBullet" />
         <w:uiPriority w:val="99" />
+        <w:semiHidden />
         <w:qFormat />
         <w:pPr>
             <w:contextualSpacing w:val="0" />
@@ -1622,6 +1625,7 @@
         <w:name w:val="List Number Spacing" />
         <w:basedOn w:val="ListNumber" />
         <w:uiPriority w:val="99" />
+        <w:semiHidden />
         <w:qFormat />
         <w:pPr>
             <w:contextualSpacing w:val="0" />
@@ -1669,6 +1673,38 @@
 <!-- > CUSTOM (TEMPLATE SPECIFIC) -->
 
 <!-- >> PARAGRAPH -->
+
+<!-- >>> PARAGRAPH - HEADING -->
+
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="ExhibitTitle">
+        <w:name w:val="Exhibit Title" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="ContractL1HeadingNumbered" />
+        <w:uiPriority w:val="19" />
+        <w:qFormat />
+        <w:pPr>
+            <w:keepNext />
+            <w:pageBreakBefore />
+            <w:numPr>
+                <w:numId w:val="38" />
+            </w:numPr>
+            <w:pBdr>
+                <w:bottom w:val="single"
+                          w:sz="4"
+                          w:space="1"
+                          w:color="auto" />
+            </w:pBdr>
+            <w:spacing w:after="240" />
+            <w:contextualSpacing />
+            <w:outlineLvl w:val="1" />
+        </w:pPr>
+        <w:rPr>
+            <w:b />
+            <w:caps />
+        </w:rPr>
+    </w:style>
 
 <!-- >>> PARAGRAPH - HEADING - NUMBERED - CONTRACT -->
     <w:style w:type="paragraph"
