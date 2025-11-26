@@ -22,7 +22,7 @@ A comprehensive template management system for Colorado General Assembly Microso
 
 4. **Set Up Bash Aliases** (in Git Bash)
    ```bash
-   source src/scripts/setup_aliases.sh
+   source src/scripts/setup_aliases/setup_aliases.sh
    ```
    This adds shortcuts: `pack`, `unpack`, `xpathsel`, `create-template`
 
