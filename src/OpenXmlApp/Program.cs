@@ -6,6 +6,7 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using Excel = DocumentFormat.OpenXml.Spreadsheet;
 using System.IO.Compression;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace OpenXmlApp
 {
@@ -37,8 +38,14 @@ namespace OpenXmlApp
                 case "replace-styles":
                     HandleReplaceStyles(args);
                     break;
+                case "replace-styles-from-snippet":
+                    HandleReplaceStylesFromSnippet(args);
+                    break;
                 case "test-clean":
                     HandleTestClean(args);
+                    break;
+                case "validate":
+                    HandleValidate(args);
                     break;
                 default:
                     Console.WriteLine($"Unknown command: {command}");
@@ -475,6 +482,200 @@ namespace OpenXmlApp
                 Console.WriteLine($"Error replacing styles: {ex.Message}");
             }
         }
+
+        static void HandleReplaceStylesFromSnippet(string[] args)
+        {
+            if (args.Length < 3)
+            {
+                Console.WriteLine("Usage: replace-styles-from-snippet <target-doc> <snippet-file> <snippet-id>");
+                Console.WriteLine("  target-doc: Document that will have styles replaced (will be modified)");
+                Console.WriteLine("  snippet-file: XML file containing style snippets");
+                Console.WriteLine("  snippet-id: ID of the snippet to use (e.g., 'listStylesDefault')");
+                Console.WriteLine("");
+                Console.WriteLine("Example:");
+                Console.WriteLine("  replace-styles-from-snippet target.docx core/partials/styles/list-styles.xml listStylesDefault");
+                return;
+            }
+
+            string targetPath = args[1];
+            string snippetFile = args[2];
+            string snippetId = args.Length > 3 ? args[3] : null;
+
+            if (!File.Exists(targetPath))
+            {
+                Console.WriteLine($"Target document not found: {targetPath}");
+                return;
+            }
+
+            if (!File.Exists(snippetFile))
+            {
+                Console.WriteLine($"Snippet file not found: {snippetFile}");
+                return;
+            }
+
+            try
+            {
+                // Load snippet XML
+                XDocument snippetDoc = XDocument.Load(snippetFile);
+                XNamespace w = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
+
+                // Find the snippet element
+                XElement snippetElement = null;
+                if (string.IsNullOrEmpty(snippetId))
+                {
+                    // Use the root snippet if no ID specified
+                    snippetElement = snippetDoc.Root;
+                }
+                else
+                {
+                    // Check if root element has the matching ID
+                    if (snippetDoc.Root?.Attribute("id")?.Value == snippetId)
+                    {
+                        snippetElement = snippetDoc.Root;
+                    }
+                    else
+                    {
+                        // Find snippet by ID in descendants
+                        snippetElement = snippetDoc.Descendants("snippet")
+                            .FirstOrDefault(s => s.Attribute("id")?.Value == snippetId);
+                    }
+                    
+                    if (snippetElement == null)
+                    {
+                        Console.WriteLine($"Snippet with id '{snippetId}' not found in {snippetFile}");
+                        Console.WriteLine($"Available snippet IDs:");
+                        if (snippetDoc.Root?.Attribute("id") != null)
+                        {
+                            Console.WriteLine($"  - {snippetDoc.Root.Attribute("id").Value}");
+                        }
+                        foreach (var s in snippetDoc.Descendants("snippet"))
+                        {
+                            var id = s.Attribute("id")?.Value;
+                            if (id != null)
+                                Console.WriteLine($"  - {id}");
+                        }
+                        return;
+                    }
+                }
+
+                // Extract style elements from snippet
+                var snippetStyles = snippetElement.Elements(w + "style").ToList();
+                
+                if (snippetStyles.Count == 0)
+                {
+                    Console.WriteLine("No styles found in snippet.");
+                    return;
+                }
+
+                Console.WriteLine($"Found {snippetStyles.Count} style(s) in snippet '{snippetId ?? "default"}'");
+
+                using (WordprocessingDocument targetDoc = WordprocessingDocument.Open(targetPath, true))
+                {
+                    StyleDefinitionsPart targetStylesPart = targetDoc.MainDocumentPart?.StyleDefinitionsPart;
+
+                    if (targetStylesPart == null)
+                    {
+                        targetStylesPart = targetDoc.MainDocumentPart.AddNewPart<StyleDefinitionsPart>();
+                        targetStylesPart.Styles = new Styles();
+                        Console.WriteLine("Created new styles part in target document.");
+                    }
+
+                    if (targetStylesPart.Styles == null)
+                    {
+                        targetStylesPart.Styles = new Styles();
+                    }
+
+                    var targetStyles = targetStylesPart.Styles;
+                    int replacedCount = 0;
+                    int addedCount = 0;
+
+                    // Process each style from snippet
+                    foreach (var snippetStyleElement in snippetStyles)
+                    {
+                        string styleId = snippetStyleElement.Attribute(w + "styleId")?.Value;
+                        
+                        if (string.IsNullOrEmpty(styleId))
+                        {
+                            Console.WriteLine("Warning: Skipping style without styleId");
+                            continue;
+                        }
+
+                        // Find existing style in target by styleId
+                        var existingStyle = targetStyles.Elements<Style>()
+                            .FirstOrDefault(s => s.StyleId?.Value == styleId);
+
+                        // Convert XElement to OpenXml Style
+                        string styleXml = snippetStyleElement.ToString();
+                        using (var stringReader = new StringReader(styleXml))
+                        using (var reader = System.Xml.XmlReader.Create(stringReader))
+                        {
+                            reader.MoveToContent();
+                            var newStyle = new Style(reader.ReadOuterXml());
+
+                            if (existingStyle != null)
+                            {
+                                // Remove old style
+                                existingStyle.Remove();
+                                replacedCount++;
+                            }
+                            else
+                            {
+                                addedCount++;
+                            }
+
+                            // Add new style at the end (will reorder later)
+                            targetStyles.AppendChild(newStyle);
+                        }
+                    }
+
+                    // Reorder styles to match snippet order
+                    // Get all styles that came from snippet
+                    var snippetStyleIds = snippetStyles
+                        .Select(s => s.Attribute(w + "styleId")?.Value)
+                        .Where(id => !string.IsNullOrEmpty(id))
+                        .ToList();
+
+                    // Get all current styles
+                    var allStyles = targetStyles.Elements<Style>().ToList();
+                    
+                    // Separate snippet styles from other styles
+                    var snippetStylesInDoc = allStyles
+                        .Where(s => snippetStyleIds.Contains(s.StyleId?.Value))
+                        .OrderBy(s => snippetStyleIds.IndexOf(s.StyleId?.Value))
+                        .ToList();
+                    
+                    var otherStyles = allStyles
+                        .Where(s => !snippetStyleIds.Contains(s.StyleId?.Value))
+                        .ToList();
+
+                    // Clear and rebuild in correct order
+                    targetStyles.RemoveAllChildren<Style>();
+                    
+                    // Add other styles first (maintain their original position)
+                    foreach (var style in otherStyles)
+                    {
+                        targetStyles.AppendChild(style);
+                    }
+                    
+                    // Then add snippet styles in snippet order
+                    foreach (var style in snippetStylesInDoc)
+                    {
+                        targetStyles.AppendChild(style);
+                    }
+
+                    targetStylesPart.Styles.Save();
+
+                    Console.WriteLine($"Successfully processed {replacedCount} replaced, {addedCount} added style(s)");
+                    Console.WriteLine($"Styles from snippet '{snippetId ?? "default"}' applied to: {targetPath}");
+                    Console.WriteLine($"Style order preserved from snippet.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error replacing styles from snippet: {ex.Message}");
+                Console.WriteLine($"Stack trace: {ex.StackTrace}");
+            }
+        }
         
         static void ShowUsage()
         {
@@ -560,6 +761,229 @@ namespace OpenXmlApp
                 {
                     Console.WriteLine($"Error cleaning builds/: {ex.Message}");
                 }
+            }
+        }
+
+        static void HandleValidate(string[] args)
+        {
+            if (args.Length < 2)
+            {
+                Console.WriteLine("Error: File path required");
+                Console.WriteLine("Usage: validate <file-path>");
+                return;
+            }
+
+            string filePath = args[1];
+            
+            if (!File.Exists(filePath))
+            {
+                Console.WriteLine($"Error: File not found: {filePath}");
+                return;
+            }
+
+            string fileDir = Path.GetDirectoryName(Path.GetFullPath(filePath)) ?? Directory.GetCurrentDirectory();
+            string reportsDir = Path.Combine(fileDir, "reports");
+            Directory.CreateDirectory(reportsDir);
+
+            string fileName = Path.GetFileNameWithoutExtension(filePath);
+            string timestamp = DateTime.Now.ToString("yyyyMMdd-HHmmss");
+            string reportPath = Path.Combine(reportsDir, $"{fileName}-validation-{timestamp}.txt");
+
+            try
+            {
+                Console.WriteLine($"Validating: {filePath}");
+                
+                using var writer = new StreamWriter(reportPath);
+                writer.WriteLine("OOXML Validation Report");
+                writer.WriteLine("======================");
+                writer.WriteLine($"File: {Path.GetFileName(filePath)}");
+                writer.WriteLine($"Full Path: {Path.GetFullPath(filePath)}");
+                writer.WriteLine($"Timestamp: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+                writer.WriteLine($"File Size: {new FileInfo(filePath).Length:N0} bytes");
+                writer.WriteLine();
+
+                string ext = Path.GetExtension(filePath).ToLower();
+                bool isValid = true;
+                int errorCount = 0;
+
+                switch (ext)
+                {
+                    case ".docx":
+                    case ".docm":
+                    case ".dotx":
+                    case ".dotm":
+                        errorCount = ValidateWordDocument(filePath, writer);
+                        break;
+                    case ".xlsx":
+                    case ".xlsm":
+                    case ".xltx":
+                    case ".xltm":
+                        errorCount = ValidateExcelDocument(filePath, writer);
+                        break;
+                    case ".pptx":
+                    case ".pptm":
+                    case ".potx":
+                    case ".potm":
+                        errorCount = ValidatePowerPointDocument(filePath, writer);
+                        break;
+                    default:
+                        writer.WriteLine($"ERROR: Unsupported file type: {ext}");
+                        writer.WriteLine("Supported types: .docx, .docm, .dotx, .dotm, .xlsx, .xlsm, .xltx, .xltm, .pptx, .pptm, .potx, .potm");
+                        isValid = false;
+                        errorCount = 1;
+                        break;
+                }
+
+                writer.WriteLine();
+                writer.WriteLine("======================");
+                writer.WriteLine($"Validation {(errorCount == 0 ? "PASSED" : "FAILED")}");
+                writer.WriteLine($"Total Errors: {errorCount}");
+
+                Console.WriteLine($"Validation {(errorCount == 0 ? "PASSED" : "FAILED")} - {errorCount} error(s) found");
+                Console.WriteLine($"Report saved to: {reportPath}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during validation: {ex.Message}");
+                using var writer = File.AppendText(reportPath);
+                writer.WriteLine();
+                writer.WriteLine("CRITICAL ERROR:");
+                writer.WriteLine(ex.ToString());
+            }
+        }
+
+        static int ValidateWordDocument(string filePath, StreamWriter writer)
+        {
+            writer.WriteLine("Document Type: Word");
+            writer.WriteLine();
+
+            try
+            {
+                using var doc = WordprocessingDocument.Open(filePath, false);
+                var validator = new DocumentFormat.OpenXml.Validation.OpenXmlValidator();
+                var errors = validator.Validate(doc).ToList();
+
+                if (errors.Count == 0)
+                {
+                    writer.WriteLine("No validation errors found.");
+                }
+                else
+                {
+                    writer.WriteLine($"Found {errors.Count} validation error(s):");
+                    writer.WriteLine();
+
+                    int errorNum = 1;
+                    foreach (var error in errors)
+                    {
+                        writer.WriteLine($"Error {errorNum++}:");
+                        writer.WriteLine($"  Description: {error.Description}");
+                        writer.WriteLine($"  Error Type: {error.ErrorType}");
+                        writer.WriteLine($"  Part: {error.Part?.Uri}");
+                        writer.WriteLine($"  Path: {error.Path?.XPath}");
+                        if (error.RelatedNode != null)
+                        {
+                            writer.WriteLine($"  Node: {error.RelatedNode.LocalName}");
+                        }
+                        writer.WriteLine();
+                    }
+                }
+
+                return errors.Count;
+            }
+            catch (Exception ex)
+            {
+                writer.WriteLine($"ERROR: Failed to validate Word document: {ex.Message}");
+                return 1;
+            }
+        }
+
+        static int ValidateExcelDocument(string filePath, StreamWriter writer)
+        {
+            writer.WriteLine("Document Type: Excel");
+            writer.WriteLine();
+
+            try
+            {
+                using var doc = SpreadsheetDocument.Open(filePath, false);
+                var validator = new DocumentFormat.OpenXml.Validation.OpenXmlValidator();
+                var errors = validator.Validate(doc).ToList();
+
+                if (errors.Count == 0)
+                {
+                    writer.WriteLine("No validation errors found.");
+                }
+                else
+                {
+                    writer.WriteLine($"Found {errors.Count} validation error(s):");
+                    writer.WriteLine();
+
+                    int errorNum = 1;
+                    foreach (var error in errors)
+                    {
+                        writer.WriteLine($"Error {errorNum++}:");
+                        writer.WriteLine($"  Description: {error.Description}");
+                        writer.WriteLine($"  Error Type: {error.ErrorType}");
+                        writer.WriteLine($"  Part: {error.Part?.Uri}");
+                        writer.WriteLine($"  Path: {error.Path?.XPath}");
+                        if (error.RelatedNode != null)
+                        {
+                            writer.WriteLine($"  Node: {error.RelatedNode.LocalName}");
+                        }
+                        writer.WriteLine();
+                    }
+                }
+
+                return errors.Count;
+            }
+            catch (Exception ex)
+            {
+                writer.WriteLine($"ERROR: Failed to validate Excel document: {ex.Message}");
+                return 1;
+            }
+        }
+
+        static int ValidatePowerPointDocument(string filePath, StreamWriter writer)
+        {
+            writer.WriteLine("Document Type: PowerPoint");
+            writer.WriteLine();
+
+            try
+            {
+                using var doc = PresentationDocument.Open(filePath, false);
+                var validator = new DocumentFormat.OpenXml.Validation.OpenXmlValidator();
+                var errors = validator.Validate(doc).ToList();
+
+                if (errors.Count == 0)
+                {
+                    writer.WriteLine("No validation errors found.");
+                }
+                else
+                {
+                    writer.WriteLine($"Found {errors.Count} validation error(s):");
+                    writer.WriteLine();
+
+                    int errorNum = 1;
+                    foreach (var error in errors)
+                    {
+                        writer.WriteLine($"Error {errorNum++}:");
+                        writer.WriteLine($"  Description: {error.Description}");
+                        writer.WriteLine($"  Error Type: {error.ErrorType}");
+                        writer.WriteLine($"  Part: {error.Part?.Uri}");
+                        writer.WriteLine($"  Path: {error.Path?.XPath}");
+                        if (error.RelatedNode != null)
+                        {
+                            writer.WriteLine($"  Node: {error.RelatedNode.LocalName}");
+                        }
+                        writer.WriteLine();
+                    }
+                }
+
+                return errors.Count;
+            }
+            catch (Exception ex)
+            {
+                writer.WriteLine($"ERROR: Failed to validate PowerPoint document: {ex.Message}");
+                return 1;
             }
         }
     }

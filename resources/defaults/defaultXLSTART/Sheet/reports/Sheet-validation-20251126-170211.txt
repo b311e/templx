@@ -1,0 +1,14 @@
+OOXML Validation Report
+======================
+File: Sheet.xltx
+Full Path: C:\code\coga-template-manager\resources\defaults\defaultXLSTART\Sheet\Sheet.xltx
+Timestamp: 2025-11-26 17:02:11
+File Size: 14,024 bytes
+
+Document Type: Excel
+
+No validation errors found.
+
+======================
+Validation PASSED
+Total Errors: 0

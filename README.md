@@ -145,10 +145,10 @@ Style Utilities
 
 ```bash
 # Style list: Generate style list for template. Automatically saved to the docs folder.
-style --list <path to template folder>
+list-styles <path to template folder>
 
 # Example:
-style --list builds/jbc/workspace/jbcNormal
+list-styles builds/jbc/workspace/jbcNormal
 
 # Replace styles: Copy styles from one Word document to another
 replace-styles <target-doc> <source-doc>
@@ -300,7 +300,7 @@ manifest add-template jbc jbcReport excel-book-template
 - `dist/scripts/workspaceInstallPreProd.bat` - Deploy to PreProd environment
 - `dist/scripts/workspaceDeploy.bat` - Deploy from PreProd to Production
 - `dist/jbc/jbcWorkspace/JBCTemplateInstall.bat` - End-user installation script
-- `style_list list <templateName>` – Generate style list for template. Saves to templateName/docs folder
+- `list-styles <templatePath>` – Generate style list for template. Saves to templatePath/docs folder
 
 ## Template Inventory System
 

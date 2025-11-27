@@ -16,9 +16,11 @@ if [[ ":$PATH:" != *":$BIN_PATH:"* ]]; then
     echo "  unpack <input file name>            - Unpack OpenXML file to 'expanded' folder"
     echo "  pack <sourceDir> <outputFile>       - Pack directory to OpenXML file"
     echo "  replace-styles <target> <source>    - Copy styles from source to target Word doc"
+    echo "  replace-styles-from-snippet <target> <snippet-file> [id] - Replace styles from XML snippet"
     echo "  cleanup-wordml <expanded-dir>       - Automated cleanup of WordprocessingML files"
-    echo "  style_list list <templateName>      - Generate style list for template"
+    echo "  list-styles <templatePath>          - Generate style list for template"
     echo "  manifest <command> [options]        - Manage template manifests and registry"
+    echo "  validate <file-path>                - Validate OOXML files and generate reports"
     echo ""
     echo "Examples:" 
     echo "  create excel-book-template Book"
@@ -26,7 +28,7 @@ if [[ ":$PATH:" != *":$BIN_PATH:"* ]]; then
     echo "  manifest validate"
     echo "  create word-doc-template jbcLetterhead"
     echo "  unpack templates/jbc/jbcBook/src/Book.xltx"
-    echo "  style_list list jbcNormal"
+    echo "  list-styles builds/jbc/workspace/jbcNormal"
 else
     echo "Scripts bin directory already in PATH"
 fi

@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# OOXML Validation Script
+# Usage: validate-ooxml <file-path>
+# Validates Office Open XML documents and saves a report to a "reports" folder
+# in the same directory as the input file.
+
+set -euo pipefail
+
+if [ $# -lt 1 ]; then
+    echo "Usage: validate-ooxml <file-path>"
+    echo "Example: validate-ooxml builds/jbc/workspace/jbcNormal/Normal.dotm"
+    echo ""
+    echo "Supported file types:"
+    echo "  Word: .docx, .docm, .dotx, .dotm"
+    echo "  Excel: .xlsx, .xlsm, .xltx, .xltm"
+    echo "  PowerPoint: .pptx, .pptm, .potx, .potm"
+    exit 1
+fi
+
+# Get the script directory to find the project
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
+OPENXML_APP="$PROJECT_ROOT/src/OpenXmlApp/bin/Debug/net8.0/OpenXmlApp.exe"
+
+FILE_PATH="$1"
+
+# Check if file exists
+if [ ! -f "$FILE_PATH" ]; then
+    echo "Error: File not found: $FILE_PATH"
+    exit 1
+fi
+
+# Check if OpenXmlApp is built
+if [ ! -f "$OPENXML_APP" ]; then
+    echo "OpenXmlApp not found. Building..."
+    cd "$PROJECT_ROOT/src/OpenXmlApp"
+    dotnet build --configuration Debug
+    cd - > /dev/null
+fi
+
+# Run validation
+"$OPENXML_APP" validate "$FILE_PATH"

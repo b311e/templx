@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# List Styles Script
+# Usage: list-styles <templatePath>
+
+set -euo pipefail
+
+if [ $# -eq 0 ]; then
+    echo "Usage: list-styles <templatePath>"
+    echo ""
+    echo "ARGUMENTS:"
+    echo "  templatePath    Path to template directory in format: builds/<agency>/<category>/<templateName>"
+    echo "                  templateName folder should contain in/, out/, src/, etc. folders"
+    echo ""
+    echo "DESCRIPTION:"
+    echo "  Extracts Word styles from templates and generates a style list."
+    echo "  Looks for styles.xml in in/word/ or expanded/word/ subdirectories."
+    echo "  Output is saved to docs/style-list-{templateName}.txt in the template directory."
+    echo ""
+    echo "EXAMPLES:"
+    echo "  list-styles builds/jbc/workspace/jbcNormal"
+    exit 1
+fi
+
+# Get the script directory to find the style script
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+STYLE_SCRIPT="$SCRIPT_DIR/style/style"
+
+# Call the existing style script with --list
+"$STYLE_SCRIPT" --list "$1"
