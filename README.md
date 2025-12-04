@@ -95,11 +95,9 @@ coga-template-manager/
 │   └── scripts/              # Bash utility scripts (pack, unpack, create)
 ```
 
-
 ## Usage
 
-
-### Working with Templates
+### Pack & Unpack
 
 Work on templates under the `build` directory.
 
@@ -114,6 +112,8 @@ pack <expanded_folder> [output file name]
 create <type> [output file name]
 
 ```
+
+### Create New Templates
 
 **Create types:**
 
@@ -141,7 +141,7 @@ cp core/workspace/book/Book.xltx builds/jbc/workspace/jbcBook/src/Book.xltx
 cp dist/jbc/workspace/jbcBook/Book.xltx builds/jbc/workspace/jbcBook/src/Book.xltx
 ```
 
-Style Utilities
+### Style Utilities
 
 ```bash
 # Style list: Generate style list for template. Automatically saved to the docs folder.
@@ -174,6 +174,7 @@ dotnet run --project src/OpenXmlApp replace-styles <target_doc> <source_doc>
 ```
 
 ### Adding a New Template
+
 1. **Create builds folder structure**:
    ```bash
    # Create src, out, in, and docs folder for the JBC Letterhead template
@@ -211,7 +212,7 @@ Work on templates within the appropriate `builds` directory.
    unpack builds/jbc/workspace/jbcBook/src/Book.xltx
    ```
 
-3. Make updates to expanded files within the `in` folder.
+3. **Make changes:** Make updates to expanded files within the `in` folder.
 
 4. Once updates are complete and ready for testing, pack the files and store in the `out` folder.
 
@@ -219,7 +220,7 @@ Work on templates within the appropriate `builds` directory.
    pack builds/jbc/workspace/jbcBook/in
    ```
 
-5. Right click on the compiled file, select "Validate OOXML", then review the report. Repeat steps 1-4 as necessary.
+5. **Validate:** Right click on the compiled file, select "Validate OOXML", then review the report. Repeat steps 1-4 as necessary.
 
 6. Download the file in the `out` folder and test on your local device in Microsoft Word, Excel, or PowerPoint.
 
@@ -243,14 +244,6 @@ dotnet run --project src/OpenXmlApp/OpenXmlApp.csproj create excel-sheet-templat
 ```bash
 dotnet run --project src/OpenXmlApp/OpenXmlApp.csproj create xl-template builds/jbc/workspace/jbcNormal/out/NewSpreadsheet.xltx
 ```
-
-- If you don't see the created file:
-   - Confirm the command printed `Created: <filename>` in its output.
-   - Check the current directory (run `pwd` / `ls -la`) — the file will be there unless you gave a path.
-   - Ensure you have write permissions to the directory and sufficient disk space.
-   - If `dotnet run` failed to build the project, inspect the error messages from `dotnet` and run `dotnet build` to surface compile-time errors.
-
-- Future/optional improvement: the tool could be extended to auto-place created files into the `builds/{agency}/.../out` folder based on your current path. If you'd like that behavior, I can add it.
 
 ## Template Registry & Manifests
 

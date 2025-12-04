@@ -18,7 +18,7 @@
                   w:grammar="clean" />
     <w:stylePaneFormatFilter w:val="D024"
                              w:allStyles="0"
-                             w:customStyles="0"
+                              w:customStyles="0"
                              w:latentStyles="1"
                              w:stylesInUse="0"
                              w:headingStyles="1"

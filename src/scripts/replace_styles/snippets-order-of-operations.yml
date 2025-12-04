@@ -1,4 +1,4 @@
-# Simple YAML Template
+# This is not in use yet
 name: snippets-order-of-operations
 version: 1.0.0
 description: The order snippets should appear in the target file.
