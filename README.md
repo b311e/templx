@@ -113,9 +113,8 @@ Snippet Ids should be unique, camel case, and follow this naming convention:
 #### Style IDs
 
 Style IDs is the unique name of a style within a word doc's `styles.xml`. 
-- Style IDs never include spaces or special characters. 
+- Style IDs never include spaces or special characters.
 - Note: Although xml is case sensitive, the script is not. You do not need to match the case of a Style ID you enter in the command line with the case in the `styles.xml`.
-
 
 
 ### Style Utilities
@@ -131,10 +130,10 @@ styles-list <template-name>
 
 ```bash
 # Import styles: Import styles from one Word document to another
-styles-import <target-doc> <source-doc>
+import-styles <target-doc> <source-doc>
 
 # Import styles from snippet: Import styles from XML snippet to Word document or template
-styles-import-snippet <target-doc> <snippet-id>
+import-snippet-styles <target-doc> <snippet-id>
 ```
 
 ## Project Structure
@@ -289,7 +288,6 @@ manifest-add-template jbc jbcReport excel-book-template
 - `dist/scripts/workspaceInstallPreProd.bat` - Deploy to PreProd environment
 - `dist/scripts/workspaceDeploy.bat` - Deploy from PreProd to Production
 - `dist/jbc/jbcWorkspace/JBCTemplateInstall.bat` - End-user installation script
-- `styles-list <templatePath>` – Generate style list for template. Saves to templatePath/docs folder
 
 ## Template Inventory System
 

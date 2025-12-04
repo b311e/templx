@@ -1,0 +1,49 @@
+# This is not in use yet
+name: snippets-order-of-operations
+version: 1.0.0
+description: The order snippets should appear in the target file.
+
+
+snippet-id: <scope>-<feature>-<snippet-type>
+
+
+scope:
+  - core
+  - hou
+  - sen
+  - jbc
+  - lcs
+  - olls
+  - osa
+
+---
+
+# style-types are in the order they originally appear in the default Word Normal.dotm
+style-types:
+  - paragraph
+  - character
+  - table
+  - numbering
+
+default:
+  - docDefault
+  - paragraphDefault
+  - characterDefault
+  - tableDefault
+  - numberingDefault
+paragraph:
+  heading:
+  body:
+  front-matter:
+  list:
+  callout:
+  caption:
+  toc:
+  index:
+  header:
+  footer:
+  letter:
+  other:
+character:
+table:
+numbering:

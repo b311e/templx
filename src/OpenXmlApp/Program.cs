@@ -35,11 +35,13 @@ namespace OpenXmlApp
                 case "create":
                     HandleCreate(args);
                     break;
-                case "styles-import":
+                case "import-styles":
+                case "styles-import":  // Keep for backward compatibility
                 case "replace-styles":  // Keep for backward compatibility
                     HandleReplaceStyles(args);
                     break;
-                case "styles-import-snippet":
+                case "import-snippet-styles":
+                case "styles-import-snippet":  // Keep for backward compatibility
                 case "replace-styles-from-snippet":  // Keep for backward compatibility
                     HandleReplaceStylesFromSnippet(args);
                     break;
@@ -426,7 +428,7 @@ namespace OpenXmlApp
         {
             if (args.Length < 3)
             {
-                Console.WriteLine("Usage: styles-import <target-doc> <source-doc>");
+                Console.WriteLine("Usage: import-styles <target-doc> <source-doc>");
                 Console.WriteLine("  target-doc: Document that will receive new styles (will be modified)");
                 Console.WriteLine("  source-doc: Document with styles to copy from (read-only)");
                 return;
@@ -489,13 +491,13 @@ namespace OpenXmlApp
         {
             if (args.Length < 3)
             {
-                Console.WriteLine("Usage: styles-import-snippet <target-doc> <snippet-file> <snippet-id>");
+                Console.WriteLine("Usage: import-snippet-styles <target-doc> <snippet-file> <snippet-id>");
                 Console.WriteLine("  target-doc: Document that will receive styles (will be modified)");
                 Console.WriteLine("  snippet-file: XML file containing style snippets");
                 Console.WriteLine("  snippet-id: ID of the snippet to use (e.g., 'listStylesDefault')");
                 Console.WriteLine("");
                 Console.WriteLine("Example:");
-                Console.WriteLine("  styles-import-snippet target.docx core/partials/styles/list-styles.xml listStylesDefault");
+                Console.WriteLine("  import-snippet-styles target.docx core/partials/styles/list-styles.xml listStylesDefault");
                 return;
             }
 
@@ -685,8 +687,8 @@ namespace OpenXmlApp
             Console.WriteLine("  dotnet run pack <template-path>");
             Console.WriteLine("  dotnet run unpack <template-path>");
             Console.WriteLine("  dotnet run create <type> [name]");
-            Console.WriteLine("  dotnet run styles-import <target-doc> <source-doc>");
-            Console.WriteLine("  dotnet run styles-import-snippet <target-doc> <snippet-file> [snippet-id]");
+            Console.WriteLine("  dotnet run import-styles <target-doc> <source-doc>");
+            Console.WriteLine("  dotnet run import-snippet-styles <target-doc> <snippet-file> [snippet-id]");
             Console.WriteLine("  dotnet run validate <file-path>");
             Console.WriteLine("  dotnet run test-clean [--tmp] [--out]");
             Console.WriteLine("");

@@ -170,4 +170,78 @@
             <w:sz w:val="24" />
         </w:rPr>
     </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="Heading7">
+        <w:name w:val="heading 7" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:semiHidden />
+        <w:uiPriority w:val="99" />
+        <w:pPr>
+            <w:keepNext />
+            <w:keepLines />
+            <w:spacing w:before="40"
+                       w:after="0" />
+            <w:outlineLvl w:val="6" />
+        </w:pPr>
+        <w:rPr>
+            <w:rFonts w:asciiTheme="majorHAnsi"
+                      w:eastAsiaTheme="majorEastAsia"
+                      w:hAnsiTheme="majorHAnsi"
+                      w:csTheme="majorBidi" />
+            <w:b />
+            <w:color w:val="41597C"
+                     w:themeColor="accent1" />
+        </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="Heading8">
+        <w:name w:val="heading 8" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:semiHidden />
+        <w:uiPriority w:val="99" />
+        <w:pPr>
+            <w:keepNext />
+            <w:keepLines />
+            <w:spacing w:before="40"
+                       w:after="0" />
+            <w:outlineLvl w:val="7" />
+        </w:pPr>
+        <w:rPr>
+            <w:rFonts w:asciiTheme="majorHAnsi"
+                      w:eastAsiaTheme="majorEastAsia"
+                      w:hAnsiTheme="majorHAnsi"
+                      w:csTheme="majorBidi" />
+            <w:b />
+            <w:color w:val="41597C"
+                     w:themeColor="accent1" />
+            <w:sz w:val="21" />
+        </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:styleId="Heading9">
+        <w:name w:val="heading 9" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:semiHidden />
+        <w:uiPriority w:val="99" />
+        <w:pPr>
+            <w:keepNext />
+            <w:keepLines />
+            <w:spacing w:before="40"
+                       w:after="0" />
+            <w:outlineLvl w:val="8" />
+        </w:pPr>
+        <w:rPr>
+            <w:rFonts w:asciiTheme="majorHAnsi"
+                      w:eastAsiaTheme="majorEastAsia"
+                      w:hAnsiTheme="majorHAnsi"
+                      w:csTheme="majorBidi" />
+            <w:b />
+            <w:color w:val="41597C"
+                     w:themeColor="accent1" />
+            <w:sz w:val="21" />
+        </w:rPr>
+    </w:style>
 </snippet>

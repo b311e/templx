@@ -1,0 +1,83 @@
+name: styles order
+version: 1.0.0
+description: The order styles should be imported and appear in the target styles.xml.
+
+style-groups:
+  default:
+    - Normal
+    - DefaultParagraphFont
+    - TableNormal
+    - NoList
+  heading:
+    - Heading1
+    - Heading2
+    - Heading3
+    - Heading4
+    - Heading5
+    - Heading6
+    - Heading7
+    - Heading8
+    - Heading9
+  body:
+    - NoSpacing
+    - SpaceBefore
+    - SpaceAfter
+  front-matter:
+    - Pretitle
+    - Subtitle
+  list:
+    - ListBullet
+    - ListBullet2
+    - ListBullet3
+    - ListBullet4
+    - ListBullet5
+    - ListBulletSpacing
+    - ListNumber
+    - ListNumber2
+    - ListNumber3
+    - ListNumber4
+    - ListNumber5
+    - ListNumberSpacing
+  callout:
+    - BlockText
+    - Quote
+    - IntenseQuote
+  caption:
+    - Caption
+    - Source
+  toc:
+    - TOCHeading
+    - TOC1
+    - TOC2
+    - TOC3
+    - TOC4
+    - TOC5
+    - TOC6
+    - TOC7
+    - TOC8
+    - TOC9
+  index:
+  header:
+    - Header
+  footer:
+    - Footer
+    - FootnoteText
+    - FootnoteReference
+  letter:
+    - Date
+    - Address
+    - Signature
+  other:
+    - TableTitle
+  character:
+    - Hyperlink
+    - FollowedHyperlink
+    - Note
+    - Strong
+    - Emphasis
+  table:
+    - TableA
+    - TableB
+  numbering:
+    - ListBulletStyle
+    - ListNumberStyle
