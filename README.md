@@ -92,6 +92,31 @@ create <create-type> <output-file-name>
 | `word-template`   | dotx         | Document Template                    |
 | `word-mtemplate`  | dotm         | Macro-enabled Document Template      |
 
+### Create New Snippets
+
+Use the `create-snippet-styles` command to create new snippet files from a word doc or template.
+
+```bash
+create-snippet-styles <source-expanded-folder> <snippet-id> <style-id>,<style-id>
+```
+
+#### Snippet IDs
+
+Snippet Ids should be unique, camel case, and follow this naming convention: 
+`[scope][Template][StyleGroup][SnippetType]`.
+
+   - `scope` = core or agency (jbc, olls, lcs, etc.)
+   - `Template` = The name of the template the snippet comes from, without the agency (e.g., Normal, AuditReport, etc.).
+   - `StyleGroup` = The group the style belongs to. See snippets-order-of-operations.yaml (this file will be updated and moved in the future.)
+   - `SnippetType` = The type of snippet it is (styles, numbering, etc.)
+
+#### Style IDs
+
+Style IDs is the unique name of a style within a word doc's `styles.xml`. 
+- Style IDs never include spaces or special characters. 
+- Note: Although xml is case sensitive, the script is not. You do not need to match the case of a Style ID you enter in the command line with the case in the `styles.xml`.
+
+
 
 ### Style Utilities
 
