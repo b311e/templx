@@ -11,25 +11,27 @@
             xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex"
             xmlns:sl="http://schemas.openxmlformats.org/schemaLibrary/2006/main"
             mc:Ignorable="w14 w15 w16se">
-    <w:zoom w:percent="110" />
+    <w:zoom w:percent="100" />
     <w:embedTrueTypeFonts />
     <w:embedSystemFonts />
-    <w:stylePaneFormatFilter w:val="5424"
+    <w:proofState w:spelling="clean"
+                  w:grammar="clean" />
+    <w:stylePaneFormatFilter w:val="D024"
                              w:allStyles="0"
                              w:customStyles="0"
                              w:latentStyles="1"
                              w:stylesInUse="0"
                              w:headingStyles="1"
-                             w:numberingStyles="1"
-                             w:tableStyles="1"
+                             w:numberingStyles="0"
+                             w:tableStyles="0"
                              w:directFormattingOnRuns="0"
                              w:directFormattingOnParagraphs="0"
-                             w:directFormattingOnNumbering="1"
+                             w:directFormattingOnNumbering="0"
                              w:directFormattingOnTables="0"
                              w:clearFormatting="1"
                              w:top3HeadingStyles="0"
                              w:visibleStyles="1"
-                             w:alternateStyleNames="0" />                             
+                             w:alternateStyleNames="1" />
     <w:defaultTabStop w:val="720" />
     <w:characterSpacingControl w:val="doNotCompress" />
     <w:compat>

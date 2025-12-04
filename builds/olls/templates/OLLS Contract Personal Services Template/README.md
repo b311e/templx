@@ -95,3 +95,38 @@ Deleted Styles
         </w:pPr>
     </w:style>
 ```
+
+Removed these num Id's
+
+ListNumber2
+
+```
+            <w:numPr>
+                <w:numId w:val="24" />
+            </w:numPr>
+```
+
+ListNumber3
+
+```
+            <w:numPr>
+                <w:numId w:val="25" />
+            </w:numPr>
+```
+
+ListNumber4
+
+```
+            <w:numPr>
+                <w:numId w:val="26" />
+            </w:numPr>
+
+```
+
+ListNumber5
+
+```
+            <w:numPr>
+                <w:numId w:val="27" />
+            </w:numPr>
+```

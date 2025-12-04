@@ -1,0 +1,133 @@
+OOXML Validation Report
+======================
+File: OLLS Contract Personal Services Template.dotm
+Full Path: C:\code\coga-template-manager\builds\olls\templates\OLLS Contract Personal Services Template\out\OLLS Contract Personal Services Template.dotm
+Timestamp: 2025-12-03 18:10:43
+File Size: 3,943,422 bytes
+
+Document Type: Word
+
+Found 19 validation error(s):
+
+Error 1:
+  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:keepNext'.
+  Error Type: Schema
+  Part: /word/styles.xml
+  Path: /w:styles[1]/w:style[67]/w:pPr[1]
+  Node: keepNext
+
+Error 2:
+  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:keepNext'.
+  Error Type: Schema
+  Part: /word/styles.xml
+  Path: /w:styles[1]/w:style[66]/w:pPr[1]
+  Node: keepNext
+
+Error 3:
+  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:keepNext'.
+  Error Type: Schema
+  Part: /word/styles.xml
+  Path: /w:styles[1]/w:style[65]/w:pPr[1]
+  Node: keepNext
+
+Error 4:
+  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:keepNext'.
+  Error Type: Schema
+  Part: /word/styles.xml
+  Path: /w:styles[1]/w:style[64]/w:pPr[1]
+  Node: keepNext
+
+Error 5:
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:allStyles' attribute is not declared.
+  Error Type: Schema
+  Part: /word/settings.xml
+  Path: /w:settings[1]/w:stylePaneFormatFilter[1]
+
+Error 6:
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:customStyles' attribute is not declared.
+  Error Type: Schema
+  Part: /word/settings.xml
+  Path: /w:settings[1]/w:stylePaneFormatFilter[1]
+
+Error 7:
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:latentStyles' attribute is not declared.
+  Error Type: Schema
+  Part: /word/settings.xml
+  Path: /w:settings[1]/w:stylePaneFormatFilter[1]
+
+Error 8:
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:stylesInUse' attribute is not declared.
+  Error Type: Schema
+  Part: /word/settings.xml
+  Path: /w:settings[1]/w:stylePaneFormatFilter[1]
+
+Error 9:
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:headingStyles' attribute is not declared.
+  Error Type: Schema
+  Part: /word/settings.xml
+  Path: /w:settings[1]/w:stylePaneFormatFilter[1]
+
+Error 10:
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:numberingStyles' attribute is not declared.
+  Error Type: Schema
+  Part: /word/settings.xml
+  Path: /w:settings[1]/w:stylePaneFormatFilter[1]
+
+Error 11:
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:tableStyles' attribute is not declared.
+  Error Type: Schema
+  Part: /word/settings.xml
+  Path: /w:settings[1]/w:stylePaneFormatFilter[1]
+
+Error 12:
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:directFormattingOnRuns' attribute is not declared.
+  Error Type: Schema
+  Part: /word/settings.xml
+  Path: /w:settings[1]/w:stylePaneFormatFilter[1]
+
+Error 13:
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:directFormattingOnParagraphs' attribute is not declared.
+  Error Type: Schema
+  Part: /word/settings.xml
+  Path: /w:settings[1]/w:stylePaneFormatFilter[1]
+
+Error 14:
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:directFormattingOnNumbering' attribute is not declared.
+  Error Type: Schema
+  Part: /word/settings.xml
+  Path: /w:settings[1]/w:stylePaneFormatFilter[1]
+
+Error 15:
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:directFormattingOnTables' attribute is not declared.
+  Error Type: Schema
+  Part: /word/settings.xml
+  Path: /w:settings[1]/w:stylePaneFormatFilter[1]
+
+Error 16:
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:clearFormatting' attribute is not declared.
+  Error Type: Schema
+  Part: /word/settings.xml
+  Path: /w:settings[1]/w:stylePaneFormatFilter[1]
+
+Error 17:
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:top3HeadingStyles' attribute is not declared.
+  Error Type: Schema
+  Part: /word/settings.xml
+  Path: /w:settings[1]/w:stylePaneFormatFilter[1]
+
+Error 18:
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:visibleStyles' attribute is not declared.
+  Error Type: Schema
+  Part: /word/settings.xml
+  Path: /w:settings[1]/w:stylePaneFormatFilter[1]
+
+Error 19:
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:alternateStyleNames' attribute is not declared.
+  Error Type: Schema
+  Part: /word/settings.xml
+  Path: /w:settings[1]/w:stylePaneFormatFilter[1]
+
+
+======================
+Validation FAILED
+Total Errors: 19
