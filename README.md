@@ -98,8 +98,8 @@ create <create-type> <output-file-name>
 #### List Styles
 
 ```bash
-# Style list: Generate style list for template. Automatically saved to the docs folder.
-styles-list <target-doc>
+# Style list: Generate style list for an unpacked template. Automatically saved to the docs folder.
+styles-list <template-name>
 ```
 
 #### Import & Merge Styles
