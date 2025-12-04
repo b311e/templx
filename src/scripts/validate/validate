@@ -6,14 +6,31 @@
 
 set -euo pipefail
 
-if [ $# -lt 1 ]; then
-    echo "Usage: validate-ooxml <file-path>"
-    echo "Example: validate-ooxml builds/jbc/workspace/jbcNormal/Normal.dotm"
+if [[ "$1" == "help" || "$1" == "--help" || "$1" == "-h" ]] 2>/dev/null; then
+    echo "Usage: validate <file-path>"
+    echo ""
+    echo "Validate OpenXML documents against ECMA-376 schema"
+    echo ""
+    echo "Arguments:"
+    echo "  file-path  - Path to OpenXML file to validate"
     echo ""
     echo "Supported file types:"
     echo "  Word: .docx, .docm, .dotx, .dotm"
     echo "  Excel: .xlsx, .xlsm, .xltx, .xltm"
     echo "  PowerPoint: .pptx, .pptm, .potx, .potm"
+    echo ""
+    echo "Output:"
+    echo "  Validation report saved to <file-directory>/reports/<filename>-validation-<timestamp>.txt"
+    echo ""
+    echo "Examples:"
+    echo "  validate builds/jbc/workspace/jbcNormal/out/jbcNormal.dotm"
+    echo "  validate builds/jbc/templates/jbcMemo/out/jbcMemo.dotx"
+    exit 0
+fi
+
+if [ $# -lt 1 ]; then
+    echo "Usage: validate <file-path>"
+    echo "Run 'validate --help' for more information"
     exit 1
 fi
 

@@ -165,9 +165,11 @@ case "$1" in
     generate)
         generate_inventory "$2"
         ;;
-    --help)
+    help|--help|-h)
         show_help
         ;;
     *)
+        show_help
+        ;;
 esac
 

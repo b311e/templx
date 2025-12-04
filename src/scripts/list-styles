@@ -4,20 +4,27 @@
 
 set -euo pipefail
 
-if [ $# -eq 0 ]; then
+if [[ "$1" == "help" || "$1" == "--help" || "$1" == "-h" ]] 2>/dev/null; then
     echo "Usage: list-styles <templatePath>"
     echo ""
-    echo "ARGUMENTS:"
-    echo "  templatePath    Path to template directory in format: builds/<agency>/<category>/<templateName>"
-    echo "                  templateName folder should contain in/, out/, src/, etc. folders"
+    echo "Extract and list all styles from a Word template"
     echo ""
-    echo "DESCRIPTION:"
-    echo "  Extracts Word styles from templates and generates a style list."
-    echo "  Looks for styles.xml in in/word/ or expanded/word/ subdirectories."
-    echo "  Output is saved to docs/style-list-{templateName}.txt in the template directory."
+    echo "Arguments:"
+    echo "  templatePath  - Path to template directory (builds/<agency>/<category>/<templateName>)"
+    echo "                  Template folder should contain in/, out/, src/, etc. folders"
     echo ""
-    echo "EXAMPLES:"
+    echo "Output:"
+    echo "  Style list saved to docs/style-list-{templateName}.txt in template directory"
+    echo ""
+    echo "Examples:"
     echo "  list-styles builds/jbc/workspace/jbcNormal"
+    echo "  list-styles builds/olls/templates/OLLS_Contract_Personal_Services_Template"
+    exit 0
+fi
+
+if [ $# -eq 0 ]; then
+    echo "Usage: list-styles <templatePath>"
+    echo "Run 'list-styles --help' for more information"
     exit 1
 fi
 

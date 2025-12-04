@@ -5,11 +5,25 @@
 
 set -euo pipefail
 
+if [[ "$1" == "help" || "$1" == "--help" || "$1" == "-h" ]] 2>/dev/null; then
+    echo "Usage: pack <source directory> [output file]"
+    echo ""
+    echo "Pack expanded OpenXML files into a template/document"
+    echo ""
+    echo "Arguments:"
+    echo "  source directory  - Path to expanded template folder (in/ or expanded/)"
+    echo "  output file       - (Optional) Output file path. Auto-generated if omitted."
+    echo ""
+    echo "Examples:"
+    echo "  pack builds/jbc/workspace/jbcNormal/in"
+    echo "  pack builds/jbc/templates/jbcMemo/in"
+    echo "  pack builds/jbc/workspace/jbcSheet/in builds/jbc/workspace/jbcSheet/out/CustomSheet.xltx"
+    exit 0
+fi
+
 if [ $# -lt 1 ]; then
     echo "Usage: pack <source directory> [output file]"
-    echo "Example: pack builds/jbc/workspace/jbcNormal/in"
-    echo "Example: pack builds/jbc/templates/jbcMemo/in"
-    echo "Example: pack builds/jbc/workspace/jbcSheet/in builds/jbc/workspace/jbcSheet/out/CustomSheet.xltx"
+    echo "Run 'pack --help' for more information"
     exit 1
 fi
 

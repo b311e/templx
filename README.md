@@ -55,6 +55,63 @@ A comprehensive template management system for Colorado General Assembly Microso
    source src/scripts/setup_aliases.sh
    ```
 
+## Usage
+
+### Pack & Unpack
+
+- Always work on templates under the `build` directory.
+- Unpacked working files should go under an `in` folder.
+- Packed filed should go under an `out` folder.
+
+```bash
+# Unpack: Expand spreadsheets, documents, or templates.
+unpack <target-doc> <output-file-name>
+
+# Pack: Zips the contents into a usable office file.
+pack <expanded-file> <output-file-name>
+```
+
+### Create New Files
+
+The `create` command writes the new template file to the current working directory unless you provide a path as the name.
+
+```bash
+# Create: Create a OpenXML file from scratch
+create <create-type> <output-file-name>
+```
+**Create Types:**
+
+| Create Type            | Ext.         | Description                 |
+|-----------------|--------------|-----------------------------|
+| `xl-book`         | xlsx         | Spreadsheet                 |
+| `xl-mbook`        | xlsm         | Macro-enabled Spreadsheet   |
+| `xl-template`     | xltx         | Spreadsheet Template                    |
+| `xl-mtemplate`    | xltm         | Macro-enabled Spreadsheet Template      |
+| `word-doc`        | docx         | Document                   |
+| `word-mdoc`       | docm         | Macro-enabled Document      |
+| `word-template`   | dotx         | Document Template                    |
+| `word-mtemplate`  | dotm         | Macro-enabled Document Template      |
+
+
+### Style Utilities
+
+#### List Styles
+
+```bash
+# Style list: Generate style list for template. Automatically saved to the docs folder.
+list-styles <target-doc>
+```
+
+#### Replace & Merge Styles
+
+```bash
+# Replace styles: Copy styles from one Word document to another
+replace-styles <target-doc> <source-doc>
+
+# Replace styles from snippet: Replace styles in one Word document or template from another.
+replace-styles-from-snippet <target-doc> <snippet-id>
+```
+
 ## Project Structure
 
 ```
@@ -92,96 +149,22 @@ coga-template-manager/
 │
 ├── src/
 │   ├── OpenXmlApp/           # Core .NET application for template processing
-│   └── scripts/              # Bash utility scripts (pack, unpack, create)
+│   └── scripts/              # Bash utility scripts 
 ```
 
-## Usage
+## Workflows
 
-### Pack & Unpack
-
-Work on templates under the `build` directory.
-
-```bash
-# Unpack: Extract documents, spreadsheets, or template to workable folders.
-unpack <template_file> [output folder name]
-
-# Pack: Zips the contents into a usable office file.
-pack <expanded_folder> [output file name]
-
-# Create: Create new OpenXML documents and templates from scratch.
-create <type> [output file name]
-
-```
-
-### Create New Templates
-
-**Create types:**
-
-| Type            | Ext.         | Description                 |
-|-----------------|--------------|-----------------------------|
-| xl-book         | xlsx         | Spreadsheet                 |
-| xl-mbook        | xlsm         | Macro-enabled Spreadsheet   |
-| xl-template     | xltx         | Template                    |
-| xl-mtemplate    | xltm         | Macro-enabled Template      |
-| word-doc        | docx         | Document                    |
-| word-mdoc       | docm         | Macro-enabled Document      |
-| word-template   | dotx         | Template                    |
-| word-mtemplate  | dotm         | Macro-enabled Template      |
-
-**Usage examples:**
-
-```bash
-# Create from scratch
-create xl-book
-
-# Or start from core
-cp core/workspace/book/Book.xltx builds/jbc/workspace/jbcBook/src/Book.xltx
-
-# Or start from the previous release
-cp dist/jbc/workspace/jbcBook/Book.xltx builds/jbc/workspace/jbcBook/src/Book.xltx
-```
-
-### Style Utilities
-
-```bash
-# Style list: Generate style list for template. Automatically saved to the docs folder.
-list-styles <path to template folder>
-
-# Example:
-list-styles builds/jbc/workspace/jbcNormal
-
-# Replace styles: Copy styles from one Word document to another
-replace-styles <target-doc> <source-doc>
-
-# Example:
-replace-styles document.docx template.dotx
-```
-
-Direct commands (without adding aliases to shell):
-
-```bash
-# Unpack: Extract documents, spreadsheets, or template to workable folders.
-dotnet run --project src/OpenXmlApp unpack <template_file> [output folder name]
-
-# Pack: Zips the contents into a usable office file.
-dotnet run --project src/OpenXmlApp pack <expanded_folder> [output file name]
-
-# Create: Create new OpenXML documents and templates from scratch.
-dotnet run --project src/OpenXmlApp create <type> [output file name]
-
-# Replace styles: Copy styles from one Word document to another.
-dotnet run --project src/OpenXmlApp replace-styles <target_doc> <source_doc>
-```
-
-### Adding a New Template
+### Add a New Template
 
 1. **Create builds folder structure**:
+
    ```bash
    # Create src, out, in, and docs folder for the JBC Letterhead template
    mkdir -p builds/jbc/templates/jbcLetterhead/{src,out,in,docs}
    ```
 
 2. **Add template entry** in appropriate section of the `manifest-schema.json`:
+
    ```json
    "jbcLetterhead": {
      "name": "JBC Letterhead Template",
@@ -197,53 +180,41 @@ dotnet run --project src/OpenXmlApp replace-styles <target_doc> <source_doc>
 
 4. **Update manifest**:
    ```bash
-   manifest --generate jbc
+   
    ```
 
 ### Development workflow
 
 Work on templates within the appropriate `builds` directory.
 
-1. Put the source file (original, packed file) in the `src` folder.
+1. Put the source file (original, packed file) in the `src` folder. Do not edit the file in this folder.
 
-2. Unpack the file in the `src` file and store the expanded file within the `in` folder.
+2. **Unpack** the file in the `src` file, then copy it into the template build folder and rename it to `in`.
 
-   ```bash
-   unpack builds/jbc/workspace/jbcBook/src/Book.xltx
+   It should look like this:
+   ```
+   ├── builds/
+   │   └── <agency>/
+   │       └── templates/
+   │           └── <templateName>/
+   │               ├── docs/
+   │               ├── in/
+   │               ├── out/
+   │               └── src/
    ```
 
 3. **Make changes:** Make updates to expanded files within the `in` folder.
 
-4. Once updates are complete and ready for testing, pack the files and store in the `out` folder.
+4. **Pack:** Once updates are complete and ready for testing, pack the files and store in the `out` folder.
 
-   ```bash
-   pack builds/jbc/workspace/jbcBook/in
-   ```
+5. **Validate:** Validate the packed file using one of the methods below.
 
-5. **Validate:** Right click on the compiled file, select "Validate OOXML", then review the report. Repeat steps 1-4 as necessary.
+   a. Validate the file using the `validate` command (recommended). This will generate a txt file within a `reports` folder in the same directory as the target file.
+   
+   b. Right click on the compiled file, select "Validate OOXML", then review the report. 
 
 6. Download the file in the `out` folder and test on your local device in Microsoft Word, Excel, or PowerPoint.
 
-### Create command — behavior & troubleshooting
-
-- Where files are written: the `create` command writes the new template file to the current working directory unless you provide a path as the name.
-- Accepted template types (exact strings) are listed above in the creation types table. If you see `Unknown template type`, double-check you're using one of the types above.
-
-- Using the helper script vs. dotnet: there is a convenience wrapper at `src/scripts/create` which forwards to the .NET app. Either:
-
-```bash
-# run via the script (recommended)
-./src/scripts/create xl-template NewSpreadsheet
-
-# or run the app directly
-dotnet run --project src/OpenXmlApp/OpenXmlApp.csproj create excel-sheet-template MySheet
-```
-
-- Creating directly into a build output folder: pass a path as the name. Example:
-
-```bash
-dotnet run --project src/OpenXmlApp/OpenXmlApp.csproj create xl-template builds/jbc/workspace/jbcNormal/out/NewSpreadsheet.xltx
-```
 
 ## Template Registry & Manifests
 
@@ -261,29 +232,29 @@ Full  manifest documentation can be found at `src/scripts/manifest_utils/README.
 
 ### Manifest Commands
 
-**Generate / update manifest**
+#### Generate / update manifest
 
 ```bash
 # Generate/update manifest for specific agency
-manifest generate <agency>
+manifest-generate <agency>
 
-# Generate/update manifest for core
-manifest generate core
+# Generate/update manifest for core templates
+manifest-generate core
 ```
 
-**Other manifest commands**
+#### Other manifest commands
 ```bash
 # List all templates across all agencies
-manifest list
+manifest-list
 
 # Validate all manifest files
-manifest validate
+manifest-validate
 
 # Update template status
-manifest update-status jbc jbcNormal active
+manifest-update-status jbc jbcNormal active
 
 # Get guidance for adding new templates
-manifest add-template jbc jbcReport excel-book-template
+manifest-add-template jbc jbcReport excel-book-template
 ```
 
 ## Deployment

@@ -2,6 +2,27 @@
 # OpenXML Create Alias
 # Usage: create <templateType> [outputFileName]
 
+if [[ "$1" == "help" || "$1" == "--help" || "$1" == "-h" ]]; then
+    echo "Usage: create <templateType> [outputFileName]"
+    echo ""
+    echo "Create new OpenXML templates/documents from scratch"
+    echo ""
+    echo "Template Types:"
+    echo "  xl-book         - Excel Spreadsheet (.xlsx)"
+    echo "  xl-mbook        - Macro-enabled Spreadsheet (.xlsm)"
+    echo "  xl-template     - Spreadsheet Template (.xltx)"
+    echo "  xl-mtemplate    - Macro-enabled Spreadsheet Template (.xltm)"
+    echo "  word-doc        - Word Document (.docx)"
+    echo "  word-mdoc       - Macro-enabled Document (.docm)"
+    echo "  word-template   - Document Template (.dotx)"
+    echo "  word-mtemplate  - Macro-enabled Document Template (.dotm)"
+    echo ""
+    echo "Examples:"
+    echo "  create xl-template Book"
+    echo "  create word-mtemplate jbcMemo"
+    exit 0
+fi
+
 # Get the script directory to find the project
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"

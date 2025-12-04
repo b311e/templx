@@ -4,9 +4,23 @@
 
 set -euo pipefail
 
+if [[ "$1" == "help" || "$1" == "--help" || "$1" == "-h" ]] 2>/dev/null; then
+    echo "Usage: unpack <file path>"
+    echo ""
+    echo "Unpack OpenXML templates/documents into expanded folder structure"
+    echo ""
+    echo "Arguments:"
+    echo "  file path  - Path to .dotx, .dotm, .xltx, .xltm, etc. file"
+    echo ""
+    echo "Examples:"
+    echo "  unpack builds/jbc/workspace/jbcNormal/src/Normal.dotm"
+    echo "  unpack builds/jbc/templates/jbcMemo/src/Memo.dotx"
+    exit 0
+fi
+
 if [ $# -eq 0 ]; then
     echo "Usage: unpack [file path]"
-    echo "Example: unpack templates/jbc/jbcBook/source/Book.xltx"
+    echo "Run 'unpack --help' for more information"
     exit 1
 fi
 

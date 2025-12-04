@@ -302,56 +302,55 @@ list_templates() {
     done
 }
 
+show_help() {
+    echo "Usage: manifest-<command> [options]"
+    echo ""
+    echo "Commands:"
+    echo "  help, --help, -h                                    - Show this help message"
+    echo "  manifest-generate <agency>                          - Update manifest timestamp and scan for templates"
+    echo "  manifest-update <agency>                            - Update manifest for specified agency"
+    echo "  manifest-update-status <agency> <template> <status> - Update template status"
+    echo "  manifest-add-template <agency> <template> <type>    - Guide for adding new template"
+    echo "  manifest-validate                                   - Validate all manifests"
+    echo "  manifest-list                                       - List all templates"
+    echo ""
+    echo "Examples:"
+    echo "  manifest-generate jbc"
+    echo "  manifest-update core"
+    echo "  manifest-update-status jbc jbcNormal active"
+    echo "  manifest-add-template jbc jbcReport excel-book-template"
+    echo "  manifest-validate"
+    echo "  manifest-list"
+}
+
 case "$1" in
-    generate)
+    help|--help|-h)
+        show_help
+        ;;
+    manifest-generate)
         generate_manifest "$2"
         ;;
-    update-status)
+    manifest-update)
+        # Update manifest for specified agency (supports 'core' for core manifest)
+        if [[ "$2" == "core" ]]; then
+            generate_core_manifest
+        else
+            generate_manifest "$2"
+        fi
+        ;;
+    manifest-update-status)
         update_template_status "$2" "$3" "$4"
         ;;
-    add-template)
+    manifest-add-template)
         add_new_template "$2" "$3" "$4"
         ;;
-    validate)
+    manifest-validate)
         validate_manifest
         ;;
-    list)
+    manifest-list)
         list_templates
         ;;
-    update)
-        # Update manifests in core directory
-        shift
-        case "$1" in
-            core)
-                # Update core/manifest.json
-                shift
-                generate_core_manifest
-                ;;
-            *)
-                echo "Usage: manifest update <target>"
-                echo "Targets: core"
-                exit 1
-                ;;
-        esac
-        ;;
     *)
-        echo "Usage: manifest <command> [options]"
-        echo ""
-        echo "Commands:"
-        echo "  generate <agency>              - Update manifest timestamp and scan for templates"
-        echo "  update-status <agency> <template> <status> - Update template status"
-        echo "  add-template <agency> <template> <type>    - Guide for adding new template"
-        echo "  validate                       - Validate all manifests"
-        echo "  list                          - List all templates"
-        echo "  update <target>                - Update manifests in specified directory"
-        echo ""
-        echo "Examples:"
-        echo "  manifest generate jbc"
-        echo "  manifest update-status jbc jbcNormal active"
-        echo "  manifest add-template jbc jbcReport excel-book-template"
-        echo "  manifest validate"
-        echo "  manifest list"
-        echo "  manifest generate core"
-        echo "  manifest update core"
+        show_help
         ;;
 esac
