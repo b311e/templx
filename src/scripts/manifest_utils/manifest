@@ -307,8 +307,7 @@ show_help() {
     echo ""
     echo "Commands:"
     echo "  help, --help, -h                                    - Show this help message"
-    echo "  manifest-generate <agency>                          - Update manifest timestamp and scan for templates"
-    echo "  manifest-update <agency>                            - Update manifest for specified agency"
+    echo "  manifest-generate <agency>                          - Generate/update manifest timestamp and scan for templates"
     echo "  manifest-update-status <agency> <template> <status> - Update template status"
     echo "  manifest-add-template <agency> <template> <type>    - Guide for adding new template"
     echo "  manifest-validate                                   - Validate all manifests"
@@ -316,7 +315,7 @@ show_help() {
     echo ""
     echo "Examples:"
     echo "  manifest-generate jbc"
-    echo "  manifest-update core"
+    echo "  manifest-generate core"
     echo "  manifest-update-status jbc jbcNormal active"
     echo "  manifest-add-template jbc jbcReport excel-book-template"
     echo "  manifest-validate"
@@ -329,14 +328,6 @@ case "$1" in
         ;;
     manifest-generate)
         generate_manifest "$2"
-        ;;
-    manifest-update)
-        # Update manifest for specified agency (supports 'core' for core manifest)
-        if [[ "$2" == "core" ]]; then
-            generate_core_manifest
-        else
-            generate_manifest "$2"
-        fi
         ;;
     manifest-update-status)
         update_template_status "$2" "$3" "$4"
