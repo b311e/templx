@@ -11,10 +11,12 @@ template_path=${2:-}
 
 case "$command" in
   --help|-h)
-    echo "Template Style Manager"
+    echo "Template Styles Manager (Internal Implementation)"
+    echo ""
+    echo "Note: Use 'styles-list' command instead of calling this directly"
     echo ""
     echo "USAGE:"
-    echo "  style --list <templatePath>"
+    echo "  styles-list <templatePath>"
     echo ""
     echo "ARGUMENTS:"
     echo "  templatePath    Path to template directory in format: builds/<agency>/<category>/<templateName>"
@@ -26,13 +28,9 @@ case "$command" in
     echo "  Output is saved to docs/style-list-{templateName}.txt in the template directory."
     echo ""
     echo "EXAMPLES:"
-    echo "  style --list builds/jbc/workspace/jbcNormal"
-    echo "  style --list /full/path/to/builds/jbc/workspace/jbcNormal"
-    echo "  style --list builds/core/components/base"
-    echo ""
-    echo "OPTIONS:"
-    echo "  --help, -h     Show this help message"
-    echo "  --list         Generate style list for specified template"
+    echo "  styles-list builds/jbc/workspace/jbcNormal"
+    echo "  styles-list /full/path/to/builds/jbc/workspace/jbcNormal"
+    echo "  styles-list builds/core/components/base"
     exit 0
     ;;
   --list)
@@ -87,13 +85,12 @@ case "$command" in
     printf 'Wrote %s styles to %s\n' "$(wc -l < "${output_file}")" "${output_file}"
     ;;
   *)
-    echo "Available commands:"
-    echo "  --list <templatePath>  - Generate style list for template"
+    echo "This is an internal implementation script."
+    echo "Use 'styles-list <templatePath>' to generate style lists."
     echo ""
-    echo "templatePath format: builds/<agency>/<category>/<templateName>"
     echo "Examples:"
-    echo "  $0 --list builds/jbc/workspace/jbcNormal"
-    echo "  $0 --list builds/core/components/base"
+    echo "  styles-list builds/jbc/workspace/jbcNormal"
+    echo "  styles-list builds/core/components/base"
     exit 1
     ;;
 esac

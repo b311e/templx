@@ -2,6 +2,20 @@
 # Template Inventory Generator
 # Usage: inventory generate | inventory help
 
+# Convert Windows path to Unix path if needed (for Git Bash on Windows)
+normalize_path() {
+    local path="$1"
+    if [[ "$path" =~ ^[A-Za-z]:\\ ]]; then
+        # Convert C:\path to /c/path format
+        local drive_letter=$(echo "${path:0:1}" | tr '[:upper:]' '[:lower:]')
+        local rest_of_path="${path:3}"
+        rest_of_path="${rest_of_path//\\//}"
+        echo "/$drive_letter/$rest_of_path"
+    else
+        echo "$path"
+    fi
+}
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 

@@ -4,12 +4,32 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 case "$1" in
-    pack|unpack|create)
-        exec "$SCRIPT_DIR/openxml" "$@"
+    pack)
+        exec "$SCRIPT_DIR/../pack/pack" "$@"
+        ;;
+    unpack)
+        exec "$SCRIPT_DIR/../unpack/unpack" "$@"
+        ;;
+    create)
+        exec "$SCRIPT_DIR/../create/create" "$@"
+        ;;
+    validate)
+        exec "$SCRIPT_DIR/../validate/validate" "$@"
+        ;;
+    styles-list)
+        exec "$SCRIPT_DIR/../styles/styles-list" "$@"
+        ;;
+    styles-import)
+        exec "$SCRIPT_DIR/../styles_import/styles-import" "$@"
+        ;;
+    styles-import-snippet)
+        exec "$SCRIPT_DIR/../styles_import/styles-import-snippet" "$@"
         ;;
     inventory)
-        shift
-        exec "$SCRIPT_DIR/inventory" "$@"
+        exec "$SCRIPT_DIR/../inventory/inventory" "$@"
+        ;;
+    manifest-*)
+        exec "$SCRIPT_DIR/../manifest_utils/manifest" "$@"
         ;;
     help|--help|-h)
         echo "COGA Template Manager"
@@ -17,13 +37,22 @@ case "$1" in
         echo "Usage: coga <command> [args...]"
         echo ""
         echo "Commands:"
-        echo "  pack <file>         Package OpenXML document"
-        echo "  unpack <file>       Unpack OpenXML document"
-        echo "  create <type>       Create new template/document"
-        echo "  inventory <cmd>     Generate template inventory"
-        echo "  help                Show this help message"
+        echo "  pack <dir>                      - Package OpenXML document from expanded directory"
+        echo "  unpack <file>                   - Unpack OpenXML document to expanded directory"
+        echo "  create <type> [name]            - Create new template/document"
+        echo "  validate <file>                 - Validate OpenXML document against schema"
+        echo "  styles-list <template>          - Extract and list styles from Word template"
+        echo "  styles-import <target> <source> - Import styles from source to target Word doc"
+        echo "  styles-import-snippet <target> <snippet> - Import styles from XML snippet"
+        echo "  inventory <command>             - Generate template inventory"
+        echo "  manifest-generate <agency>      - Generate/update manifest for agency"
+        echo "  manifest-validate               - Validate all manifests"
+        echo "  manifest-list                   - List all templates"
+        echo "  manifest-update-status          - Update template status"
+        echo "  manifest-add-template           - Display guide for adding template"
+        echo "  help                            - Show this help message"
         echo ""
-        echo "See 'coga <command> help' for command-specific options"
+        echo "Run '<command> help' for command-specific options"
         ;;
     *)
         echo "Unknown command: $1"

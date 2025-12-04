@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+# OpenXML Import Styles
+# Usage: styles-import <target-doc> <source-doc>
+#   target-doc: Document that will receive new styles (will be modified)
+#   source-doc: Document with styles to copy from (read-only)
+
+set -euo pipefail
+
+# Convert Windows path to Unix path if needed (for Git Bash on Windows)
+normalize_path() {
+    local path="$1"
+    if [[ "$path" =~ ^[A-Za-z]:\\ ]]; then
+        # Convert C:\path to /c/path format
+        local drive_letter=$(echo "${path:0:1}" | tr '[:upper:]' '[:lower:]')
+        local rest_of_path="${path:3}"
+        rest_of_path="${rest_of_path//\\//}"
+        echo "/$drive_letter/$rest_of_path"
+    else
+        echo "$path"
+    fi
+}
+
+if [[ "$1" == "help" || "$1" == "--help" || "$1" == "-h" ]] 2>/dev/null; then
+    echo "Usage: styles-import <target-doc> <source-doc>"
+    echo ""
+    echo "Import all styles from source document to target document"
+    echo ""
+    echo "Arguments:"
+    echo "  target-doc  - Document that will receive new styles (will be modified)"
+    echo "  source-doc  - Document with styles to copy from (read-only)"
+    echo ""
+    echo "Examples:"
+    echo "  styles-import document.docx template.dotx"
+    echo "  styles-import myDoc.docm jbcNormal.dotm"
+    exit 0
+fi
+
+if [ $# -lt 2 ]; then
+    echo "Usage: styles-import <target-doc> <source-doc>"
+    echo "Run 'styles-import --help' for more information"
+    exit 1
+fi
+
+# Get the script directory to find the project
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# PROJECT_ROOT should point to the repository root. The styles-import script lives at:
+#   <repo>/src/scripts/styles_import/styles-import
+# so we need to go up three levels to reach the repo root.
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
+
+# Normalize paths
+TARGET_DOC="$(normalize_path "$1")"
+SOURCE_DOC="$(normalize_path "$2")"
+
+# Run the dotnet command from the project file. Use "--" to ensure any
+# subsequent arguments are forwarded to the application (not to dotnet).
+dotnet run --project "$PROJECT_ROOT/src/OpenXmlApp/OpenXmlApp.csproj" -- styles-import "$TARGET_DOC" "$SOURCE_DOC"

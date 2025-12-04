@@ -35,10 +35,12 @@ namespace OpenXmlApp
                 case "create":
                     HandleCreate(args);
                     break;
-                case "replace-styles":
+                case "styles-import":
+                case "replace-styles":  // Keep for backward compatibility
                     HandleReplaceStyles(args);
                     break;
-                case "replace-styles-from-snippet":
+                case "styles-import-snippet":
+                case "replace-styles-from-snippet":  // Keep for backward compatibility
                     HandleReplaceStylesFromSnippet(args);
                     break;
                 case "test-clean":
@@ -424,7 +426,7 @@ namespace OpenXmlApp
         {
             if (args.Length < 3)
             {
-                Console.WriteLine("Usage: replace-styles <target-doc> <source-doc>");
+                Console.WriteLine("Usage: styles-import <target-doc> <source-doc>");
                 Console.WriteLine("  target-doc: Document that will receive new styles (will be modified)");
                 Console.WriteLine("  source-doc: Document with styles to copy from (read-only)");
                 return;
@@ -487,13 +489,13 @@ namespace OpenXmlApp
         {
             if (args.Length < 3)
             {
-                Console.WriteLine("Usage: replace-styles-from-snippet <target-doc> <snippet-file> <snippet-id>");
-                Console.WriteLine("  target-doc: Document that will have styles replaced (will be modified)");
+                Console.WriteLine("Usage: styles-import-snippet <target-doc> <snippet-file> <snippet-id>");
+                Console.WriteLine("  target-doc: Document that will receive styles (will be modified)");
                 Console.WriteLine("  snippet-file: XML file containing style snippets");
                 Console.WriteLine("  snippet-id: ID of the snippet to use (e.g., 'listStylesDefault')");
                 Console.WriteLine("");
                 Console.WriteLine("Example:");
-                Console.WriteLine("  replace-styles-from-snippet target.docx core/partials/styles/list-styles.xml listStylesDefault");
+                Console.WriteLine("  styles-import-snippet target.docx core/partials/styles/list-styles.xml listStylesDefault");
                 return;
             }
 
@@ -683,7 +685,9 @@ namespace OpenXmlApp
             Console.WriteLine("  dotnet run pack <template-path>");
             Console.WriteLine("  dotnet run unpack <template-path>");
             Console.WriteLine("  dotnet run create <type> [name]");
-            Console.WriteLine("  dotnet run replace-styles <target-doc> <source-doc>");
+            Console.WriteLine("  dotnet run styles-import <target-doc> <source-doc>");
+            Console.WriteLine("  dotnet run styles-import-snippet <target-doc> <snippet-file> [snippet-id]");
+            Console.WriteLine("  dotnet run validate <file-path>");
             Console.WriteLine("  dotnet run test-clean [--tmp] [--out]");
             Console.WriteLine("");
             Console.WriteLine("Create types:");
@@ -786,8 +790,7 @@ namespace OpenXmlApp
             Directory.CreateDirectory(reportsDir);
 
             string fileName = Path.GetFileNameWithoutExtension(filePath);
-            string timestamp = DateTime.Now.ToString("yyyyMMdd-HHmmss");
-            string reportPath = Path.Combine(reportsDir, $"{fileName}-validation-{timestamp}.txt");
+            string reportPath = Path.Combine(reportsDir, $"{fileName}-report.txt");
 
             try
             {

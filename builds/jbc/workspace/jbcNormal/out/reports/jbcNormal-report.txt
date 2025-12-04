@@ -2,7 +2,7 @@ OOXML Validation Report
 ======================
 File: jbcNormal.dotm
 Full Path: C:\code\coga-template-manager\builds\jbc\workspace\jbcNormal\out\jbcNormal.dotm
-Timestamp: 2025-12-03 18:17:28
+Timestamp: 2025-12-03 20:23:52
 File Size: 4,712,130 bytes
 
 Document Type: Word

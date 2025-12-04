@@ -99,17 +99,17 @@ create <create-type> <output-file-name>
 
 ```bash
 # Style list: Generate style list for template. Automatically saved to the docs folder.
-list-styles <target-doc>
+styles-list <target-doc>
 ```
 
-#### Replace & Merge Styles
+#### Import & Merge Styles
 
 ```bash
-# Replace styles: Copy styles from one Word document to another
-replace-styles <target-doc> <source-doc>
+# Import styles: Import styles from one Word document to another
+styles-import <target-doc> <source-doc>
 
-# Replace styles from snippet: Replace styles in one Word document or template from another.
-replace-styles-from-snippet <target-doc> <snippet-id>
+# Import styles from snippet: Import styles from XML snippet to Word document or template
+styles-import-snippet <target-doc> <snippet-id>
 ```
 
 ## Project Structure
@@ -264,7 +264,7 @@ manifest-add-template jbc jbcReport excel-book-template
 - `dist/scripts/workspaceInstallPreProd.bat` - Deploy to PreProd environment
 - `dist/scripts/workspaceDeploy.bat` - Deploy from PreProd to Production
 - `dist/jbc/jbcWorkspace/JBCTemplateInstall.bat` - End-user installation script
-- `list-styles <templatePath>` – Generate style list for template. Saves to templatePath/docs folder
+- `styles-list <templatePath>` – Generate style list for template. Saves to templatePath/docs folder
 
 ## Template Inventory System
 
