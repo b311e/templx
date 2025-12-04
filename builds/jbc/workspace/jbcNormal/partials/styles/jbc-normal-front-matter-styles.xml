@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippet id="jbcNormalFrontMatterStyles" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    <w:style w:type="paragraph"
+             w:styleId="Subtitle">
+        <w:name w:val="Subtitle" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:semiHidden />
+        <w:uiPriority w:val="4" />
+        <w:pPr>
+            <w:spacing w:after="480" />
+            <w:contextualSpacing />
+        </w:pPr>
+        <w:rPr>
+            <w:color w:val="41597C"
+                     w:themeColor="accent1" />
+            <w:sz w:val="44" />
+        </w:rPr>
+    </w:style>
+</snippet>

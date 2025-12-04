@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippet id="jbcNormalBodyStyles" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    <w:style w:type="paragraph"
+             w:styleId="NoSpacing">
+        <w:name w:val="No Spacing" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:uiPriority w:val="31" />
+        <w:qFormat />
+        <w:pPr>
+            <w:spacing w:after="0" />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph"
+             w:customStyle="1"
+             w:styleId="AfterTableNormal">
+        <w:name w:val="After Table Normal" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:uiPriority w:val="31" />
+        <w:qFormat />
+        <w:pPr>
+            <w:spacing w:before="240" />
+        </w:pPr>
+    </w:style>
+</snippet>

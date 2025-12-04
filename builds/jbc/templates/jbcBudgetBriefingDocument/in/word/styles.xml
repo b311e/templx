@@ -955,6 +955,7 @@
              w:styleId="Normal">
         <w:name w:val="Normal" />
         <w:qFormat />
+        <w:rsid w:val="009D66C9" />
     </w:style>
     <w:style w:type="paragraph"
              w:styleId="Heading1">
@@ -963,6 +964,7 @@
         <w:next w:val="Normal" />
         <w:link w:val="Heading1Char" />
         <w:uiPriority w:val="4" />
+        <w:rsid w:val="00FB519F" />
         <w:pPr>
             <w:keepNext />
             <w:keepLines />
@@ -996,6 +998,7 @@
         <w:link w:val="Heading2Char" />
         <w:uiPriority w:val="5" />
         <w:qFormat />
+        <w:rsid w:val="004C4E84" />
         <w:pPr>
             <w:keepNext />
             <w:keepLines />
@@ -1058,6 +1061,7 @@
         <w:link w:val="Heading3Char" />
         <w:uiPriority w:val="6" />
         <w:qFormat />
+        <w:rsid w:val="00FB519F" />
         <w:pPr>
             <w:keepNext />
             <w:keepLines />
@@ -1088,6 +1092,7 @@
         <w:link w:val="Heading4Char" />
         <w:uiPriority w:val="7" />
         <w:qFormat />
+        <w:rsid w:val="00296E9A" />
         <w:pPr>
             <w:keepNext />
             <w:keepLines />
@@ -1118,6 +1123,7 @@
         <w:link w:val="Heading5Char" />
         <w:uiPriority w:val="8" />
         <w:qFormat />
+        <w:rsid w:val="00296E9A" />
         <w:pPr>
             <w:keepNext />
             <w:keepLines />
@@ -1147,6 +1153,7 @@
         <w:link w:val="Heading6Char" />
         <w:uiPriority w:val="9" />
         <w:qFormat />
+        <w:rsid w:val="00296E9A" />
         <w:pPr>
             <w:keepNext />
             <w:keepLines />
@@ -1176,6 +1183,7 @@
         <w:uiPriority w:val="99" />
         <w:semiHidden />
         <w:qFormat />
+        <w:rsid w:val="00D10A12" />
         <w:pPr>
             <w:keepNext />
             <w:keepLines />
@@ -1203,6 +1211,7 @@
         <w:uiPriority w:val="99" />
         <w:semiHidden />
         <w:qFormat />
+        <w:rsid w:val="00D10A12" />
         <w:pPr>
             <w:keepNext />
             <w:keepLines />
@@ -1231,6 +1240,7 @@
         <w:uiPriority w:val="99" />
         <w:semiHidden />
         <w:qFormat />
+        <w:rsid w:val="00D10A12" />
         <w:pPr>
             <w:keepNext />
             <w:keepLines />
@@ -1296,6 +1306,7 @@
         <w:basedOn w:val="DefaultParagraphFont" />
         <w:link w:val="Heading1" />
         <w:uiPriority w:val="4" />
+        <w:rsid w:val="00FB519F" />
         <w:rPr>
             <w:rFonts w:asciiTheme="majorHAnsi"
                       w:eastAsiaTheme="majorEastAsia"
@@ -1315,6 +1326,7 @@
         <w:basedOn w:val="DefaultParagraphFont" />
         <w:link w:val="Heading2" />
         <w:uiPriority w:val="5" />
+        <w:rsid w:val="004C4E84" />
         <w:rPr>
             <w:rFonts w:asciiTheme="majorHAnsi"
                       w:eastAsiaTheme="majorEastAsia"
@@ -1339,6 +1351,7 @@
         <w:basedOn w:val="DefaultParagraphFont" />
         <w:link w:val="Heading3" />
         <w:uiPriority w:val="6" />
+        <w:rsid w:val="00FB519F" />
         <w:rPr>
             <w:rFonts w:asciiTheme="majorHAnsi"
                       w:eastAsiaTheme="majorEastAsia"
@@ -1358,6 +1371,7 @@
         <w:basedOn w:val="DefaultParagraphFont" />
         <w:link w:val="Heading4" />
         <w:uiPriority w:val="7" />
+        <w:rsid w:val="00296E9A" />
         <w:rPr>
             <w:rFonts w:asciiTheme="majorHAnsi"
                       w:eastAsiaTheme="majorEastAsia"
@@ -1377,6 +1391,7 @@
         <w:basedOn w:val="DefaultParagraphFont" />
         <w:link w:val="Heading5" />
         <w:uiPriority w:val="8" />
+        <w:rsid w:val="00296E9A" />
         <w:rPr>
             <w:rFonts w:asciiTheme="majorHAnsi"
                       w:eastAsiaTheme="majorEastAsia"
@@ -1395,6 +1410,7 @@
         <w:basedOn w:val="DefaultParagraphFont" />
         <w:link w:val="Heading6" />
         <w:uiPriority w:val="9" />
+        <w:rsid w:val="00296E9A" />
         <w:rPr>
             <w:rFonts w:asciiTheme="majorHAnsi"
                       w:eastAsiaTheme="majorEastAsia"
@@ -1414,6 +1430,7 @@
         <w:link w:val="QuoteChar" />
         <w:uiPriority w:val="30" />
         <w:qFormat />
+        <w:rsid w:val="00CA47A0" />
         <w:pPr>
             <w:ind w:left="360"
                    w:right="360" />
@@ -1432,6 +1449,7 @@
         <w:basedOn w:val="DefaultParagraphFont" />
         <w:link w:val="Quote" />
         <w:uiPriority w:val="30" />
+        <w:rsid w:val="007325D0" />
         <w:rPr>
             <w:iCs />
             <w:color w:val="404040"
@@ -1447,6 +1465,7 @@
         <w:link w:val="Heading7" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:rsid w:val="00CC074A" />
         <w:rPr>
             <w:rFonts w:asciiTheme="majorHAnsi"
                       w:eastAsiaTheme="majorEastAsia"
@@ -1466,6 +1485,7 @@
         <w:link w:val="Heading9" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:rsid w:val="00CC074A" />
         <w:rPr>
             <w:rFonts w:asciiTheme="majorHAnsi"
                       w:eastAsiaTheme="majorEastAsia"
@@ -1487,6 +1507,7 @@
         <w:link w:val="Heading8" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:rsid w:val="00CC074A" />
         <w:rPr>
             <w:rFonts w:asciiTheme="majorHAnsi"
                       w:eastAsiaTheme="majorEastAsia"
@@ -1506,6 +1527,7 @@
         <w:basedOn w:val="Normal" />
         <w:link w:val="SubtitleChar" />
         <w:uiPriority w:val="4" />
+        <w:rsid w:val="003A7627" />
         <w:pPr>
             <w:spacing w:after="480" />
             <w:ind w:left="360"
@@ -1528,6 +1550,7 @@
         <w:basedOn w:val="DefaultParagraphFont" />
         <w:link w:val="Subtitle" />
         <w:uiPriority w:val="4" />
+        <w:rsid w:val="003A7627" />
         <w:rPr>
             <w:b />
             <w:color w:val="41597C"
@@ -1542,6 +1565,19 @@
         <w:uiPriority w:val="14" />
         <w:semiHidden />
         <w:qFormat />
+        <w:rsid w:val="00BE4761" />
+    </w:style>
+    <w:style w:type="numbering"
+             w:customStyle="1"
+             w:styleId="BulletList">
+        <w:name w:val="Bullet List" />
+        <w:uiPriority w:val="99" />
+        <w:rsid w:val="00D10A12" />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="11" />
+            </w:numPr>
+        </w:pPr>
     </w:style>
     <w:style w:type="paragraph"
              w:styleId="BlockText">
@@ -1550,6 +1586,7 @@
         <w:uiPriority w:val="29" />
         <w:unhideWhenUsed />
         <w:qFormat />
+        <w:rsid w:val="00296E9A" />
         <w:pPr>
             <w:keepLines />
             <w:pBdr>
@@ -1592,9 +1629,10 @@
         <w:basedOn w:val="ListParagraph" />
         <w:uiPriority w:val="16" />
         <w:qFormat />
+        <w:rsid w:val="00B23003" />
         <w:pPr>
             <w:numPr>
-                <w:numId w:val="1" />
+                <w:numId w:val="30" />
             </w:numPr>
             <w:contextualSpacing />
         </w:pPr>
@@ -1605,6 +1643,7 @@
         <w:basedOn w:val="Normal" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:rsid w:val="000826C1" />
         <w:pPr>
             <w:contextualSpacing />
         </w:pPr>
@@ -1615,6 +1654,7 @@
         <w:basedOn w:val="Normal" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:rsid w:val="000826C1" />
         <w:pPr>
             <w:contextualSpacing />
         </w:pPr>
@@ -1625,6 +1665,7 @@
         <w:basedOn w:val="Normal" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:rsid w:val="000826C1" />
         <w:pPr>
             <w:contextualSpacing />
         </w:pPr>
@@ -1635,6 +1676,7 @@
         <w:basedOn w:val="Normal" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:rsid w:val="000826C1" />
         <w:pPr>
             <w:contextualSpacing />
         </w:pPr>
@@ -1647,6 +1689,7 @@
         <w:uiPriority w:val="99" />
         <w:semiHidden />
         <w:qFormat />
+        <w:rsid w:val="00D56F86" />
         <w:pPr>
             <w:spacing w:before="120"
                        w:line="240"
@@ -1670,6 +1713,7 @@
         <w:uiPriority w:val="37" />
         <w:semiHidden />
         <w:qFormat />
+        <w:rsid w:val="004C4E84" />
         <w:pPr>
             <w:pBdr>
                 <w:top w:val="none"
@@ -1703,6 +1747,7 @@
         <w:autoRedefine />
         <w:uiPriority w:val="38" />
         <w:semiHidden />
+        <w:rsid w:val="00C92F91" />
         <w:pPr>
             <w:tabs>
                 <w:tab w:val="right"
@@ -1720,6 +1765,7 @@
         <w:autoRedefine />
         <w:uiPriority w:val="38" />
         <w:semiHidden />
+        <w:rsid w:val="00C92F91" />
         <w:pPr>
             <w:spacing w:after="0" />
             <w:ind w:left="216" />
@@ -1733,6 +1779,7 @@
         <w:autoRedefine />
         <w:uiPriority w:val="38" />
         <w:semiHidden />
+        <w:rsid w:val="00C92F91" />
         <w:pPr>
             <w:spacing w:after="0" />
             <w:ind w:left="446" />
@@ -1746,6 +1793,7 @@
         <w:autoRedefine />
         <w:uiPriority w:val="38" />
         <w:semiHidden />
+        <w:rsid w:val="00D248A7" />
         <w:pPr>
             <w:spacing w:after="0" />
             <w:ind w:left="878" />
@@ -1759,6 +1807,7 @@
         <w:autoRedefine />
         <w:uiPriority w:val="38" />
         <w:semiHidden />
+        <w:rsid w:val="00D248A7" />
         <w:pPr>
             <w:spacing w:after="0" />
             <w:ind w:left="1094" />
@@ -1772,6 +1821,7 @@
         <w:autoRedefine />
         <w:uiPriority w:val="38" />
         <w:semiHidden />
+        <w:rsid w:val="00D248A7" />
         <w:pPr>
             <w:spacing w:after="0" />
             <w:ind w:left="1325" />
@@ -1785,6 +1835,7 @@
         <w:autoRedefine />
         <w:uiPriority w:val="38" />
         <w:semiHidden />
+        <w:rsid w:val="00D248A7" />
         <w:pPr>
             <w:spacing w:after="0" />
             <w:ind w:left="1541" />
@@ -1798,6 +1849,7 @@
         <w:autoRedefine />
         <w:uiPriority w:val="38" />
         <w:semiHidden />
+        <w:rsid w:val="00D248A7" />
         <w:pPr>
             <w:spacing w:after="0" />
             <w:ind w:left="1757" />
@@ -1810,6 +1862,7 @@
         <w:link w:val="HeaderChar" />
         <w:uiPriority w:val="32" />
         <w:semiHidden />
+        <w:rsid w:val="00641920" />
         <w:pPr>
             <w:tabs>
                 <w:tab w:val="center"
@@ -1833,6 +1886,7 @@
         <w:link w:val="Header" />
         <w:uiPriority w:val="32" />
         <w:semiHidden />
+        <w:rsid w:val="00D248A7" />
         <w:rPr>
             <w:sz w:val="20" />
         </w:rPr>
@@ -1844,6 +1898,7 @@
         <w:link w:val="FooterChar" />
         <w:uiPriority w:val="32" />
         <w:semiHidden />
+        <w:rsid w:val="00D56F86" />
         <w:pPr>
             <w:tabs>
                 <w:tab w:val="center"
@@ -1868,6 +1923,7 @@
         <w:link w:val="Footer" />
         <w:uiPriority w:val="32" />
         <w:semiHidden />
+        <w:rsid w:val="00D248A7" />
         <w:rPr>
             <w:sz w:val="20" />
         </w:rPr>
@@ -1878,11 +1934,24 @@
         <w:basedOn w:val="ListParagraph" />
         <w:uiPriority w:val="15" />
         <w:qFormat />
+        <w:rsid w:val="00D248A7" />
         <w:pPr>
             <w:numPr>
-                <w:numId w:val="2" />
+                <w:numId w:val="29" />
             </w:numPr>
             <w:contextualSpacing />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="numbering"
+             w:customStyle="1"
+             w:styleId="NumberedList">
+        <w:name w:val="Numbered List" />
+        <w:uiPriority w:val="99" />
+        <w:rsid w:val="00E95A2E" />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="21" />
+            </w:numPr>
         </w:pPr>
     </w:style>
     <w:style w:type="paragraph"
@@ -1893,6 +1962,7 @@
         <w:next w:val="Normal" />
         <w:uiPriority w:val="25" />
         <w:qFormat />
+        <w:rsid w:val="00A779EA" />
         <w:pPr>
             <w:keepNext />
             <w:keepLines />
@@ -1917,6 +1987,7 @@
         <w:next w:val="Normal" />
         <w:uiPriority w:val="31" />
         <w:qFormat />
+        <w:rsid w:val="00C1744A" />
         <w:pPr>
             <w:spacing w:before="240" />
         </w:pPr>
@@ -1927,8 +1998,21 @@
         <w:basedOn w:val="Normal" />
         <w:uiPriority w:val="31" />
         <w:qFormat />
+        <w:rsid w:val="00364B30" />
         <w:pPr>
             <w:spacing w:after="0" />
+        </w:pPr>
+    </w:style>
+    <w:style w:type="numbering"
+             w:customStyle="1"
+             w:styleId="NumberedListB">
+        <w:name w:val="Numbered List B" />
+        <w:uiPriority w:val="99" />
+        <w:rsid w:val="00193445" />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="28" />
+            </w:numPr>
         </w:pPr>
     </w:style>
     <w:style w:type="paragraph"
@@ -1939,6 +2023,7 @@
         <w:next w:val="Normal" />
         <w:uiPriority w:val="26" />
         <w:qFormat />
+        <w:rsid w:val="00646F29" />
         <w:pPr>
             <w:spacing w:after="240" />
         </w:pPr>
@@ -1949,6 +2034,7 @@
         <w:basedOn w:val="DefaultParagraphFont" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:rsid w:val="000218ED" />
         <w:rPr>
             <w:color w:val="0563C1"
                      w:themeColor="hyperlink" />
@@ -1960,6 +2046,7 @@
         <w:name w:val="Table Grid" />
         <w:basedOn w:val="TableNormal" />
         <w:uiPriority w:val="39" />
+        <w:rsid w:val="00847013" />
         <w:pPr>
             <w:spacing w:after="0"
                        w:line="240"
@@ -2000,6 +2087,7 @@
         <w:name w:val="JBC Table A" />
         <w:basedOn w:val="TableNormal" />
         <w:uiPriority w:val="99" />
+        <w:rsid w:val="007524B9" />
         <w:pPr>
             <w:spacing w:after="0"
                        w:line="240"
@@ -2149,9 +2237,13 @@
         <w:basedOn w:val="ListBullet" />
         <w:uiPriority w:val="18" />
         <w:qFormat />
+        <w:rsid w:val="003A7627" />
         <w:pPr>
             <w:contextualSpacing w:val="0" />
         </w:pPr>
+        <w:rPr>
+            <w:noProof />
+        </w:rPr>
     </w:style>
     <w:style w:type="paragraph"
              w:customStyle="1"
@@ -2162,6 +2254,7 @@
         <w:uiPriority w:val="2" />
         <w:semiHidden />
         <w:qFormat />
+        <w:rsid w:val="0073722B" />
         <w:pPr>
             <w:tabs>
                 <w:tab w:val="left"
@@ -2184,6 +2277,7 @@
         <w:uiPriority w:val="2" />
         <w:semiHidden />
         <w:qFormat />
+        <w:rsid w:val="00F37F98" />
         <w:pPr>
             <w:keepNext />
             <w:keepLines />
@@ -2214,6 +2308,7 @@
         <w:uiPriority w:val="2" />
         <w:semiHidden />
         <w:qFormat />
+        <w:rsid w:val="003642AB" />
         <w:pPr>
             <w:framePr w:w="10440"
                        w:h="2520"
@@ -2241,6 +2336,7 @@
         <w:uiPriority w:val="2" />
         <w:semiHidden />
         <w:qFormat />
+        <w:rsid w:val="00013B0D" />
         <w:pPr>
             <w:suppressAutoHyphens />
             <w:contextualSpacing />
@@ -2260,6 +2356,7 @@
         <w:uiPriority w:val="39" />
         <w:semiHidden />
         <w:qFormat />
+        <w:rsid w:val="00296E9A" />
         <w:pPr>
             <w:spacing w:before="240" />
             <w:outlineLvl w:val="1" />
@@ -2280,6 +2377,7 @@
         <w:link w:val="FootnoteTextChar" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:rsid w:val="00272781" />
         <w:pPr>
             <w:spacing w:after="0"
                        w:line="240"
@@ -2301,6 +2399,7 @@
         <w:link w:val="FootnoteText" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:rsid w:val="00C1744A" />
         <w:rPr>
             <w:color w:val="595959"
                      w:themeColor="text1"
@@ -2315,9 +2414,22 @@
         <w:basedOn w:val="DefaultParagraphFont" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:rsid w:val="00272781" />
         <w:rPr>
             <w:vertAlign w:val="superscript" />
         </w:rPr>
+    </w:style>
+    <w:style w:type="numbering"
+             w:customStyle="1"
+             w:styleId="RequestItem">
+        <w:name w:val="Request Item" />
+        <w:uiPriority w:val="99" />
+        <w:rsid w:val="007707C9" />
+        <w:pPr>
+            <w:numPr>
+                <w:numId w:val="32" />
+            </w:numPr>
+        </w:pPr>
     </w:style>
     <w:style w:type="paragraph"
              w:customStyle="1"
@@ -2327,9 +2439,10 @@
         <w:next w:val="Normal" />
         <w:uiPriority w:val="6" />
         <w:qFormat />
+        <w:rsid w:val="00296E9A" />
         <w:pPr>
             <w:numPr>
-                <w:numId w:val="3" />
+                <w:numId w:val="35" />
             </w:numPr>
             <w:pBdr>
                 <w:top w:val="single"
@@ -2378,6 +2491,7 @@
         <w:basedOn w:val="DefaultParagraphFont" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:rsid w:val="00745A72" />
         <w:rPr>
             <w:color w:val="808080" />
         </w:rPr>
@@ -2390,6 +2504,7 @@
         <w:next w:val="Normal" />
         <w:uiPriority w:val="19" />
         <w:qFormat />
+        <w:rsid w:val="006959AD" />
         <w:pPr>
             <w:ind w:left="720"
                    w:hanging="720" />
@@ -2402,6 +2517,7 @@
         <w:basedOn w:val="ListNumber" />
         <w:uiPriority w:val="17" />
         <w:qFormat />
+        <w:rsid w:val="00D248A7" />
         <w:pPr>
             <w:contextualSpacing w:val="0" />
         </w:pPr>
@@ -2414,6 +2530,7 @@
         <w:autoRedefine />
         <w:uiPriority w:val="38" />
         <w:semiHidden />
+        <w:rsid w:val="00D248A7" />
         <w:pPr>
             <w:spacing w:after="0" />
             <w:ind w:left="662" />
@@ -2426,6 +2543,7 @@
         <w:uiPriority w:val="99" />
         <w:semiHidden />
         <w:unhideWhenUsed />
+        <w:rsid w:val="001503E0" />
         <w:rPr>
             <w:sz w:val="16" />
             <w:szCs w:val="16" />
@@ -2439,6 +2557,7 @@
         <w:uiPriority w:val="99" />
         <w:semiHidden />
         <w:unhideWhenUsed />
+        <w:rsid w:val="001503E0" />
         <w:pPr>
             <w:spacing w:line="240"
                        w:lineRule="auto" />
@@ -2456,6 +2575,7 @@
         <w:link w:val="CommentText" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:rsid w:val="001503E0" />
         <w:rPr>
             <w:sz w:val="20" />
             <w:szCs w:val="20" />
@@ -2470,6 +2590,7 @@
         <w:uiPriority w:val="99" />
         <w:semiHidden />
         <w:unhideWhenUsed />
+        <w:rsid w:val="001503E0" />
         <w:rPr>
             <w:b />
             <w:bCs />
@@ -2483,6 +2604,7 @@
         <w:link w:val="CommentSubject" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:rsid w:val="001503E0" />
         <w:rPr>
             <w:b />
             <w:bCs />
@@ -2498,6 +2620,7 @@
         <w:uiPriority w:val="99" />
         <w:semiHidden />
         <w:unhideWhenUsed />
+        <w:rsid w:val="001503E0" />
         <w:pPr>
             <w:spacing w:after="0"
                        w:line="240"
@@ -2519,6 +2642,7 @@
         <w:link w:val="BalloonText" />
         <w:uiPriority w:val="99" />
         <w:semiHidden />
+        <w:rsid w:val="001503E0" />
         <w:rPr>
             <w:rFonts w:ascii="Segoe UI"
                       w:hAnsi="Segoe UI"
@@ -2533,6 +2657,7 @@
         <w:name w:val="[Note]" />
         <w:basedOn w:val="DefaultParagraphFont" />
         <w:uiPriority w:val="39" />
+        <w:rsid w:val="00B24DD6" />
         <w:rPr>
             <w:color w:val="C00000" />
         </w:rPr>

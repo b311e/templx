@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippet id="jbcNormalCharacterStyles" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    <w:style w:type="character"
+             w:customStyle="1"
+             w:styleId="Note">
+        <w:name w:val="[Note]" />
+        <w:basedOn w:val="DefaultParagraphFont" />
+        <w:uiPriority w:val="40" />
+        <w:rPr>
+            <w:color w:val="C00000" />
+        </w:rPr>
+    </w:style>
+</snippet>

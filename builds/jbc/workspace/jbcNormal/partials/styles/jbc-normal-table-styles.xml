@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippet id="jbcNormalTableStyles" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    <w:style w:type="table"
+             w:customStyle="1"
+             w:styleId="JBCTableA">
+        <w:name w:val="JBC Table A" />
+        <w:basedOn w:val="TableNormal" />
+        <w:uiPriority w:val="99" />
+        <w:pPr>
+            <w:spacing w:after="0"
+                       w:line="240"
+                       w:lineRule="auto" />
+            <w:contextualSpacing />
+            <w:jc w:val="right" />
+        </w:pPr>
+        <w:rPr>
+            <w:sz w:val="18" />
+        </w:rPr>
+        <w:tblPr>
+            <w:tblLook w:firstRow="1" w:lastRow="1" w:firstColumn="1" w:lastColumn="0" w:noHBand="1" w:noVBand="1"/>
+            <w:jc w:val="center" />
+            <w:tblBorders>
+                <w:insideH w:val="single"
+                           w:sz="4"
+                           w:space="0"
+                           w:color="D9D9D9"
+                           w:themeColor="background1" 
+                           w:themeShade="D9"/>
+                <w:bottom w:val="single"
+                           w:sz="4"
+                           w:space="0"
+                           w:color="D9D9D9"
+                           w:themeColor="background1" 
+                           w:themeShade="D9"/>
+            </w:tblBorders>
+            <w:tblCellMar>
+                <w:top w:w="29"
+                       w:type="dxa" />
+                <w:left w:w="115"
+                        w:type="dxa" />
+                <w:bottom w:w="29"
+                          w:type="dxa" />
+                <w:right w:w="115"
+                         w:type="dxa" />
+            </w:tblCellMar>
+        </w:tblPr>
+        <w:tcPr>
+            <w:vAlign w:val="top" />
+        </w:tcPr>
+        <w:tblStylePr w:type="firstRow">
+            <w:pPr>
+                <w:jc w:val="center" />
+            </w:pPr>
+            <w:tblPr />
+            <w:trPr>
+                <w:tblHeader />
+            </w:trPr>
+            <w:tcPr>
+                <w:vAlign w:val="bottom"/>
+                <w:tcBorders>
+                    <w:insideV w:val="single"
+                               w:sz="4"
+                               w:space="0"
+                               w:color="FFFFFF"
+                               w:themeColor="background1" />
+                </w:tcBorders>
+                <w:shd w:val="clear"
+                       w:color="auto"
+                       w:fill="D9D9D9"
+                       w:themeFill="background1"
+                       w:themeFillShade="D9" />
+            </w:tcPr>
+        </w:tblStylePr>
+        <w:tblStylePr w:type="lastRow">
+            <w:tcPr>
+                <w:tcBorders>
+                    <w:top w:val="single"
+                           w:sz="8"
+                           w:space="0"
+                           w:color="000000"
+                           w:themeColor="text1" />
+                    <w:bottom w:val="single"
+                              w:sz="4"
+                              w:space="0"
+                              w:color="D9D9D9"
+                              w:themeColor="background1"
+                              w:themeShade="D9" />
+                </w:tcBorders>
+            </w:tcPr>
+        </w:tblStylePr>
+        <w:tblStylePr w:type="firstCol">
+            <w:pPr>
+                <w:jc w:val="left" />
+            </w:pPr>
+        </w:tblStylePr>
+        <w:tblStylePr w:type="lastCol">
+            <w:pPr>
+                <w:jc w:val="left" />
+            </w:pPr>
+        </w:tblStylePr>
+        <w:tblStylePr w:type="nwCell">
+            <w:pPr>
+                <w:jc w:val="left" />
+            </w:pPr>
+        </w:tblStylePr>
+        <w:tblStylePr w:type="neCell">
+            <w:pPr>
+                <w:jc w:val="left" />
+            </w:pPr>
+        </w:tblStylePr>
+    </w:style>
+</snippet>
