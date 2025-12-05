@@ -1,0 +1,120 @@
+template: jbcBudgetBriefingSummary
+parent: jbcLetter
+
+style-group: {default}
+  partial: {jbc-normal-default-styles.xml}
+  styles:
+    - Normal
+    - DefaultParagraphFont
+    - TableNormal
+    - NoList
+
+style-group: {heading}
+  partial: {jbc-budget-heading-styles.xml}
+  styles:
+    - Heading1
+    - Heading2
+    - Heading3
+    - Heading4
+    - Heading5
+    - Heading6
+    - Heading7
+    - Heading8
+    - Heading9
+    - RequestItemH3
+
+style-group: {body}
+  partial: {jbc-normal-body-styles.xml}
+  styles:
+    - NoSpacing
+    - AfterTableNormal
+
+style-group: {front-matter}
+  partial: {jbc-budget-front-matter-styles.xml}
+  styles:
+    - Title
+    - Subtitle
+    - Author
+    - Address
+    - To
+    - Subject
+
+style-group: {list}
+  partial: {jbc-normal-list-styles.xml}
+  styles:
+    - ListBullet
+    - ListBullet2
+    - ListBullet3
+    - ListBullet4
+    - ListBullet5
+    - ListBulletSpacing
+    - ListNumber
+    - ListNumber2
+    - ListNumber3
+    - ListNumber4
+    - ListNumber5
+    - ListNumberSpacing
+  
+style-group: {callout}
+  partial: {jbc-normal-callout-styles.xml}
+  styles:
+    - BlockText
+    - Quote
+    - IntenseQuote
+  
+  style-group: {caption}
+    partial: {jbc-normal-caption-styles.xml}
+    styles: 
+    - Caption
+    - Source
+  
+  style-group: {toc}
+    partial: {jbc-normal-toc-styles.xml}
+    styles:
+    - TOCHeading
+    - TOC1
+    - TOC2
+    - TOC3
+    - TOC4
+    - TOC5
+    - TOC6
+    - TOC7
+    - TOC8
+    - TOC9
+ 
+style-group: {header}
+  partial: {jbc-normal-header-styles.xml}
+  styles:
+    - Header
+
+style-group: {footer}  
+  partial: {jbc-normal-footer-styles.xml}
+  styles:
+    - Footer
+    - FootnoteText
+    - FootnoteReference
+
+style-group: {other}
+  partial: {jbc-budget-other-styles.xml}
+  styles:
+    - TableTitle
+    - LongBillFootnote
+  
+style-group: {character}
+  partial: {jbc-normal-character-styles.xml}
+  styles:
+    - Hyperlink
+    - FollowedHyperlink
+    - Strong
+    - Emphasis
+    - IntenseEmphasis
+    - SubtleEmphasis
+    - IntenseReference
+    - SubtleReference
+    - BookTitle
+    - Note
+
+style-group: {table}
+  partial: {jbc-normal-table-styles.xml}
+  styles:
+    - JBCTableA
