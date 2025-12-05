@@ -118,4 +118,4 @@ style-group: {character}
 style-group: {table}
   partial: {jbc-normal-table-styles.xml}
   styles:
-    - TableA
+    - JBCTableA

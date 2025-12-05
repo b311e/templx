@@ -30,7 +30,7 @@ style-group: {body}
     - AfterTableNormal
 
 style-group: {front-matter}
-  partial: {jbc-budget-front-matter-styles.xml}
+  partial: {jbc-letter-front-matter-styles.xml}
   styles:
     - Title
     - Subtitle
@@ -95,7 +95,7 @@ style-group: {footer}
     - FootnoteReference
 
 style-group: {other}
-  partial: {jbc-budget-other-styles.xml}
+  partial: {jbc-normal-other-styles.xml}
   styles:
     - TableTitle
     - LongBillFootnote
