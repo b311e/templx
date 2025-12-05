@@ -2,12 +2,12 @@ OOXML Validation Report
 ======================
 File: jbcNormal.dotm
 Full Path: C:\code\coga-template-manager\builds\jbc\workspace\jbcNormal\out\jbcNormal.dotm
-Timestamp: 2025-12-03 20:23:52
-File Size: 4,712,130 bytes
+Timestamp: 2025-12-04 21:42:32
+File Size: 4,712,106 bytes
 
 Document Type: Word
 
-Found 69 validation error(s):
+Found 46 validation error(s):
 
 Error 1:
   Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:allStyles' attribute is not declared.
@@ -103,342 +103,203 @@ Error 16:
   Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:tcBorders'.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[40]/w:tblStylePr[1]/w:tcPr[1]
+  Path: /w:styles[1]/w:style[56]/w:tblStylePr[1]/w:tcPr[1]
   Node: tcBorders
 
 Error 17:
   Description: The element has invalid child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:tblLook'. List of possible elements expected: <http://schemas.openxmlformats.org/wordprocessingml/2006/main:tblStyleRowBandSize>.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[40]/w:tblPr[1]
+  Path: /w:styles[1]/w:style[56]/w:tblPr[1]
   Node: tblLook
 
 Error 18:
   Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:bottom'.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[40]/w:tblPr[1]/w:tblBorders[1]
+  Path: /w:styles[1]/w:style[56]/w:tblPr[1]/w:tblBorders[1]
   Node: bottom
 
 Error 19:
   Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[35]
+  Path: /w:styles[1]/w:style[45]
   Node: uiPriority
 
 Error 20:
   Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[34]
+  Path: /w:styles[1]/w:style[44]
   Node: uiPriority
 
 Error 21:
   Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[33]
+  Path: /w:styles[1]/w:style[43]
   Node: uiPriority
 
 Error 22:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '0'. The Enumeration constraint failed.
+  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[33]/w:unhideWhenUsed[1]
+  Path: /w:styles[1]/w:style[42]
+  Node: uiPriority
 
 Error 23:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '1'. The Enumeration constraint failed.
+  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[33]/w:semiHidden[1]
+  Path: /w:styles[1]/w:style[41]
+  Node: uiPriority
 
 Error 24:
   Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[32]
+  Path: /w:styles[1]/w:style[40]
   Node: uiPriority
 
 Error 25:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '0'. The Enumeration constraint failed.
+  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[32]/w:unhideWhenUsed[1]
+  Path: /w:styles[1]/w:style[39]
+  Node: uiPriority
 
 Error 26:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '1'. The Enumeration constraint failed.
+  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[32]/w:semiHidden[1]
+  Path: /w:styles[1]/w:style[38]
+  Node: uiPriority
 
 Error 27:
   Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[31]
+  Path: /w:styles[1]/w:style[37]
   Node: uiPriority
 
 Error 28:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '0'. The Enumeration constraint failed.
+  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[31]/w:unhideWhenUsed[1]
+  Path: /w:styles[1]/w:style[36]
+  Node: uiPriority
 
 Error 29:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '1'. The Enumeration constraint failed.
+  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[31]/w:semiHidden[1]
+  Path: /w:styles[1]/w:style[35]
+  Node: uiPriority
 
 Error 30:
   Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[30]
+  Path: /w:styles[1]/w:style[34]
   Node: uiPriority
 
 Error 31:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '0'. The Enumeration constraint failed.
+  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[30]/w:unhideWhenUsed[1]
+  Path: /w:styles[1]/w:style[18]
+  Node: uiPriority
 
 Error 32:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '1'. The Enumeration constraint failed.
+  Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:csTheme' attribute is not declared.
   Error Type: Schema
   Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[30]/w:semiHidden[1]
+  Path: /w:styles[1]/w:style[17]/w:rPr[1]/w:rFonts[1]
 
 Error 33:
-  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[29]
-  Node: uiPriority
-
-Error 34:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '0'. The Enumeration constraint failed.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[29]/w:unhideWhenUsed[1]
-
-Error 35:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '1'. The Enumeration constraint failed.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[29]/w:semiHidden[1]
-
-Error 36:
-  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[28]
-  Node: uiPriority
-
-Error 37:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '0'. The Enumeration constraint failed.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[28]/w:unhideWhenUsed[1]
-
-Error 38:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '1'. The Enumeration constraint failed.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[28]/w:semiHidden[1]
-
-Error 39:
-  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[27]
-  Node: uiPriority
-
-Error 40:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '0'. The Enumeration constraint failed.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[27]/w:unhideWhenUsed[1]
-
-Error 41:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '1'. The Enumeration constraint failed.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[27]/w:semiHidden[1]
-
-Error 42:
-  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[26]
-  Node: uiPriority
-
-Error 43:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '0'. The Enumeration constraint failed.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[26]/w:unhideWhenUsed[1]
-
-Error 44:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '1'. The Enumeration constraint failed.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[26]/w:semiHidden[1]
-
-Error 45:
-  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[25]
-  Node: uiPriority
-
-Error 46:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '0'. The Enumeration constraint failed.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[25]/w:unhideWhenUsed[1]
-
-Error 47:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '1'. The Enumeration constraint failed.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[25]/w:semiHidden[1]
-
-Error 48:
-  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[24]
-  Node: uiPriority
-
-Error 49:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '0'. The Enumeration constraint failed.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[24]/w:unhideWhenUsed[1]
-
-Error 50:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '1'. The Enumeration constraint failed.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[24]/w:semiHidden[1]
-
-Error 51:
-  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[22]
-  Node: uiPriority
-
-Error 52:
   Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
   Path: /w:styles[1]/w:style[16]
   Node: uiPriority
 
-Error 53:
-  Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[15]
-  Node: uiPriority
-
-Error 54:
+Error 34:
   Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
   Path: /w:styles[1]/w:style[13]
   Node: uiPriority
 
-Error 55:
+Error 35:
   Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:csTheme' attribute is not declared.
   Error Type: Schema
   Part: /word/styles.xml
   Path: /w:styles[1]/w:style[13]/w:rPr[1]/w:rFonts[1]
 
-Error 56:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '1'. The Enumeration constraint failed.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[13]/w:semiHidden[1]
-
-Error 57:
+Error 36:
   Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
   Path: /w:styles[1]/w:style[12]
   Node: uiPriority
 
-Error 58:
+Error 37:
   Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:csTheme' attribute is not declared.
   Error Type: Schema
   Part: /word/styles.xml
   Path: /w:styles[1]/w:style[12]/w:rPr[1]/w:rFonts[1]
 
-Error 59:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '1'. The Enumeration constraint failed.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[12]/w:semiHidden[1]
-
-Error 60:
+Error 38:
   Description: The element has unexpected child element 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:uiPriority'.
   Error Type: Schema
   Part: /word/styles.xml
   Path: /w:styles[1]/w:style[11]
   Node: uiPriority
 
-Error 61:
+Error 39:
   Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:csTheme' attribute is not declared.
   Error Type: Schema
   Part: /word/styles.xml
   Path: /w:styles[1]/w:style[11]/w:rPr[1]/w:rFonts[1]
 
-Error 62:
-  Description: The attribute 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:val' has invalid value '1'. The Enumeration constraint failed.
-  Error Type: Schema
-  Part: /word/styles.xml
-  Path: /w:styles[1]/w:style[11]/w:semiHidden[1]
-
-Error 63:
+Error 40:
   Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:csTheme' attribute is not declared.
   Error Type: Schema
   Part: /word/styles.xml
   Path: /w:styles[1]/w:style[10]/w:rPr[1]/w:rFonts[1]
 
-Error 64:
+Error 41:
   Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:csTheme' attribute is not declared.
   Error Type: Schema
   Part: /word/styles.xml
   Path: /w:styles[1]/w:style[9]/w:rPr[1]/w:rFonts[1]
 
-Error 65:
+Error 42:
   Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:csTheme' attribute is not declared.
   Error Type: Schema
   Part: /word/styles.xml
   Path: /w:styles[1]/w:style[8]/w:rPr[1]/w:rFonts[1]
 
-Error 66:
+Error 43:
   Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:csTheme' attribute is not declared.
   Error Type: Schema
   Part: /word/styles.xml
   Path: /w:styles[1]/w:style[7]/w:rPr[1]/w:rFonts[1]
 
-Error 67:
+Error 44:
   Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:csTheme' attribute is not declared.
   Error Type: Schema
   Part: /word/styles.xml
   Path: /w:styles[1]/w:style[6]/w:rPr[1]/w:rFonts[1]
 
-Error 68:
+Error 45:
   Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:csTheme' attribute is not declared.
   Error Type: Schema
   Part: /word/styles.xml
   Path: /w:styles[1]/w:style[5]/w:rPr[1]/w:rFonts[1]
 
-Error 69:
+Error 46:
   Description: The 'http://schemas.openxmlformats.org/wordprocessingml/2006/main:csTheme' attribute is not declared.
   Error Type: Schema
   Part: /word/styles.xml
@@ -447,4 +308,4 @@ Error 69:
 
 ======================
 Validation FAILED
-Total Errors: 69
+Total Errors: 46

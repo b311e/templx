@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <w:numbering xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas"
-             xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex"
-             xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:o="urn:schemas-microsoft-com:office:office"
-             xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
-             xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
-             xmlns:v="urn:schemas-microsoft-com:vml"
-             xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing"
-             xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
-             xmlns:w10="urn:schemas-microsoft-com:office:word"
-             xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
-             xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml"
-             xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml"
-             xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex"
-             xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup"
-             xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk"
-             xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml"
-             xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
-             mc:Ignorable="w14 w15 w16se wp14">
-    <w:abstractNum w:abstractNumId="1"
-                   w15:restartNumberingAfterBreak="0">
+    xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex"
+    xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:o="urn:schemas-microsoft-com:office:office"
+    xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+    xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+    xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing"
+    xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+    xmlns:w10="urn:schemas-microsoft-com:office:word"
+    xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+    xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml"
+    xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml"
+    xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex"
+    xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup"
+    xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk"
+    xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml"
+    xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" mc:Ignorable="w14 w15 w16se wp14">
+    <w:abstractNum w:abstractNumId="1" w15:restartNumberingAfterBreak="0">
         <w:nsid w:val="08485B73" />
         <w:multiLevelType w:val="multilevel" />
         <w:lvl w:ilvl="0">
@@ -32,13 +30,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="360"/>
                 </w:tabs>
-                <w:ind w:left="360"
-                       w:hanging="360" />
+                <w:ind w:left="360" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
                 <w:color w:val="auto" />
             </w:rPr>
         </w:lvl>
@@ -51,13 +46,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="720"/>
                 </w:tabs>
-                <w:ind w:left="720"
-                       w:hanging="360" />
+                <w:ind w:left="720" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
                 <w:color w:val="auto" />
             </w:rPr>
         </w:lvl>
@@ -70,13 +62,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="1080"/>
                 </w:tabs>
-                <w:ind w:left="1080"
-                       w:hanging="360" />
+                <w:ind w:left="1080" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
                 <w:color w:val="auto" />
             </w:rPr>
         </w:lvl>
@@ -89,13 +78,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="1440"/>
                 </w:tabs>
-                <w:ind w:left="1440"
-                       w:hanging="360" />
+                <w:ind w:left="1440" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
                 <w:color w:val="auto" />
             </w:rPr>
         </w:lvl>
@@ -108,13 +94,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="1800"/>
                 </w:tabs>
-                <w:ind w:left="1800"
-                       w:hanging="360" />
+                <w:ind w:left="1800" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
                 <w:color w:val="auto" />
             </w:rPr>
         </w:lvl>
@@ -127,13 +110,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="2160"/>
                 </w:tabs>
-                <w:ind w:left="2160"
-                       w:hanging="360" />
+                <w:ind w:left="2160" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
                 <w:color w:val="auto" />
             </w:rPr>
         </w:lvl>
@@ -146,13 +126,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="2520"/>
                 </w:tabs>
-                <w:ind w:left="2520"
-                       w:hanging="360" />
+                <w:ind w:left="2520" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
                 <w:color w:val="auto" />
             </w:rPr>
         </w:lvl>
@@ -165,13 +142,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="2880"/>
                 </w:tabs>
-                <w:ind w:left="2880"
-                       w:hanging="360" />
+                <w:ind w:left="2880" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
                 <w:color w:val="auto" />
             </w:rPr>
         </w:lvl>
@@ -184,19 +158,15 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="3240"/>
                 </w:tabs>
-                <w:ind w:left="3240"
-                       w:hanging="360" />
+                <w:ind w:left="3240" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
                 <w:color w:val="auto" />
             </w:rPr>
         </w:lvl>
     </w:abstractNum>
-    <w:abstractNum w:abstractNumId="2"
-                   w15:restartNumberingAfterBreak="0">
+    <w:abstractNum w:abstractNumId="2" w15:restartNumberingAfterBreak="0">
         <w:nsid w:val="1DF57165" />
         <w:multiLevelType w:val="multilevel" />
         <w:lvl w:ilvl="0">
@@ -208,13 +178,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="360"/>
                 </w:tabs>
-                <w:ind w:left="360"
-                       w:hanging="360" />
+                <w:ind w:left="360" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
             </w:rPr>
         </w:lvl>
         <w:lvl w:ilvl="1">
@@ -226,13 +193,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="720"/>
                 </w:tabs>
-                <w:ind w:left="720"
-                       w:hanging="360" />
+                <w:ind w:left="720" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
             </w:rPr>
         </w:lvl>
         <w:lvl w:ilvl="2">
@@ -244,13 +208,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="1080"/>
                 </w:tabs>
-                <w:ind w:left="1080"
-                       w:hanging="360" />
+                <w:ind w:left="1080" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
             </w:rPr>
         </w:lvl>
         <w:lvl w:ilvl="3">
@@ -262,13 +223,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="1440"/>
                 </w:tabs>
-                <w:ind w:left="1440"
-                       w:hanging="360" />
+                <w:ind w:left="1440" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
             </w:rPr>
         </w:lvl>
         <w:lvl w:ilvl="4">
@@ -280,13 +238,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="1800"/>
                 </w:tabs>
-                <w:ind w:left="1800"
-                       w:hanging="360" />
+                <w:ind w:left="1800" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
             </w:rPr>
         </w:lvl>
         <w:lvl w:ilvl="5">
@@ -298,13 +253,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="2160"/>
                 </w:tabs>
-                <w:ind w:left="2160"
-                       w:hanging="360" />
+                <w:ind w:left="2160" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
             </w:rPr>
         </w:lvl>
         <w:lvl w:ilvl="6">
@@ -316,13 +268,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="2520"/>
                 </w:tabs>
-                <w:ind w:left="2520"
-                       w:hanging="360" />
+                <w:ind w:left="2520" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
             </w:rPr>
         </w:lvl>
         <w:lvl w:ilvl="7">
@@ -334,13 +283,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="2880"/>
                 </w:tabs>
-                <w:ind w:left="2880"
-                       w:hanging="360" />
+                <w:ind w:left="2880" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
             </w:rPr>
         </w:lvl>
         <w:lvl w:ilvl="8">
@@ -352,13 +298,10 @@
                 <w:tabs>
                     <w:tab w:val="num" w:pos="3240"/>
                 </w:tabs>
-                <w:ind w:left="3240"
-                       w:hanging="360" />
+                <w:ind w:left="3240" w:hanging="360" />
             </w:pPr>
             <w:rPr>
-                <w:rFonts w:asciiTheme="minorHAnsi"
-                          w:hAnsiTheme="minorHAnsi"
-                          w:hint="default" />
+                <w:rFonts w:asciiTheme="minorHAnsi" w:hAnsiTheme="minorHAnsi" w:hint="default" />
             </w:rPr>
         </w:lvl>
     </w:abstractNum>

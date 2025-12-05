@@ -1,16 +1,21 @@
-# Core JBC Style Guidelines
+# JBC Style Core Standards
+
+## Styles
 
 ## Lists
 
-List Style Ordering
-- List Number 
-    - xml priority 15
-    - numId: 2
-- List Bullet
-    - xml proprity 16
-    - numId: 1
-- Spacing List Number
-    - xml priority 17
-- Spacing List Bullet 
-    - xml priority 18
+- name: List Number
+  - ui-priority: 15
+  - num-id: 2
 
+- name: List Bullet
+  - ui-priority: 16
+  - num-id: 1
+
+- name: Spacing List Number
+  - ui-priority: 17
+  - custom: true
+
+- name: Spacing List Bullet
+  - ui-priority: 18
+  - custom: true

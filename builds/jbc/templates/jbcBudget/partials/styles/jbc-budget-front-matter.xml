@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippet id="jbcBudgetFrontMatter"
+    xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    <w:style w:type="paragraph" w:styleId="Title">
+        <w:name w:val="Title"/>
+        <w:basedOn w:val="Normal"/>
+        <w:next w:val="Normal"/>
+        <w:uiPriority w:val="99"/>
+        <w:semiHidden />
+        <w:pPr>
+            <w:spacing w:after="360" w:line="240" w:lineRule="auto" />
+        </w:pPr>
+        <w:rPr>
+            <w:rFonts w:asciiTheme="majorHAnsi" w:eastAsiaTheme="majorEastAsia" w:hAnsiTheme="majorHAnsi" w:csTheme="majorBidi" />
+            <w:b />
+            <w:color w:val="41597C" w:themeColor="accent1" />
+            <w:sz w:val="64" />
+            <w:szCs w:val="64" />
+        </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:styleId="Subtitle">
+        <w:name w:val="Subtitle" />
+        <w:aliases w:val="Department Name" />
+        <w:basedOn w:val="Normal" />
+        <w:uiPriority w:val="4" />
+        <w:pPr>
+            <w:spacing w:after="480" />
+            <w:ind w:left="360" w:right="360" />
+            <w:contextualSpacing />
+            <w:jc w:val="center" />
+        </w:pPr>
+        <w:rPr>
+            <w:b />
+            <w:color w:val="41597C" w:themeColor="accent1" />
+            <w:sz w:val="40" />
+        </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:customStyle="1" w:styleId="Author">
+        <w:name w:val="Author" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:uiPriority w:val="38" />
+        <w:semiHidden />
+        <w:pPr>
+            <w:tabs>
+                <w:tab w:val="left" w:pos="4577" />
+            </w:tabs>
+            <w:spacing w:after="0" />
+            <w:contextualSpacing />
+            <w:jc w:val="center" />
+        </w:pPr>
+        <w:rPr>
+            <w:sz w:val="28" />
+        </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:customStyle="1" w:styleId="Address">
+        <w:name w:val="Address" />
+        <w:aliases w:val="Phone,Website" />
+        <w:basedOn w:val="Normal" />
+        <w:uiPriority w:val="38" />
+        <w:semiHidden />
+        <w:pPr>
+            <w:framePr w:w="12240" w:h="4321" w:hRule="exact" w:hSpace="0" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1" w:y="11361"/>
+            <w:suppressAutoHyphens />
+            <w:contextualSpacing />
+            <w:jc w:val="center" />
+        </w:pPr>
+        <w:rPr>
+            <w:sz w:val="24" />
+        </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:customStyle="1" w:styleId="JointBudgetCommitteeStaff">
+        <w:name w:val="Joint Budget Committee Staff" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Address" />
+        <w:uiPriority w:val="38" />
+        <w:semiHidden />
+        <w:pPr>
+            <w:keepNext />
+            <w:keepLines />
+            <w:framePr w:w="12240" w:h="4321" w:hRule="exact" w:hSpace="0" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1" w:y="11361"/>
+            <w:jc w:val="center" />
+        </w:pPr>
+        <w:rPr>
+            <w:b />
+            <w:sz w:val="24" />
+        </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:customStyle="1" w:styleId="Disclaimer">
+        <w:name w:val="Disclaimer" />
+        <w:basedOn w:val="Normal" />
+        <w:uiPriority w:val="38" />
+        <w:semiHidden />
+        <w:pPr>
+            <w:suppressAutoHyphens />
+            <w:contextualSpacing />
+            <w:jc w:val="center" />
+        </w:pPr>
+        <w:rPr>
+            <w:color w:val="FFFFFF" w:themeColor="background1" />
+            <w:sz w:val="24" />
+        </w:rPr>
+    </w:style>
+</snippet>

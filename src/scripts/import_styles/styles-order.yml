@@ -2,7 +2,8 @@ name: styles order
 version: 1.0.0
 description: The order styles should be imported and appear in the target styles.xml.
 
-style-groups:
+style-group:
+  doc-default:
   default:
     - Normal
     - DefaultParagraphFont
@@ -25,6 +26,11 @@ style-groups:
   front-matter:
     - Pretitle
     - Subtitle
+    - Title
+    - Author
+    - Address
+    - Date
+    - Disclaimer
   list:
     - ListBullet
     - ListBullet2
@@ -63,18 +69,21 @@ style-groups:
     - Footer
     - FootnoteText
     - FootnoteReference
-  letter:
-    - Date
-    - Address
-    - Signature
   other:
     - TableTitle
+    - Signature
+    - Bibliography
   character:
     - Hyperlink
     - FollowedHyperlink
-    - Note
     - Strong
     - Emphasis
+    - Intense Emphasis
+    - Subtle Emphasis
+    - Intense Reference
+    - Subtle Reference
+    - Book Title
+    - Note
   table:
     - TableA
     - TableB

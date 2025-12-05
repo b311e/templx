@@ -52,7 +52,7 @@ A comprehensive template management system for Colorado General Assembly Microso
 
 3. Set up bash aliases (optional, but recommended):
    ```bash
-   source src/scripts/setup_aliases.sh
+   source src/scripts/setup_aliases/setup_aliases.sh
    ```
 
 ## Usage
@@ -134,6 +134,20 @@ import-styles <target-doc> <source-doc>
 
 # Import styles from snippet: Import styles from XML snippet to Word document or template
 import-snippet-styles <target-doc> <snippet-id>
+```
+
+### Clean Up
+
+#### Remove RSIDs
+
+```bash
+remove-styles-rsid <path-to-styles.xml>
+```
+
+#### Remove Linked Character Styles
+
+```bash
+remove-styles-linkchar <path-to-styles.xml>
 ```
 
 ## Project Structure
