@@ -1381,7 +1381,7 @@
                         </w:r>
                     </w:hyperlink>
                 </w:p>
-                <w:p w14:paraId="20D8E31A" w14:textId="77777777" w:rsidR="00B3635C" w:rsidRDefault="00B8375B">
+                <w:p>
                     <w:pPr>
                         <w:pStyle w:val="TOC1"/>
                         <w:rPr>
@@ -1444,7 +1444,7 @@
                         </w:r>
                     </w:hyperlink>
                 </w:p>
-                <w:p w14:paraId="3B8D286C" w14:textId="77777777" w:rsidR="009D795C" w:rsidRDefault="009D795C" w:rsidP="009D795C">
+                <w:p>
                     <w:r>
                         <w:rPr>
                             <w:noProof/>
@@ -1454,7 +1454,7 @@
                 </w:p>
             </w:sdtContent>
         </w:sdt>
-        <w:p w14:paraId="3154981E" w14:textId="77777777" w:rsidR="00933915" w:rsidRPr="00B3635C" w:rsidRDefault="00933915" w:rsidP="00B3635C">
+        <w:p>
             <w:pPr>
                 <w:pStyle w:val="AdditionalResources"/>
             </w:pPr>

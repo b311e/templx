@@ -6097,8 +6097,42 @@
             </w:r>
             <w:bookmarkEnd w:id="10"/>
         </w:p>
-        <w:sectPr w:rsidR="0014159F" w:rsidRPr="006D4B2F" w:rsidSect="00ED2426">
+        <w:sectPr>
             <w:footerReference w:type="default" r:id="rId14"/>
+            <w:pgSz w:w="12240" w:h="15840"/>
+            <w:pgMar w:top="1080" w:right="1080" w:bottom="1080" w:left="1080" w:header="720" w:footer="720" w:gutter="0"/>
+            <w:pgNumType w:start="1"/>
+            <w:cols w:space="720"/>
+            <w:docGrid w:linePitch="360"/>
+        </w:sectPr>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Heading2"/>
+            </w:pPr>
+            <w:bookmarkStart w:id="55" w:name="_Toc210753498"/>
+            <w:r>
+                <w:lastRenderedPageBreak/>
+                <w:t>Appendix A: Numbers Pages</w:t>
+            </w:r>
+            <w:bookmarkEnd w:id="55"/>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:t>Appendix A details the actual expenditures for the last two state fiscal years, the appropriation for the current fiscal year, and the requested appropriation for next fiscal year. Appendix A organizes this information by line item and fund source.</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="Note"/>
+                </w:rPr>
+                <w:t>[Do not delete this landing page. It is important for accessibility. Begin the numbers pages with A-2. Add the following note at the end of your Numbers Pages appendix through a text box in the PDF: "NOTE: An asterisk (*) indicates that the FY 2025-26 request for a line item is affected by one or more decision items."]</w:t>
+            </w:r>
+        </w:p>
+        <w:sectPr>
+            <w:footerReference w:type="default" r:id="rId18"/>
+            <w:headerReference w:type="first" r:id="rId19"/>
+            <w:footerReference w:type="first" r:id="rId20"/>
             <w:pgSz w:w="12240" w:h="15840"/>
             <w:pgMar w:top="1080" w:right="1080" w:bottom="1080" w:left="1080" w:header="720" w:footer="720" w:gutter="0"/>
             <w:pgNumType w:start="1"/>
