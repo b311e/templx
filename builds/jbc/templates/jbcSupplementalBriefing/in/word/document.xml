@@ -2359,109 +2359,48 @@
                 </w:tc>
             </w:tr>
         </w:tbl>
-        <w:p w14:paraId="473B15E7" w14:textId="77777777" w:rsidR="00E01A7C" w:rsidRPr="00AC6DE4" w:rsidRDefault="00E01A7C" w:rsidP="00E01A7C">
+        <w:p>
             <w:pPr>
                 <w:pStyle w:val="BlockText"/>
-                <w:rPr>
-                    <w:rStyle w:val="Note"/>
-                </w:rPr>
             </w:pPr>
-            <w:r w:rsidRPr="00E01A7C">
-                <w:rPr>
-                    <w:b/>
-                </w:rPr>
-                <w:t>Does JBC staff believe the request meets the Joint Budget Committee's supplemental criteria?</w:t>
-            </w:r>
             <w:r>
-                <w:t xml:space="preserve"></w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
                 <w:rPr>
                     <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
                 </w:rPr>
-                <w:fldChar w:fldCharType="begin">
-                    <w:ffData>
-                        <w:name w:val="Text7"/>
-                        <w:enabled/>
-                        <w:calcOnExit w:val="0"/>
-                        <w:textInput>
-                            <w:default w:val="YES or NO"/>
-                        </w:textInput>
-                    </w:ffData>
-                </w:fldChar>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:instrText xml:space="preserve"> FORMTEXT </w:instrText>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="separate"/>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:t>YES or NO</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="end"/>
+                <w:t xml:space="preserve">Does JBC staff believe the request meets the Joint Budget Committee's supplemental criteria? </w:t>
             </w:r>
             <w:r>
                 <w:rPr>
-                    <w:rStyle w:val="Note"/>
+                    <w:b/>
+                    <w:bCs/>
+                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
                 </w:rPr>
-                <w:t xml:space="preserve"></w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:rStyle w:val="Note"/>
-                </w:rPr>
-                <w:t>[An emergency or act of God; a technical error in calculating the original appropriation; data that was not available when the original appropriation was made; or an unforeseen contingency.]</w:t>
+                <w:t xml:space="preserve">YES or NO </w:t>
             </w:r>
         </w:p>
-        <w:p w14:paraId="40C41F0D" w14:textId="77777777" w:rsidR="00E01A7C" w:rsidRDefault="00E01A7C" w:rsidP="00E01A7C">
+        <w:p>
             <w:pPr>
                 <w:pStyle w:val="BlockText"/>
             </w:pPr>
-            <w:r w:rsidRPr="00E01A7C">
+            <w:r>
+                <w:t>An emergency or act of God; a technical error in calculating the original appropriation; data that was not available when the original appropriation was made; or an unforeseen contingency.</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="BlockText"/>
+            </w:pPr>
+            <w:r>
                 <w:rPr>
                     <w:b/>
                 </w:rPr>
-                <w:t>Explanation:</w:t>
+                <w:t xml:space="preserve">Explanation: </w:t>
             </w:r>
-            <w:r w:rsidRPr="00E01A7C">
+            <w:r>
                 <w:rPr>
                     <w:rStyle w:val="Note"/>
                 </w:rPr>
-                <w:t xml:space="preserve"></w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:t>JBC staff and the Department agree that this request is the result of…</w:t>
+                <w:t>[JBC staff and the Department agree that this request is the result of…]</w:t>
             </w:r>
         </w:p>
         <w:p w14:paraId="3EE81149" w14:textId="77777777" w:rsidR="00E01A7C" w:rsidRPr="00474CD1" w:rsidRDefault="00E01A7C" w:rsidP="00474CD1">
@@ -3079,113 +3018,48 @@
                 </w:tc>
             </w:tr>
         </w:tbl>
-        <w:p w14:paraId="69F16C64" w14:textId="59308D7D" w:rsidR="00AC6DE4" w:rsidRPr="00AC6DE4" w:rsidRDefault="00AC6DE4" w:rsidP="00E01A7C">
+        <w:p>
             <w:pPr>
                 <w:pStyle w:val="BlockText"/>
-                <w:rPr>
-                    <w:rStyle w:val="Note"/>
-                </w:rPr>
             </w:pPr>
-            <w:r w:rsidRPr="00E01A7C">
-                <w:rPr>
-                    <w:b/>
-                </w:rPr>
-                <w:lastRenderedPageBreak/>
-                <w:t>Does JBC staff believe the request meets the Joint Budget Committee's supplemental criteria?</w:t>
-            </w:r>
             <w:r>
-                <w:t xml:space="preserve"></w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
                 <w:rPr>
                     <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
                 </w:rPr>
-                <w:fldChar w:fldCharType="begin">
-                    <w:ffData>
-                        <w:name w:val="Text7"/>
-                        <w:enabled/>
-                        <w:calcOnExit w:val="0"/>
-                        <w:textInput>
-                            <w:default w:val="YES or NO"/>
-                        </w:textInput>
-                    </w:ffData>
-                </w:fldChar>
-            </w:r>
-            <w:bookmarkStart w:id="11" w:name="Text7"/>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:instrText xml:space="preserve"> FORMTEXT </w:instrText>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="separate"/>
+                <w:t xml:space="preserve">Does JBC staff believe the request meets the Joint Budget Committee's supplemental criteria? </w:t>
             </w:r>
             <w:r>
                 <w:rPr>
                     <w:b/>
                     <w:bCs/>
-                    <w:noProof/>
                     <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
                 </w:rPr>
-                <w:t>YES or NO</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="end"/>
-            </w:r>
-            <w:bookmarkEnd w:id="11"/>
-            <w:r>
-                <w:rPr>
-                    <w:rStyle w:val="Note"/>
-                </w:rPr>
-                <w:t xml:space="preserve"></w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:rStyle w:val="Note"/>
-                </w:rPr>
-                <w:t>[An emergency or act of God; a technical error in calculating the original appropriation; data that was not available when the original appropriation was made; or an unforeseen contingency.]</w:t>
+                <w:t xml:space="preserve">YES or NO </w:t>
             </w:r>
         </w:p>
-        <w:p w14:paraId="32101774" w14:textId="2B975612" w:rsidR="00AC6DE4" w:rsidRPr="00AC6DE4" w:rsidRDefault="00AC6DE4" w:rsidP="00AC6DE4">
+        <w:p>
             <w:pPr>
                 <w:pStyle w:val="BlockText"/>
             </w:pPr>
-            <w:r w:rsidRPr="00E01A7C">
+            <w:r>
+                <w:t>An emergency or act of God; a technical error in calculating the original appropriation; data that was not available when the original appropriation was made; or an unforeseen contingency.</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="BlockText"/>
+            </w:pPr>
+            <w:r>
                 <w:rPr>
                     <w:b/>
                 </w:rPr>
-                <w:t>Explanation:</w:t>
+                <w:t xml:space="preserve">Explanation: </w:t>
             </w:r>
-            <w:r w:rsidRPr="00E01A7C">
+            <w:r>
                 <w:rPr>
                     <w:rStyle w:val="Note"/>
                 </w:rPr>
-                <w:t xml:space="preserve"></w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:t>JBC staff and the Department agree that this request is the result of…</w:t>
+                <w:t>[JBC staff and the Department agree that this request is the result of…]</w:t>
             </w:r>
         </w:p>
         <w:p w14:paraId="5873B7C5" w14:textId="4F31517D" w:rsidR="008A23BC" w:rsidRPr="00E01A7C" w:rsidRDefault="008A23BC" w:rsidP="00474CD1">
@@ -3823,110 +3697,48 @@
                 </w:tc>
             </w:tr>
         </w:tbl>
-        <w:p w14:paraId="75488916" w14:textId="77777777" w:rsidR="00AC6DE4" w:rsidRPr="00AC6DE4" w:rsidRDefault="00AC6DE4" w:rsidP="00AC6DE4">
+        <w:p>
             <w:pPr>
                 <w:pStyle w:val="BlockText"/>
-                <w:rPr>
-                    <w:rStyle w:val="Note"/>
-                </w:rPr>
             </w:pPr>
-            <w:r w:rsidRPr="00E01A7C">
-                <w:rPr>
-                    <w:b/>
-                </w:rPr>
-                <w:t>Does JBC staff believe the request meets the Joint Budget Committee's supplemental criteria?</w:t>
-            </w:r>
             <w:r>
-                <w:t xml:space="preserve"></w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
                 <w:rPr>
                     <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
                 </w:rPr>
-                <w:fldChar w:fldCharType="begin">
-                    <w:ffData>
-                        <w:name w:val="Text7"/>
-                        <w:enabled/>
-                        <w:calcOnExit w:val="0"/>
-                        <w:textInput>
-                            <w:default w:val="YES or NO"/>
-                        </w:textInput>
-                    </w:ffData>
-                </w:fldChar>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:instrText xml:space="preserve"> FORMTEXT </w:instrText>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="separate"/>
+                <w:t xml:space="preserve">Does JBC staff believe the request meets the Joint Budget Committee's supplemental criteria? </w:t>
             </w:r>
             <w:r>
                 <w:rPr>
                     <w:b/>
                     <w:bCs/>
-                    <w:noProof/>
                     <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
                 </w:rPr>
-                <w:t>YES or NO</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="end"/>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rStyle w:val="Note"/>
-                </w:rPr>
-                <w:t xml:space="preserve"></w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:rStyle w:val="Note"/>
-                </w:rPr>
-                <w:t>[An emergency or act of God; a technical error in calculating the original appropriation; data that was not available when the original appropriation was made; or an unforeseen contingency.]</w:t>
+                <w:t xml:space="preserve">YES or NO </w:t>
             </w:r>
         </w:p>
-        <w:p w14:paraId="7AC017DC" w14:textId="77777777" w:rsidR="00AC6DE4" w:rsidRPr="00AC6DE4" w:rsidRDefault="00AC6DE4" w:rsidP="00AC6DE4">
+        <w:p>
             <w:pPr>
                 <w:pStyle w:val="BlockText"/>
             </w:pPr>
-            <w:r w:rsidRPr="00E01A7C">
+            <w:r>
+                <w:t>An emergency or act of God; a technical error in calculating the original appropriation; data that was not available when the original appropriation was made; or an unforeseen contingency.</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="BlockText"/>
+            </w:pPr>
+            <w:r>
                 <w:rPr>
                     <w:b/>
                 </w:rPr>
-                <w:t>Explanation:</w:t>
+                <w:t xml:space="preserve">Explanation: </w:t>
             </w:r>
-            <w:r w:rsidRPr="00E01A7C">
+            <w:r>
                 <w:rPr>
                     <w:rStyle w:val="Note"/>
                 </w:rPr>
-                <w:t xml:space="preserve"></w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:t>JBC staff and the Department agree that this request is the result of…</w:t>
+                <w:t>[JBC staff and the Department agree that this request is the result of…]</w:t>
             </w:r>
         </w:p>
         <w:p w14:paraId="01F7CCAE" w14:textId="77777777" w:rsidR="008A23BC" w:rsidRPr="00E01A7C" w:rsidRDefault="008A23BC" w:rsidP="00006492">
@@ -4560,110 +4372,48 @@
                 </w:tc>
             </w:tr>
         </w:tbl>
-        <w:p w14:paraId="5B5A47B8" w14:textId="77777777" w:rsidR="00AC6DE4" w:rsidRPr="00AC6DE4" w:rsidRDefault="00AC6DE4" w:rsidP="00AC6DE4">
+        <w:p>
             <w:pPr>
                 <w:pStyle w:val="BlockText"/>
-                <w:rPr>
-                    <w:rStyle w:val="Note"/>
-                </w:rPr>
             </w:pPr>
-            <w:r w:rsidRPr="00E01A7C">
-                <w:rPr>
-                    <w:b/>
-                </w:rPr>
-                <w:t>Does JBC staff believe the request meets the Joint Budget Committee's supplemental criteria?</w:t>
-            </w:r>
             <w:r>
-                <w:t xml:space="preserve"></w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
                 <w:rPr>
                     <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
                 </w:rPr>
-                <w:fldChar w:fldCharType="begin">
-                    <w:ffData>
-                        <w:name w:val="Text7"/>
-                        <w:enabled/>
-                        <w:calcOnExit w:val="0"/>
-                        <w:textInput>
-                            <w:default w:val="YES or NO"/>
-                        </w:textInput>
-                    </w:ffData>
-                </w:fldChar>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:instrText xml:space="preserve"> FORMTEXT </w:instrText>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="separate"/>
+                <w:t xml:space="preserve">Does JBC staff believe the request meets the Joint Budget Committee's supplemental criteria? </w:t>
             </w:r>
             <w:r>
                 <w:rPr>
                     <w:b/>
                     <w:bCs/>
-                    <w:noProof/>
                     <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
                 </w:rPr>
-                <w:t>YES or NO</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="end"/>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rStyle w:val="Note"/>
-                </w:rPr>
-                <w:t xml:space="preserve"></w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:rStyle w:val="Note"/>
-                </w:rPr>
-                <w:t>[An emergency or act of God; a technical error in calculating the original appropriation; data that was not available when the original appropriation was made; or an unforeseen contingency.]</w:t>
+                <w:t xml:space="preserve">YES or NO </w:t>
             </w:r>
         </w:p>
-        <w:p w14:paraId="317E38F5" w14:textId="77777777" w:rsidR="00AC6DE4" w:rsidRPr="00AC6DE4" w:rsidRDefault="00AC6DE4" w:rsidP="00AC6DE4">
+        <w:p>
             <w:pPr>
                 <w:pStyle w:val="BlockText"/>
             </w:pPr>
-            <w:r w:rsidRPr="00E01A7C">
+            <w:r>
+                <w:t>An emergency or act of God; a technical error in calculating the original appropriation; data that was not available when the original appropriation was made; or an unforeseen contingency.</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="BlockText"/>
+            </w:pPr>
+            <w:r>
                 <w:rPr>
                     <w:b/>
                 </w:rPr>
-                <w:t>Explanation:</w:t>
+                <w:t xml:space="preserve">Explanation: </w:t>
             </w:r>
-            <w:r w:rsidRPr="00E01A7C">
+            <w:r>
                 <w:rPr>
                     <w:rStyle w:val="Note"/>
                 </w:rPr>
-                <w:t xml:space="preserve"></w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:t>JBC staff and the Department agree that this request is the result of…</w:t>
+                <w:t>[JBC staff and the Department agree that this request is the result of…]</w:t>
             </w:r>
         </w:p>
         <w:p w14:paraId="349DA374" w14:textId="77777777" w:rsidR="008A23BC" w:rsidRPr="00E01A7C" w:rsidRDefault="008A23BC" w:rsidP="00474CD1">
@@ -5275,110 +5025,48 @@
                 </w:tc>
             </w:tr>
         </w:tbl>
-        <w:p w14:paraId="60C24869" w14:textId="77777777" w:rsidR="00AC6DE4" w:rsidRPr="00AC6DE4" w:rsidRDefault="00AC6DE4" w:rsidP="00AC6DE4">
+        <w:p>
             <w:pPr>
                 <w:pStyle w:val="BlockText"/>
-                <w:rPr>
-                    <w:rStyle w:val="Note"/>
-                </w:rPr>
             </w:pPr>
-            <w:r w:rsidRPr="00E01A7C">
-                <w:rPr>
-                    <w:b/>
-                </w:rPr>
-                <w:t>Does JBC staff believe the request meets the Joint Budget Committee's supplemental criteria?</w:t>
-            </w:r>
             <w:r>
-                <w:t xml:space="preserve"></w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
                 <w:rPr>
                     <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
                 </w:rPr>
-                <w:fldChar w:fldCharType="begin">
-                    <w:ffData>
-                        <w:name w:val="Text7"/>
-                        <w:enabled/>
-                        <w:calcOnExit w:val="0"/>
-                        <w:textInput>
-                            <w:default w:val="YES or NO"/>
-                        </w:textInput>
-                    </w:ffData>
-                </w:fldChar>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:instrText xml:space="preserve"> FORMTEXT </w:instrText>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="separate"/>
+                <w:t xml:space="preserve">Does JBC staff believe the request meets the Joint Budget Committee's supplemental criteria? </w:t>
             </w:r>
             <w:r>
                 <w:rPr>
                     <w:b/>
                     <w:bCs/>
-                    <w:noProof/>
                     <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
                 </w:rPr>
-                <w:t>YES or NO</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:color w:val="953D05" w:themeColor="accent3" w:themeShade="BF"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="end"/>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rStyle w:val="Note"/>
-                </w:rPr>
-                <w:t xml:space="preserve"></w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:rPr>
-                    <w:rStyle w:val="Note"/>
-                </w:rPr>
-                <w:t>[An emergency or act of God; a technical error in calculating the original appropriation; data that was not available when the original appropriation was made; or an unforeseen contingency.]</w:t>
+                <w:t xml:space="preserve">YES or NO </w:t>
             </w:r>
         </w:p>
-        <w:p w14:paraId="1860D19E" w14:textId="77777777" w:rsidR="00AC6DE4" w:rsidRPr="00AC6DE4" w:rsidRDefault="00AC6DE4" w:rsidP="00AC6DE4">
+        <w:p>
             <w:pPr>
                 <w:pStyle w:val="BlockText"/>
             </w:pPr>
-            <w:r w:rsidRPr="00E01A7C">
+            <w:r>
+                <w:t>An emergency or act of God; a technical error in calculating the original appropriation; data that was not available when the original appropriation was made; or an unforeseen contingency.</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="BlockText"/>
+            </w:pPr>
+            <w:r>
                 <w:rPr>
                     <w:b/>
                 </w:rPr>
-                <w:t>Explanation:</w:t>
+                <w:t xml:space="preserve">Explanation: </w:t>
             </w:r>
-            <w:r w:rsidRPr="00E01A7C">
+            <w:r>
                 <w:rPr>
                     <w:rStyle w:val="Note"/>
                 </w:rPr>
-                <w:t xml:space="preserve"></w:t>
-            </w:r>
-            <w:r w:rsidRPr="00AC6DE4">
-                <w:t>JBC staff and the Department agree that this request is the result of…</w:t>
+                <w:t>[JBC staff and the Department agree that this request is the result of…]</w:t>
             </w:r>
         </w:p>
         <w:p w14:paraId="11162189" w14:textId="77777777" w:rsidR="00006492" w:rsidRPr="00E01A7C" w:rsidRDefault="00006492" w:rsidP="00006492">
