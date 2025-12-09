@@ -1,31 +1,31 @@
 # JBC Memo Template Documentation
 
-## Overview
-JBC internal memo template for inter-office communications.
+Create the jbcLetterhead template from the jbcLetterhead template.
 
-## Template Details
-- **Type**: Word Template (.dotx)
-- **Purpose**: Internal memos and communications
-- **Branding**: JBC colors and formatting standards
+1) Create a copy of the jbcLetterhead
+2) In the body of the document, press `Ctrl + F9` to insert fields
+3) Type `AUTOTEXT Memo` inside the brackets
 
-## Development Workflow
-1. **src/**: Source template files
-2. **in/**: Unpacked OpenXML structure for editing
-3. **out/**: Generated .dotx files ready for deployment
-4. **docs/**: Documentation and change tracking
+OR
 
-## Features
-- JBC memo header format
-- Standard memo fields (To, From, Date, Subject)
-- Corporate color scheme
-- Professional layout
+Just paste in the `document.xml`:
 
-## Testing Checklist
-- [ ] Memo header displays correctly
-- [ ] Fields are properly formatted
-- [ ] Colors match JBC branding standards
-- [ ] Layout is consistent and professional
-- [ ] Template opens without errors in Word
+```xml
+        <w:p>
+            <w:r>
+                <w:fldChar w:fldCharType="begin"/>
+            </w:r>
+            <w:r>
+                <w:instrText xml:space="preserve"> AUTOTEXT Memo </w:instrText>
+            </w:r>
+            <w:r>
+                <w:fldChar w:fldCharType="end"/>
+            </w:r>
+            <w:bookmarkStart w:id="0" w:name="_GoBack"/>
+            <w:bookmarkEnd w:id="0"/>
+        </w:p>
+```
 
-## Change Log
-*Document all changes here with date and description*
+
+
+This will pull the AutoText called "Memo" into the document, so be sure that is actually included in the Letterhead Template.
