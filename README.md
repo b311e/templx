@@ -138,10 +138,16 @@ import-snippet-styles <target-doc> <snippet-id>
 
 ### Clean Up
 
-#### Remove RSIDs
+#### Remove Tracking (RSIDs, ParaId, and textId)
 
 ```bash
-remove-styles-rsid <path-to-styles.xml>
+remove-tracking <target-doc>
+```
+
+#### Remove No Proof
+
+```bash
+remove-noproof <target-doc>
 ```
 
 #### Remove Linked Character Styles
