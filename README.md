@@ -141,13 +141,13 @@ import-snippet-styles <target-doc> <snippet-id>
 #### Remove Tracking (RSIDs, ParaId, and textId)
 
 ```bash
-remove-tracking <target-doc>
+remove-tracking <target-file>
 ```
 
 #### Remove No Proof
 
 ```bash
-remove-noproof <target-doc>
+remove-noproof <target-file>
 ```
 
 #### Remove Linked Character Styles

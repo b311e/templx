@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippet id="jbcBudgetTitlePage"
+    <w:body>
+        <w:p>
+            <w:pPr>
+                <w:spacing w:before="3120" w:after="360"/>
+                <w:jc w:val="center"/>
+                <w:rPr>
+                    <w:b/>
+                    <w:color w:val="41597C" w:themeColor="accent1"/>
+                    <w:sz w:val="36"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:b/>
+                    <w:color w:val="41597C" w:themeColor="accent1"/>
+                    <w:sz w:val="36"/>
+                </w:rPr>
+                <w:t>Joint Budget Committee</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Heading1"/>
+            </w:pPr>
+            <w:r>
+                <w:t xml:space="preserve">Staff Budget Briefing </w:t>
+            </w:r>
+            <w:r>
+                <w:br/>
+                <w:t>FY 2026-27</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Subtitle"/>
+            </w:pPr>
+            <w:r>
+                <w:fldChar w:fldCharType="begin">
+                    <w:ffData>
+                        <w:name w:val="DepartmentName"/>
+                        <w:enabled/>
+                        <w:calcOnExit w:val="0"/>
+                        <w:textInput>
+                            <w:default w:val="Department Name"/>
+                        </w:textInput>
+                    </w:ffData>
+                </w:fldChar>
+            </w:r>
+            <w:bookmarkStart w:id="0" w:name="DepartmentName"/>
+            <w:r>
+                <w:instrText xml:space="preserve"> FORMTEXT </w:instrText>
+            </w:r>
+            <w:r>
+                <w:fldChar w:fldCharType="separate"/>
+            </w:r>
+            <w:r>
+                <w:t>Department Name</w:t>
+            </w:r>
+            <w:r>
+                <w:fldChar w:fldCharType="end"/>
+            </w:r>
+            <w:bookmarkEnd w:id="0"/>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Subtitle"/>
+            </w:pPr>
+            <w:r>
+                <w:fldChar w:fldCharType="begin">
+                    <w:ffData>
+                        <w:name w:val="Division"/>
+                        <w:enabled/>
+                        <w:calcOnExit w:val="0"/>
+                        <w:textInput>
+                            <w:default w:val="Division (if applicable)"/>
+                        </w:textInput>
+                    </w:ffData>
+                </w:fldChar>
+            </w:r>
+            <w:bookmarkStart w:id="1" w:name="Division"/>
+            <w:r>
+                <w:instrText xml:space="preserve"> FORMTEXT </w:instrText>
+            </w:r>
+            <w:r>
+                <w:fldChar w:fldCharType="separate"/>
+            </w:r>
+            <w:r>
+                <w:t>Division (if applicable)</w:t>
+            </w:r>
+            <w:r>
+                <w:fldChar w:fldCharType="end"/>
+            </w:r>
+            <w:bookmarkEnd w:id="1"/>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Author"/>
+            </w:pPr>
+            <w:r>
+                <w:t>Prepared by:</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Author"/>
+            </w:pPr>
+            <w:r>
+                <w:fldChar w:fldCharType="begin">
+                    <w:ffData>
+                        <w:name w:val="Author"/>
+                        <w:enabled/>
+                        <w:calcOnExit w:val="0"/>
+                        <w:textInput>
+                            <w:default w:val="First Last"/>
+                        </w:textInput>
+                    </w:ffData>
+                </w:fldChar>
+            </w:r>
+            <w:r>
+                <w:instrText xml:space="preserve"> FORMTEXT </w:instrText>
+            </w:r>
+            <w:r>
+                <w:fldChar w:fldCharType="separate"/>
+            </w:r>
+            <w:r>
+                <w:t>First Last</w:t>
+            </w:r>
+            <w:r>
+                <w:fldChar w:fldCharType="end"/>
+            </w:r>
+            <w:r>
+                <w:t xml:space="preserve">, </w:t>
+            </w:r>
+            <w:r>
+                <w:t>JBC Staff</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Author"/>
+            </w:pPr>
+            <w:r>
+                <w:fldChar w:fldCharType="begin">
+                    <w:ffData>
+                        <w:name w:val="Date"/>
+                        <w:enabled/>
+                        <w:calcOnExit w:val="0"/>
+                        <w:textInput>
+                            <w:default w:val="Month XX, 20XX"/>
+                        </w:textInput>
+                    </w:ffData>
+                </w:fldChar>
+            </w:r>
+            <w:r>
+                <w:instrText xml:space="preserve"> FORMTEXT </w:instrText>
+            </w:r>
+            <w:r>
+                <w:fldChar w:fldCharType="separate"/>
+            </w:r>
+            <w:r>
+                <w:t>Month XX, 20XX</w:t>
+            </w:r>
+            <w:r>
+                <w:fldChar w:fldCharType="end"/>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="JointBudgetCommitteeStaff"/>
+                <w:framePr w:w="12240" w:h="4321" w:hRule="exact" w:hSpace="0" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1" w:y="11361"/>
+                <w:spacing w:before="0"/>
+                <w:rPr>
+                    <w:color w:val="666666" w:themeColor="text2"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:color w:val="666666" w:themeColor="text2"/>
+                </w:rPr>
+                <w:t>Joint Budget Committee Staff</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Address"/>
+                <w:framePr w:w="12240" w:h="4321" w:hRule="exact" w:hSpace="0" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1" w:y="11361"/>
+                <w:rPr>
+                    <w:color w:val="666666" w:themeColor="text2"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:color w:val="666666" w:themeColor="text2"/>
+                </w:rPr>
+                <w:t>200 E. 14th Avenue, 3rd Floor</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Address"/>
+                <w:framePr w:w="12240" w:h="4321" w:hRule="exact" w:hSpace="0" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1" w:y="11361"/>
+                <w:rPr>
+                    <w:color w:val="666666" w:themeColor="text2"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:color w:val="666666" w:themeColor="text2"/>
+                </w:rPr>
+                <w:t>Denver, Colorado 80203</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Address"/>
+                <w:framePr w:w="12240" w:h="4321" w:hRule="exact" w:hSpace="0" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1" w:y="11361"/>
+                <w:rPr>
+                    <w:color w:val="666666" w:themeColor="text2"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:color w:val="666666" w:themeColor="text2"/>
+                </w:rPr>
+                <w:t>Telephone: (303) 866-2061</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Address"/>
+                <w:framePr w:w="12240" w:h="4321" w:hRule="exact" w:hSpace="0" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1" w:y="11361"/>
+                <w:spacing w:after="760"/>
+                <w:rPr>
+                    <w:color w:val="666666" w:themeColor="text2"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:color w:val="666666" w:themeColor="text2"/>
+                </w:rPr>
+                <w:t>leg.colorado.gov/agencies/joint-budget-committee</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Disclaimer"/>
+                <w:framePr w:w="12240" w:h="4321" w:hRule="exact" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1" w:y="11361" w:anchorLock="1"/>
+                <w:spacing w:before="480"/>
+            </w:pPr>
+            <w:r>
+                <w:t>JBC Working Document - Subject to Change</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pStyle w:val="Disclaimer"/>
+                <w:framePr w:w="12240" w:h="4321" w:hRule="exact" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1" w:y="11361" w:anchorLock="1"/>
+                <w:spacing w:before="480"/>
+            </w:pPr>
+            <w:r>
+                <w:t>Staff Recommendation Does Not Represent Committee Decision</w:t>
+            </w:r>
+        </w:p>
+        <w:p/>
+        <w:p>
+            <w:pPr>
+                <w:sectPr>
+                    <w:footerReference w:type="default" r:id="rId8"/>
+                    <w:headerReference w:type="first" r:id="rId9"/>
+                    <w:footerReference w:type="first" r:id="rId10"/>
+                    <w:pgSz w:w="12240" w:h="15840"/>
+                    <w:pgMar w:top="1080" w:right="1080" w:bottom="1080" w:left="1080" w:header="720" w:footer="720" w:gutter="0"/>
+                    <w:pgNumType w:start="1"/>
+                    <w:cols w:space="720"/>
+                    <w:titlePg/>
+                    <w:docGrid w:linePitch="360"/>
+                </w:sectPr>
+            </w:pPr>
+        </w:p>
+</snippet>

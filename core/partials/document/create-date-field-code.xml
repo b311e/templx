@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippet id="coreCreateDateFieldCode" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+<!-- Create Date Field Code -->
+                    <w:r>
+                        <w:fldChar w:fldCharType="begin"/>
+                    </w:r>
+                    <w:r>
+                        <w:instrText xml:space="preserve"> CREATEDATE \@ "MMMM d, yyyy" </w:instrText>
+                    </w:r>
+                    <w:r>
+                        <w:fldChar w:fldCharType="end"/>
+                    </w:r>
+</snippet>
