@@ -230,4 +230,22 @@
             <w:sz w:val="52"/>
         </w:rPr>
     </w:style>
+    <w:style w:type="paragraph" w:customStyle="1" w:styleId="Heading5Subtitle">
+        <w:name w:val="Response Subtitle" />
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:uiPriority w:val="9" />
+        <w:qFormat />
+        <w:pPr>
+            <w:keepNext/>
+            <w:pBdr>
+                <w:bottom w:val="single" w:sz="8" w:space="6" w:color="FFFFFF" w:themeColor="background1" />
+            </w:pBdr>
+            <w:spacing w:after="120" w:line="240" w:lineRule="auto" />
+        </w:pPr>
+        <w:rPr>
+            <w:color w:val="595959" w:themeColor="text1" w:themeTint="A6" />
+            <w:sz w:val="32" />
+        </w:rPr>
+    </w:style>
 </snippet>

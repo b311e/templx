@@ -15,7 +15,7 @@
         <w:name w:val="Space Before" />
         <w:basedOn w:val="Normal" />
         <w:next w:val="Normal" />
-        <w:uiPriority w:val="3" />
+        <w:uiPriority w:val="2" />
         <w:qFormat />
         <w:pPr>
             <w:spacing w:before="240" />

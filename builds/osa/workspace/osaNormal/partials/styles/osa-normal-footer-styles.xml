@@ -38,4 +38,16 @@
             <w:vertAlign w:val="superscript" />
         </w:rPr>
     </w:style>
+    <w:style w:type="character" w:styleId="PageNumber">
+        <w:name w:val="Page Number" />
+        <w:basedOn w:val="Footer" />
+        <w:uiPriority w:val="99" />
+        <w:semiHidden />
+    </w:style>
+    <w:style w:type="character" w:styleId="LineNumber">
+        <w:name w:val="Line Number" />
+        <w:basedOn w:val="Footer" />
+        <w:uiPriority w:val="99" />
+        <w:semiHidden />
+    </w:style>
 </snippet>

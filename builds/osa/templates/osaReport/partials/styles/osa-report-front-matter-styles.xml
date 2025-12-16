@@ -28,7 +28,6 @@
             <w:jc w:val="right" />
         </w:pPr>
         <w:rPr>
-            <w:rFonts w:asciiTheme="majorHAnsi" w:hAnsiTheme="majorHAnsi" w:cstheme="majorHAnsi" />
             <w:color w:val="595959" w:themeColor="text1" w:themeTint="A6" />
             <w:sz w:val="36" />
         </w:rPr>

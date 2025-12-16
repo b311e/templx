@@ -1,0 +1,70 @@
+1: Normal — Normal
+2: DefaultParagraphFont — Default Paragraph Font
+3: TableNormal — Normal Table
+4: NoList — No List
+5: Heading1 — heading 1
+6: Heading2 — heading 2
+7: Heading3 — heading 3
+8: Heading4 — heading 4
+9: Heading5 — heading 5
+10: Heading6 — heading 6
+11: Heading7 — heading 7
+12: Heading8 — heading 8
+13: Heading9 — heading 9
+14: ResponseHeader — Response Header
+15: ChapterSubtitle — Chapter Subtitle
+16: NoSpacing — No Spacing
+17: AfterTableNormal — Space Before
+18: Title — Title
+19: Subtitle — Subtitle
+20: Pretitle — Pretitle
+21: ListParagraph — List Paragraph
+22: ListBullet — List Bullet
+23: ListBullet2 — List Bullet 2
+24: ListBullet3 — List Bullet 3
+25: ListBullet4 — List Bullet 4
+26: ListBullet5 — List Bullet 5
+27: ListBulletSpacing — List Bullet Spacing
+28: ListNumber — List Number
+29: ListNumber2 — List Number 2
+30: ListNumber3 — List Number 3
+31: ListNumber4 — List Number 4
+32: ListNumber5 — List Number 5
+33: ListNumberSpacing — List Number Spacing
+34: ListRecommendation — List Recommendation
+35: ListRecommendationSubpart — List Recommendation Subpart
+36: ListResponse — List Response
+37: ListResponseSubpart — List Response Subpart
+38: BlockText — Block Text
+39: Quote — Quote
+40: IntenseQuote — Intense Quote
+41: Caption — caption
+42: Source — Source
+43: TOCHeading — TOC Heading
+44: TOC1 — toc 1
+45: TOC2 — toc 2
+46: TOC3 — toc 3
+47: TOC4 — toc 4
+48: TOC5 — toc 5
+49: TOC6 — toc 6
+50: TOC7 — toc 7
+51: TOC8 — toc 8
+52: TOC9 — toc 9
+53: Header — header
+54: Footer — footer
+55: FootnoteText — footnote text
+56: FootnoteReference — footnote reference
+57: TableTitle — Table Title
+58: ExhibitDescription — Exhibit Description
+59: AuditorsAddendumHeader — Auditor's Addendum Header
+60: AuditorsAddendumText — Auditor's Addendum Text
+61: Hyperlink — Hyperlink
+62: Strong — Strong
+63: Emphasis — Emphasis
+64: IntenseEmphasis — Intense Emphasis
+65: SubtleEmphasis — Subtle Emphasis
+66: IntenseReference — Intense Reference
+67: SubtleReference — Subtle Reference
+68: BookTitle — Book Title
+69: TableA — Table A
+70: TableB — Table B

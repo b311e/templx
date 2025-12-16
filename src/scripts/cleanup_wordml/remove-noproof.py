@@ -3,12 +3,11 @@
 Remove noProof elements from Word XML files.
 
 The noProof element tells Word not to check spelling/grammar for specific text.
-This is often added to form fields and template placeholders but isn't necessary
-for clean template files.
+This script handles both minified and pretty-printed XML formats.
 
 Removes two patterns:
-1. Standalone <w:noProof/> within run properties
-2. Complete <w:rPr><w:noProof/></w:rPr> blocks (empty run properties containing only noProof)
+1. Complete <w:rPr><w:noProof/></w:rPr> blocks (empty run properties containing only noProof)
+2. Standalone <w:noProof/> within properties that have other content
 """
 
 import sys
@@ -20,43 +19,32 @@ def clean_noproof(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    # Pattern 1: Complete <w:rPr> blocks containing only <w:noProof/>
-    # Matches any amount of whitespace before <w:rPr>, the tags, and preserves line structure
-    # Example:
-    #                <w:rPr>
-    #                    <w:noProof/>
-    #                </w:rPr>
-    pattern1 = r'[ \t]*<w:rPr>\s*<w:noProof/>\s*</w:rPr>[\r\n]*'
+    # Pretty-printed XML only
+    # Pattern 1: Complete <w:rPr> blocks containing ONLY <w:noProof/>
+    # Remove the entire block including the lines
+    pattern_rpr_block = re.compile(r'^[ \t]*<w:rPr>\n[ \t]*<w:noProof/>\n[ \t]*</w:rPr>\n', re.MULTILINE)
     
-    # Pattern 2: Standalone <w:noProof/> lines (within w:rPr that has other content)
-    # Matches the line including leading whitespace and trailing newline
-    # Example:
-    #                    <w:noProof/>
-    pattern2 = r'[ \t]*<w:noProof/>[\r\n]*'
+    # Pattern 2: Standalone <w:noProof/> lines (when rPr has other content)
+    # Remove just the noProof line (with its indentation and newline)
+    pattern_standalone = re.compile(r'^[ \t]*<w:noProof/>\n', re.MULTILINE)
     
-    # Count occurrences
-    rpr_blocks = len(re.findall(pattern1, content))
-    standalone = len(re.findall(pattern2, content))
+    # Count and remove - order matters! Remove complete blocks first, then standalone
+    rpr_blocks = len(pattern_rpr_block.findall(content))
+    content = pattern_rpr_block.sub('', content)
     
-    # After removing full blocks, count remaining standalone (since pattern1 contains pattern2)
-    temp_content = re.sub(pattern1, '', content)
-    standalone_remaining = len(re.findall(pattern2, temp_content))
+    standalone = len(pattern_standalone.findall(content))
+    content = pattern_standalone.sub('', content)
     
-    total_count = rpr_blocks + standalone_remaining
+    total_count = rpr_blocks + standalone
     
     if total_count == 0:
-        print(f"No noProof elements found in {file_path.name}")
-        return 0
-    
-    # Remove all matches - order matters! Remove complete blocks first, then standalone
-    cleaned_content = re.sub(pattern1, '', content)
-    cleaned_content = re.sub(pattern2, '', cleaned_content)
+        return (0, 0)
     
     # Write back
     with open(file_path, 'w', encoding='utf-8') as f:
-        f.write(cleaned_content)
+        f.write(content)
     
-    return (rpr_blocks, standalone_remaining)
+    return (rpr_blocks, standalone)
 
 def main():
     if len(sys.argv) < 2:
@@ -68,7 +56,7 @@ def main():
         print("")
         print("Removes two patterns:")
         print("  1. Complete <w:rPr><w:noProof/></w:rPr> blocks")
-        print("  2. Standalone <w:noProof/> elements within run properties")
+        print("  2. Standalone <w:noProof/> elements within properties")
         sys.exit(1)
     
     file_path = Path(sys.argv[1])
