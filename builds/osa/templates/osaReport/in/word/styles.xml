@@ -631,7 +631,7 @@
             <w:keepLines/>
             <w:suppressAutoHyphens/>
             <w:pBdr>
-                <w:bottom w:val="single" w:sz="8" w:space="12" w:color="595959" w:themeColor="text1" w:themeTint="A6"/>
+                <w:bottom w:val="single" w:sz="8" w:space="6" w:color="595959" w:themeColor="text1" w:themeTint="A6"/>
             </w:pBdr>
             <w:spacing w:before="360" w:after="360" w:line="240" w:lineRule="auto"/>
             <w:outlineLvl w:val="4"/>
