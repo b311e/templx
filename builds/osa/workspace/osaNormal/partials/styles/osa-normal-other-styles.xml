@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippet id="osaNormalOtherStyles"
+    xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    <w:style w:type="paragraph" w:customStyle="1" w:styleId="TableTitle">
+        <w:name w:val="Table Title" />
+        <w:aliases w:val="Exhibit Title"/>
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:uiPriority w:val="25" />
+        <w:qFormat />
+        <w:pPr>
+            <w:keepNext />
+            <w:keepLines />
+            <w:suppressAutoHyphens />
+            <w:spacing w:before="240" w:line="240" w:lineRule="auto" />
+            <w:contextualSpacing />
+        </w:pPr>
+        <w:rPr>
+            <w:b />
+            <w:rFonts w:asciiTheme="majorHAnsi" w:hAnsiTheme="majorHAnsi"/>
+        </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:customStyle="1" w:styleId="ExhibitDescription">
+        <w:name w:val="Exhibit Description"/>
+        <w:basedOn w:val="DefaultParagraphFont"/>
+        <w:uiPriority w:val="26"/>
+        <w:qFormat/>
+        <w:rPr>
+            <w:rFonts w:asciiTheme="majorHAnsi" w:hAnsiTheme="majorHAnsi"/>
+            <w:b w:val="0"/>
+        </w:rPr>
+    </w:style>
+</snippet>

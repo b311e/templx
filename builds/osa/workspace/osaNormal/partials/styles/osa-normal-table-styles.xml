@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippet id="osaNormalTableStyles"
+    xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    <w:style w:type="table" w:customStyle="1" w:styleId="TableA">
+        <w:name w:val="Table A" />
+        <w:basedOn w:val="TableNormal" />
+        <w:uiPriority w:val="99" />
+        <w:pPr>
+            <w:spacing w:after="0" w:line="240" w:lineRule="auto"/>
+        </w:pPr>
+        <w:rPr>
+            <w:rFonts w:asciiTheme="majorHAnsi" w:hAnsiTheme="majorHAnsi"/>
+            <w:sz w:val="20"/>
+        </w:rPr>
+        <w:tblPr>
+            <w:tblStyleRowBandSize w:val="1"/>
+            <w:tblBorders>
+                <w:top w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+                <w:left w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+                <w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+                <w:right w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+                <w:insideH w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+                <w:insideV w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+            </w:tblBorders>
+            <w:tblCellMar>
+                <w:top w:w="29" w:type="dxa"/>
+                <w:left w:w="115" w:type="dxa"/>
+                <w:bottom w:w="29" w:type="dxa"/>
+                <w:right w:w="115" w:type="dxa"/>
+            </w:tblCellMar>
+        </w:tblPr>
+        <w:tcPr>
+            <w:vAlign w:val="center"/>
+        </w:tcPr>
+        <w:tblStylePr w:type="firstRow">
+            <w:pPr>
+                <w:jc w:val="center"/>
+            </w:pPr>
+            <w:rPr>
+                <w:rFonts w:asciiTheme="majorHAnsi" w:hAnsiTheme="majorHAnsi"/>
+                <w:b w:val="0"/>
+                <w:color w:val="FFFFFF" w:themeColor="background1"/>
+                <w:sz w:val="24"/>
+            </w:rPr>
+            <w:tblPr/>
+            <w:tcPr>
+                <w:shd w:val="clear" w:color="auto" w:fill="4E697C" w:themeFill="accent6" w:themeFillShade="BF"/>
+            </w:tcPr>
+        </w:tblStylePr>
+        <w:tblStylePr w:type="lastRow">
+            <w:rPr>
+                <w:b/>
+            </w:rPr>
+            <w:tblPr/>
+            <w:tcPr>
+                <w:shd w:val="clear" w:color="auto" w:fill="E1E7EC" w:themeFill="accent6" w:themeFillTint="33"/>
+            </w:tcPr>
+        </w:tblStylePr>
+        <w:tblStylePr w:type="band2Horz">
+            <w:tblPr/>
+            <w:tcPr>
+                <w:shd w:val="clear" w:color="auto" w:fill="DDDEC6" w:themeFill="background2" w:themeFillTint="99"/>
+            </w:tcPr>
+        </w:tblStylePr>
+    </w:style>
+    <w:style w:type="table" w:customStyle="1" w:styleId="TableB">
+        <w:name w:val="Table B"/>
+        <w:basedOn w:val="TableNormal"/>
+        <w:uiPriority w:val="99"/>
+        <w:pPr>
+            <w:spacing w:after="0" w:line="240" w:lineRule="auto"/>
+        </w:pPr>
+        <w:rPr>
+            <w:rFonts w:asciiTheme="majorHAnsi" w:hAnsiTheme="majorHAnsi"/>
+            <w:sz w:val="20"/>
+        </w:rPr>
+        <w:tblPr>
+            <w:tblInd w:w="720" w:type="dxa"/>
+            <w:tblBorders>
+                <w:top w:val="single" w:sz="4" w:space="0" w:color="BFBFBF" w:themeColor="background1" w:themeShade="BF"/>
+                <w:left w:val="single" w:sz="4" w:space="0" w:color="BFBFBF" w:themeColor="background1" w:themeShade="BF"/>
+                <w:bottom w:val="single" w:sz="4" w:space="0" w:color="BFBFBF" w:themeColor="background1" w:themeShade="BF"/>
+                <w:right w:val="single" w:sz="4" w:space="0" w:color="BFBFBF" w:themeColor="background1" w:themeShade="BF"/>
+                <w:insideH w:val="single" w:sz="4" w:space="0" w:color="BFBFBF" w:themeColor="background1" w:themeShade="BF"/>
+                <w:insideV w:val="single" w:sz="4" w:space="0" w:color="BFBFBF" w:themeColor="background1" w:themeShade="BF"/>
+            </w:tblBorders>
+            <w:tblCellMar>
+                <w:top w:w="29" w:type="dxa"/>
+                <w:left w:w="115" w:type="dxa"/>
+                <w:bottom w:w="29" w:type="dxa"/>
+                <w:right w:w="115" w:type="dxa"/>
+            </w:tblCellMar>
+        </w:tblPr>
+        <w:tblStylePr w:type="firstRow">
+            <w:rPr>
+                <w:b/>
+                <w:color w:val="FFFFFF" w:themeColor="background1"/>
+            </w:rPr>
+            <w:tblPr/>
+            <w:tcPr>
+                <w:tcBorders>
+                    <w:top w:val="single" w:sz="4" w:space="0" w:color="4E697C" w:themeColor="accent6" w:themeShade="BF"/>
+                    <w:left w:val="single" w:sz="4" w:space="0" w:color="4E697C" w:themeColor="accent6" w:themeShade="BF"/>
+                    <w:bottom w:val="single" w:sz="4" w:space="0" w:color="4E697C" w:themeColor="accent6" w:themeShade="BF"/>
+                    <w:right w:val="single" w:sz="4" w:space="0" w:color="4E697C" w:themeColor="accent6" w:themeShade="BF"/>
+                    <w:insideH w:val="single" w:sz="4" w:space="0" w:color="4E697C" w:themeColor="accent6" w:themeShade="BF"/>
+                    <w:insideV w:val="single" w:sz="4" w:space="0" w:color="4E697C" w:themeColor="accent6" w:themeShade="BF"/>
+                </w:tcBorders>
+                <w:shd w:val="clear" w:color="auto" w:fill="4E697C" w:themeFill="accent6" w:themeFillShade="BF"/>
+            </w:tcPr>
+        </w:tblStylePr>
+        <w:tblStylePr w:type="lastRow">
+            <w:rPr>
+                <w:b/>
+            </w:rPr>
+        </w:tblStylePr>
+        <w:tblStylePr w:type="firstCol">
+            <w:rPr>
+                <w:b/>
+            </w:rPr>
+        </w:tblStylePr>
+    </w:style>
+</snippet>

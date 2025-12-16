@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippet id="osaReportOtherStyles"
+    xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    <w:style w:type="paragraph" w:customStyle="1" w:styleId="TableTitle">
+        <w:name w:val="Table Title" />
+        <w:aliases w:val="Exhibit Title"/>
+        <w:basedOn w:val="Normal" />
+        <w:next w:val="Normal" />
+        <w:uiPriority w:val="25" />
+        <w:qFormat />
+        <w:pPr>
+            <w:keepNext />
+            <w:keepLines />
+            <w:suppressAutoHyphens />
+            <w:spacing w:before="240" w:line="240" w:lineRule="auto" />
+            <w:contextualSpacing />
+        </w:pPr>
+        <w:rPr>
+            <w:b />
+            <w:rFonts w:asciiTheme="majorHAnsi" w:hAnsiTheme="majorHAnsi"/>
+        </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:customStyle="1" w:styleId="ExhibitDescription">
+        <w:name w:val="Exhibit Description"/>
+        <w:basedOn w:val="DefaultParagraphFont"/>
+        <w:uiPriority w:val="26"/>
+        <w:qFormat/>
+        <w:rPr>
+            <w:rFonts w:asciiTheme="majorHAnsi" w:hAnsiTheme="majorHAnsi"/>
+            <w:b w:val="0"/>
+        </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:customStyle="1" w:styleId="AuditorsAddendumHeader">
+        <w:name w:val="Auditor's Addendum Header"/>
+        <w:basedOn w:val="AuditorsAddendumText"/>
+        <w:next w:val="AuditorsAddendumText"/>
+        <w:uiPriority w:val="28"/>
+        <w:qFormat/>
+        <w:pPr>
+            <w:keepNext/>
+            <w:pBdr>
+                <w:bottom w:val="single" w:sz="4" w:space="4" w:color="003764" w:themeColor="accent1"/>
+            </w:pBdr>
+            <w:spacing w:before="360"/>
+        </w:pPr>
+        <w:rPr>
+            <w:b/>
+        </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:customStyle="1" w:styleId="AuditorsAddendumText">
+        <w:name w:val="Auditor's Addendum Text"/>
+        <w:basedOn w:val="BlockText"/>
+        <w:link w:val="AuditorsAddendumTextChar"/>
+        <w:uiPriority w:val="28"/>
+        <w:qFormat/>
+        <w:pPr>
+            <w:contextualSpacing w:val="0"/>
+        </w:pPr>
+        <w:rPr>
+            <w:color w:val="003764" w:themeColor="accent1"/>
+        </w:rPr>
+    </w:style>
+</snippet>

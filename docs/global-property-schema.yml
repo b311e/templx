@@ -1,0 +1,26 @@
+name: Global Property Schema
+
+agency:
+  - House of Representatives
+  - Senate
+  - Joint Budget Committee Staff
+  - Legislative Council Staff
+  - Office of Legislative Legal Services
+  - Office of State Auditor
+agency-address:
+  street:
+  city:
+  state:
+  zip:
+agency-phone:
+agency-email:
+agency-website:
+agency-director:
+publication-type:
+department-name:
+division-name:
+current-fy:
+previous-fy:
+next-fy:
+
+
