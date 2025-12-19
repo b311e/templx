@@ -280,25 +280,32 @@ Full  manifest documentation can be found at `src/scripts/manifest_utils/README.
 
 ```bash
 # Generate/update manifest for specific agency
-manifest-generate <agency>
+# Usage: manifest generate agency <agency>
+manifest generate agency jbc
 
 # Generate/update manifest for core templates
-manifest-generate core
+manifest generate core
+
+# Generate/update partials manifest for all builds
+# Writes builds/manifests/partials-manifest.json
+manifest generate partials
+# Or generate core partials manifest
+manifest generate partials core
 ```
 
 #### Other manifest commands
 ```bash
 # List all templates across all agencies
-manifest-list
+manifest list
 
 # Validate all manifest files
-manifest-validate
+manifest validate
 
 # Update template status
-manifest-update-status jbc jbcNormal active
+manifest update status jbc jbcNormal active
 
 # Get guidance for adding new templates
-manifest-add-template jbc jbcReport excel-book-template
+manifest add template jbc jbcReport excel-book-template
 ```
 
 ## Deployment
