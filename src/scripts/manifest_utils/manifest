@@ -318,9 +318,9 @@ show_help() {
     echo "  help, --help, -h                   - Show this help message"
     echo ""
     echo "Examples:"
-    echo "  manifest generate core"
-    echo "  manifest generate partials --dry-run"
-    echo "  manifest generate agency jbc"
+    echo "  manifest generate core    (or: manifest-generate-core)"
+    echo "  manifest generate partials --dry-run  (or: manifest-generate-partials --dry-run)"
+    echo "  manifest generate agency jbc  (or: manifest-generate jbc)"
     echo "  manifest validate"
     echo "  manifest list"
 }
