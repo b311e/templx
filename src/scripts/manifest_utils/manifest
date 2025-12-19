@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
 # Manifest Generator for COGA Template Manager
 # Usage: manifest <action> <resource> [options]
-# Examples:
+# Examples (new unified form):
 #   manifest generate agency <agency>
 #   manifest generate core
 #   manifest generate partials
 #   manifest validate
 #   manifest list
+# Hyphenated aliases (provided in src/scripts/bin):
+#   manifest-generate <agency>
+#   manifest-generate-core
+#   manifest-generate-partials-builds
+#   manifest-generate-partials-core
+#   manifest-validate
+#   manifest-list
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
@@ -58,7 +65,7 @@ generate_manifest() {
     echo "  Manual updates may be needed for new templates"
 }
 
-# (no helper) 'manifest generate partials' calls the canonical Python scripts directly below
+# The `manifest generate partials` action calls the canonical Python generators below.
 
 generate_core_manifest() {
     local core_dir="$PROJECT_ROOT/core"
