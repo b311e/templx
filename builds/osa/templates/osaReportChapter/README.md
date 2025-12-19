@@ -1,5 +1,9 @@
 # Change Log
 
+## 2025-12-18
+
+osaReport is done. Re-build this template using that template tomorrow.
+
 ## 2025-12-02
 
 Where I left off on the OSA Report Chapter Template:

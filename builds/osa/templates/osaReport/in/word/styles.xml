@@ -1198,7 +1198,7 @@
         <w:qFormat />
         <w:pPr>
             <w:numPr>
-                <w:numId w:val="8" />
+                <w:numId w:val="4" />
             </w:numPr>
             <w:spacing w:after="120" />
         </w:pPr>
@@ -1211,7 +1211,7 @@
         <w:pPr>
             <w:numPr>
                 <w:ilvl w:val="1" />
-                <w:numId w:val="8" />
+                <w:numId w:val="4" />
             </w:numPr>
         </w:pPr>
     </w:style>
