@@ -212,7 +212,7 @@ generate_all() {
         if [[ -d "$d" ]]; then
             agency=$(basename "$d")
             # skip non-agency entries that are not directories
-            if [[ "$agency" == "manifests" ]]; then
+            if [[ "$agency" == "manifests" || "$agency" == "tmp" ]]; then
                 continue
             fi
             echo "--- Generating for agency: $agency"
