@@ -484,4 +484,8 @@ $RECYCLE.BIN/
 *.swp
 obj/
 *.user
+
+# Allow tracking of project wrapper scripts in src/scripts/bin
+!src/scripts/bin/
+!src/scripts/bin/*
 reports/*.txt
