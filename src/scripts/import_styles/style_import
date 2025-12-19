@@ -12,6 +12,10 @@ import re
 import json
 import shutil
 import xml.etree.ElementTree as ET
+# Preserve common Word namespaces so written XML uses `w:` etc.
+ET.register_namespace('w', 'http://schemas.openxmlformats.org/wordprocessingml/2006/main')
+ET.register_namespace('mc', 'http://schemas.openxmlformats.org/markup-compatibility/2006')
+ET.register_namespace('r', 'http://schemas.openxmlformats.org/officeDocument/2006/relationships')
 
 def parse_mapping_text(path):
     """Parse a simple mapping file that contains repeated blocks like:
@@ -69,10 +73,41 @@ def load_partials_manifests(repo_root):
                 continue
     return manifests
 
-def find_partial_snippet(manifests, template_name, style_group):
+def find_partial_snippet(manifests, template_name, style_group, preferred_agency=None, preferred_parent=None):
     # search for snippet whose id contains template_name and style_group (case-insensitive)
     tn = (template_name or '').lower()
     sg = (style_group or '').lower()
+    # First try to find a best match that includes preferred agency or parent in path
+    def path_matches_preference(path):
+        if not path:
+            return False
+        p = path.replace('\\', '/').lower()
+        if preferred_agency and f"/builds/{preferred_agency.lower()}/" in p:
+            return True
+        if preferred_parent and f"/{preferred_parent.lower()}/" in p:
+            return True
+        return False
+
+    # strong match: contains template_name and style_group and preferred agency/parent
+    for s in manifests:
+        sid = (s.get('id') or '').lower()
+        tags = [t.lower() for t in s.get('tags') or []]
+        target = (s.get('target') or '').lower()
+        path = s.get('path') or ''
+        if tn and tn in sid and sg in sid and path_matches_preference(path) and ('styles' in tags or 'word:styles' in target or target == 'word:styles'):
+            return path
+
+    # next prefer preferred agency/parent with looser id matching
+    for s in manifests:
+        sid = (s.get('id') or '').lower()
+        tags = [t.lower() for t in s.get('tags') or []]
+        target = (s.get('target') or '').lower()
+        path = s.get('path') or ''
+        if path_matches_preference(path) and ('styles' in tags or 'word:styles' in target or target == 'word:styles'):
+            if tn == '' or tn in sid:
+                return path
+
+    # fallback: original behavior
     for s in manifests:
         sid = (s.get('id') or '').lower()
         tags = [t.lower() for t in s.get('tags') or []]
@@ -121,6 +156,43 @@ def main():
     # Build list of styles to import in order
     import_list = []  # tuples (styleId, element)
 
+    # Infer preferred agency and parent template from the mapping file location and contents
+    preferred_agency = None
+    preferred_parent = None
+    try:
+        # mapping path may be absolute or relative; normalize
+        mapping_abs = os.path.abspath(args.mapping)
+        parts = mapping_abs.replace('\\', '/').split('/')
+        # look for 'builds/<agency>' pattern
+        if 'builds' in parts:
+            bi = parts.index('builds')
+            if bi + 1 < len(parts):
+                preferred_agency = parts[bi + 1]
+        # try to read 'parent' or 'template' keys from mapping file
+        with open(args.mapping, 'r', encoding='utf-8') as mf:
+            txt = mf.read()
+            pm = re.search(r"^\s*parent:\s*(\S+)", txt, re.M)
+            tm = re.search(r"^\s*template:\s*(\S+)", txt, re.M)
+            if pm:
+                preferred_parent = pm.group(1).strip()
+            elif tm:
+                preferred_parent = tm.group(1).strip()
+    except Exception:
+        pass
+
+    # If mapping references a parent template like 'osaReport', derive agency 'osa' from builds/ folders
+    try:
+        builds_dir = os.path.join(repo_root, 'builds')
+        if os.path.isdir(builds_dir) and preferred_parent:
+            for entry in os.listdir(builds_dir):
+                if entry in ('manifests', 'tmp'):
+                    continue
+                if preferred_parent.lower().startswith(entry.lower()):
+                    preferred_agency = entry
+                    break
+    except Exception:
+        pass
+
     for group, partial in mapping_entries:
         group_key = group
         # find style names for this group from style_order
@@ -131,7 +203,12 @@ def main():
             if isinstance(grp, list):
                 style_names = grp
         # find partial snippet path
-        snippet_path = find_partial_snippet(manifests, partial, group_key)
+        search_partial = partial
+        if preferred_agency and partial:
+            # prefer agency-prefixed template names (e.g., 'osa' + 'Normal' -> 'osaNormal')
+            if not partial.lower().startswith(preferred_agency.lower()):
+                search_partial = preferred_agency + partial
+        snippet_path = find_partial_snippet(manifests, search_partial, group_key, preferred_agency=preferred_agency, preferred_parent=preferred_parent)
         if not snippet_path:
             print(f"Warning: no partial snippet found for partial='{partial}' group='{group_key}'")
             continue
