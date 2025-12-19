@@ -33,7 +33,9 @@ generate_manifest() {
 
     local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
     local agency_dir="$PROJECT_ROOT/builds/$agency"
-    local manifest_file="$agency_dir/manifest.json"
+    local manifests_dir="$agency_dir/manifests"
+    local legacy_manifest="$agency_dir/manifest.json"
+    local manifest_file="$manifests_dir/manifest.json"
 
     if [[ ! -d "$agency_dir" ]]; then
         echo "Error: Agency directory not found: $agency_dir"
@@ -44,11 +46,19 @@ generate_manifest() {
     echo "Scanning directory: $agency_dir"
     echo "Updating timestamp: $timestamp"
 
+    # ensure manifests directory exists
+    mkdir -p "$manifests_dir"
+
     if [[ -f "$manifest_file" ]]; then
         sed -i "s/\"generated\": \"[^\"]*\"/\"generated\": \"$timestamp\"/" "$manifest_file"
-        echo "✓ Updated timestamp in existing manifest"
+        echo "✓ Updated timestamp in existing manifest: $manifest_file"
+    elif [[ -f "$legacy_manifest" ]]; then
+        # migrate legacy manifest into manifests/ and update timestamp
+        mv "$legacy_manifest" "$manifest_file"
+        sed -i "s/\"generated\": \"[^\"]*\"/\"generated\": \"$timestamp\"/" "$manifest_file" || true
+        echo "✓ Migrated $legacy_manifest -> $manifest_file and updated timestamp"
     else
-        echo "✗ Manifest file not found: $manifest_file"
+        echo "✗ Manifest file not found: $legacy_manifest or $manifest_file"
         echo "   Create one manually or copy from another agency"
         return 1
     fi
