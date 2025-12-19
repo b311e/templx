@@ -3,7 +3,6 @@
     xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
     <w:style w:type="paragraph" w:customStyle="1" w:styleId="TableTitle">
         <w:name w:val="Table Title" />
-        <w:aliases w:val="Exhibit Title"/>
         <w:basedOn w:val="Normal" />
         <w:next w:val="Normal" />
         <w:uiPriority w:val="25" />
@@ -20,8 +19,8 @@
             <w:rFonts w:asciiTheme="majorHAnsi" w:hAnsiTheme="majorHAnsi"/>
         </w:rPr>
     </w:style>
-    <w:style w:type="character" w:customStyle="1" w:styleId="ExhibitDescription">
-        <w:name w:val="Exhibit Description"/>
+    <w:style w:type="character" w:customStyle="1" w:styleId="TableDescription">
+        <w:name w:val="Table Description"/>
         <w:basedOn w:val="DefaultParagraphFont"/>
         <w:uiPriority w:val="26"/>
         <w:qFormat/>
@@ -50,7 +49,6 @@
     <w:style w:type="paragraph" w:customStyle="1" w:styleId="AuditorsAddendumText">
         <w:name w:val="Auditor's Addendum Text"/>
         <w:basedOn w:val="Normal"/>
-        <w:link w:val="AuditorsAddendumTextChar"/>
         <w:uiPriority w:val="28"/>
         <w:qFormat/>
         <w:pPr>

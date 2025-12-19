@@ -18,7 +18,7 @@
     <w:embedTrueTypeFonts/>
     <w:embedSystemFonts/>
     <w:proofState w:spelling="clean" w:grammar="clean"/>
-    <w:stylePaneFormatFilter w:val="5424" w:allStyles="0" w:customStyles="0" w:latentStyles="1" w:stylesInUse="0" w:headingStyles="1" w:numberingStyles="0" w:tableStyles="0" w:directFormattingOnRuns="0" w:directFormattingOnParagraphs="0" w:directFormattingOnNumbering="1" w:directFormattingOnTables="0" w:clearFormatting="1" w:top3HeadingStyles="0" w:visibleStyles="1" w:alternateStyleNames="0" />
+    <w:stylePaneFormatFilter w:val="5424" w:allStyles="0" w:customStyles="1" w:latentStyles="1" w:stylesInUse="0" w:headingStyles="1" w:numberingStyles="0" w:tableStyles="0" w:directFormattingOnRuns="0" w:directFormattingOnParagraphs="0" w:directFormattingOnNumbering="1" w:directFormattingOnTables="0" w:clearFormatting="1" w:top3HeadingStyles="0" w:visibleStyles="1" w:alternateStyleNames="1" />
     <w:defaultTabStop w:val="720"/>
     <w:evenAndOddHeaders/>
     <w:characterSpacingControl w:val="doNotCompress"/>

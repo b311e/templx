@@ -87,7 +87,7 @@
         <w:rPr>
             <w:rFonts w:asciiTheme="majorHAnsi" w:hAnsiTheme="majorHAnsi" w:cstheme="majorHAnsi"/>
             <w:b/>
-            <w:color w:val="595959" w:themeColor="text1" w:themeTint="A6"/>
+            <w:color w:val="003764" w:themeColor="accent1"/>
             <w:sz w:val="32"/>
         </w:rPr>
     </w:style>
@@ -207,9 +207,10 @@
     <w:style w:type="paragraph" w:styleId="ResponseHeader">
         <w:name w:val="Response Header"/>
         <w:basedOn w:val="Heading4"/>
-        <w:next w:val="Response Subtitle"/>
+        <w:next w:val="ResponseSubtitle"/>
         <w:uiPriority w:val="9"/>
         <w:qFormat/>
+        <w:pPr>
             <w:spacing w:before="360" w:after="0" w:line="240" w:lineRule="auto"/>
         </w:pPr>
     </w:style>
@@ -217,7 +218,7 @@
         <w:name w:val="Chapter Subtitle"/>
         <w:basedOn w:val="Subtitle"/>
         <w:next w:val="Normal"/>
-        <w:uiPriority w:val="5"/>
+        <w:uiPriority w:val="6"/>
         <w:qFormat/>
         <w:pPr>
             <w:pBdr>
@@ -244,7 +245,7 @@
         </w:pPr>
         <w:rPr>
             <w:color w:val="595959" w:themeColor="text1" w:themeTint="A6" />
-            <w:sz w:val="32" />
+            <w:sz w:val="28" />
         </w:rPr>
     </w:style>
 </snippet>

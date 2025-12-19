@@ -20,7 +20,7 @@
         <w:name w:val="Source" />
         <w:basedOn w:val="Caption" />
         <w:next w:val="Normal" />
-        <w:uiPriority w:val="26" />
+        <w:uiPriority w:val="27" />
         <w:qFormat />
         <w:pPr>
             <w:spacing w:before="240" w:after="360"/>

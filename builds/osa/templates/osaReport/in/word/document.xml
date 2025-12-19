@@ -35,7 +35,9 @@
     <w:body>
         <w:p/>
         <w:sectPr>
+            <w:evenAndOddHeaders/>
             <w:footerReference w:type="default" r:id="rId9"/>
+            <w:footerReference w:type="even" r:id="rId8"/>
             <w:pgSz w:w="12240" w:h="15840"/>
             <w:pgMar w:top="1008" w:right="1440" w:bottom="1296" w:left="1440" w:header="720" w:footer="432" w:gutter="0"/>
             <w:cols w:space="720"/>

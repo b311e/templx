@@ -32,6 +32,7 @@ style-group:
     - Date
     - Disclaimer
   list:
+    - ListParagraph
     - ListBullet
     - ListBullet2
     - ListBullet3

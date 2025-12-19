@@ -36,7 +36,7 @@
         <w:name w:val="Pretitle" />
         <w:basedOn w:val="Normal" />
         <w:uiPriority w:val="3" />
-        <w:qFormat />
+        <w:semiHidden />
         <w:pPr>
             <w:spacing w:after="360" />
             <w:contextualSpacing />

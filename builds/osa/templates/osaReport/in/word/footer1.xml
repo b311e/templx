@@ -73,7 +73,7 @@
                     <w:fldChar w:fldCharType="end"/>
                 </w:r>
                 <w:r>
-                    <w:t></w:t>
+                    <w:t xml:space="preserve"> </w:t>
                 </w:r>
                 <w:r w:rsidRPr="00E96085">
                     <w:rPr>
