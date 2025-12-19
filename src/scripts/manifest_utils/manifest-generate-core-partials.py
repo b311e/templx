@@ -79,7 +79,9 @@ def main():
 
   repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
   partials_dir = os.path.join(repo_root, 'core', 'partials')
-  manifest_path = os.path.join(partials_dir, 'partials-manifest.json')
+  manifests_dir = os.path.join(repo_root, 'core', 'manifests')
+  os.makedirs(manifests_dir, exist_ok=True)
+  manifest_path = os.path.join(manifests_dir, 'partials-manifest.json')
 
   if not os.path.isdir(partials_dir):
     print('partials directory not found:', partials_dir)
