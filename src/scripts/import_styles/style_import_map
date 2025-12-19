@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-style_import - import styles from partial snippets according to a mapping file
+style_import_map - import styles from partial snippets according to a mapping file
 
-Usage: style_import <target-styles-xml> [--mapping docs/style-mapping.yml] [--dry-run] [--replace]
+Usage: style_import_map <target-styles-xml> [--mapping docs/style-mapping.yml] [--dry-run] [--replace]
 
-Naming: wrapper command is `style-import`; script filename is `style_import`.
+Naming: wrapper command is `style-import-map`; script filename is `style_import_map`.
 """
 import argparse
 import os
@@ -139,9 +139,10 @@ def extract_styles_from_snippet(snippet_path, repo_root):
     return styles
 
 def main():
-    parser = argparse.ArgumentParser(prog='style_import')
+    parser = argparse.ArgumentParser(prog='style_import_map')
     parser.add_argument('target', help='target styles.xml to modify')
-    parser.add_argument('--mapping', default='docs/style-mapping.yml')
+    # default mapping filename changed to `style-map.yml`; keep compatibility with `style-mapping.yml`
+    parser.add_argument('--mapping', default='docs/style-map.yml')
     parser.add_argument('--styles-order', default=os.path.join('src','scripts','import_styles','styles-order.yml'))
     parser.add_argument('--dry-run', action='store_true')
     parser.add_argument('--replace', action='store_true', help='Replace existing styles with same id')
@@ -152,7 +153,8 @@ def main():
 
     # Auto-discover mapping file: if the provided mapping doesn't exist or
     # the user relied on the default, search upward from the target for
-    # a `docs/style-mapping.yml` next to the template (e.g., builds/<agency>/<template>/docs/...)
+    # a `docs/style-map.yml` (preferred) or the legacy `docs/style-mapping.yml` next to the template
+    # (e.g., builds/<agency>/<template>/docs/...)
     if not os.path.isabs(args.mapping):
         mapping_candidate = os.path.join(os.getcwd(), args.mapping)
     else:
@@ -164,9 +166,13 @@ def main():
         found = None
         repo_root_abs = os.path.abspath(repo_root)
         while True:
-            candidate = os.path.join(cur, 'docs', 'style-mapping.yml')
-            if os.path.exists(candidate):
-                found = candidate
+            candidate1 = os.path.join(cur, 'docs', 'style-map.yml')
+            candidate2 = os.path.join(cur, 'docs', 'style-mapping.yml')
+            if os.path.exists(candidate1):
+                found = candidate1
+                break
+            if os.path.exists(candidate2):
+                found = candidate2
                 break
             if os.path.abspath(cur) == repo_root_abs or cur == os.path.dirname(cur):
                 break

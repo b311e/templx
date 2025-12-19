@@ -143,19 +143,43 @@ Style IDs is the unique name of a style within a word doc's `styles.xml`.
 #### List Styles
 
 ```bash
-# Style list: Generate style list for an unpacked template. Automatically saved to the docs folder.
-styles-list <template-name>
+# Generate a style list for an unpacked template (saved to the template's docs folder)
+style-generate-list <expandedPath>
 ```
 
 #### Import & Merge Styles
 
-```bash
-# Import styles: Import styles from one Word document to another
-import-styles <target-doc> <source-doc>
+There are three import helpers now:
 
-# Import styles from snippet: Import styles from XML snippet to Word document or template
-import-snippet-styles <target-doc> <snippet-id>
-```
+- `style-import-map` (Python): read `docs/style-map.yml` (preferred) and import ordered styles from partial snippets into a target `styles.xml`. Auto-discovers a nearby `docs/style-map.yml` when run from a template folder and falls back to the legacy `docs/style-mapping.yml` for compatibility. Backups are opt-in with `--backup`.
+
+   ```bash
+   # Dry-run using auto-discovery of mapping
+   style-import-map <target-styles.xml> --dry-run
+
+   # Apply changes and create a .bak backup
+   style-import-map <target-styles.xml> --backup
+   ```
+
+- `style-import-partial` (Python): replace styles in a target `styles.xml` from a single snippet XML file. Backups are opt-in with `--backup`.
+
+   ```bash
+   # Dry-run
+   style-import-partial <target-styles.xml> <snippet-xml> --dry-run
+
+   # Replace styles and create backup
+   style-import-partial <target-styles.xml> <snippet-xml> --backup
+   ```
+
+- `style-import-doc` (.NET Open XML SDK): replace the entire `styles` part in a `.docx`/`.dotx` package with the `styles` part from another document. This uses the Open XML SDK for reliable package manipulation. Backups are opt-in with `--backup`.
+
+   ```bash
+   # Dry-run
+   style-import-doc <target.docx> <source.docx> --dry-run
+
+   # Apply and create backup
+   style-import-doc <target.docx> <source.docx> --backup
+   ```
 
 ### Clean Up
 

@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SCRIPT="$SCRIPT_DIR/../import_styles/style_import"
+SCRIPT="$SCRIPT_DIR/../import_styles/style_import_partial"
 exec "$SCRIPT" "$@"
