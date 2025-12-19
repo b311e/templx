@@ -1,0 +1,114 @@
+template: osaReportChapter
+parent: osaReport
+
+style-group: {default}
+  partial: {osa-normal-default-styles.xml}
+  styles:
+    - Normal
+    - DefaultParagraphFont
+    - TableNormal
+    - NoList
+
+style-group: {heading}
+  partial: {osa-report-heading-styles.xml}
+  styles:
+    - Heading1
+    - Heading2
+    - Heading3
+    - Heading4
+    - Heading5
+    - Heading6
+    - Heading7
+    - Heading8
+    - Heading9
+
+style-group: {body}
+  partial: {osa-normal-body-styles.xml}
+  styles:
+    - NoSpacing
+    - SpaceBefore
+
+style-group: {front-matter}
+  partial: {osa-report-front-matter-styles.xml}
+  styles:
+    - Title
+    - Subtitle
+
+style-group: {list}
+  partial: {osa-normal-list-styles.xml}
+  styles:
+    - ListBullet
+    - ListBullet2
+    - ListBullet3
+    - ListBullet4
+    - ListBullet5
+    - ListBulletSpacing
+    - ListNumber
+    - ListNumber2
+    - ListNumber3
+    - ListNumber4
+    - ListNumber5
+    - ListNumberSpacing
+  
+style-group: {callout}
+  partial: {osa-normal-callout-styles.xml}
+  styles:
+    - BlockText
+    - Quote
+    - IntenseQuote
+  
+  style-group: {caption}
+    partial: {osa-normal-caption-styles.xml}
+    styles: 
+    - Caption
+    - Exhibit Source
+  
+  style-group: {toc}
+    partial: {osa-normal-toc-styles.xml}
+    styles:
+    - TOCHeading
+    - TOC1
+    - TOC2
+    - TOC3
+    - TOC4
+    - TOC5
+    - TOC6
+    - TOC7
+    - TOC8
+    - TOC9
+ 
+style-group: {header}
+  partial: {osa-normal-header-styles.xml}
+  styles:
+    - Header
+
+style-group: {footer}  
+  partial: {osa-normal-footer-styles.xml}
+  styles:
+    - Footer
+    - FootnoteText
+    - FootnoteReference
+
+style-group: {other}
+  partial: {osa-report-other-styles.xml}
+  styles:
+    - TableTitle
+  
+style-group: {character}
+  partial: {osa-normal-character-styles.xml}
+  styles:
+    - Hyperlink
+    - FollowedHyperlink
+    - Strong
+    - Emphasis
+    - IntenseEmphasis
+    - SubtleEmphasis
+    - IntenseReference
+    - SubtleReference
+    - BookTitle
+  
+style-group: {table}
+  partial: {osa-normal-table-styles.xml}
+  styles:
+    - TableA
+    - TableB

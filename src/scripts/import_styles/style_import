@@ -149,6 +149,33 @@ def main():
 
     repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 
+    # Auto-discover mapping file: if the provided mapping doesn't exist or
+    # the user relied on the default, search upward from the target for
+    # a `docs/style-mapping.yml` next to the template (e.g., builds/<agency>/<template>/docs/...)
+    if not os.path.isabs(args.mapping):
+        mapping_candidate = os.path.join(os.getcwd(), args.mapping)
+    else:
+        mapping_candidate = args.mapping
+
+    if not os.path.exists(mapping_candidate):
+        target_abs = os.path.abspath(args.target)
+        cur = os.path.dirname(target_abs)
+        found = None
+        repo_root_abs = os.path.abspath(repo_root)
+        while True:
+            candidate = os.path.join(cur, 'docs', 'style-mapping.yml')
+            if os.path.exists(candidate):
+                found = candidate
+                break
+            if os.path.abspath(cur) == repo_root_abs or cur == os.path.dirname(cur):
+                break
+            cur = os.path.dirname(cur)
+        if found:
+            args.mapping = found
+        else:
+            # leave args.mapping as-is; parse_mapping_text will raise a FileNotFoundError
+            pass
+
     mapping_entries = parse_mapping_text(args.mapping)
     style_order = load_style_order(args.styles_order)
     manifests = load_partials_manifests(repo_root)
