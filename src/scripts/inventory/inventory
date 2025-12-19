@@ -87,7 +87,7 @@ add_agency_section() {
     echo "" >> "$output_file"
     echo "| Template Name   | Status   |" >> "$output_file"
     echo "|-----------------|----------|" >> "$output_file"
-    local manifest_file="$PROJECT_ROOT/builds/$agency_code/manifest.json"
+    local manifest_file="$PROJECT_ROOT/builds/$agency_code/manifests/manifest.json"
     if [[ "$active" == "true" && -f "$manifest_file" ]]; then
         extract_templates "$output_file" "$manifest_file" "$agency_code"
     else

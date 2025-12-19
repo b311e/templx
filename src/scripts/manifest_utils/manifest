@@ -236,7 +236,7 @@ add_new_template() {
     fi
     
     echo "To add a new template '$template' to agency '$agency':"
-    echo "1. Edit builds/$agency/manifest.json"
+    echo "1. Edit builds/$agency/manifests/manifest.json"
     echo "2. Add template entry in appropriate category"
     echo "3. Run: manifest generate $agency"
     echo ""

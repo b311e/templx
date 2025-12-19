@@ -288,7 +288,7 @@ Work on templates within the appropriate `builds` directory.
 The system uses JSON manifests to track templates, assets, and deployment configurations:
 
 - **Global Registry**: `.coga/registry/agencies.json` - Lists all agencies and their manifest locations
-- **Agency Manifests**: `builds/<agency>/manifest.json` - Complete template inventory per agency
+- **Agency Manifests**: `builds/<agency>/manifests/manifest.json` - Complete template inventory per agency
 - **Schema & Taxonomy**: `.coga/schemas/manifest-schema.json` - Validation schema
   - **Schema documentation:** `docs/taxonomy.md`
 - **Category Structure**: Templates organized by workspace, templates, system, and assets
