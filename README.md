@@ -20,11 +20,32 @@ A comprehensive template management system for Colorado General Assembly Microso
    dotnet build
    ```
 
-4. **Set Up Bash Aliases** (in Git Bash)
-   ```bash
-   source src/scripts/setup_aliases/setup_aliases.sh
-   ```
-   This adds shortcuts: `pack`, `unpack`, `xpathsel`, `create-template`
+4. **Set Up script shortcuts / PATH**
+    The repository provides wrapper scripts in `src/scripts/bin` for convenience. Add that folder to your shell `PATH` so you can run commands like `pack`, `unpack`, and the `manifest` helpers directly.
+
+    - Temporary (current Git Bash session):
+       ```bash
+       source src/scripts/setup_aliases/setup_aliases.sh
+       # or
+       export PATH="$PWD/src/scripts/bin:$PATH"
+       ```
+
+    - PowerShell (current session):
+       ```powershell
+       $env:PATH = "$PWD\src\scripts\bin;" + $env:PATH
+       ```
+
+    - Persistent (Git Bash): add to `~/.bashrc`:
+       ```bash
+       export PATH="/c/code/coga-template-manager/src/scripts/bin:$PATH"
+       ```
+
+    - Persistent (PowerShell, per-user):
+       ```powershell
+       [Environment]::SetEnvironmentVariable('PATH', $env:PATH + ';' + (Join-Path $PWD 'src\scripts\bin'), 'User')
+       ```
+
+    After adding the folder to your `PATH`, you can run hyphenated wrapper commands (examples below) or use the unified `manifest <action> <resource>` form.
 
 5. **Start Working**
    - Templates are in `builds/<agency>/templates/`
@@ -45,7 +66,7 @@ A comprehensive template management system for Colorado General Assembly Microso
    cd coga-template-manager
    ```
 
-2. Build the application:
+3. Build the application:
    ```bash
    dotnet build
    ```
