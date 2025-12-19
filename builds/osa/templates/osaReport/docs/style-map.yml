@@ -14,7 +14,7 @@ style-group: {front-matter}
   partial: {osaReport}
 
 style-group: {list}
-  partial: {osaNormal}
+  partial: {osaReport}
   
 style-group: {callout}
   partial: {osaNormal}

@@ -27,7 +27,7 @@
         <w:name w:val="heading 2" />
         <w:aliases w:val="Chapter #"/>
         <w:basedOn w:val="Normal"/>
-        <w:next w:val="ChapterSubtitle"/>
+        <w:next w:val="Normal"/>
         <w:uiPriority w:val="5"/>
         <w:qFormat/>
         <w:pPr>
@@ -47,7 +47,6 @@
             <w:b/>
             <w:color w:val="003764" w:themeColor="accent1"/>
             <w:sz w:val="76"/>
-            <w:szCs w:val="76"/>
         </w:rPr>
     </w:style>
     <w:style w:type="paragraph" w:styleId="Heading3">
@@ -192,25 +191,27 @@
             <w:sz w:val="21" />
         </w:rPr>
     </w:style>
+    <w:style w:type="paragraph" w:styleId="RecommendationHeader">
+        <w:name w:val="Recommendation Header" />
+        <w:basedOn w:val="Heading3" />
+        <w:next w:val="Normal" />
+        <w:uiPriority w:val="9" />
+        <w:qFormat />
+        <w:pPr>
+            <w:pBdr>
+                <w:bottom w:val="single" w:sz="8" w:space="6" w:color="595959" w:themeColor="text1" w:themeTint="A6" />
+            </w:pBdr>
+            <w:spacing w:before="360" w:after="360" w:line="240" w:lineRule="auto" />
+        </w:pPr>
+    </w:style>
     <w:style w:type="paragraph" w:styleId="ResponseHeader">
         <w:name w:val="Response Header"/>
-        <w:aliases w:val="Response Header"/>
-        <w:basedOn w:val="Heading6"/>
+        <w:basedOn w:val="Heading4"/>
         <w:next w:val="Response Subtitle"/>
         <w:uiPriority w:val="9"/>
         <w:qFormat/>
-        <w:pPr>
-            <w:keepNext/>
-            <w:keepLines/>
-            <w:suppressAutoHyphens />
             <w:spacing w:before="360" w:after="0" w:line="240" w:lineRule="auto"/>
-            <w:outlineLvl w:val="5"/>
         </w:pPr>
-        <w:rPr>
-            <w:rFonts w:asciiTheme="majorHAnsi" w:eastAsiaTheme="majorEastAsia" w:hAnsiTheme="majorHAnsi" w:cstheme="majorBidi"/>
-            <w:b/>
-            <w:color w:val="003764" w:themeColor="accent1"/>
-        </w:rPr>
     </w:style>
     <w:style w:type="paragraph" w:customStyle="1" w:styleId="ChapterSubtitle">
         <w:name w:val="Chapter Subtitle"/>
@@ -219,8 +220,6 @@
         <w:uiPriority w:val="5"/>
         <w:qFormat/>
         <w:pPr>
-            <w:keepNext/>
-            <w:keepLines/>
             <w:pBdr>
                 <w:bottom w:val="single" w:sz="8" w:space="12" w:color="595959" w:themeColor="text1" w:themeTint="A6"/>
             </w:pBdr>

@@ -49,11 +49,12 @@
     </w:style>
     <w:style w:type="paragraph" w:customStyle="1" w:styleId="AuditorsAddendumText">
         <w:name w:val="Auditor's Addendum Text"/>
-        <w:basedOn w:val="BlockText"/>
+        <w:basedOn w:val="Normal"/>
         <w:link w:val="AuditorsAddendumTextChar"/>
         <w:uiPriority w:val="28"/>
         <w:qFormat/>
         <w:pPr>
+            <w:ind w:left="288" w:right="288"/>
             <w:contextualSpacing w:val="0"/>
         </w:pPr>
         <w:rPr>

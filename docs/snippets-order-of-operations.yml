@@ -19,6 +19,7 @@ scope:
 ---
 
 # style-types are in the order they originally appear in the default Word Normal.dotm
+
 style-types:
   - paragraph
   - character

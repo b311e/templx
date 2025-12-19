@@ -19,4 +19,4 @@ Note: ensure `src/scripts/bin` is on your PATH (see top-level README). You can r
 - `manifest-generate-core` or `manifest-generate core` - Generate `core/manifests/manifest.json` from components in `core/`.
 - `manifest-generate-partials-builds` - Generate partials manifest by scanning `builds/*/partials` and writing `builds/manifests/partials-manifest.json`.
 - `manifest-generate-partials-core` - Generate partials manifest by scanning `core/partials` and writing `core/partials/partials-manifest.json`.
- - `manifest-generate-partials-core` - Generate partials manifest by scanning `core/partials` and writing `core/manifests/partials-manifest.json`.
+- `manifest-generate-partials-core` - Generate partials manifest by scanning `core/partials` and writing `core/manifests/partials-manifest.json`.

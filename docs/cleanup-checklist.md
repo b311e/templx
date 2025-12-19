@@ -5,7 +5,10 @@
 ### Revision Tracking (RSID) Removal
 - [ ] Remove all `rsidR`, `rsidRPr`, `rsidDefault`, `rsidP`, and `rsidSect` attributes from styles
 - [ ] Remove the entire `<w:rsids>` block from `word/settings.xml`:
+
+
 ```xml
+<!-- Example -->
 <w:rsids>
     <w:rsidRoot w:val="00346D74" />
     <w:rsid w:val="00015C8E" />
