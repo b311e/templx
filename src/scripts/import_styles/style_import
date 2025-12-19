@@ -1,0 +1,187 @@
+#!/usr/bin/env python3
+"""
+style_import - import styles from partial snippets according to a mapping file
+
+Usage: style_import <target-styles-xml> [--mapping docs/style-mapping.yml] [--dry-run] [--replace]
+
+Naming: wrapper command is `style-import`; script filename is `style_import`.
+"""
+import argparse
+import os
+import re
+import json
+import shutil
+import xml.etree.ElementTree as ET
+
+def parse_mapping_text(path):
+    """Parse a simple mapping file that contains repeated blocks like:
+    style-group: {default}
+      partial: {Normal}
+    Returns list of (group, partial) in the file order.
+    """
+    entries = []
+    if not os.path.exists(path):
+        raise FileNotFoundError(path)
+    with open(path, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+
+    i = 0
+    while i < len(lines):
+        m = re.match(r"^\s*style-group:\s*(?:\{([^}]+)\}|(.+))", lines[i])
+        if m:
+            group = (m.group(1) or m.group(2) or '').strip()
+            # look ahead for partial line
+            partial = None
+            j = i + 1
+            while j < len(lines) and (lines[j].strip() == '' or lines[j].startswith(' ')):
+                pm = re.match(r"^\s*partial:\s*(?:\{([^}]+)\}|(.+))", lines[j])
+                if pm:
+                    partial = (pm.group(1) or pm.group(2) or '').strip()
+                    break
+                j += 1
+            entries.append((group, partial))
+            i = j
+        else:
+            i += 1
+    return entries
+
+def load_style_order(path):
+    # minimal YAML parsing: find style-group section and preserve order of keys
+    import yaml
+    with open(path, 'r', encoding='utf-8') as f:
+        data = yaml.safe_load(f)
+    # data expected to have 'style-group' mapping
+    return data.get('style-group', {}) if isinstance(data, dict) else {}
+
+def load_partials_manifests(repo_root):
+    manifests = []
+    candidates = [
+        os.path.join(repo_root, 'builds', 'manifests', 'partials-manifest.json'),
+        os.path.join(repo_root, 'core', 'manifests', 'partials-manifest.json')
+    ]
+    for p in candidates:
+        if os.path.exists(p):
+            try:
+                with open(p, 'r', encoding='utf-8') as f:
+                    js = json.load(f)
+                    manifests.extend(js.get('snippets', []))
+            except Exception:
+                continue
+    return manifests
+
+def find_partial_snippet(manifests, template_name, style_group):
+    # search for snippet whose id contains template_name and style_group (case-insensitive)
+    tn = (template_name or '').lower()
+    sg = (style_group or '').lower()
+    for s in manifests:
+        sid = (s.get('id') or '').lower()
+        tags = [t.lower() for t in s.get('tags') or []]
+        target = (s.get('target') or '').lower()
+        if tn and tn in sid and sg in sid and ('styles' in tags or 'word:styles' in target or target == 'word:styles'):
+            return s.get('path')
+    # fallback: try matching just template_name
+    for s in manifests:
+        sid = (s.get('id') or '').lower()
+        if tn and tn in sid and ('styles' in [t.lower() for t in s.get('tags') or []] or 'word:styles' in (s.get('target') or '').lower()):
+            return s.get('path')
+    return None
+
+NS = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
+
+def extract_styles_from_snippet(snippet_path, repo_root):
+    full = os.path.join(repo_root, snippet_path.replace('/', os.sep))
+    if not os.path.exists(full):
+        return []
+    try:
+        tree = ET.parse(full)
+        root = tree.getroot()
+    except Exception:
+        return []
+    styles = []
+    for style in root.findall('.//{http://schemas.openxmlformats.org/wordprocessingml/2006/main}style'):
+        sid = style.get('{http://schemas.openxmlformats.org/wordprocessingml/2006/main}styleId')
+        styles.append((sid, style))
+    return styles
+
+def main():
+    parser = argparse.ArgumentParser(prog='style_import')
+    parser.add_argument('target', help='target styles.xml to modify')
+    parser.add_argument('--mapping', default='docs/style-mapping.yml')
+    parser.add_argument('--styles-order', default=os.path.join('src','scripts','import_styles','styles-order.yml'))
+    parser.add_argument('--dry-run', action='store_true')
+    parser.add_argument('--replace', action='store_true', help='Replace existing styles with same id')
+    args = parser.parse_args()
+
+    repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
+
+    mapping_entries = parse_mapping_text(args.mapping)
+    style_order = load_style_order(args.styles_order)
+    manifests = load_partials_manifests(repo_root)
+
+    # Build list of styles to import in order
+    import_list = []  # tuples (styleId, element)
+
+    for group, partial in mapping_entries:
+        group_key = group
+        # find style names for this group from style_order
+        style_names = []
+        if isinstance(style_order, dict):
+            # style_order keys may include the group
+            grp = style_order.get(group_key) or style_order.get(group_key.lower())
+            if isinstance(grp, list):
+                style_names = grp
+        # find partial snippet path
+        snippet_path = find_partial_snippet(manifests, partial, group_key)
+        if not snippet_path:
+            print(f"Warning: no partial snippet found for partial='{partial}' group='{group_key}'")
+            continue
+        styles = extract_styles_from_snippet(snippet_path, repo_root)
+        styles_dict = { (s[0] or '').lower(): s[1] for s in styles }
+        for name in style_names:
+            sid = name
+            if sid is None:
+                continue
+            key = sid.lower()
+            if key in styles_dict:
+                import_list.append((sid, styles_dict[key], snippet_path))
+            else:
+                # not found in this snippet
+                pass
+
+    if args.dry_run:
+        print('Dry run: will import the following styles in order:')
+        for sid, elem, src in import_list:
+            print(f"  {sid} <- {src}")
+        return 0
+
+    # modify target styles.xml
+    if not os.path.exists(args.target):
+        print('Target styles.xml not found:', args.target)
+        return 2
+    backup = args.target + '.bak'
+    shutil.copyfile(args.target, backup)
+    tree = ET.parse(args.target)
+    root = tree.getroot()
+    # ensure namespace
+    for sid, elem, src in import_list:
+        # check if exists
+        found = None
+        for existing in root.findall('.//{http://schemas.openxmlformats.org/wordprocessingml/2006/main}style'):
+            if (existing.get('{http://schemas.openxmlformats.org/wordprocessingml/2006/main}styleId') or '').lower() == (sid or '').lower():
+                found = existing
+                break
+        if found is not None:
+            if args.replace:
+                parent = root
+                parent.remove(found)
+            else:
+                continue
+        # append element (imported element may belong to a different tree)
+        root.append(elem)
+
+    tree.write(args.target, encoding='utf-8', xml_declaration=True)
+    print('Wrote', args.target, ' (backup at', backup + ')')
+    return 0
+
+if __name__ == '__main__':
+    raise SystemExit(main())
