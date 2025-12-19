@@ -14,4 +14,5 @@ Usage:
 - `manifest-validate` - Validate all manifests.
 - `manifest-list` - List all templates across `builds/`.
 - `manifest-generate-core` or `manifest-generate core` - Generate `core/manifest.json` from components in `core/`.
-- `manifest-generate-partials [core]` - Generate partials manifest; omit scope to scan `builds/*/partials`, pass `core` to scan `core/partials`.
+- `manifest-generate-partials-builds` - Generate partials manifest by scanning `builds/*/partials` and writing `builds/manifests/partials-manifest.json`.
+- `manifest-generate-partials-core` - Generate partials manifest by scanning `core/partials` and writing `core/partials/partials-manifest.json`.

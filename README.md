@@ -288,9 +288,9 @@ manifest-generate-core
 
 # Generate/update partials manifest for all builds
 # Writes builds/manifests/partials-manifest.json
-manifest-generate-partials
+manifest-generate-partials-builds
 # Or generate core partials manifest
-manifest-generate-partials core
+manifest-generate-partials-core
 ```
 
 #### Other manifest commands
