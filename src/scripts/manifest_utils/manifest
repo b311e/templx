@@ -1,40 +1,43 @@
 #!/usr/bin/env bash
 # Manifest Generator for COGA Template Manager
-# Usage: manifest generate [agency] | manifest validate | manifest list
+# Usage: manifest <action> <resource> [options]
+# Examples:
+#   manifest generate agency <agency>
+#   manifest generate core
+#   manifest generate partials
+#   manifest validate
+#   manifest list
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 
 generate_manifest() {
+    # Legacy entry: manifest generate <agency> OR manifest generate core
     local agency="$1"
-    local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-    
     if [[ "$agency" == "core" ]]; then
         generate_core_manifest
         return $?
     fi
-    
+
     if [[ -z "$agency" ]]; then
-        echo "Usage: manifest generate <agency>"
-        echo "Available agencies: jbc, sen, core"
+        echo "Usage: manifest generate agency <agency>" 
         return 1
     fi
-    
+
+    local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
     local agency_dir="$PROJECT_ROOT/builds/$agency"
     local manifest_file="$agency_dir/manifest.json"
-    
+
     if [[ ! -d "$agency_dir" ]]; then
         echo "Error: Agency directory not found: $agency_dir"
         return 1
     fi
-    
+
     echo "Generating manifest for agency: $agency"
     echo "Scanning directory: $agency_dir"
     echo "Updating timestamp: $timestamp"
-    
-    # Update the generated timestamp in existing manifest
+
     if [[ -f "$manifest_file" ]]; then
-        # Use sed to update the timestamp
         sed -i "s/\"generated\": \"[^\"]*\"/\"generated\": \"$timestamp\"/" "$manifest_file"
         echo "✓ Updated timestamp in existing manifest"
     else
@@ -42,19 +45,20 @@ generate_manifest() {
         echo "   Create one manually or copy from another agency"
         return 1
     fi
-    
-    # Scan for templates and report findings
+
     echo ""
     echo "Template Discovery:"
     find "$agency_dir" -name "*.xltx" -o -name "*.dotx" -o -name "*.dotm" | while read -r template; do
         local rel_path="${template#$PROJECT_ROOT/}"
         echo "  Found: $rel_path"
     done
-    
+
     echo ""
     echo " Manifest updated: $manifest_file"
     echo "  Manual updates may be needed for new templates"
 }
+
+# (no helper) 'manifest generate partials' calls the canonical Python scripts directly below
 
 generate_core_manifest() {
     local core_dir="$PROJECT_ROOT/core"
@@ -303,29 +307,76 @@ list_templates() {
 }
 
 show_help() {
-    echo "Usage: manifest-<command> [options]"
+    echo "Usage: manifest <action> <resource> [options]"
     echo ""
-    echo "Commands:"
-    echo "  help, --help, -h                                    - Show this help message"
-    echo "  manifest-generate <agency>                          - Generate/update manifest timestamp and scan for templates"
-    echo "  manifest-update-status <agency> <template> <status> - Update template status"
-    echo "  manifest-add-template <agency> <template> <type>    - Guide for adding new template"
-    echo "  manifest-validate                                   - Validate all manifests"
-    echo "  manifest-list                                       - List all templates"
+    echo "Actions:"
+    echo "  generate <core|partials|agency>    - Generate specified manifest (use 'agency <name>' for agency)"
+    echo "  validate                           - Validate manifest files and registry"
+    echo "  list                               - List templates across builds/"
+    echo "  update status <agency> <template> <status> - Update template status"
+    echo "  add template <agency> <template> <type>    - Guide for adding new template"
+    echo "  help, --help, -h                   - Show this help message"
     echo ""
     echo "Examples:"
-    echo "  manifest-generate jbc"
-    echo "  manifest-generate core"
-    echo "  manifest-update-status jbc jbcNormal active"
-    echo "  manifest-add-template jbc jbcReport excel-book-template"
-    echo "  manifest-validate"
-    echo "  manifest-list"
+    echo "  manifest generate core"
+    echo "  manifest generate partials --dry-run"
+    echo "  manifest generate agency jbc"
+    echo "  manifest validate"
+    echo "  manifest list"
 }
 
 case "$1" in
     help|--help|-h)
         show_help
         ;;
+    # New style: manifest <action> <resource> ...
+    generate)
+        # manifest generate <resource> [...]
+        case "$2" in
+            core)
+                generate_manifest core
+                ;;
+            partials)
+                # manifest generate partials [scope]
+                # scope may be 'core' to generate core partials; otherwise generate builds-level partials
+                if [[ "$3" == "core" ]]; then
+                    python3 "$(dirname "${BASH_SOURCE[0]}")/manifest-generate-core-partials.py" "${@:4}"
+                else
+                    python3 "$(dirname "${BASH_SOURCE[0]}")/manifest-generate-partials.py" "${@:3}"
+                fi
+                ;;
+            agency)
+                # manifest generate agency <agency>
+                generate_manifest "$3"
+                ;;
+            *)
+                show_help
+                ;;
+        esac
+        ;;
+    validate)
+        validate_manifest
+        ;;
+    list)
+        list_templates
+        ;;
+    update)
+        # manifest update status <agency> <template> <status>
+        if [[ "$2" == "status" ]]; then
+            update_template_status "$3" "$4" "$5"
+        else
+            show_help
+        fi
+        ;;
+    add)
+        # manifest add template <agency> <template> <type>
+        if [[ "$2" == "template" ]]; then
+            add_new_template "$3" "$4" "$5"
+        else
+            show_help
+        fi
+        ;;
+    # Legacy commands for backward compatibility
     manifest-generate)
         generate_manifest "$2"
         ;;

@@ -14,3 +14,7 @@ Usage:
 - `manifest-validate` - Validate all manifests.
 - `manifest-list` - List all templates.
 - `manifest-generate core` - Generate core/manifest.json from components in core/.
+
+Additional manifest helper:
+
+- `generate-partials-manifest` - Scan `builds/*/partials` and write `builds/manifests/partials-manifest.json`

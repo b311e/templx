@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<snippet id="jbcBudgetFrontMatter"
+<snippet id="jbcBudgetFrontMatterStyles"
     xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
     <w:style w:type="paragraph" w:styleId="Title">
         <w:name w:val="Title"/>

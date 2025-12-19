@@ -3,13 +3,12 @@
   "tasks": [
     {
       "label": "Load Bash Aliases",
-      "type": "shell",
-      "command": "source src/scripts/setup_aliases/setup_aliases.sh",
-      "options": {
-        "shell": {
-          "executable": "C:\\Users\\Annabelle_Tracy\\AppData\\Local\\Programs\\Git\\bin\\bash.exe"
-        }
-      },
+      "type": "process",
+      "command": "C:\\Users\\Annabelle_Tracy\\AppData\\Local\\Programs\\Git\\bin\\bash.exe",
+      "args": [
+        "-c",
+        "source src/scripts/setup_aliases/setup_aliases.sh"
+      ],
       "presentation": {
         "echo": false,
         "reveal": "silent",
