@@ -12,7 +12,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 
 generate_manifest() {
-    # Legacy entry: manifest generate <agency> OR manifest generate core
+    # Entry point: manifest generate <agency> (or pass 'core' to generate core manifest)
     local agency="$1"
     if [[ "$agency" == "core" ]]; then
         generate_core_manifest
@@ -330,7 +330,7 @@ case "$1" in
         show_help
         ;;
     manifest-*)
-        # Support legacy hyphenated commands like: manifest-generate-partials
+        # Support hyphenated command aliases: manifest-foo-bar -> manifest foo bar
         # Convert 'manifest-foo-bar ...' -> 'foo bar ...' and re-exec this script
         cmd="${1#manifest-}"
         IFS='-' read -r -a parts <<< "$cmd"
@@ -383,7 +383,7 @@ case "$1" in
             show_help
         fi
         ;;
-    # Legacy commands for backward compatibility
+    # Hyphenated wrapper commands (backwards compatibility)
     manifest-generate)
         generate_manifest "$2"
         ;;
