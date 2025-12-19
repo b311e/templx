@@ -89,7 +89,10 @@ EOF
 
 generate_core_manifest() {
     local core_dir="$PROJECT_ROOT/core"
-    local manifest_file="$core_dir/manifest.json"
+    local manifests_dir="$core_dir/manifests"
+    local legacy_core_manifest="$core_dir/manifest.json"
+    local manifest_file="$manifests_dir/manifest.json"
+    mkdir -p "$manifests_dir"
     local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
     
     if [[ ! -d "$core_dir" ]]; then
@@ -198,6 +201,11 @@ generate_core_manifest() {
     json+="      \"numbering\": [\n        $(build_array "${partials_numbering[@]}")\n      ]\n"
     json+="    }\n  }\n}"
     
+    # If legacy core manifest exists (old location), migrate it first
+    if [[ -f "$legacy_core_manifest" && ! -f "$manifest_file" ]]; then
+        mv "$legacy_core_manifest" "$manifest_file"
+    fi
+
     # Write to file
     echo -e "$json" > "$manifest_file"
     
@@ -241,7 +249,14 @@ update_template_status() {
         return 1
     fi
     
-    local manifest_file="$PROJECT_ROOT/builds/$agency/manifest.json"
+    local manifests_dir="$PROJECT_ROOT/builds/$agency/manifests"
+    local legacy_manifest="$PROJECT_ROOT/builds/$agency/manifest.json"
+    local manifest_file="$manifests_dir/manifest.json"
+
+    mkdir -p "$manifests_dir"
+    if [[ -f "$legacy_manifest" && ! -f "$manifest_file" ]]; then
+        mv "$legacy_manifest" "$manifest_file"
+    fi
     
     if [[ ! -f "$manifest_file" ]]; then
         echo "Error: Manifest not found: $manifest_file"
@@ -292,14 +307,21 @@ validate_manifest() {
         echo "✗ Global registry missing: $registry"
     fi
     
-    # Check agency manifests
+    # Check agency manifests (ensure they live under builds/<agency>/manifests/manifest.json)
     for agency_dir in "$PROJECT_ROOT/builds"/*; do
         if [[ -d "$agency_dir" ]]; then
             local agency=$(basename "$agency_dir")
-            local manifest="$agency_dir/manifest.json"
-            
+            local manifests_dir="$agency_dir/manifests"
+            local manifest="$manifests_dir/manifest.json"
+            local legacy_manifest="$agency_dir/manifest.json"
+
             if [[ -f "$manifest" ]]; then
                 echo "✓ Agency manifest found: $agency -> $manifest"
+            elif [[ -f "$legacy_manifest" ]]; then
+                echo "! Legacy manifest found for $agency at $legacy_manifest; migrating to $manifest"
+                mkdir -p "$manifests_dir"
+                mv "$legacy_manifest" "$manifest"
+                echo "✓ Migrated: $manifest"
             else
                 echo "✗ Agency manifest missing: $agency -> $manifest"
             fi
