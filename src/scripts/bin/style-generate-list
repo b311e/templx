@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SCRIPT="$SCRIPT_DIR/../styles/style_generate_list"
+SCRIPT="$SCRIPT_DIR/../style/style_generate_list"
 exec "$SCRIPT" "$@"
