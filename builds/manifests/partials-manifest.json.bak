@@ -2,6 +2,15 @@
   "snippets": [
     {
       "id": "coreNumbering",
+      "path": "builds/osa/templates/osaReport/partials/numbering/osa-report-numbering.xml",
+      "target": "word:numbering",
+      "tags": [
+        "numbering"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "coreNumbering",
       "path": "builds/osa/workspace/osaNormal/partials/numbering/osa-normal-numbering.xml",
       "target": "word:numbering",
       "tags": [
@@ -10,8 +19,8 @@
       "status": "active"
     },
     {
-      "id": "jbcBudgetFrontMatterStyles",
-      "path": "builds/jbc/templates/jbcBudget/partials/styles/jbc-budget-front-matter-styles.xml",
+      "id": "jbcBudgetFrontMatter",
+      "path": "builds/jbc/templates/jbcBudget/partials/styles/jbc-budget-front-matter.xml",
       "target": "word:styles",
       "tags": [
         "styles"
@@ -19,8 +28,8 @@
       "status": "active"
     },
     {
-      "id": "jbcBudgetOtherStyles",
-      "path": "builds/jbc/templates/jbcBudget/partials/styles/jbc-budget-other-styles.xml",
+      "id": "jbcBudgetOther",
+      "path": "builds/jbc/templates/jbcBudget/partials/styles/jbc-budget-other.xml",
       "target": "word:styles",
       "tags": [
         "styles"
@@ -324,15 +333,6 @@
       "target": "word:styles",
       "tags": [
         "styles"
-      ],
-      "status": "active"
-    },
-    {
-      "id": "osaReportNumbering",
-      "path": "builds/osa/templates/osaReport/partials/numbering/osa-report-numbering.xml",
-      "target": "word:numbering",
-      "tags": [
-        "numbering"
       ],
       "status": "active"
     },
