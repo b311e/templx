@@ -58,9 +58,19 @@ generate_manifest() {
         sed -i "s/\"generated\": \"[^\"]*\"/\"generated\": \"$timestamp\"/" "$manifest_file" || true
         echo "✓ Migrated $legacy_manifest -> $manifest_file and updated timestamp"
     else
-        echo "✗ Manifest file not found: $legacy_manifest or $manifest_file"
-        echo "   Create one manually or copy from another agency"
-        return 1
+        # create a minimal manifest structure
+        cat > "$manifest_file" <<EOF
+{
+  "agency": "$agency",
+  "manifest_version": "1.0",
+  "generated": "$timestamp",
+  "workspace": { "category": "workspace", "templates": {} },
+  "templates": { "category": "templates", "templates": {} },
+  "system": { "category": "system", "scripts": {} },
+  "assets": { "category": "assets", "deployment": {} }
+}
+EOF
+        echo "✓ Created new manifest: $manifest_file"
     fi
 
     echo ""
