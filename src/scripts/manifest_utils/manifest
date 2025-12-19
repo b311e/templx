@@ -69,30 +69,6 @@ generate_manifest() {
   "system": { "category": "system", "scripts": {} },
   "assets": { "category": "assets", "deployment": {} }
 }
-
-generate_all() {
-    echo "Generating all agency manifests under $PROJECT_ROOT/builds"
-    for d in "$PROJECT_ROOT/builds"/*; do
-        if [[ -d "$d" ]]; then
-            agency=$(basename "$d")
-            # skip non-agency entries that are not directories
-            if [[ "$agency" == "manifests" ]]; then
-                continue
-            fi
-            echo "--- Generating for agency: $agency"
-            generate_manifest "$agency"
-        fi
-    done
-
-    echo "--- Generating builds-level partials manifest"
-    python3 "$(dirname "${BASH_SOURCE[0]}")/manifest-generate-partials.py" || true
-
-    echo "--- Generating core partials manifest"
-    python3 "$(dirname "${BASH_SOURCE[0]}")/manifest-generate-core-partials.py" || true
-
-    echo "--- Generating core manifest"
-    generate_core_manifest
-}
 EOF
         echo "✓ Created new manifest: $manifest_file"
     fi
@@ -228,6 +204,30 @@ generate_core_manifest() {
     local total=$(( ${#base_normal[@]} + ${#base_theme[@]} + ${#base_sheet[@]} + ${#base_book[@]} + ${#base_colors[@]} + ${#base_fonts[@]} + ${#base_officeUI[@]} + ${#partials_styles[@]} + ${#partials_numbering[@]} ))
     echo "✓ Core manifest generated: $manifest_file"
     echo "  Found $total components across categories"
+}
+
+generate_all() {
+    echo "Generating all agency manifests under $PROJECT_ROOT/builds"
+    for d in "$PROJECT_ROOT/builds"/*; do
+        if [[ -d "$d" ]]; then
+            agency=$(basename "$d")
+            # skip non-agency entries that are not directories
+            if [[ "$agency" == "manifests" ]]; then
+                continue
+            fi
+            echo "--- Generating for agency: $agency"
+            generate_manifest "$agency"
+        fi
+    done
+
+    echo "--- Generating builds-level partials manifest"
+    python3 "$(dirname "${BASH_SOURCE[0]}")/manifest-generate-partials.py" || true
+
+    echo "--- Generating core partials manifest"
+    python3 "$(dirname "${BASH_SOURCE[0]}")/manifest-generate-core-partials.py" || true
+
+    echo "--- Generating core manifest"
+    generate_core_manifest
 }
 
 update_template_status() {
@@ -393,7 +393,7 @@ case "$1" in
             # If no resource specified, generate everything
             if [[ -z "$2" ]]; then
                 generate_all
-                return $?
+                exit $?
             fi
 
             case "$2" in
