@@ -280,17 +280,17 @@ Full  manifest documentation can be found at `src/scripts/manifest_utils/README.
 
 ```bash
 # Generate/update manifest for specific agency
-# Usage: manifest generate agency <agency>
-manifest generate agency jbc
+# Hyphenated form: manifest-generate <agency>
+manifest-generate jbc
 
 # Generate/update manifest for core templates
-manifest generate core
+manifest-generate-core
 
 # Generate/update partials manifest for all builds
 # Writes builds/manifests/partials-manifest.json
-manifest generate partials
+manifest-generate-partials
 # Or generate core partials manifest
-manifest generate partials core
+manifest-generate-partials core
 ```
 
 #### Other manifest commands

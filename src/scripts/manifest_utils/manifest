@@ -329,6 +329,13 @@ case "$1" in
     help|--help|-h)
         show_help
         ;;
+    manifest-*)
+        # Support legacy hyphenated commands like: manifest-generate-partials
+        # Convert 'manifest-foo-bar ...' -> 'foo bar ...' and re-exec this script
+        cmd="${1#manifest-}"
+        IFS='-' read -r -a parts <<< "$cmd"
+        exec "$SCRIPT_DIR/manifest" "${parts[@]}" "${@:2}"
+        ;;
     # New style: manifest <action> <resource> ...
     generate)
         # manifest generate <resource> [...]
