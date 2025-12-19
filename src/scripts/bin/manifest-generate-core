@@ -1,2 +1,6 @@
 #!/usr/bin/env bash
-exec "$(dirname "${BASH_SOURCE[0]}")/../manifest_utils/manifest" generate core "$@"
+SCRIPT_DIR="
+/c/code/coga-template-manager/src/scripts/bin
+"
+MANIFEST="$SCRIPT_DIR/../manifest_utils/manifest"
+exec "$MANIFEST" generate agency core
