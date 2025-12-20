@@ -757,28 +757,28 @@
     </w:style>
     <w:style w:type="paragraph" w:styleId="Heading2">
         <w:name w:val="heading 2" />
-        <w:aliases w:val="Chapter #" />
-        <w:basedOn w:val="Normal" />
-        <w:next w:val="Normal" />
-        <w:uiPriority w:val="5" />
-        <w:qFormat />
+        <w:aliases w:val="Chapter #"/>
+        <w:basedOn w:val="Normal"/>
+        <w:next w:val="ChapterSubtitle"/>
+        <w:uiPriority w:val="5"/>
+        <w:qFormat/>
         <w:pPr>
             <w:keepNext />
-            <w:keepLines />
+            <w:keepLines/>
             <w:suppressAutoHyphens />
-            <w:pageBreakBefore />
+            <w:pageBreakBefore/>
             <w:pBdr>
-                <w:bottom w:val="single" w:sz="8" w:space="12" w:color="595959" w:themeColor="text1" w:themeTint="A6" />
+                <w:bottom w:val="single" w:sz="8" w:space="12" w:color="595959" w:themeColor="text1" w:themeTint="A6"/>
             </w:pBdr>
-            <w:spacing w:after="120" w:line="240" w:lineRule="auto" />
-            <w:jc w:val="right" />
-            <w:outlineLvl w:val="1" />
+            <w:spacing w:after="120" w:line="240" w:lineRule="auto"/>
+            <w:jc w:val="right"/>
+            <w:outlineLvl w:val="1"/>
         </w:pPr>
         <w:rPr>
-            <w:rFonts w:asciiTheme="majorHAnsi" w:hAnsiTheme="majorHAnsi" w:cstheme="majorHAnsi" />
-            <w:b />
-            <w:color w:val="003764" w:themeColor="accent1" />
-            <w:sz w:val="76" />
+            <w:rFonts w:asciiTheme="majorHAnsi" w:hAnsiTheme="majorHAnsi" w:cstheme="majorHAnsi"/>
+            <w:b/>
+            <w:color w:val="003764" w:themeColor="accent1"/>
+            <w:sz w:val="76"/>
         </w:rPr>
     </w:style>
     <w:style w:type="paragraph" w:styleId="Heading3">
@@ -943,13 +943,13 @@
         <w:uiPriority w:val="9" />
         <w:qFormat />
         <w:pPr>
-            <w:spacing w:before="360" w:after="0" w:line="240" w:lineRule="auto" />
+            <w:spacing w:before="360" w:after="40" w:line="240" w:lineRule="auto" />
         </w:pPr>
     </w:style>
     <w:style w:type="paragraph" w:customStyle="1" w:styleId="ChapterSubtitle">
         <w:name w:val="Chapter Subtitle" />
         <w:basedOn w:val="Subtitle" />
-        <w:next w:val="Normal" />
+        <w:next w:val="Heading3" />
         <w:uiPriority w:val="6" />
         <w:qFormat />
         <w:pPr>
@@ -959,17 +959,17 @@
             <w:contextualSpacing />
         </w:pPr>
         <w:rPr>
-            <w:sz w:val="52" />
+            <w:sz w:val="48" />
         </w:rPr>
     </w:style>
-    <w:style w:type="paragraph" w:customStyle="1" w:styleId="Heading5Subtitle">
+    <w:style w:type="paragraph" w:customStyle="1" w:styleId="ResponseSubtitle">
         <w:name w:val="Response Subtitle" />
         <w:basedOn w:val="Normal" />
-        <w:next w:val="Normal" />
+        <w:next w:val="ListResponse" />
         <w:uiPriority w:val="9" />
         <w:qFormat />
         <w:pPr>
-            <w:keepNext />
+            <w:keepNext/>
             <w:pBdr>
                 <w:bottom w:val="single" w:sz="8" w:space="6" w:color="FFFFFF" w:themeColor="background1" />
             </w:pBdr>
@@ -1535,7 +1535,7 @@
 <w:style w:type="paragraph" w:customStyle="1" w:styleId="TableTitle">
         <w:name w:val="Table Title" />
         <w:basedOn w:val="Normal" />
-        <w:next w:val="Normal" />
+        <w:next w:val="TableTitle" />
         <w:uiPriority w:val="25" />
         <w:qFormat />
         <w:pPr>
@@ -1561,20 +1561,20 @@
         </w:rPr>
     </w:style>
     <w:style w:type="paragraph" w:customStyle="1" w:styleId="AuditorsAddendumHeader">
-        <w:name w:val="Auditor's Addendum Header" />
-        <w:basedOn w:val="AuditorsAddendumText" />
-        <w:next w:val="AuditorsAddendumText" />
-        <w:uiPriority w:val="28" />
-        <w:qFormat />
+        <w:name w:val="Auditor's Addendum Header"/>
+        <w:basedOn w:val="AuditorsAddendumText"/>
+        <w:next w:val="AuditorsAddendumText"/>
+        <w:uiPriority w:val="28"/>
+        <w:qFormat/>
         <w:pPr>
-            <w:keepNext />
+            <w:keepNext/>
             <w:pBdr>
-                <w:bottom w:val="single" w:sz="4" w:space="4" w:color="003764" w:themeColor="accent1" />
+                <w:bottom w:val="single" w:sz="4" w:space="4" w:color="003764" w:themeColor="accent1"/>
             </w:pBdr>
-            <w:spacing w:before="360" />
+            <w:spacing w:before="360" w:after="120"/>
         </w:pPr>
         <w:rPr>
-            <w:b />
+            <w:b/>
         </w:rPr>
     </w:style>
     <w:style w:type="paragraph" w:customStyle="1" w:styleId="AuditorsAddendumText">
@@ -1583,8 +1583,7 @@
         <w:uiPriority w:val="28" />
         <w:qFormat />
         <w:pPr>
-            <w:ind w:left="288" w:right="288" />
-            <w:contextualSpacing w:val="0" />
+            <w:contextualSpacing />
         </w:pPr>
         <w:rPr>
             <w:color w:val="003764" w:themeColor="accent1" />

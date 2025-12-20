@@ -27,7 +27,7 @@
         <w:name w:val="heading 2" />
         <w:aliases w:val="Chapter #"/>
         <w:basedOn w:val="Normal"/>
-        <w:next w:val="Normal"/>
+        <w:next w:val="ChapterSubtitle"/>
         <w:uiPriority w:val="5"/>
         <w:qFormat/>
         <w:pPr>
@@ -211,13 +211,13 @@
         <w:uiPriority w:val="9"/>
         <w:qFormat/>
         <w:pPr>
-            <w:spacing w:before="360" w:after="0" w:line="240" w:lineRule="auto"/>
+            <w:spacing w:before="360" w:after="40" w:line="240" w:lineRule="auto"/>
         </w:pPr>
     </w:style>
     <w:style w:type="paragraph" w:customStyle="1" w:styleId="ChapterSubtitle">
         <w:name w:val="Chapter Subtitle"/>
         <w:basedOn w:val="Subtitle"/>
-        <w:next w:val="Normal"/>
+        <w:next w:val="Heading3"/>
         <w:uiPriority w:val="6"/>
         <w:qFormat/>
         <w:pPr>
@@ -227,13 +227,13 @@
             <w:contextualSpacing/>
         </w:pPr>
         <w:rPr>
-            <w:sz w:val="52"/>
+            <w:sz w:val="48"/>
         </w:rPr>
     </w:style>
-    <w:style w:type="paragraph" w:customStyle="1" w:styleId="Heading5Subtitle">
+    <w:style w:type="paragraph" w:customStyle="1" w:styleId="ResponseSubtitle">
         <w:name w:val="Response Subtitle" />
         <w:basedOn w:val="Normal" />
-        <w:next w:val="Normal" />
+        <w:next w:val="ListResponse" />
         <w:uiPriority w:val="9" />
         <w:qFormat />
         <w:pPr>

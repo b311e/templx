@@ -40,7 +40,7 @@
             <w:pBdr>
                 <w:bottom w:val="single" w:sz="4" w:space="4" w:color="003764" w:themeColor="accent1"/>
             </w:pBdr>
-            <w:spacing w:before="360"/>
+            <w:spacing w:before="360" w:after="120"/>
         </w:pPr>
         <w:rPr>
             <w:b/>
@@ -52,7 +52,6 @@
         <w:uiPriority w:val="28"/>
         <w:qFormat/>
         <w:pPr>
-            <w:ind w:left="288" w:right="288"/>
             <w:contextualSpacing w:val="0"/>
         </w:pPr>
         <w:rPr>
