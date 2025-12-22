@@ -32,7 +32,7 @@
     xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk"
     xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml"
     xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" mc:Ignorable="w14 w15 w16se w16cid w16 w16cex w16sdtdh wp14">
-    <w:p w14:paraId="71F00111" w14:textId="77777777" w:rsidR="00FB519F" w:rsidRDefault="00FB519F">
+    <w:p>
         <w:pPr>
             <w:pStyle w:val="Footer"/>
         </w:pPr>
@@ -70,12 +70,7 @@
             <w:ptab w:relativeTo="margin" w:alignment="right" w:leader="none"/>
         </w:r>
         <w:r>
-            <w:t>[Dept]-</w:t>
+            <w:t>[Dept]-fig</w:t>
         </w:r>
-        <w:proofErr w:type="spellStart"/>
-        <w:r>
-            <w:t>fig</w:t>
-        </w:r>
-        <w:proofErr w:type="spellEnd"/>
     </w:p>
 </w:ftr>
