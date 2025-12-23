@@ -1,19 +1,39 @@
 #!/usr/bin/env bash
 # Manifest Generator for COGA Template Manager
-# Usage: manifest <action> <resource> [options]
-# Examples (new unified form):
-#   manifest generate agency <agency>
-#   manifest generate core
-#   manifest generate partials
-#   manifest validate
-#   manifest list
-# Hyphenated aliases (provided in src/scripts/bin):
-#   manifest-generate <agency>
+
+
+# Hyphenated command support only:
 #   manifest-generate-core
-#   manifest-generate-partials-builds
-#   manifest-generate-partials-core
+#   manifest-generate-partials
+#   manifest-generate-<agency>
 #   manifest-validate
 #   manifest-list
+
+script_base=$(basename "$0")
+case "$script_base" in
+    manifest-generate-core)
+        generate_manifest core
+        exit $?
+        ;;
+    manifest-generate-partials)
+        python3 "$SCRIPT_DIR/manifest-generate-partials.py" "${@:2}"
+        exit $?
+        ;;
+    manifest-generate-*)
+        agency="${script_base#manifest-generate-}"
+        generate_manifest "$agency"
+        exit $?
+        ;;
+    manifest-validate)
+        validate_manifest
+        exit $?
+        ;;
+    manifest-list)
+        list_templates
+        exit $?
+        ;;
+esac
+
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
@@ -27,15 +47,17 @@ generate_manifest() {
     fi
 
     if [[ -z "$agency" ]]; then
-        echo "Usage: manifest generate agency <agency>" 
+        echo "Usage: manifest generate agency <agency>"
         return 1
     fi
+
+
 
     local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
     local agency_dir="$PROJECT_ROOT/builds/$agency"
     local manifests_dir="$agency_dir/manifests"
-    local legacy_manifest="$agency_dir/manifest.json"
     local manifest_file="$manifests_dir/manifest.json"
+
 
     if [[ ! -d "$agency_dir" ]]; then
         echo "Error: Agency directory not found: $agency_dir"
@@ -47,42 +69,114 @@ generate_manifest() {
     echo "Updating timestamp: $timestamp"
 
     # ensure manifests directory exists
-    mkdir -p "$manifests_dir"
+    templates_json=""
+    workspace_json=""
+    first_entry_templates=true
+    first_entry_workspace=true
 
-    if [[ -f "$manifest_file" ]]; then
-        sed -i "s/\"generated\": \"[^\"]*\"/\"generated\": \"$timestamp\"/" "$manifest_file"
-        echo "✓ Updated timestamp in existing manifest: $manifest_file"
-    elif [[ -f "$legacy_manifest" ]]; then
-        # migrate legacy manifest into manifests/ and update timestamp
-        mv "$legacy_manifest" "$manifest_file"
-        sed -i "s/\"generated\": \"[^\"]*\"/\"generated\": \"$timestamp\"/" "$manifest_file" || true
-        echo "✓ Migrated $legacy_manifest -> $manifest_file and updated timestamp"
-    else
-        # create a minimal manifest structure
-        cat > "$manifest_file" <<EOF
-{
-  "agency": "$agency",
-  "manifest_version": "1.0",
-  "generated": "$timestamp",
-  "workspace": { "category": "workspace", "templates": {} },
-  "templates": { "category": "templates", "templates": {} },
-  "system": { "category": "system", "scripts": {} },
-  "assets": { "category": "assets", "deployment": {} }
+
+# Helper to process a parent folder (templates or workspace)
+process_templates_dir() {
+    local parent_dir="$1"
+    local is_workspace="$2"
+    for template_dir in "$parent_dir"/*; do
+        [[ ! -d "$template_dir" ]] && continue
+        key=$(basename "$template_dir")
+        out_dir="$template_dir/out"
+        [[ ! -d "$out_dir" ]] && continue
+        for template_file in "$out_dir"/*.dotm "$out_dir"/*.dotx "$out_dir"/*.xltx; do
+            [[ ! -f "$template_file" ]] && continue
+            rel_path="${template_file#$PROJECT_ROOT/}"
+            file_name=$(basename "$template_file")
+            ext=".${file_name##*.}"
+            name="$key"
+            type="word-doc-template"
+            [[ "$ext" == ".xltx" ]] && type="excel-book-template"
+            status=$(grep -A 10 "\"$key\"" "$manifest_file" | grep '"status"' | head -n1 | sed 's/.*"status": *"\([^"]*\)".*/\1/')
+            [[ -z "$status" ]] && status="active"
+            entry="        \"$key\": {\n          \"name\": \"$name\",\n          \"type\": \"$type\",\n          \"extension\": \"$ext\",\n          \"src\": \"$rel_path\",\n          \"status\": \"$status\"\n        }"
+            if [[ "$is_workspace" == "true" ]]; then
+                if $first_entry_workspace; then
+                    workspace_json="$entry"
+                    first_entry_workspace=false
+                else
+                    workspace_json="$workspace_json,\n$entry"
+                fi
+            else
+                if $first_entry_templates; then
+                    templates_json="$entry"
+                    first_entry_templates=false
+                else
+                    templates_json="$templates_json,\n$entry"
+                fi
+            fi
+            echo "  Found: $rel_path"
+            break
+        done
+    done
 }
-EOF
-        echo "✓ Created new manifest: $manifest_file"
-    fi
+
+    process_templates_dir "$agency_dir/templates" false
+    process_templates_dir "$agency_dir/workspace" true
+
+    # Replace the templates.templates and workspace.templates sections in manifest.json
+    awk -v tblock="$templates_json" -v wblock="$workspace_json" '
+        BEGIN {in_templates=0; in_templates_block=0; in_workspace=0; in_workspace_block=0}
+        /"templates" *: *{/ && !in_templates {in_templates=1; print; next}
+        in_templates && /"templates" *: *{/ {in_templates_block=1; print "      \"templates\": {"; print tblock; print "      }"; next}
+        in_templates_block && /}/ {in_templates=0; in_templates_block=0; print; next}
+        /"workspace" *: *{/ && !in_workspace {in_workspace=1; print; next}
+        in_workspace && /"templates" *: *{/ {in_workspace_block=1; print "      \"templates\": {"; print wblock; print "      }"; next}
+        in_workspace_block && /}/ {in_workspace=0; in_workspace_block=0; print; next}
+        !in_templates_block && !in_workspace_block {print}
+    ' "$manifest_file" > "$manifest_file.tmp" && mv "$manifest_file.tmp" "$manifest_file"
+    echo "✓ Templates and workspace sections updated in manifest."
 
     echo ""
     echo "Template Discovery:"
-    find "$agency_dir" -name "*.xltx" -o -name "*.dotx" -o -name "*.dotm" | while read -r template; do
-        local rel_path="${template#$PROJECT_ROOT/}"
+    # Build new templates JSON entries
+    templates_json=""
+    first_entry=true
+    while IFS= read -r template; do
+        rel_path="${template#$PROJECT_ROOT/}"
+        dir_name=$(basename "$(dirname "$template")")
+        file_name=$(basename "$template")
+        ext=".${file_name##*.}"
+        key="$dir_name"
+        name="$dir_name"
+        type="word-doc-template"
+        [[ "$ext" == ".xltx" ]] && type="excel-book-template"
+
+        # Try to extract status from existing manifest
+        status=$(grep -A 10 "\"$key\"" "$manifest_file" | grep '"status"' | head -n1 | sed 's/.*"status": *"\([^"]*\)".*/\1/')
+        [[ -z "$status" ]] && status="active"
+
+        entry="    \"$key\": {\n      \"name\": \"$name\",\n      \"type\": \"$type\",\n      \"extension\": \"$ext\",\n      \"src\": \"$rel_path\",\n      \"status\": \"$status\"\n    }"
+        if $first_entry; then
+            templates_json="$entry"
+            first_entry=false
+        else
+            templates_json="$templates_json,\n$entry"
+        fi
         echo "  Found: $rel_path"
-    done
+    done < <(find "$agency_dir/templates" -type f \( -name "*.xltx" -o -name "*.dotx" -o -name "*.dotm" \))
+
+    # Replace the templates.templates section in manifest.json
+    if [[ -n "$templates_json" ]]; then
+        awk -v newblock="$templates_json" '
+            BEGIN {in_templates=0; in_templates_block=0}
+            /"templates" *: *{/ && !in_templates {in_templates=1; print; next}
+            in_templates && /"templates" *: *{/ {in_templates_block=1; print "      \"templates\": {"; print newblock; print "      }"; next}
+            in_templates_block && /}/ {in_templates=0; in_templates_block=0; print; next}
+            !in_templates_block {print}
+        ' "$manifest_file" > "$manifest_file.tmp" && mv "$manifest_file.tmp" "$manifest_file"
+        echo "✓ Templates section updated in manifest."
+    else
+        echo "No templates found to add."
+    fi
 
     echo ""
     echo " Manifest updated: $manifest_file"
-    echo "  Manual updates may be needed for new templates"
 }
 
 # The `manifest generate partials` action calls the canonical Python generators below.
@@ -90,7 +184,6 @@ EOF
 generate_core_manifest() {
     local core_dir="$PROJECT_ROOT/core"
     local manifests_dir="$core_dir/manifests"
-    local legacy_core_manifest="$core_dir/manifest.json"
     local manifest_file="$manifests_dir/manifest.json"
     mkdir -p "$manifests_dir"
     local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
@@ -201,10 +294,6 @@ generate_core_manifest() {
     json+="      \"numbering\": [\n        $(build_array "${partials_numbering[@]}")\n      ]\n"
     json+="    }\n  }\n}"
     
-    # If legacy core manifest exists (old location), migrate it first
-    if [[ -f "$legacy_core_manifest" && ! -f "$manifest_file" ]]; then
-        mv "$legacy_core_manifest" "$manifest_file"
-    fi
 
     # Write to file
     echo -e "$json" > "$manifest_file"
@@ -229,14 +318,9 @@ generate_all() {
     done
 
     echo "--- Generating builds-level partials manifest"
-    python3 "$(dirname "${BASH_SOURCE[0]}")/manifest-generate-partials.py" || true
 
-    echo "--- Generating core partials manifest"
-    python3 "$(dirname "${BASH_SOURCE[0]}")/manifest-generate-core-partials.py" || true
-
-    echo "--- Generating core manifest"
-    generate_core_manifest
 }
+
 
 update_template_status() {
     local agency="$1"
@@ -412,13 +496,13 @@ case "$1" in
     # New style: manifest <action> <resource> ...
     generate)
         # manifest generate <resource> [...]
-            # If no resource specified, generate everything
-            if [[ -z "$2" ]]; then
-                generate_all
-                exit $?
-            fi
+        # If no resource specified, generate everything
+        if [[ -z "$2" ]]; then
+            generate_all
+            exit $?
+        fi
 
-            case "$2" in
+        case "$2" in
             core)
                 generate_manifest core
                 ;;
@@ -462,23 +546,5 @@ case "$1" in
             show_help
         fi
         ;;
-    # Hyphenated wrapper commands (backwards compatibility)
-    manifest-generate)
-        generate_manifest "$2"
-        ;;
-    manifest-update-status)
-        update_template_status "$2" "$3" "$4"
-        ;;
-    manifest-add-template)
-        add_new_template "$2" "$3" "$4"
-        ;;
-    manifest-validate)
-        validate_manifest
-        ;;
-    manifest-list)
-        list_templates
-        ;;
-    *)
-        show_help
-        ;;
 esac
+

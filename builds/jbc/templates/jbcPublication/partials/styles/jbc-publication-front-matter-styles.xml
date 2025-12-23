@@ -22,13 +22,9 @@
         <w:basedOn w:val="Normal" />
         <w:uiPriority w:val="4" />
         <w:pPr>
-            <w:spacing w:after="480" />
-            <w:ind w:left="360" w:right="360" />
             <w:contextualSpacing />
-            <w:jc w:val="center" />
         </w:pPr>
         <w:rPr>
-            <w:b />
             <w:color w:val="41597C" w:themeColor="accent1" />
             <w:sz w:val="64" />
         </w:rPr>

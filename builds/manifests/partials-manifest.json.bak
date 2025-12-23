@@ -319,26 +319,8 @@
       "status": "active"
     },
     {
-      "id": "osaReportFrontMatterStyles",
-      "path": "builds/tmp/osaReport/partials/styles/osa-report-front-matter-styles.xml",
-      "target": "word:styles",
-      "tags": [
-        "styles"
-      ],
-      "status": "active"
-    },
-    {
       "id": "osaReportHeadingStyles",
       "path": "builds/osa/templates/osaReport/partials/styles/osa-report-heading-styles.xml",
-      "target": "word:styles",
-      "tags": [
-        "styles"
-      ],
-      "status": "active"
-    },
-    {
-      "id": "osaReportHeadingStyles",
-      "path": "builds/tmp/osaReport/partials/styles/osa-report-heading-styles.xml",
       "target": "word:styles",
       "tags": [
         "styles"
@@ -355,15 +337,6 @@
       "status": "active"
     },
     {
-      "id": "osaReportListStyles",
-      "path": "builds/tmp/osaReport/partials/styles/osa-report-list-styles.xml",
-      "target": "word:styles",
-      "tags": [
-        "styles"
-      ],
-      "status": "active"
-    },
-    {
       "id": "osaReportNumbering",
       "path": "builds/osa/templates/osaReport/partials/numbering/osa-report-numbering.xml",
       "target": "word:numbering",
@@ -373,26 +346,8 @@
       "status": "active"
     },
     {
-      "id": "osaReportNumbering",
-      "path": "builds/tmp/osaReport/partials/numbering/osa-report-numbering.xml",
-      "target": "word:numbering",
-      "tags": [
-        "numbering"
-      ],
-      "status": "active"
-    },
-    {
       "id": "osaReportOtherStyles",
       "path": "builds/osa/templates/osaReport/partials/styles/osa-report-other-styles.xml",
-      "target": "word:styles",
-      "tags": [
-        "styles"
-      ],
-      "status": "active"
-    },
-    {
-      "id": "osaReportOtherStyles",
-      "path": "builds/tmp/osaReport/partials/styles/osa-report-other-styles.xml",
       "target": "word:styles",
       "tags": [
         "styles"
