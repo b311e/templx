@@ -1,0 +1,44 @@
+template: jbcPublication
+parent: jbcNormal
+
+style-group: {default}
+  partial: {jbcNormal}
+
+style-group: {heading}
+  partial: {jbcPublication}
+
+style-group: {body}
+  partial: {jbcNormal}
+
+style-group: {front-matter}
+  partial: {jbcPublication}
+
+style-group: {list}
+  partial: {jbcNormal}
+
+style-group: {callout}
+  partial: {jbcNormal}
+  
+style-group: {caption}
+  partial: {jbcNormal}
+  
+style-group: {toc}
+  partial: {jbcNormal}
+
+style-group: {index}
+  partial: {jbcNormal}
+ 
+style-group: {header}
+  partial: {jbcNormal}
+
+style-group: {footer}  
+  partial: {jbcNormal}
+
+style-group: {other}
+  partial: {jbcNormal}
+  
+style-group: {character}
+  partial: {jbcNormal}
+  
+style-group: {table}
+  partial: {jbcNormal}
