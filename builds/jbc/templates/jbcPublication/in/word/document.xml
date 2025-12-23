@@ -59,82 +59,122 @@
             </w:r>
         </w:p>
         <w:p>
-            <w:pPr>
-                <w:pStyle w:val="MemberName"/>
-                <w:framePr w:w="6466" w:h="1728" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1081" w:y="12961"/>
-                <w:spacing w:after="120"/>
-                <w:contextualSpacing w:val="0"/>
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:sz w:val="28"/>
-                    <w:szCs w:val="24"/>
-                </w:rPr>
-            </w:pPr>
-            <w:r>
-                <w:rPr>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:sz w:val="28"/>
-                    <w:szCs w:val="24"/>
-                </w:rPr>
-                <w:t>Joint Budget Committee</w:t>
-            </w:r>
         </w:p>
-        <w:p>
-            <w:pPr>
-                <w:pStyle w:val="MemberName"/>
-                <w:framePr w:w="6466" w:h="1728" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1081" w:y="12961"/>
-            </w:pPr>
-            <w:r>
-                <w:t>Senator Jeff Bridges, Chair</w:t>
-            </w:r>
-        </w:p>
-        <w:p>
-            <w:pPr>
-                <w:pStyle w:val="MemberName"/>
-                <w:framePr w:w="6466" w:h="1728" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1081" w:y="12961"/>
-            </w:pPr>
-            <w:r>
-                <w:t>Senator Judy Amabile</w:t>
-            </w:r>
-        </w:p>
-        <w:p>
-            <w:pPr>
-                <w:pStyle w:val="MemberName"/>
-                <w:framePr w:w="6466" w:h="1728" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1081" w:y="12961"/>
-            </w:pPr>
-            <w:r>
-                <w:t>Senator Barbara Kirkmeyer</w:t>
-            </w:r>
-        </w:p>
-        <w:p>
-            <w:pPr>
-                <w:pStyle w:val="MemberName"/>
-                <w:framePr w:w="6466" w:h="1728" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1081" w:y="12961"/>
-            </w:pPr>
-            <w:r>
-                <w:t>Representative Kyle Brown, Vice Chair</w:t>
-            </w:r>
-        </w:p>
-        <w:p>
-            <w:pPr>
-                <w:pStyle w:val="MemberName"/>
-                <w:framePr w:w="6466" w:h="1728" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1081" w:y="12961"/>
-            </w:pPr>
-            <w:r>
-                <w:t>Representative Emily Sirota</w:t>
-            </w:r>
-        </w:p>
-        <w:p>
-            <w:pPr>
-                <w:pStyle w:val="MemberName"/>
-                <w:framePr w:w="6466" w:h="1728" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1081" w:y="12961"/>
-            </w:pPr>
-            <w:r>
-                <w:t>Representative Rick Taggart</w:t>
-            </w:r>
-        </w:p>
+        <w:tbl>
+            <w:tblPr>
+                <w:tblStyle w:val="TableGrid"/>
+                <w:tblW w:w="0" w:type="auto"/>
+                <w:tblBorders>
+                    <w:top w:val="none" w:sz="0" w:space="0" w:color="auto"/>
+                    <w:left w:val="none" w:sz="0" w:space="0" w:color="auto"/>
+                    <w:bottom w:val="none" w:sz="0" w:space="0" w:color="auto"/>
+                    <w:right w:val="none" w:sz="0" w:space="0" w:color="auto"/>
+                    <w:insideH w:val="none" w:sz="0" w:space="0" w:color="auto"/>
+                    <w:insideV w:val="none" w:sz="0" w:space="0" w:color="auto"/>
+                </w:tblBorders>
+                <w:tblCellMar>
+                    <w:left w:w="0" w:type="dxa"/>
+                    <w:right w:w="0" w:type="dxa"/>
+                </w:tblCellMar>
+                <w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
+            </w:tblPr>
+            <w:tblGrid>
+                <w:gridCol w:w="3690"/>
+                <w:gridCol w:w="3690"/>
+            </w:tblGrid>
+            <w:tr>
+                <w:trPr>
+                    <w:trHeight w:val="450"/>
+                </w:trPr>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="7380" w:type="dxa"/>
+                        <w:gridSpan w:val="2"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:pStyle w:val="MemberName"/>
+                            <w:framePr w:w="7561" w:h="1441" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1091" w:y="13321"/>
+                        </w:pPr>
+                        <w:r>
+                            <w:rPr>
+                                <w:b/>
+                                <w:bCs/>
+                                <w:sz w:val="28"/>
+                                <w:szCs w:val="24"/>
+                            </w:rPr>
+                            <w:t>Joint Budget Committee</w:t>
+                        </w:r>
+                    </w:p>
+                </w:tc>
+            </w:tr>
+            <w:tr>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="3690" w:type="dxa"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:pStyle w:val="MemberName"/>
+                            <w:framePr w:w="7561" w:h="1441" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1091" w:y="13321"/>
+                        </w:pPr>
+                        <w:r>
+                            <w:t>Representative Emily Sirota, Chair</w:t>
+                        </w:r>
+                    </w:p>
+                    <w:p>
+                        <w:pPr>
+                            <w:pStyle w:val="MemberName"/>
+                            <w:framePr w:w="7561" w:h="1441" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1091" w:y="13321"/>
+                        </w:pPr>
+                        <w:r>
+                            <w:t>Representative Kyle Brown</w:t>
+                        </w:r>
+                    </w:p>
+                    <w:p>
+                        <w:pPr>
+                            <w:pStyle w:val="MemberName"/>
+                            <w:framePr w:w="7561" w:h="1441" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1091" w:y="13321"/>
+                        </w:pPr>
+                        <w:r>
+                            <w:t>Representative Rick Taggart</w:t>
+                        </w:r>
+                    </w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="3690" w:type="dxa"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:pStyle w:val="MemberName"/>
+                            <w:framePr w:w="7561" w:h="1441" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1091" w:y="13321"/>
+                        </w:pPr>
+                        <w:r>
+                            <w:t>Senator Jeff Bridges, Vice Chair</w:t>
+                        </w:r>
+                    </w:p>
+                    <w:p>
+                        <w:pPr>
+                            <w:pStyle w:val="MemberName"/>
+                            <w:framePr w:w="7561" w:h="1441" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1091" w:y="13321"/>
+                        </w:pPr>
+                        <w:r>
+                            <w:t>Senator Judy Amabile</w:t>
+                        </w:r>
+                    </w:p>
+                    <w:p>
+                        <w:pPr>
+                            <w:pStyle w:val="MemberName"/>
+                            <w:framePr w:w="7561" w:h="1441" w:wrap="around" w:vAnchor="page" w:hAnchor="page" w:x="1091" w:y="13321"/>
+                        </w:pPr>
+                        <w:r>
+                            <w:t>Senator Barbara Kirkmeyer</w:t>
+                        </w:r>
+                    </w:p>
+                </w:tc>
+            </w:tr>
+        </w:tbl>
         <w:p>
             <w:pPr>
                 <w:sectPr>
