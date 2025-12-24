@@ -75,7 +75,7 @@ def main():
   parser.add_argument('--dry-run', action='store_true', help='Print the manifest JSON but do not write')
   args = parser.parse_args()
 
-  repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
+  repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..'))
   builds_root = os.path.join(repo_root, 'builds')
   # write the shared manifests under builds/manifests/
   manifest_dir = os.path.join(builds_root, 'manifests')

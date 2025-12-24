@@ -1,4 +1,4 @@
-name: styles order
+name: Style Map Schema
 version: 1.0.0
 description: The order styles should be imported and appear in the target styles.xml.
 
@@ -64,6 +64,16 @@ style_group:
     - TOC8
     - TOC9
   index:
+    - IndexHeading
+    - Index1
+    - Index2
+    - Index3
+    - Index4
+    - Index5
+    - Index6
+    - Index7
+    - Index8
+    - Index9
   header:
     - Header
   footer:
@@ -89,5 +99,15 @@ style_group:
     - TableA
     - TableB
   numbering:
-    - ListBulletStyle
-    - ListNumberStyle
+    - ListBullet
+    - ListBullet2
+    - ListBullet3
+    - ListBullet4
+    - ListBullet5
+    - ListBulletSpacing
+    - ListNumber
+    - ListNumber2
+    - ListNumber3
+    - ListNumber4
+    - ListNumber5
+    - ListNumberSpacing

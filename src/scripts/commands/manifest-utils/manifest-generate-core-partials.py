@@ -77,7 +77,7 @@ def main():
   parser.add_argument('--dry-run', action='store_true', help='Print the manifest JSON but do not write')
   args = parser.parse_args()
 
-  repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
+  repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..'))
   partials_dir = os.path.join(repo_root, 'core', 'partials')
   manifests_dir = os.path.join(repo_root, 'core', 'manifests')
   os.makedirs(manifests_dir, exist_ok=True)

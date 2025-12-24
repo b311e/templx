@@ -6,6 +6,14 @@ Shared libraries and utilities for templx scripts.
 
 This directory contains reusable bash functions and utilities that can be sourced by multiple commands.
 
+## Contents
+
+### `schemas/`
+Schema files used by scripts for validation and data structure definition.
+
+### `templates/`
+Template files for generating code-related files (snippets, scripts, etc.).
+
 ## What Goes Here
 
 - Common bash functions used by 2+ commands

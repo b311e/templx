@@ -170,7 +170,7 @@ def main():
     parser.add_argument('target', help='target styles.xml to modify')
     # default mapping filename changed to `style-map.yml`; keep compatibility with `style-mapping.yml`
     parser.add_argument('--mapping', default='docs/style-map.yml')
-    parser.add_argument('--styles-order', default=os.path.join('src','scripts','style','styles-order.yml'))
+    parser.add_argument('--styles-order', default=os.path.join('src','scripts','lib','schemas','style-map-schema.yml'))
     parser.add_argument('--dry-run', action='store_true')
     parser.add_argument('--replace', action='store_true', help='Replace existing styles with same id')
     parser.add_argument('--backup', action='store_true', dest='backup', help='Create a .bak backup before writing (disabled by default)')

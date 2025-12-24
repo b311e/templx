@@ -1,5 +1,5 @@
 {
-  "generated": "2025-12-19T03:21:18Z",
+  "generated": "2025-12-24T02:59:53Z",
   "core": {
     "base": {
       "normal": [
@@ -26,9 +26,9 @@
     },
     "partials": {
       "styles": [
-        {"id": "core-latent-styles", "path": "core/partials/styles/core-latent-styles.xml", "status": "active"},
         {"id": "core-list-styles", "path": "core/partials/styles/core-list-styles.xml", "status": "active"},
-        {"id": "core-toc-styles", "path": "core/partials/styles/core-toc-styles.xml", "status": "active"}
+        {"id": "core-toc-styles", "path": "core/partials/styles/core-toc-styles.xml", "status": "active"},
+        {"id": "core-latent-styles", "path": "core/partials/styles/core-latent-styles.xml", "status": "active"}
       ],
       "numbering": [
         {"id": "core-numbering", "path": "core/partials/numbering/core-numbering.xml", "status": "active"}

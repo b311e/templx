@@ -168,6 +168,15 @@
       "status": "active"
     },
     {
+      "id": "jbcPublicationHeadingStyles",
+      "path": "builds/jbc/templates/jbcPublication/partials/styles/jbc-publication-heading-styles.xml",
+      "target": "word:styles",
+      "tags": [
+        "styles"
+      ],
+      "status": "active"
+    },
+    {
       "id": "osaNormalBodyStyles",
       "path": "builds/osa/workspace/osaNormal/partials/styles/osa-normal-body-styles.xml",
       "target": "word:styles",

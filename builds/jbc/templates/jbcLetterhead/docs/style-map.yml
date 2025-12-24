@@ -2,7 +2,7 @@ template: jbcBudgetBriefing
 parent: jbcBudget
 
 style_group: {default}
-  partial: {jbc-normal-default-styles.xml}
+  partial: {jbcNormal}
   styles:
     - Normal
     - DefaultParagraphFont
@@ -10,7 +10,7 @@ style_group: {default}
     - NoList
 
 style_group: {heading}
-  partial: {jbc-letter-heading-styles.xml}
+  partial: {jbcLetter}
   styles:
     - Heading1
     - Heading2
@@ -24,13 +24,13 @@ style_group: {heading}
     - RequestItemH3
 
 style_group: {body}
-  partial: {jbc-normal-body-styles.xml}
+  partial: {jbcNormal}
   styles:
     - NoSpacing
     - AfterTableNormal
 
 style_group: {front-matter}
-  partial: {jbc-letter-front-matter-styles.xml}
+  partial: {jbcLetter}
   styles:
     - Title
     - Subtitle
@@ -40,7 +40,7 @@ style_group: {front-matter}
     - Disclaimer
 
 style_group: {list}
-  partial: {jbc-normal-list-styles.xml}
+  partial: {jbcNormal}
   styles:
     - ListBullet
     - ListBullet2
@@ -56,20 +56,20 @@ style_group: {list}
     - ListNumberSpacing
   
 style_group: {callout}
-  partial: {jbc-normal-callout-styles.xml}
+  partial: {jbcNormal}
   styles:
     - BlockText
     - Quote
     - IntenseQuote
   
   style-group: {caption}
-    partial: {jbc-normal-caption-styles.xml}
+    partial: {jbcNormal}
     styles: 
     - Caption
     - Source
   
   style-group: {toc}
-    partial: {jbc-normal-toc-styles.xml}
+    partial: {jbcNormal}
     styles:
     - TOCHeading
     - TOC1
@@ -83,26 +83,26 @@ style_group: {callout}
     - TOC9
  
 style_group: {header}
-  partial: {jbc-normal-header-styles.xml}
+  partial: {jbcNormal}
   styles:
     - Header
 
 style_group: {footer}  
-  partial: {jbc-normal-footer-styles.xml}
+  partial: {jbcNormal}
   styles:
     - Footer
     - FootnoteText
     - FootnoteReference
 
 style_group: {other}
-  partial: {jbc-normal-other-styles.xml}
+  partial: {jbcNormal}
   styles:
     - TableTitle
     - LongBillFootnote
     - Additional Resources
   
 style_group: {character}
-  partial: {jbc-normal-character-styles.xml}
+  partial: {jbcNormal}
   styles:
     - Hyperlink
     - FollowedHyperlink
@@ -116,6 +116,6 @@ style_group: {character}
     - Note
   
 style_group: {table}
-  partial: {jbc-normal-table-styles.xml}
+  partial: {jbcNormal}
   styles:
     - JBCTableA

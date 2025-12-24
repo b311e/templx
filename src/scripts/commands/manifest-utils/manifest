@@ -1,22 +1,21 @@
 #!/usr/bin/env bash
 # Manifest Generator for templx
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../../.." && pwd)"
 
-# Hyphenated command support only:
-#   manifest-generate-core
-#   manifest-generate-partials
+# Hyphenated command support:
 #   manifest-generate-<agency>
+#   manifest-generate-partials
 #   manifest-validate
 #   manifest-list
 
 script_base=$(basename "$0")
 case "$script_base" in
-    manifest-generate-core)
-        generate_manifest core
-        exit $?
-        ;;
     manifest-generate-partials)
-        python3 "$SCRIPT_DIR/manifest-generate-partials.py" "${@:2}"
+        # manifest-generate-partials <scope>
+        # scope may be 'builds' or 'core'
+        generate_partials "$1"
         exit $?
         ;;
     manifest-generate-*)
@@ -33,10 +32,6 @@ case "$script_base" in
         exit $?
         ;;
 esac
-
-
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 
 generate_manifest() {
     # Entry point: manifest generate <agency> (or pass 'core' to generate core manifest)
@@ -69,6 +64,24 @@ generate_manifest() {
     echo "Updating timestamp: $timestamp"
 
     # ensure manifests directory exists
+    mkdir -p "$manifests_dir"
+
+    # Create initial manifest file if it doesn't exist
+    if [[ ! -f "$manifest_file" ]]; then
+        echo "Creating new manifest file: $manifest_file"
+        cat > "$manifest_file" << EOF
+{
+  "agency": "$agency",
+  "manifest_version": "1.0",
+  "generated": "$timestamp",
+  "workspace": { "category": "workspace", "templates": {} },
+  "templates": { "category": "templates", "templates": {} },
+  "system": { "category": "system", "scripts": {} },
+  "assets": { "category": "assets", "deployment": {} }
+}
+EOF
+    fi
+
     templates_json=""
     workspace_json=""
     first_entry_templates=true
@@ -119,67 +132,66 @@ process_templates_dir() {
     process_templates_dir "$agency_dir/templates" false
     process_templates_dir "$agency_dir/workspace" true
 
-    # Replace the templates.templates and workspace.templates sections in manifest.json
-    awk -v tblock="$templates_json" -v wblock="$workspace_json" '
-        BEGIN {in_templates=0; in_templates_block=0; in_workspace=0; in_workspace_block=0}
-        /"templates" *: *{/ && !in_templates {in_templates=1; print; next}
-        in_templates && /"templates" *: *{/ {in_templates_block=1; print "      \"templates\": {"; print tblock; print "      }"; next}
-        in_templates_block && /}/ {in_templates=0; in_templates_block=0; print; next}
-        /"workspace" *: *{/ && !in_workspace {in_workspace=1; print; next}
-        in_workspace && /"templates" *: *{/ {in_workspace_block=1; print "      \"templates\": {"; print wblock; print "      }"; next}
-        in_workspace_block && /}/ {in_workspace=0; in_workspace_block=0; print; next}
-        !in_templates_block && !in_workspace_block {print}
-    ' "$manifest_file" > "$manifest_file.tmp" && mv "$manifest_file.tmp" "$manifest_file"
+    # Build the complete JSON structure
+    cat > "$manifest_file" << EOF
+{
+  "agency": "$agency",
+  "manifest_version": "1.0",
+  "generated": "$timestamp",
+  "workspace": {
+    "category": "workspace",
+    "templates": {
+$(echo -e "$workspace_json")
+    }
+  },
+  "templates": {
+    "category": "templates",
+    "templates": {
+$(echo -e "$templates_json")
+    }
+  },
+  "system": {
+    "category": "system",
+    "scripts": {}
+  },
+  "assets": {
+    "category": "assets",
+    "deployment": {}
+  }
+}
+EOF
     echo "✓ Templates and workspace sections updated in manifest."
-
     echo ""
-    echo "Template Discovery:"
-    # Build new templates JSON entries
-    templates_json=""
-    first_entry=true
-    while IFS= read -r template; do
-        rel_path="${template#$PROJECT_ROOT/}"
-        dir_name=$(basename "$(dirname "$template")")
-        file_name=$(basename "$template")
-        ext=".${file_name##*.}"
-        key="$dir_name"
-        name="$dir_name"
-        type="word-doc-template"
-        [[ "$ext" == ".xltx" ]] && type="excel-book-template"
-
-        # Try to extract status from existing manifest
-        status=$(grep -A 10 "\"$key\"" "$manifest_file" | grep '"status"' | head -n1 | sed 's/.*"status": *"\([^"]*\)".*/\1/')
-        [[ -z "$status" ]] && status="active"
-
-        entry="    \"$key\": {\n      \"name\": \"$name\",\n      \"type\": \"$type\",\n      \"extension\": \"$ext\",\n      \"src\": \"$rel_path\",\n      \"status\": \"$status\"\n    }"
-        if $first_entry; then
-            templates_json="$entry"
-            first_entry=false
-        else
-            templates_json="$templates_json,\n$entry"
-        fi
-        echo "  Found: $rel_path"
-    done < <(find "$agency_dir/templates" -type f \( -name "*.xltx" -o -name "*.dotx" -o -name "*.dotm" \))
-
-    # Replace the templates.templates section in manifest.json
-    if [[ -n "$templates_json" ]]; then
-        awk -v newblock="$templates_json" '
-            BEGIN {in_templates=0; in_templates_block=0}
-            /"templates" *: *{/ && !in_templates {in_templates=1; print; next}
-            in_templates && /"templates" *: *{/ {in_templates_block=1; print "      \"templates\": {"; print newblock; print "      }"; next}
-            in_templates_block && /}/ {in_templates=0; in_templates_block=0; print; next}
-            !in_templates_block {print}
-        ' "$manifest_file" > "$manifest_file.tmp" && mv "$manifest_file.tmp" "$manifest_file"
-        echo "✓ Templates section updated in manifest."
-    else
-        echo "No templates found to add."
-    fi
-
-    echo ""
-    echo " Manifest updated: $manifest_file"
+    echo "✓ Manifest updated: $manifest_file"
 }
 
 # The `manifest generate partials` action calls the canonical Python generators below.
+
+generate_partials() {
+    local scope="$1"
+
+    if [[ -z "$scope" ]]; then
+        echo "Usage: manifest-generate-partials <scope>"
+        echo "Scopes: builds, core"
+        return 1
+    fi
+
+    case "$scope" in
+        builds)
+            echo "Generating builds partials manifest..."
+            python3 "$SCRIPT_DIR/manifest-generate-partials.py"
+            ;;
+        core)
+            echo "Generating core partials manifest..."
+            python3 "$SCRIPT_DIR/manifest-generate-partials.py" --core
+            ;;
+        *)
+            echo "Error: Unknown scope '$scope'"
+            echo "Valid scopes: builds, core"
+            return 1
+            ;;
+    esac
+}
 
 generate_core_manifest() {
     local core_dir="$PROJECT_ROOT/core"
@@ -475,11 +487,12 @@ show_help() {
     echo "  help, --help, -h                   - Show this help message"
     echo ""
     echo "Examples:"
-    echo "  manifest generate core    (or: manifest-generate-core)"
-    echo "  manifest generate partials --dry-run  (or: manifest-generate-partials-builds --dry-run)"
-    echo "  manifest generate agency jbc  (or: manifest-generate jbc)"
-    echo "  manifest validate"
-    echo "  manifest list"
+    echo "  manifest-generate core"
+    echo "  manifest-generate jbc"
+    echo "  manifest-generate-partials builds"
+    echo "  manifest-generate-partials core"
+    echo "  manifest-validate"
+    echo "  manifest-list"
 }
 
 case "$1" in

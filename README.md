@@ -25,7 +25,7 @@ A template management system for Microsoft Office templates, including Word (.do
 
     - Temporary (current Git Bash session):
        ```bash
-       source src/scripts/setup_aliases/setup_aliases.sh
+       source src/scripts/internal/setup-aliases/setup_aliases.sh
        # or
        export PATH="$PWD/src/scripts/bin:$PATH"
        ```
@@ -66,23 +66,23 @@ A template management system for Microsoft Office templates, including Word (.do
    cd templx
    ```
 
-3. Build the application:
+2. Build the application:
    ```bash
    dotnet build
    ```
 
 3. Set up bash aliases (optional, but recommended):
    ```bash
-   source src/scripts/setup_aliases/setup_aliases.sh
+   source src/scripts/internal/setup-aliases/setup_aliases.sh
    ```
 
 ## Usage
 
 ### Pack & Unpack
 
-- Always work on templates under the `build` directory.
+- Always work on templates under the `builds` directory.
 - Unpacked working files should go under an `in` folder.
-- Packed filed should go under an `out` folder.
+- Packed files should go under an `out` folder.
 
 ```bash
 # Unpack: Expand spreadsheets, documents, or templates.
@@ -128,7 +128,7 @@ Snippet Ids should be unique, camel case, and follow this naming convention:
 
    - `scope` = core or agency (jbc, olls, lcs, etc.)
    - `Template` = The name of the template the snippet comes from, without the agency (e.g., Normal, AuditReport, etc.).
-   - `StyleGroup` = The group the style belongs to. See snippets-order-of-operations.yaml (this file will be updated and moved in the future.)
+   - `StyleGroup` = The group the style belongs to. See [docs/snippets-order-of-operations.yml](docs/snippets-order-of-operations.yml)
    - `SnippetType` = The type of snippet it is (styles, numbering, etc.)
 
 #### Style IDs
@@ -226,13 +226,14 @@ templx/
 │   └── scripts/              # Core deployment scripts (agency independent)
 │
 ├── docs/                     # Additional project-specific documentation
-│    └── template-inventory.md   # Inventory of each agency's templates and their status
-│    └── taxonomy.md          # Manifest system documentation
+│   ├── template-inventory.md    # Inventory of each agency's templates and their status
+│   └── manifest-taxonomy.md  # Manifest system documentation
 │
 ├── core/                  # Core templates and components
-│   ├── base/                 # Complete base templates
-│   ├── data/                 # Resuable data for use in templates or files (e.g., member names)
-│   └── partials/             # Reusable components
+│   ├── macros/               # VBA macros and automation scripts
+│   ├── manifests/            # Core manifest files
+│   ├── partials/             # Reusable components
+│   └── workspace/            # Core workspace templates
 │
 ├── resources/                # General reference files and documentation (not project-specific)
 │
@@ -252,25 +253,12 @@ templx/
    mkdir -p builds/jbc/templates/jbcLetterhead/{src,out,in,docs}
    ```
 
-2. **Add template entry** in appropriate section of the `manifest-schema.json`:
-
-   ```json
-   "jbcLetterhead": {
-     "name": "JBC Letterhead Template",
-     "type": "word-doc-template",
-     "extension": ".dotx",
-     "src": "builds/jbc/templates/jbcLetterhead/src/Report.xltx",
-     "out": "builds/jbc/templates/jbcLetterhead/out/Report.xltx",
-     "expanded": "builds/jbc/templates/jbcLetterhead/in/",
-     "docs": "builds/jbc/templates/jbcLetterhead/docs/",
-     "status": "planned"
-   }
-   ```
-
-4. **Update manifest**:
+2. **Generate manifest** to auto-detect the new template:
    ```bash
-   
+   manifest-generate jbc
    ```
+
+   This will scan the `builds/jbc/templates/` directory and add entries for new templates to `builds/jbc/manifests/manifest.json`.
 
 ### Development workflow
 
@@ -312,12 +300,12 @@ Work on templates within the appropriate `builds` directory.
 The system uses JSON manifests to track templates, assets, and deployment configurations:
 
 - **Global Registry**: `.templx/registry/agencies.json` - Lists all agencies and their manifest locations
-- **Agency Manifests**: `builds/<agency>/manifests/manifest.json` - Complete template inventory per agency
+- **Agency Manifests**: Individual agency manifests are stored at the paths defined in the global registry
 - **Schema & Taxonomy**: `.templx/schemas/manifest-schema.json` - Validation schema
-  - **Schema documentation:** `docs/taxonomy.md`
+  - **Schema documentation:** `docs/manifest-taxonomy.md`
 - **Category Structure**: Templates organized by workspace, templates, system, and assets
 
-Full  manifest documentation can be found at `src/scripts/manifest_utils/README.md`.
+Full manifest documentation can be found at [src/scripts/commands/manifest-utils/README.md](src/scripts/commands/manifest-utils/README.md).
 
 ### Manifest Commands
 
@@ -325,32 +313,33 @@ Full  manifest documentation can be found at `src/scripts/manifest_utils/README.
 
 ```bash
 # Generate/update manifest for specific agency
-# Hyphenated form: manifest-generate <agency>
 manifest-generate jbc
 
 # Generate/update manifest for core templates
-manifest-generate-core
+manifest-generate core
 
 # Generate/update partials manifest for all builds
 # Writes builds/manifests/partials-manifest.json
-manifest-generate-partials-builds
-# Or generate core partials manifest
-manifest-generate-partials-core
+manifest-generate-partials builds
+
+# Generate core partials manifest
+# Writes core/manifests/partials-manifest.json
+manifest-generate-partials core
 ```
 
 #### Other manifest commands
 ```bash
 # List all templates across all agencies
-manifest list
+manifest-list
 
 # Validate all manifest files
-manifest validate
+manifest-validate
 
 # Update template status
-manifest update status jbc jbcNormal active
+manifest-update-status jbc jbcNormal active
 
 # Get guidance for adding new templates
-manifest add template jbc jbcReport excel-book-template
+manifest-add-template jbc jbcReport excel-book-template
 ```
 
 ## Deployment
@@ -359,11 +348,11 @@ manifest add template jbc jbcReport excel-book-template
 
 - `dist/scripts/workspaceInstallPreProd.bat` - Deploy to PreProd environment
 - `dist/scripts/workspaceDeploy.bat` - Deploy from PreProd to Production
-- `dist/jbc/jbcWorkspace/JBCTemplateInstall.bat` - End-user installation script
+- `dist/jbc/workspace/jbcWorkspaceInstall.bat` - JBC end-user installation script
 
 ## Template Inventory System
 
-The template inventory can be found at `docs\template-inventory.md`.
+The template inventory can be found at [docs/template-inventory.md](docs/template-inventory.md).
 
 ### Generate Template Inventory
 The inventory system provides a user-friendly overview of all templates across all agencies:
