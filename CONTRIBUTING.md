@@ -1,4 +1,4 @@
-# Contributing to COGA Template Manager
+# Contributing to templx
 
 ## Development Environment Setup
 
@@ -16,8 +16,8 @@
 
 1. **Clone and Setup**
    ```bash
-   git clone https://github.com/b311e/coga-template-manager.git
-   cd coga-template-manager
+   git clone https://github.com/b311e/templx.git
+   cd templx
    dotnet restore
    dotnet build
    ```

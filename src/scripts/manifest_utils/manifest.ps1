@@ -1,4 +1,4 @@
-# Manifest Generator for COGA Template Manager (PowerShell)
+# Manifest Generator for templx (PowerShell)
 # Usage: manifest <command> [options]
 
 param(

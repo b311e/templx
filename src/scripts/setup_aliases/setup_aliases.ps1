@@ -6,7 +6,7 @@ $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $ScriptsPath = Split-Path -Parent $ScriptDir
 $ProjectRoot = Resolve-Path (Join-Path $ScriptsPath "..\..")
 
-Write-Host "Setting up COGA Template Manager PowerShell aliases..."
+Write-Host "Setting up templx PowerShell aliases..."
 Write-Host ""
 
 # Define all command functions

@@ -1,6 +1,6 @@
-# COGA Template Manager
+# templx
 
-A cemplate management system for Microsoft Office templates, including Word (.dotm) and Excel (.xltx) templates with standardized branding and themes.
+A template management system for Microsoft Office templates, including Word (.dotm) and Excel (.xltx) templates with standardized branding and themes.
 
 ## Setup on Windows
 
@@ -11,8 +11,8 @@ A cemplate management system for Microsoft Office templates, including Word (.do
 
 2. **Clone Repository**
    ```bash
-   git clone https://github.com/b311e/coga-template-manager.git
-   cd coga-template-manager
+   git clone https://github.com/b311e/templx.git
+   cd templx
    ```
 
 3. **Build OpenXML Tools**
@@ -37,7 +37,7 @@ A cemplate management system for Microsoft Office templates, including Word (.do
 
     - Persistent (Git Bash): add to `~/.bashrc`:
        ```bash
-       export PATH="/c/code/coga-template-manager/src/scripts/bin:$PATH"
+       export PATH="/c/code/templx/src/scripts/bin:$PATH"
        ```
 
     - Persistent (PowerShell, per-user):
@@ -62,8 +62,8 @@ A cemplate management system for Microsoft Office templates, including Word (.do
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/b311e/coga-template-manager.git
-   cd coga-template-manager
+   git clone https://github.com/b311e/templx.git
+   cd templx
    ```
 
 3. Build the application:
@@ -204,8 +204,8 @@ remove-styles-linkchar <path-to-styles.xml>
 ## Project Structure
 
 ```
-coga-template-manager/
-├── .coga/                    # COGA system metadata (hidden)
+templx/
+├── .templx/                  # templx system metadata (hidden)
 │   ├── registry/             # Agency registry and global configuration
 │   └── schemas/              # Manifest validation schemas
 │
@@ -311,9 +311,9 @@ Work on templates within the appropriate `builds` directory.
 
 The system uses JSON manifests to track templates, assets, and deployment configurations:
 
-- **Global Registry**: `.coga/registry/agencies.json` - Lists all agencies and their manifest locations
+- **Global Registry**: `.templx/registry/agencies.json` - Lists all agencies and their manifest locations
 - **Agency Manifests**: `builds/<agency>/manifests/manifest.json` - Complete template inventory per agency
-- **Schema & Taxonomy**: `.coga/schemas/manifest-schema.json` - Validation schema
+- **Schema & Taxonomy**: `.templx/schemas/manifest-schema.json` - Validation schema
   - **Schema documentation:** `docs/taxonomy.md`
 - **Category Structure**: Templates organized by workspace, templates, system, and assets
 

@@ -18,7 +18,7 @@ if [[ "$1" == "help" || "$1" == "--help" || "$1" == "-h" ]] 2>/dev/null; then
     echo ""
     echo "Examples:"
     echo "  style-generate-list builds/jbc/workspace/jbcNormal/in"
-    echo "  style-generate-list C:/code/coga-template-manager/builds/jbc/workspace/jbcNormal/in"
+    echo "  style-generate-list C:/code/templx/builds/jbc/workspace/jbcNormal/in"
     exit 0
 fi
 

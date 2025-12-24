@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Manifest Generator for COGA Template Manager
+# Manifest Generator for templx
 
 
 # Hyphenated command support only:
@@ -384,7 +384,7 @@ validate_manifest() {
     echo "Validating all manifests..."
     
     # Check global registry
-    local registry="$PROJECT_ROOT/.coga/registry/agencies.json"
+    local registry="$PROJECT_ROOT/.templx/registry/agencies.json"
     if [[ -f "$registry" ]]; then
         echo "✓ Global registry found: $registry"
     else

@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "COGA Template Manager Manifest Schema",
+  "title": "templx Manifest Schema",
   "version": "1.0",
-  "description": "Schema for template manifests in the COGA Template Manager system",
+  "description": "Schema for template manifests in the templx system",
   
   "definitions": {
     "template_types": {

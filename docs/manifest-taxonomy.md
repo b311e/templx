@@ -2,7 +2,7 @@
 
 ## Version: 1.0
 
-This document defines the complete taxonomy (classification system) for the COGA Template Manager manifest system.
+This document defines the complete taxonomy (classification system) for the templx manifest system.
 
 ## Core Structure
 
@@ -97,14 +97,14 @@ Deployment assets for Office workspace:
 ## Validation
 
 Manifests can be validated against the JSON schema:
-`.coga/schemas/manifest-schema.json`
+`.templx/schemas/manifest-schema.json`
 
 Use tools like `ajv` or online validators to check manifest structure.
 
 ## Evolution
 
 ### Adding New Template Types
-1. Update schema: `.coga/schemas/manifest-schema.json`
+1. Update schema: `.templx/schemas/manifest-schema.json`
 2. Update script: `src/scripts/manifest` (add-template function)
 3. Update documentation: This file and README.md
 
@@ -114,13 +114,13 @@ Use tools like `ajv` or online validators to check manifest structure.
 3. Update documentation
 
 ### Adding New Categories
-1. Update global registry: `.coga/registry/agencies.json`
+1. Update global registry: `.templx/registry/agencies.json`
 2. Update schema: `categories` enum  
 3. Update agency manifests with new category structure
 
 ## Schema Location
 
 The formal JSON schema is located at:
-`.coga/schemas/manifest-schema.json`
+`.templx/schemas/manifest-schema.json`
 
 This provides machine-readable validation rules for all manifest files.

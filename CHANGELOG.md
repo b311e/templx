@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Complete template management system for COGA agencies
+- Complete template management system for Colorado General Assembly agencies
 - JBC theme standardization with proper color scheme
 - XLSTART-compatible Excel templates (Book.xltx and Sheet.xltx)
 - OpenXML document pack/unpack functionality

@@ -1,6 +1,6 @@
 # Manifest Utilities
 
-This folder contains scripts for managing templates and manifests in the COGA Template Manager.
+This folder contains scripts for managing templates and manifests in templx.
 
 ## manifest
 

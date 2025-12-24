@@ -22,7 +22,7 @@ PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 generate_inventory() {
     local timestamp=$(date -u +"%Y-%m-%d")
     local output_file="$PROJECT_ROOT/docs/template-inventory.md"
-    local registry_file="$PROJECT_ROOT/.coga/registry/agencies.json"
+    local registry_file="$PROJECT_ROOT/.templx/registry/agencies.json"
     
     echo "Generating template inventory..."
     echo "Output: $output_file"

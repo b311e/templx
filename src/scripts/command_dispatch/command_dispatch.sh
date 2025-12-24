@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# COGA Template Manager Command Dispatcher
+# templx Command Dispatcher
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -32,9 +32,9 @@ case "$1" in
         exec "$SCRIPT_DIR/../manifest_utils/manifest" "$@"
         ;;
     help|--help|-h)
-        echo "COGA Template Manager"
+        echo "templx"
         echo ""
-        echo "Usage: coga <command> [args...]"
+        echo "Usage: templx <command> [args...]"
         echo ""
         echo "Commands:"
         echo "  pack <dir>                      - Package OpenXML document from expanded directory"
@@ -59,7 +59,7 @@ case "$1" in
         ;;
     *)
         echo "Unknown command: $1"
-        echo "Run 'coga help' for usage information"
+        echo "Run 'templx help' for usage information"
         exit 1
         ;;
 esac
