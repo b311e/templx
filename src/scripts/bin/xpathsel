@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-exec "$(dirname "${BASH_SOURCE[0]}")/../xpathsel/xpathsel" "$@"
+exec "$(dirname "${BASH_SOURCE[0]}")/../commands/xpathsel/xpathsel" "$@"

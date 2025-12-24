@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-exec "$(dirname "$0")/../pack/pack" "$@"
+exec "$(dirname "$0")/../commands/pack/pack" "$@"

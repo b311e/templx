@@ -4,7 +4,7 @@ version: 1.0.0
 description: The order snippets should appear in the target file.
 
 
-snippet-id: <scope>-<feature>-<snippet-type>
+snippet_id: <scope>-<feature>-<snippet_type>
 
 
 scope:
@@ -18,9 +18,9 @@ scope:
 
 ---
 
-# style-types are in the order they originally appear in the default Word Normal.dotm
+# style_types are in the order they originally appear in the default Word Normal.dotm
 
-style-types:
+style_types:
   - paragraph
   - character
   - table
@@ -35,7 +35,7 @@ default:
 paragraph:
   heading:
   body:
-  front-matter:
+  front_matter:
   list:
   callout:
   caption:

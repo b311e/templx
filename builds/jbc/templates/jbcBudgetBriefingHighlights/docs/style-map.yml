@@ -1,44 +1,44 @@
 template: jbcBudgetBriefingHighlights
 parent: jbcPublication
 
-style-group: {default}
+style_group: {default}
   partial: {jbcNormal}
 
-style-group: {heading}
+style_group: {heading}
   partial: {jbcPublication}
 
-style-group: {body}
+style_group: {body}
   partial: {jbcNormal}
 
-style-group: {front-matter}
+style_group: {front-matter}
   partial: {jbcPublication}
 
-style-group: {list}
+style_group: {list}
   partial: {jbcNormal}
 
-style-group: {callout}
+style_group: {callout}
   partial: {jbcNormal}
   
-style-group: {caption}
+style_group: {caption}
   partial: {jbcNormal}
   
-style-group: {toc}
+style_group: {toc}
   partial: {jbcNormal}
 
-style-group: {index}
+style_group: {index}
   partial: {jbcNormal}
  
-style-group: {header}
+style_group: {header}
   partial: {jbcNormal}
 
-style-group: {footer}  
+style_group: {footer}  
   partial: {jbcNormal}
 
-style-group: {other}
+style_group: {other}
   partial: {jbcNormal}
   
-style-group: {character}
+style_group: {character}
   partial: {jbcNormal}
   
-style-group: {table}
+style_group: {table}
   partial: {jbcNormal}

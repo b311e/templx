@@ -1,7 +1,7 @@
 template: jbcBudgetBriefingSummary
 parent: jbcLetter
 
-style-group: {default}
+style_group: {default}
   partial: {jbc-normal-default-styles.xml}
   styles:
     - Normal
@@ -9,7 +9,7 @@ style-group: {default}
     - TableNormal
     - NoList
 
-style-group: {heading}
+style_group: {heading}
   partial: {jbc-budget-heading-styles.xml}
   styles:
     - Heading1
@@ -23,13 +23,13 @@ style-group: {heading}
     - Heading9
     - RequestItemH3
 
-style-group: {body}
+style_group: {body}
   partial: {jbc-normal-body-styles.xml}
   styles:
     - NoSpacing
     - AfterTableNormal
 
-style-group: {front-matter}
+style_group: {front-matter}
   partial: {jbc-letter-front-matter-styles.xml}
   styles:
     - Title
@@ -39,7 +39,7 @@ style-group: {front-matter}
     - To
     - Subject
 
-style-group: {list}
+style_group: {list}
   partial: {jbc-normal-list-styles.xml}
   styles:
     - ListBullet
@@ -55,7 +55,7 @@ style-group: {list}
     - ListNumber5
     - ListNumberSpacing
   
-style-group: {callout}
+style_group: {callout}
   partial: {jbc-normal-callout-styles.xml}
   styles:
     - BlockText
@@ -82,25 +82,25 @@ style-group: {callout}
     - TOC8
     - TOC9
  
-style-group: {header}
+style_group: {header}
   partial: {jbc-normal-header-styles.xml}
   styles:
     - Header
 
-style-group: {footer}  
+style_group: {footer}  
   partial: {jbc-normal-footer-styles.xml}
   styles:
     - Footer
     - FootnoteText
     - FootnoteReference
 
-style-group: {other}
+style_group: {other}
   partial: {jbc-normal-other-styles.xml}
   styles:
     - TableTitle
     - LongBillFootnote
   
-style-group: {character}
+style_group: {character}
   partial: {jbc-normal-character-styles.xml}
   styles:
     - Hyperlink
@@ -114,7 +114,7 @@ style-group: {character}
     - BookTitle
     - Note
 
-style-group: {table}
+style_group: {table}
   partial: {jbc-normal-table-styles.xml}
   styles:
     - JBCTableA

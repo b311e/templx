@@ -2,8 +2,8 @@ name: styles order
 version: 1.0.0
 description: The order styles should be imported and appear in the target styles.xml.
 
-style-group:
-  doc-default:
+style_group:
+  doc_default:
   default:
     - Normal
     - DefaultParagraphFont
@@ -23,7 +23,7 @@ style-group:
     - NoSpacing
     - SpaceBefore
     - SpaceAfter
-  front-matter:
+  front_matter:
     - Pretitle
     - Subtitle
     - Title

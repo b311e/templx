@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-MANIFEST="$SCRIPT_DIR/../manifest_utils/manifest"
+MANIFEST="$SCRIPT_DIR/../commands/manifest-utils/manifest"
 
 # If no args provided, run the unified generate (will run generate_all)
 if [[ "$#" -eq 0 ]]; then
