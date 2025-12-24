@@ -1,6 +1,6 @@
 # COGA Template Manager
 
-A comprehensive template management system for Colorado General Assembly Microsoft Office templates, including Word (.dotm) and Excel (.xltx) templates with standardized branding and themes.
+A cemplate management system for Microsoft Office templates, including Word (.dotm) and Excel (.xltx) templates with standardized branding and themes.
 
 ## Setup on Windows
 
